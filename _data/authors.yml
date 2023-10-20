@@ -1,0 +1,19 @@
+# Authors
+
+Tri Wanda Septian:
+  name        : "twseptian"
+  bio         : "just a simple person."
+  avatar      : "/assets/images/avatar_backup.png"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:twseptian@gmail.com"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://twseptian.github.io"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/twseptian_"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/twseptian"

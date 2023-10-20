@@ -1,0 +1,13 @@
+current directory: /home/kali/Documents/github/twseptian.github.io/vendor/cache/ruby/3.0.0/gems/json-2.6.1/ext/json
+/usr/bin/ruby3.0 -I /usr/lib/ruby/vendor_ruby -r ./siteconf20220331-7206-g1yus0.rb extconf.rb
+creating Makefile
+
+current directory: /home/kali/Documents/github/twseptian.github.io/vendor/cache/ruby/3.0.0/gems/json-2.6.1/ext/json
+make DESTDIR\= clean
+
+current directory: /home/kali/Documents/github/twseptian.github.io/vendor/cache/ruby/3.0.0/gems/json-2.6.1/ext/json
+make DESTDIR\=
+make: Nothing to be done for 'all'.
+
+current directory: /home/kali/Documents/github/twseptian.github.io/vendor/cache/ruby/3.0.0/gems/json-2.6.1/ext/json
+make DESTDIR\= install
