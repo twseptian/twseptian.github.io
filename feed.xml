@@ -1,0 +1,155 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://localhost:4000/</id>
+  <title>twseptian</title>
+  <subtitle>A personal space where I share simple reflections, lessons, and small discoveries from my continuous journey in learning—whether in information security, penetration testing, CTF, or exploring data science and machine learning.</subtitle>
+  <updated>2025-10-03T17:07:34+07:00</updated>
+  <author>
+    <name>twseptian</name>
+    <uri>http://localhost:4000/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="http://localhost:4000/"/>
+  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
+  <rights> © 2025 twseptian </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>IoT Dataset Research: Curating Realistic Traffic for Security Analysis</title>
+    <link href="http://localhost:4000/posts/iot-dataset-research/" rel="alternate" type="text/html" title="IoT Dataset Research: Curating Realistic Traffic for Security Analysis" />
+    <published>2023-12-12T20:00:19+07:00</published>
+  
+    <updated>2023-12-12T20:00:19+07:00</updated>
+  
+    <id>http://localhost:4000/posts/iot-dataset-research/</id>
+    <content type="text/html" src="http://localhost:4000/posts/iot-dataset-research/" />
+    <author>
+      <name>twseptian</name>
+    </author>
+
+  
+    
+    <category term="Infosec" />
+    
+    <category term="IoT" />
+    
+    <category term="Research" />
+    
+  
+
+  <summary>Introduction This article outlines my work in researching Internet of Things (IoT) security and producing curated datasets for intrusion detection, protocol analysis, and machine-learning experiments. The focus is on practical, reproducible methods for capturing and labeling traffic that reflects real deployment conditions. Links to the underlying records are provided for verification and reuse...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>My Journey in CVE Research: From Discovery to Disclosure</title>
+    <link href="http://localhost:4000/posts/my-journey-in-cve-research-from-discovery-to-disclosure/" rel="alternate" type="text/html" title="My Journey in CVE Research: From Discovery to Disclosure" />
+    <published>2023-12-01T20:00:19+07:00</published>
+  
+    <updated>2023-12-01T20:00:19+07:00</updated>
+  
+    <id>http://localhost:4000/posts/my-journey-in-cve-research-from-discovery-to-disclosure/</id>
+    <content type="text/html" src="http://localhost:4000/posts/my-journey-in-cve-research-from-discovery-to-disclosure/" />
+    <author>
+      <name>twseptian</name>
+    </author>
+
+  
+    
+    <category term="Infosec" />
+    
+    <category term="CVE" />
+    
+    <category term="Research" />
+    
+  
+
+  <summary>Introduction Researching software vulnerabilities and contributing to the CVE ecosystem is both a technical challenge and a responsibility. This post highlights my personal experience in vulnerability research—how I discovered flaws, validated them safely, and worked through the disclosure process that eventually led to public CVE assignments.    Why I Pursue CVE Research My motivation stems fr...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>[English] CEH Practical Certification Exam Experience</title>
+    <link href="http://localhost:4000/posts/english-ceh-practical-certification-exam-experience/" rel="alternate" type="text/html" title="[English] CEH Practical Certification Exam Experience" />
+    <published>2022-01-22T15:09:19+07:00</published>
+  
+    <updated>2022-01-22T15:09:19+07:00</updated>
+  
+    <id>http://localhost:4000/posts/english-ceh-practical-certification-exam-experience/</id>
+    <content type="text/html" src="http://localhost:4000/posts/english-ceh-practical-certification-exam-experience/" />
+    <author>
+      <name>twseptian</name>
+    </author>
+
+  
+    
+    <category term="Certification" />
+    
+  
+
+  <summary>Introduction This is my personal experience taking the CEH Practical exam—shared for anyone who is preparing for or considering the certification.  I first learned about the CEH Practical Scholarship in 2020, which reduced the exam fee to around $99 (from ~$550). I followed the instructions, received an Aspen dashboard code, and secured a scholarship slot toward the end of 2020.  I didn’t take ...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>[Bahasa] Pengalaman Ujian Sertifikasi CEH Practical</title>
+    <link href="http://localhost:4000/posts/bahasa-pengalaman-ujian-sertifikasi-ceh-practical/" rel="alternate" type="text/html" title="[Bahasa] Pengalaman Ujian Sertifikasi CEH Practical" />
+    <published>2022-01-22T15:09:19+07:00</published>
+  
+    <updated>2022-01-22T15:09:19+07:00</updated>
+  
+    <id>http://localhost:4000/posts/bahasa-pengalaman-ujian-sertifikasi-ceh-practical/</id>
+    <content type="text/html" src="http://localhost:4000/posts/bahasa-pengalaman-ujian-sertifikasi-ceh-practical/" />
+    <author>
+      <name>twseptian</name>
+    </author>
+
+  
+    
+    <category term="Certification" />
+    
+  
+
+  <summary>Pendahuluan Ini adalah cerita pengalaman saya mengikuti ujian CEH Practical yang ingin saya bagikan kepada orang - orang yang sedang atau ingin mengambil sertifikasi CEH Practical.  Kesempatan yang saya dapatkan untuk mengambil untuk mengikuti ujian sertifikasi CEH Practical, ketika membaca informasi mengenai CEH Practical Scholarship pada tahun 2020, yang memberikan harga sekitar $99 dari harg...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Online Railway Reservation System 1.0 - 'id' SQL Injection (Unauthenticated)</title>
+    <link href="http://localhost:4000/posts/online-railway-reservation-system-1.0/" rel="alternate" type="text/html" title="Online Railway Reservation System 1.0 - &amp;apos;id&amp;apos; SQL Injection (Unauthenticated)" />
+    <published>2022-01-08T20:00:19+07:00</published>
+  
+    <updated>2022-01-08T20:00:19+07:00</updated>
+  
+    <id>http://localhost:4000/posts/online-railway-reservation-system-1.0/</id>
+    <content type="text/html" src="http://localhost:4000/posts/online-railway-reservation-system-1.0/" />
+    <author>
+      <name>twseptian</name>
+    </author>
+
+  
+    
+    <category term="Infosec" />
+    
+    <category term="CVE" />
+    
+    <category term="Research" />
+    
+  
+
+  <summary>- Exploit Title: Online Railway Reservation System 1.0 - 'id' SQL Injection (Unauthenticated) - Date: 07/01/2022 - Exploit Author: twseptian - Vendor Homepage: https://www.sourcecodester.com/php/15121/online-railway-reservation-system-phpoop-project-free-source-code.html - Software Link: https://www.sourcecodester.com/sites/default/files/download/oretnom23/orrs.zip - Version: v1.0 - Tested on: ...</summary>
+
+  </entry>
+
+</feed>
+
+
