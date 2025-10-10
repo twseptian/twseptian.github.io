@@ -24,18 +24,17 @@
   <meta
     name="viewport"
     content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
-  >
-  <!-- Setup Open Graph image -->
+  ><!-- Setup Open Graph image -->
 
   
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Hospital’s Patient Records Management System v1.0 - ‘id’ SQL Injection (Authenticated)" />
-<meta name="author" content="Tri Wanda Septian" />
+<meta name="author" content="twseptian" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="1 2 3 4 5 6 7 8 - Exploit Title: Hospital&#39;s Patient Records Management System v1.0 - &#39;id&#39; SQL Injection (Authenticated) - Date: 2021-12-30 - Exploit Author: twseptian - Vendor Homepage: https://www.sourcecodester.com/php/15116/hospitals-patient-records-management-system-php-free-source-code.html - Software Link: https://www.sourcecodester.com/sites/default/files/download/oretnom23/hprms_0.zip - Version: v1.0 - Tested on: Kali Linux 2021.4 - Exploit-DB link: https://www.exploit-db.com/exploits/50630 Introduction During a focused review of HPRMS v1.0, I set out to evaluate the integrity of its record-view workflow inside the admin area—specifically how user-controlled identifiers are validated before being passed to the database. CRUD pages that accept object IDs via query strings are frequent culprits for SQL injection when input handling is inconsistent. My goal was to trace the patient-view code path, determine whether the id parameter was parameterized, and validate any issues in a safe, non-destructive way. Summary of the Finding HPRMS v1.0 is vulnerable to a time-based blind SQL injection on the patient detail page. An authenticated user can supply crafted input in the id query parameter to trigger database delays, demonstrating that the application concatenates user input into a SQL expression without using parameterized queries. In practice, this allows an attacker to infer or extract data over time by encoding questions into time delays, even when no error messages or data are directly returned. Reproduction steps (tested on local instance) Performed only on a local test instance for verification and learning. From the admin dashboard, I navigated to Patient List → Action → View Records, which loads a patient detail page using a query-string identifier: 1 http://localhost/hprms/admin/?page=patients/view_patient&amp;id=1 This confirmed that the object ID (id) is taken from the URL and likely used to select a specific patient record. twseptian’s website To test whether the id is safely handled, I issued a standard time-based blind payload that asks the database to sleep before responding. Example (single-quote close + boolean + delay): 1 page=patients/view_patient&amp;id=1&#39; AND (SELECT 2664 FROM (SELECT(SLEEP(5)))ixec) AND &#39;XcAY&#39;=&#39;XcAY The server’s response consistently delayed by roughly five seconds, confirming that user input flowed into a SQL context without parameterization. The behavior required an authenticated session to reach the patient view." />
-<meta property="og:description" content="1 2 3 4 5 6 7 8 - Exploit Title: Hospital&#39;s Patient Records Management System v1.0 - &#39;id&#39; SQL Injection (Authenticated) - Date: 2021-12-30 - Exploit Author: twseptian - Vendor Homepage: https://www.sourcecodester.com/php/15116/hospitals-patient-records-management-system-php-free-source-code.html - Software Link: https://www.sourcecodester.com/sites/default/files/download/oretnom23/hprms_0.zip - Version: v1.0 - Tested on: Kali Linux 2021.4 - Exploit-DB link: https://www.exploit-db.com/exploits/50630 Introduction During a focused review of HPRMS v1.0, I set out to evaluate the integrity of its record-view workflow inside the admin area—specifically how user-controlled identifiers are validated before being passed to the database. CRUD pages that accept object IDs via query strings are frequent culprits for SQL injection when input handling is inconsistent. My goal was to trace the patient-view code path, determine whether the id parameter was parameterized, and validate any issues in a safe, non-destructive way. Summary of the Finding HPRMS v1.0 is vulnerable to a time-based blind SQL injection on the patient detail page. An authenticated user can supply crafted input in the id query parameter to trigger database delays, demonstrating that the application concatenates user input into a SQL expression without using parameterized queries. In practice, this allows an attacker to infer or extract data over time by encoding questions into time delays, even when no error messages or data are directly returned. Reproduction steps (tested on local instance) Performed only on a local test instance for verification and learning. From the admin dashboard, I navigated to Patient List → Action → View Records, which loads a patient detail page using a query-string identifier: 1 http://localhost/hprms/admin/?page=patients/view_patient&amp;id=1 This confirmed that the object ID (id) is taken from the URL and likely used to select a specific patient record. twseptian’s website To test whether the id is safely handled, I issued a standard time-based blind payload that asks the database to sleep before responding. Example (single-quote close + boolean + delay): 1 page=patients/view_patient&amp;id=1&#39; AND (SELECT 2664 FROM (SELECT(SLEEP(5)))ixec) AND &#39;XcAY&#39;=&#39;XcAY The server’s response consistently delayed by roughly five seconds, confirming that user input flowed into a SQL context without parameterization. The behavior required an authenticated session to reach the patient view." />
+<meta name="description" content="Introduction During a focused review of HPRMS v1.0, I set out to evaluate the integrity of its record-view workflow inside the admin area—specifically how user-controlled identifiers are validated before being passed to the database. CRUD pages that accept object IDs via query strings are frequent culprits for SQL injection when input handling is inconsistent. My goal was to trace the patient-view code path, determine whether the id parameter was parameterized, and validate any issues in a safe, non-destructive way. Summary of the Finding HPRMS v1.0 is vulnerable to a time-based blind SQL injection on the patient detail page. An authenticated user can supply crafted input in the id query parameter to trigger database delays, demonstrating that the application concatenates user input into a SQL expression without using parameterized queries. In practice, this allows an attacker to infer or extract data over time by encoding questions into time delays, even when no error messages or data are directly returned. Reproduction steps (tested on local instance) Performed only on a local test instance for verification and learning. From the admin dashboard, I navigated to Patient List → Action → View Records, which loads a patient detail page using a query-string identifier: 1 http://localhost/hprms/admin/?page=patients/view_patient&amp;id=1 This confirmed that the object ID (id) is taken from the URL and likely used to select a specific patient record. twseptian’s website To test whether the id is safely handled, I issued a standard time-based blind payload that asks the database to sleep before responding. Example (single-quote close + boolean + delay): 1 page=patients/view_patient&amp;id=1&#39; AND (SELECT 2664 FROM (SELECT(SLEEP(5)))ixec) AND &#39;XcAY&#39;=&#39;XcAY The server’s response consistently delayed by roughly five seconds, confirming that user input flowed into a SQL context without parameterization. The behavior required an authenticated session to reach the patient view. 1 2 3 4 5 6 7 8 - Exploit Title: Hospital&#39;s Patient Records Management System v1.0 - &#39;id&#39; SQL Injection (Authenticated) - Date: 2021-12-30 - Exploit Author: twseptian - Vendor Homepage: https://www.sourcecodester.com/php/15116/hospitals-patient-records-management-system-php-free-source-code.html - Software Link: https://www.sourcecodester.com/sites/default/files/download/oretnom23/hprms_0.zip - Version: v1.0 - Tested on: Kali Linux 2021.4 - Exploit-DB link: https://www.exploit-db.com/exploits/50630" />
+<meta property="og:description" content="Introduction During a focused review of HPRMS v1.0, I set out to evaluate the integrity of its record-view workflow inside the admin area—specifically how user-controlled identifiers are validated before being passed to the database. CRUD pages that accept object IDs via query strings are frequent culprits for SQL injection when input handling is inconsistent. My goal was to trace the patient-view code path, determine whether the id parameter was parameterized, and validate any issues in a safe, non-destructive way. Summary of the Finding HPRMS v1.0 is vulnerable to a time-based blind SQL injection on the patient detail page. An authenticated user can supply crafted input in the id query parameter to trigger database delays, demonstrating that the application concatenates user input into a SQL expression without using parameterized queries. In practice, this allows an attacker to infer or extract data over time by encoding questions into time delays, even when no error messages or data are directly returned. Reproduction steps (tested on local instance) Performed only on a local test instance for verification and learning. From the admin dashboard, I navigated to Patient List → Action → View Records, which loads a patient detail page using a query-string identifier: 1 http://localhost/hprms/admin/?page=patients/view_patient&amp;id=1 This confirmed that the object ID (id) is taken from the URL and likely used to select a specific patient record. twseptian’s website To test whether the id is safely handled, I issued a standard time-based blind payload that asks the database to sleep before responding. Example (single-quote close + boolean + delay): 1 page=patients/view_patient&amp;id=1&#39; AND (SELECT 2664 FROM (SELECT(SLEEP(5)))ixec) AND &#39;XcAY&#39;=&#39;XcAY The server’s response consistently delayed by roughly five seconds, confirming that user input flowed into a SQL context without parameterization. The behavior required an authenticated session to reach the patient view. 1 2 3 4 5 6 7 8 - Exploit Title: Hospital&#39;s Patient Records Management System v1.0 - &#39;id&#39; SQL Injection (Authenticated) - Date: 2021-12-30 - Exploit Author: twseptian - Vendor Homepage: https://www.sourcecodester.com/php/15116/hospitals-patient-records-management-system-php-free-source-code.html - Software Link: https://www.sourcecodester.com/sites/default/files/download/oretnom23/hprms_0.zip - Version: v1.0 - Tested on: Kali Linux 2021.4 - Exploit-DB link: https://www.exploit-db.com/exploits/50630" />
 <link rel="canonical" href="http://localhost:4000/posts/hospital-patient-records-management-system-v1.0-sqli/" />
 <meta property="og:url" content="http://localhost:4000/posts/hospital-patient-records-management-system-v1.0-sqli/" />
 <meta property="og:site_name" content="twseptian" />
@@ -44,9 +43,9 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Hospital’s Patient Records Management System v1.0 - ‘id’ SQL Injection (Authenticated)" />
 <meta name="twitter:site" content="@twseptian_" />
-<meta name="twitter:creator" content="@twseptian_" />
+<meta name="twitter:creator" content="@twseptian" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Tri Wanda Septian","url":"https://github.com/twseptian"},"dateModified":"2021-12-30T20:00:19+07:00","datePublished":"2021-12-30T20:00:19+07:00","description":"1 2 3 4 5 6 7 8 - Exploit Title: Hospital&#39;s Patient Records Management System v1.0 - &#39;id&#39; SQL Injection (Authenticated) - Date: 2021-12-30 - Exploit Author: twseptian - Vendor Homepage: https://www.sourcecodester.com/php/15116/hospitals-patient-records-management-system-php-free-source-code.html - Software Link: https://www.sourcecodester.com/sites/default/files/download/oretnom23/hprms_0.zip - Version: v1.0 - Tested on: Kali Linux 2021.4 - Exploit-DB link: https://www.exploit-db.com/exploits/50630 Introduction During a focused review of HPRMS v1.0, I set out to evaluate the integrity of its record-view workflow inside the admin area—specifically how user-controlled identifiers are validated before being passed to the database. CRUD pages that accept object IDs via query strings are frequent culprits for SQL injection when input handling is inconsistent. My goal was to trace the patient-view code path, determine whether the id parameter was parameterized, and validate any issues in a safe, non-destructive way. Summary of the Finding HPRMS v1.0 is vulnerable to a time-based blind SQL injection on the patient detail page. An authenticated user can supply crafted input in the id query parameter to trigger database delays, demonstrating that the application concatenates user input into a SQL expression without using parameterized queries. In practice, this allows an attacker to infer or extract data over time by encoding questions into time delays, even when no error messages or data are directly returned. Reproduction steps (tested on local instance) Performed only on a local test instance for verification and learning. From the admin dashboard, I navigated to Patient List → Action → View Records, which loads a patient detail page using a query-string identifier: 1 http://localhost/hprms/admin/?page=patients/view_patient&amp;id=1 This confirmed that the object ID (id) is taken from the URL and likely used to select a specific patient record. twseptian’s website To test whether the id is safely handled, I issued a standard time-based blind payload that asks the database to sleep before responding. Example (single-quote close + boolean + delay): 1 page=patients/view_patient&amp;id=1&#39; AND (SELECT 2664 FROM (SELECT(SLEEP(5)))ixec) AND &#39;XcAY&#39;=&#39;XcAY The server’s response consistently delayed by roughly five seconds, confirming that user input flowed into a SQL context without parameterization. The behavior required an authenticated session to reach the patient view.","headline":"Hospital’s Patient Records Management System v1.0 - ‘id’ SQL Injection (Authenticated)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/hospital-patient-records-management-system-v1.0-sqli/"},"url":"http://localhost:4000/posts/hospital-patient-records-management-system-v1.0-sqli/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"twseptian"},"dateModified":"2021-12-30T20:00:19+07:00","datePublished":"2021-12-30T20:00:19+07:00","description":"Introduction During a focused review of HPRMS v1.0, I set out to evaluate the integrity of its record-view workflow inside the admin area—specifically how user-controlled identifiers are validated before being passed to the database. CRUD pages that accept object IDs via query strings are frequent culprits for SQL injection when input handling is inconsistent. My goal was to trace the patient-view code path, determine whether the id parameter was parameterized, and validate any issues in a safe, non-destructive way. Summary of the Finding HPRMS v1.0 is vulnerable to a time-based blind SQL injection on the patient detail page. An authenticated user can supply crafted input in the id query parameter to trigger database delays, demonstrating that the application concatenates user input into a SQL expression without using parameterized queries. In practice, this allows an attacker to infer or extract data over time by encoding questions into time delays, even when no error messages or data are directly returned. Reproduction steps (tested on local instance) Performed only on a local test instance for verification and learning. From the admin dashboard, I navigated to Patient List → Action → View Records, which loads a patient detail page using a query-string identifier: 1 http://localhost/hprms/admin/?page=patients/view_patient&amp;id=1 This confirmed that the object ID (id) is taken from the URL and likely used to select a specific patient record. twseptian’s website To test whether the id is safely handled, I issued a standard time-based blind payload that asks the database to sleep before responding. Example (single-quote close + boolean + delay): 1 page=patients/view_patient&amp;id=1&#39; AND (SELECT 2664 FROM (SELECT(SLEEP(5)))ixec) AND &#39;XcAY&#39;=&#39;XcAY The server’s response consistently delayed by roughly five seconds, confirming that user input flowed into a SQL context without parameterization. The behavior required an authenticated session to reach the patient view. 1 2 3 4 5 6 7 8 - Exploit Title: Hospital&#39;s Patient Records Management System v1.0 - &#39;id&#39; SQL Injection (Authenticated) - Date: 2021-12-30 - Exploit Author: twseptian - Vendor Homepage: https://www.sourcecodester.com/php/15116/hospitals-patient-records-management-system-php-free-source-code.html - Software Link: https://www.sourcecodester.com/sites/default/files/download/oretnom23/hprms_0.zip - Version: v1.0 - Tested on: Kali Linux 2021.4 - Exploit-DB link: https://www.exploit-db.com/exploits/50630","headline":"Hospital’s Patient Records Management System v1.0 - ‘id’ SQL Injection (Authenticated)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/hospital-patient-records-management-system-v1.0-sqli/"},"url":"http://localhost:4000/posts/hospital-patient-records-management-system-v1.0-sqli/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -330,7 +329,6 @@
     
 
     
-      
 
       
         <a
@@ -353,7 +351,6 @@
         </a>
       
     
-      
 
       
         <a
@@ -376,7 +373,6 @@
         </a>
       
     
-      
 
       
         <a
@@ -394,7 +390,8 @@
         </a>
       
     
-      
+          
+        
 
       
         <a
@@ -644,7 +641,7 @@
           <em>
             
               
-                <a href="https://github.com/twseptian">Tri Wanda Septian</a>
+                
                 
               
             
@@ -710,37 +707,11 @@
   
 
   <div class="content">
-    <div class="language-plaintext highlighter-rouge"><div class="code-header">
-        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre>- Exploit Title: Hospital's Patient Records Management System v1.0 - 'id' SQL Injection (Authenticated)
-- Date: 2021-12-30
-- Exploit Author: twseptian
-- Vendor Homepage: https://www.sourcecodester.com/php/15116/hospitals-patient-records-management-system-php-free-source-code.html
-- Software Link: https://www.sourcecodester.com/sites/default/files/download/oretnom23/hprms_0.zip
-- Version: v1.0
-- Tested on: Kali Linux 2021.4
-- Exploit-DB link: https://www.exploit-db.com/exploits/50630
-</pre></td></tr></tbody></table></code></div></div>
-
-<h2 id="introduction"><span class="me-2">Introduction</span><a href="#introduction" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
+    <h2 id="introduction"><span class="me-2">Introduction</span><a href="#introduction" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 <p>During a focused review of HPRMS v1.0, I set out to evaluate the integrity of its record-view workflow inside the admin area—specifically how user-controlled identifiers are validated before being passed to the database. CRUD pages that accept object IDs via query strings are frequent culprits for SQL injection when input handling is inconsistent. My goal was to trace the patient-view code path, determine whether the id parameter was parameterized, and validate any issues in a safe, non-destructive way.</p>
 
-<hr />
-
 <h2 id="summary-of-the-finding"><span class="me-2">Summary of the Finding</span><a href="#summary-of-the-finding" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
 <p>HPRMS v1.0 is vulnerable to a time-based blind SQL injection on the patient detail page. An authenticated user can supply crafted input in the id query parameter to trigger database delays, demonstrating that the application concatenates user input into a SQL expression without using parameterized queries. In practice, this allows an attacker to infer or extract data over time by encoding questions into time delays, even when no error messages or data are directly returned.</p>
-
-<hr />
 
 <h2 id="reproduction-steps-tested-on-local-instance"><span class="me-2">Reproduction steps (tested on local instance)</span><a href="#reproduction-steps-tested-on-local-instance" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 <blockquote>
@@ -774,6 +745,26 @@ twseptian’s website</p>
 </pre></td></tr></tbody></table></code></div></div>
 
 <p>The server’s response consistently delayed by roughly five seconds, confirming that user input flowed into a SQL context without parameterization. The behavior required an authenticated session to reach the patient view.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>- Exploit Title: Hospital's Patient Records Management System v1.0 - 'id' SQL Injection (Authenticated)
+- Date: 2021-12-30
+- Exploit Author: twseptian
+- Vendor Homepage: https://www.sourcecodester.com/php/15116/hospitals-patient-records-management-system-php-free-source-code.html
+- Software Link: https://www.sourcecodester.com/sites/default/files/download/oretnom23/hprms_0.zip
+- Version: v1.0
+- Tested on: Kali Linux 2021.4
+- Exploit-DB link: https://www.exploit-db.com/exploits/50630
+</pre></td></tr></tbody></table></code></div></div>
 
   </div>
 
@@ -914,6 +905,20 @@ twseptian’s website</p>
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/write-a-new-post/">Writing a New Post</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/getting-started/">Getting Started</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/osep-experience/">My Take on OSEP (PEN-300): Challenges, Lessons, and Real-World Relevance</a>
         </li>
       
@@ -921,21 +926,7 @@ twseptian’s website</p>
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/iot-dataset-research/">IoT Dataset Research: Curating Realistic Traffic for Security Analysis</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/my-journey-in-cve-research-from-discovery-to-disclosure/">My Journey in CVE Research: From Discovery to Disclosure</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/bahasa-pengalaman-ujian-sertifikasi-ceh-practical/">[Bahasa] Pengalaman Ujian Sertifikasi CEH Practical</a>
+          <a href="/posts/text-and-typography/">Text and Typography</a>
         </li>
       
     </ul>
@@ -984,29 +975,6 @@ twseptian’s website</p>
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
   
     
     
@@ -1036,6 +1004,49 @@ twseptian’s website</p>
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -1080,44 +1091,6 @@ twseptian’s website</p>
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1149,6 +1122,145 @@ twseptian’s website</p>
     
     
     
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1206,6 +1318,12 @@ twseptian’s website</p>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/dataset/">dataset</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/favicon/">favicon</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/getting-started/">getting started</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/iot/">iot</a>
@@ -1488,7 +1606,7 @@ twseptian’s website</p>
 
               <h4 class="pt-0 my-2">Hospitals Patient Records Management System v1.0 — IDOR (Account Takeover)</h4>
               <div class="text-muted">
-                <p>- Exploit Title: Hospital's Patient Records Management System v1.0 - 'id' Insecure direct object references (IDOR) leads to Account TakeOver - Date: 2021-12-30 - Exploit Author: twseptian - Vendor ...</p>
+                <p>Introduction I reviewed HPRMS v1.0 to assess how its admin area handles identity and authorization in routine CRUD flows. Applications with profile-edit features often expose object identifiers dir...</p>
               </div>
             </div>
           </a>
@@ -1516,7 +1634,7 @@ twseptian’s website</p>
 
               <h4 class="pt-0 my-2">CVE-2021-44228 (Log4Shell) — Field Notes from a Focused Web-App Review</h4>
               <div class="text-muted">
-                <p>Introduction  In late 2021 I revisited one of our Java web applications to validate exposure to Log4Shell. My goal was pragmatic: verify if any user-controlled input was reaching Log4j without stri...</p>
+                <p>Introduction In late 2021 I revisited one of our Java web applications to validate exposure to Log4Shell. My goal was pragmatic: verify if any user-controlled input was reaching Log4j without stric...</p>
               </div>
             </div>
           </a>
@@ -1671,29 +1789,6 @@ twseptian’s website</p>
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
   
     
     
@@ -1723,6 +1818,49 @@ twseptian’s website</p>
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -1767,44 +1905,6 @@ twseptian’s website</p>
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1836,6 +1936,145 @@ twseptian’s website</p>
     
     
     
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1893,6 +2132,12 @@ twseptian’s website</p>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/dataset/">dataset</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/favicon/">favicon</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/getting-started/">getting started</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/iot/">iot</a>
