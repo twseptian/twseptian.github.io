@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>twseptian</title>
   <subtitle>A personal space where I share simple reflections, lessons, and small discoveries from my continuous journey in learning—whether in information security, penetration testing, CTF, or exploring data science and machine learning.</subtitle>
-  <updated>2025-10-10T15:01:35+07:00</updated>
+  <updated>2025-10-10T15:56:19+07:00</updated>
   <author>
     <name>twseptian</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,32 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>My Take on OSEP (PEN-300): Challenges, Lessons, and Real-World Relevance</title>
+    <link href="http://localhost:4000/posts/osep-experience/" rel="alternate" type="text/html" title="My Take on OSEP (PEN-300): Challenges, Lessons, and Real-World Relevance" />
+    <published>2024-12-12T20:00:19+07:00</published>
+  
+    <updated>2024-12-12T20:00:19+07:00</updated>
+  
+    <id>http://localhost:4000/posts/osep-experience/</id>
+    <content type="text/html" src="http://localhost:4000/posts/osep-experience/" />
+    <author>
+      <name>twseptian</name>
+    </author>
+
+  
+    
+    <category term="Infosec" />
+    
+    <category term="Certification" />
+    
+  
+
+  <summary>Reflecting on OSEP (PEN-300) — Worth Taking in 2024? Recently, I went through several reviews from OSEP / PEN-300 participants — along with reflecting on my own experience — and wanted to share a summary of the key takeaways, strengths, and lessons that might help others better understand what to expect before enrolling in the course.  Course Scope — What You Learn PEN-300 covers two broad area...</summary>
+
+  </entry>
 
   
   <entry>
@@ -119,34 +145,6 @@
   
 
   <summary>Pendahuluan Ini adalah cerita pengalaman saya mengikuti ujian CEH Practical yang ingin saya bagikan kepada orang - orang yang sedang atau ingin mengambil sertifikasi CEH Practical.  Kesempatan yang saya dapatkan untuk mengambil untuk mengikuti ujian sertifikasi CEH Practical, ketika membaca informasi mengenai CEH Practical Scholarship pada tahun 2020, yang memberikan harga sekitar $99 dari harg...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Online Railway Reservation System 1.0 - 'id' SQL Injection (Unauthenticated)</title>
-    <link href="http://localhost:4000/posts/online-railway-reservation-system-1.0/" rel="alternate" type="text/html" title="Online Railway Reservation System 1.0 - &amp;apos;id&amp;apos; SQL Injection (Unauthenticated)" />
-    <published>2022-01-08T20:00:19+07:00</published>
-  
-    <updated>2022-01-08T20:00:19+07:00</updated>
-  
-    <id>http://localhost:4000/posts/online-railway-reservation-system-1.0/</id>
-    <content type="text/html" src="http://localhost:4000/posts/online-railway-reservation-system-1.0/" />
-    <author>
-      <name>twseptian</name>
-    </author>
-
-  
-    
-    <category term="Infosec" />
-    
-    <category term="CVE" />
-    
-    <category term="Research" />
-    
-  
-
-  <summary>- Exploit Title: Online Railway Reservation System 1.0 - 'id' SQL Injection (Unauthenticated) - Date: 07/01/2022 - Exploit Author: twseptian - Vendor Homepage: https://www.sourcecodester.com/php/15121/online-railway-reservation-system-phpoop-project-free-source-code.html - Software Link: https://www.sourcecodester.com/sites/default/files/download/oretnom23/orrs.zip - Version: v1.0 - Tested on: ...</summary>
 
   </entry>
 
