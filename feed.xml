@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>twseptian</title>
   <subtitle>A personal space where I share simple reflections, lessons, and small discoveries from my continuous journey in learning—whether in information security, penetration testing, CTF, or exploring data science and machine learning.</subtitle>
-  <updated>2025-10-10T15:56:19+07:00</updated>
+  <updated>2025-10-10T16:28:15+07:00</updated>
   <author>
     <name>twseptian</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,32 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Model Context Protocol (MCP): The Emerging Standard Connecting AI to the Real World</title>
+    <link href="http://localhost:4000/posts/mcp-introduction/" rel="alternate" type="text/html" title="Model Context Protocol (MCP): The Emerging Standard Connecting AI to the Real World" />
+    <published>2025-10-09T08:00:19+07:00</published>
+  
+    <updated>2025-10-09T08:00:19+07:00</updated>
+  
+    <id>http://localhost:4000/posts/mcp-introduction/</id>
+    <content type="text/html" src="http://localhost:4000/posts/mcp-introduction/" />
+    <author>
+      <name>twseptian</name>
+    </author>
+
+  
+    
+    <category term="Technology" />
+    
+    <category term="AI" />
+    
+  
+
+  <summary>Introduction As artificial intelligence continues to integrate into modern business operations, the need for a standardized way to connect AI models with real-world systems becomes more critical. The Model Context Protocol (MCP) addresses this challenge — an open standard that enables large language models (LLMs) and intelligent agents to interact securely with external tools, data sources, and...</summary>
+
+  </entry>
 
   
   <entry>
@@ -121,30 +147,6 @@
   
 
   <summary>Introduction This is my personal experience taking the CEH Practical exam—shared for anyone who is preparing for or considering the certification.  I first learned about the CEH Practical Scholarship in 2020, which reduced the exam fee to around $99 (from ~$550). I followed the instructions, received an Aspen dashboard code, and secured a scholarship slot toward the end of 2020.  I didn’t take ...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>[Bahasa] Pengalaman Ujian Sertifikasi CEH Practical</title>
-    <link href="http://localhost:4000/posts/bahasa-pengalaman-ujian-sertifikasi-ceh-practical/" rel="alternate" type="text/html" title="[Bahasa] Pengalaman Ujian Sertifikasi CEH Practical" />
-    <published>2022-01-22T15:09:19+07:00</published>
-  
-    <updated>2022-01-22T15:09:19+07:00</updated>
-  
-    <id>http://localhost:4000/posts/bahasa-pengalaman-ujian-sertifikasi-ceh-practical/</id>
-    <content type="text/html" src="http://localhost:4000/posts/bahasa-pengalaman-ujian-sertifikasi-ceh-practical/" />
-    <author>
-      <name>twseptian</name>
-    </author>
-
-  
-    
-    <category term="Certification" />
-    
-  
-
-  <summary>Pendahuluan Ini adalah cerita pengalaman saya mengikuti ujian CEH Practical yang ingin saya bagikan kepada orang - orang yang sedang atau ingin mengambil sertifikasi CEH Practical.  Kesempatan yang saya dapatkan untuk mengambil untuk mengikuti ujian sertifikasi CEH Practical, ketika membaca informasi mengenai CEH Practical Scholarship pada tahun 2020, yang memberikan harga sekitar $99 dari harg...</summary>
 
   </entry>
 
