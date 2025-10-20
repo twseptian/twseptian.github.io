@@ -30,26 +30,26 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="WP Ticket (Customer Service Software &amp; Support Ticket System) &lt; 5.10.4 — Admin+ Stored XSS via Unsanitized List Fields (CVE-2021-24622)" />
+<meta property="og:title" content="From Burp to Claude: Quick MCP Integration Guide" />
 <meta name="author" content="Tri Wanda Septian" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Introduction I set out to review helpdesk/ticketing plugins that are frequently installed in intranets and customer portals—places where strict role boundaries exist and unfiltered_html is commonly disabled for non-superadmin roles. My focus was on how user-submitted fields are rendered back in list and admin views. WP Ticket’s workflow—end users submit tickets, staff/admins triage them—made it a good candidate to test whether output escaping was consistently applied across the interface. During this review I identified a stored cross-site scripting (XSS) issue that could be triggered by high-privilege users (Admin+) even in environments where unfiltered_html is disallowed, matching CVE-2021-24622. Summary of the Finding Versions of WP Ticket prior to 5.10.4 do not properly sanitize and escape certain form fields before outputting them in the List view. As a result, HTML/JavaScript embedded in those fields is stored and later executed in an administrator’s browser when they load the affected admin list page. Because the vulnerable sink lives in an Admin+ context, the practical exploit path is “stored XSS that fires in the admin UI,” enabling actions such as privilege escalation, CSRF bypass via DOM-driven requests, or planting long-lived admin backdoors. The issue is documented as CVE-2021-24622 and was fixed in 5.10.4. Reproduction steps (tested on local instance) Performed only on a local test instance for verification and learning. Navigate to WP Ticket &gt; Forms &gt; edit layout of “Open a Ticket” or “Search Tickets” &gt; on “Editing Form” Setting menu. Select a form field and you can edit the “Label” with a cross-site scripting (XSS) payload such as 1 2 v &lt; 5.10.3 - &quot;&gt;&lt;script&gt;alert(/XSS/)&lt;/script&gt; v &lt;= 5.10.3 - &quot; style=animation-name:rotation onanimationstart=alert(/XSS/)// All of the parameters on the “Editing Form” are vulnerable.To trigger the XSS payload, refresh the “Editing Form” page. Timelines Publicly Published : 2021-09-20 Added : 2021-09-20 Last Updated : 2021-09-20 Links: WP Ticket &lt; 5.10.4 - Admin+ Stored Cross-Site Scripting CVE-2021-24622" />
-<meta property="og:description" content="Introduction I set out to review helpdesk/ticketing plugins that are frequently installed in intranets and customer portals—places where strict role boundaries exist and unfiltered_html is commonly disabled for non-superadmin roles. My focus was on how user-submitted fields are rendered back in list and admin views. WP Ticket’s workflow—end users submit tickets, staff/admins triage them—made it a good candidate to test whether output escaping was consistently applied across the interface. During this review I identified a stored cross-site scripting (XSS) issue that could be triggered by high-privilege users (Admin+) even in environments where unfiltered_html is disallowed, matching CVE-2021-24622. Summary of the Finding Versions of WP Ticket prior to 5.10.4 do not properly sanitize and escape certain form fields before outputting them in the List view. As a result, HTML/JavaScript embedded in those fields is stored and later executed in an administrator’s browser when they load the affected admin list page. Because the vulnerable sink lives in an Admin+ context, the practical exploit path is “stored XSS that fires in the admin UI,” enabling actions such as privilege escalation, CSRF bypass via DOM-driven requests, or planting long-lived admin backdoors. The issue is documented as CVE-2021-24622 and was fixed in 5.10.4. Reproduction steps (tested on local instance) Performed only on a local test instance for verification and learning. Navigate to WP Ticket &gt; Forms &gt; edit layout of “Open a Ticket” or “Search Tickets” &gt; on “Editing Form” Setting menu. Select a form field and you can edit the “Label” with a cross-site scripting (XSS) payload such as 1 2 v &lt; 5.10.3 - &quot;&gt;&lt;script&gt;alert(/XSS/)&lt;/script&gt; v &lt;= 5.10.3 - &quot; style=animation-name:rotation onanimationstart=alert(/XSS/)// All of the parameters on the “Editing Form” are vulnerable.To trigger the XSS payload, refresh the “Editing Form” page. Timelines Publicly Published : 2021-09-20 Added : 2021-09-20 Last Updated : 2021-09-20 Links: WP Ticket &lt; 5.10.4 - Admin+ Stored Cross-Site Scripting CVE-2021-24622" />
-<link rel="canonical" href="http://localhost:4000/posts/cve-2021-24622/" />
-<meta property="og:url" content="http://localhost:4000/posts/cve-2021-24622/" />
+<meta name="description" content="Introduction Connecting Burp Suite to an AI model like Claude 1 2is straightforward using the Model Context Protocol (MCP). MCP acts as a bridge that lets AI tools consume real contextual data from your security tooling — not just plain text — enabling the model to leverage Burp’s intercepts, traces, and session context for more practical, context-aware analysis. “Claude.” Claude.ai, 2025, claude.ai/new.” - https://claude.ai/new &#8617;&amp;#xfe0e; “Aaddrick/Claude-Desktop-Debian: Claude Desktop for Debian-Based Linux Distributions.” GitHub, github.com/aaddrick/claude-desktop-debian - https://github.com/aaddrick/claude-desktop-debian &#8617;&amp;#xfe0e;" />
+<meta property="og:description" content="Introduction Connecting Burp Suite to an AI model like Claude 1 2is straightforward using the Model Context Protocol (MCP). MCP acts as a bridge that lets AI tools consume real contextual data from your security tooling — not just plain text — enabling the model to leverage Burp’s intercepts, traces, and session context for more practical, context-aware analysis. “Claude.” Claude.ai, 2025, claude.ai/new.” - https://claude.ai/new &#8617;&amp;#xfe0e; “Aaddrick/Claude-Desktop-Debian: Claude Desktop for Debian-Based Linux Distributions.” GitHub, github.com/aaddrick/claude-desktop-debian - https://github.com/aaddrick/claude-desktop-debian &#8617;&amp;#xfe0e;" />
+<link rel="canonical" href="http://localhost:4000/posts/from-burp-to-claude-quick-mcp-integration-guide/" />
+<meta property="og:url" content="http://localhost:4000/posts/from-burp-to-claude-quick-mcp-integration-guide/" />
 <meta property="og:site_name" content="twseptian" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-10-01T20:00:19+07:00" />
+<meta property="article:published_time" content="2025-10-19T08:00:19+07:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="WP Ticket (Customer Service Software &amp; Support Ticket System) &lt; 5.10.4 — Admin+ Stored XSS via Unsanitized List Fields (CVE-2021-24622)" />
+<meta property="twitter:title" content="From Burp to Claude: Quick MCP Integration Guide" />
 <meta name="twitter:site" content="@twseptian_" />
 <meta name="twitter:creator" content="@twseptian_" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Tri Wanda Septian","url":"https://github.com/twseptian/"},"dateModified":"2021-10-01T20:00:19+07:00","datePublished":"2021-10-01T20:00:19+07:00","description":"Introduction I set out to review helpdesk/ticketing plugins that are frequently installed in intranets and customer portals—places where strict role boundaries exist and unfiltered_html is commonly disabled for non-superadmin roles. My focus was on how user-submitted fields are rendered back in list and admin views. WP Ticket’s workflow—end users submit tickets, staff/admins triage them—made it a good candidate to test whether output escaping was consistently applied across the interface. During this review I identified a stored cross-site scripting (XSS) issue that could be triggered by high-privilege users (Admin+) even in environments where unfiltered_html is disallowed, matching CVE-2021-24622. Summary of the Finding Versions of WP Ticket prior to 5.10.4 do not properly sanitize and escape certain form fields before outputting them in the List view. As a result, HTML/JavaScript embedded in those fields is stored and later executed in an administrator’s browser when they load the affected admin list page. Because the vulnerable sink lives in an Admin+ context, the practical exploit path is “stored XSS that fires in the admin UI,” enabling actions such as privilege escalation, CSRF bypass via DOM-driven requests, or planting long-lived admin backdoors. The issue is documented as CVE-2021-24622 and was fixed in 5.10.4. Reproduction steps (tested on local instance) Performed only on a local test instance for verification and learning. Navigate to WP Ticket &gt; Forms &gt; edit layout of “Open a Ticket” or “Search Tickets” &gt; on “Editing Form” Setting menu. Select a form field and you can edit the “Label” with a cross-site scripting (XSS) payload such as 1 2 v &lt; 5.10.3 - &quot;&gt;&lt;script&gt;alert(/XSS/)&lt;/script&gt; v &lt;= 5.10.3 - &quot; style=animation-name:rotation onanimationstart=alert(/XSS/)// All of the parameters on the “Editing Form” are vulnerable.To trigger the XSS payload, refresh the “Editing Form” page. Timelines Publicly Published : 2021-09-20 Added : 2021-09-20 Last Updated : 2021-09-20 Links: WP Ticket &lt; 5.10.4 - Admin+ Stored Cross-Site Scripting CVE-2021-24622","headline":"WP Ticket (Customer Service Software &amp; Support Ticket System) &lt; 5.10.4 — Admin+ Stored XSS via Unsanitized List Fields (CVE-2021-24622)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/cve-2021-24622/"},"url":"http://localhost:4000/posts/cve-2021-24622/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Tri Wanda Septian","url":"https://github.com/twseptian/"},"dateModified":"2025-10-19T08:00:19+07:00","datePublished":"2025-10-19T08:00:19+07:00","description":"Introduction Connecting Burp Suite to an AI model like Claude 1 2is straightforward using the Model Context Protocol (MCP). MCP acts as a bridge that lets AI tools consume real contextual data from your security tooling — not just plain text — enabling the model to leverage Burp’s intercepts, traces, and session context for more practical, context-aware analysis. “Claude.” Claude.ai, 2025, claude.ai/new.” - https://claude.ai/new &#8617;&amp;#xfe0e; “Aaddrick/Claude-Desktop-Debian: Claude Desktop for Debian-Based Linux Distributions.” GitHub, github.com/aaddrick/claude-desktop-debian - https://github.com/aaddrick/claude-desktop-debian &#8617;&amp;#xfe0e;","headline":"From Burp to Claude: Quick MCP Integration Guide","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/from-burp-to-claude-quick-mcp-integration-guide/"},"url":"http://localhost:4000/posts/from-burp-to-claude-quick-mcp-integration-guide/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>WP Ticket (Customer Service Software & Support Ticket System) < 5.10.4 — Admin+ Stored XSS via Unsanitized List Fields (CVE-2021-24622) | twseptian
+  <title>From Burp to Claude: Quick MCP Integration Guide | twseptian
   </title>
 
   <!--
@@ -440,7 +440,7 @@
         
           
             
-              <span>WP Ticket (Customer Service Software & Support Ticket System) < 5.10.4 — Admin+ Stored XSS via Unsanitized List Fields (CVE-2021-24622)</span>
+              <span>From Burp to Claude: Quick MCP Integration Guide</span>
             
 
           
@@ -508,6 +508,731 @@
 
 
 
+  
+  
+
+  
+    
+      
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+
+  
+
 
 <!-- Add header for code snippets -->
 
@@ -530,17 +1255,6 @@
       
         
         
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
       
 
       
@@ -620,7 +1334,7 @@
 
 <article class="px-1" data-toc="true">
   <header>
-    <h1 data-toc-skip>WP Ticket (Customer Service Software & Support Ticket System) < 5.10.4 — Admin+ Stored XSS via Unsanitized List Fields (CVE-2021-24622)</h1>
+    <h1 data-toc-skip>From Burp to Claude: Quick MCP Integration Guide</h1>
     
 
     <div class="post-meta text-muted">
@@ -637,13 +1351,13 @@
 
 <time
   
-  data-ts="1633093219"
+  data-ts="1760835619"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Oct  1, 2021
+  Oct 19, 2025
 </time>
 
       </span>
@@ -695,9 +1409,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="311 words"
+  title="447 words"
 >
-  <em>1 min</em> read</span>
+  <em>2 min</em> read</span>
 
         </div>
       </div>
@@ -706,7 +1420,7 @@
 
   
     <div id="toc-bar" class="d-flex align-items-center justify-content-between invisible">
-      <span class="label text-truncate">WP Ticket (Customer Service Software & Support Ticket System) < 5.10.4 — Admin+ Stored XSS via Unsanitized List Fields (CVE-2021-24622)</span>
+      <span class="label text-truncate">From Burp to Claude: Quick MCP Integration Guide</span>
       <button type="button" class="toc-trigger btn me-1">
         <i class="fa-solid fa-list-ul fa-fw"></i>
       </button>
@@ -719,7 +1433,7 @@
 
     <dialog id="toc-popup" class="p-0">
       <div class="header d-flex flex-row align-items-center justify-content-between">
-        <div class="label text-truncate py-2 ms-4">WP Ticket (Customer Service Software & Support Ticket System) < 5.10.4 — Admin+ Stored XSS via Unsanitized List Fields (CVE-2021-24622)</div>
+        <div class="label text-truncate py-2 ms-4">From Burp to Claude: Quick MCP Integration Guide</div>
         <button id="toc-popup-close" type="button" class="btn mx-1 my-1 opacity-75">
           <i class="fas fa-close"></i>
         </button>
@@ -730,43 +1444,96 @@
 
   <div class="content">
     <h2 id="introduction"><span class="me-2">Introduction</span><a href="#introduction" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>I set out to review helpdesk/ticketing plugins that are frequently installed in intranets and customer portals—places where strict role boundaries exist and unfiltered_html is commonly disabled for non-superadmin roles. My focus was on how user-submitted fields are rendered back in list and admin views. WP Ticket’s workflow—end users submit tickets, staff/admins triage them—made it a good candidate to test whether output escaping was consistently applied across the interface. During this review I identified a stored cross-site scripting (XSS) issue that could be triggered by high-privilege users (Admin+) even in environments where unfiltered_html is disallowed, matching CVE-2021-24622.</p>
+<p>Connecting Burp Suite to an AI model like Claude <sup id="fnref:footnote"><a href="#fn:footnote" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> <sup id="fnref:fn-nth-2"><a href="#fn:fn-nth-2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>is straightforward using the Model Context Protocol (MCP). MCP acts as a bridge that lets AI tools consume real contextual data from your security tooling — not just plain text — enabling the model to leverage Burp’s intercepts, traces, and session context for more practical, context-aware analysis.</p>
 
-<h2 id="summary-of-the-finding"><span class="me-2">Summary of the Finding</span><a href="#summary-of-the-finding" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>Versions of WP Ticket prior to 5.10.4 do not properly sanitize and escape certain form fields before outputting them in the List view. As a result, HTML/JavaScript embedded in those fields is stored and later executed in an administrator’s browser when they load the affected admin list page. Because the vulnerable sink lives in an Admin+ context, the practical exploit path is “stored XSS that fires in the admin UI,” enabling actions such as privilege escalation, CSRF bypass via DOM-driven requests, or planting long-lived admin backdoors. The issue is documented as CVE-2021-24622 and was fixed in 5.10.4.</p>
+<p>To get started, open Burp Suite and add the MCP extension from the Extensions tab<sup id="fnref:fn-nth-3"><a href="#fn:fn-nth-3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>. The extension runs a local MCP server inside Burp that handles communication with the AI client. By default the server listens on http://127.0.0.1:9876, though you can adjust host and port as needed. After enabling the server, an automated installer option will apply MCP configuration to Claude Desktop <sup id="fnref:fn-nth-2:1"><a href="#fn:fn-nth-2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup> so the two can communicate.</p>
 
-<h2 id="reproduction-steps-tested-on-local-instance"><span class="me-2">Reproduction steps (tested on local instance)</span><a href="#reproduction-steps-tested-on-local-instance" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<blockquote>
-  <p>Performed only on a local test instance for verification and learning.</p>
-</blockquote>
+<h2 id="installation"><span class="me-2">Installation</span><a href="#installation" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<ul>
-  <li>Navigate to WP Ticket &gt; Forms &gt; edit layout of “Open a Ticket” or “Search Tickets” &gt; on “Editing Form” Setting menu.</li>
-  <li>Select a form field and you can edit the “Label” with a cross-site scripting (XSS) payload such as
-    <div class="language-text highlighter-rouge"><div class="code-header">
-        <span data-label-text="Text"><i class="fas fa-code fa-fw small"></i></span>
+<p>In practice the workflow is simple: install the extension, enable the MCP server in the Extensions tab, then use the provided install/configure button to link Claude Desktop (note: in this case, i used ‘Claude Desktop for Linux’<sup id="fnref:fn-nth-2:2"><a href="#fn:fn-nth-2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>).</p>
+
+<p><a href="/assets/img/posts/mcp-burp-suite/05.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/05.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
+<em>Burp Suite MCP Server Extentions</em></p>
+
+<p><a href="/assets/img/posts/mcp-burp-suite/03.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/03.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
+<em>Burp Suite MCP Server (1)</em></p>
+
+<p><a href="/assets/img/posts/mcp-burp-suite/04.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/04.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
+<em>Burp Suite MCP Server (2)</em></p>
+
+<p>The installation process will typically update a local claude_desktop_config.json with MCP-related settings; for example, an entry might look like:</p>
+
+<div class="language-html highlighter-rouge"><div class="code-header">
+        <span data-label-text="HTML"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-</pre></td><td class="rouge-code"><pre>v &lt; 5.10.3 - "&gt;&lt;script&gt;alert(/XSS/)&lt;/script&gt; 
-v &lt;= 5.10.3 - " style=animation-name:rotation onanimationstart=alert(/XSS/)//
-</pre></td></tr></tbody></table></code></div>    </div>
-  </li>
-</ul>
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre>...
+        "burp": {
+            "command": "/home/kali/BurpSuitePro/jre/bin/java",
+            "args": [
+                "-jar",
+                "/home/kali/.BurpSuite/mcp-proxy/mcp-proxy-all.jar",
+                "--sse-url",
+                "http://127.0.0.1:9876"
+            ]
+        }
+...
+</pre></td></tr></tbody></table></code></div></div>
 
-<p>All of the parameters on the “Editing Form” are vulnerable.To trigger the XSS payload, refresh the “Editing Form” page.</p>
+<p><a href="/assets/img/posts/mcp-burp-suite/02.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/02.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
+<em>Burp Suite Script Configuration claude_desktop_config.json</em></p>
 
-<h2 id="timelines"><span class="me-2">Timelines</span><a href="#timelines" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<ul>
-  <li>Publicly Published : 2021-09-20</li>
-  <li>Added : 2021-09-20</li>
-  <li>Last Updated : 2021-09-20</li>
-</ul>
+<p>Once configuration is complete and Claude is restarted, you should see an option to share Burp context with Claude<sup id="fnref:footnote:1"><a href="#fn:footnote" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>. This allows intercepted requests, trace information, and other session details from Burp to be injected into the AI prompt, enriching the model’s responses with live testing context.</p>
 
-<h2 id="links"><span class="me-2">Links:</span><a href="#links" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<ul>
-  <li><a href="https://wpscan.com/vulnerability/41a2c72c-7db1-473a-8844-47f6ae9d0594">WP Ticket &lt; 5.10.4 - Admin+ Stored Cross-Site Scripting</a></li>
-  <li><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-24622">CVE-2021-24622</a></li>
-</ul>
+<p><a href="/assets/img/posts/mcp-burp-suite/01.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/01.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
+<em>Burp Suite Configuration claude_desktop_config.json</em></p>
+
+<p><a href="/assets/img/posts/mcp-burp-suite/06.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/06.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
+<em>Burp Suite MCP Server with Prompt Input in Claude Desktop</em></p>
+
+<p><a href="/assets/img/posts/mcp-burp-suite/07.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/07.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
+<em>Burp Suite MCP Server need permission</em></p>
+
+<p><a href="/assets/img/posts/mcp-burp-suite/08.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/08.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
+<em>Burp Suite MCP Server Found SQL Injection Vulnerability (1)</em></p>
+
+<p><a href="/assets/img/posts/mcp-burp-suite/09.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/09.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
+<em>Burp Suite MCP Server Found SQL Injection Vulnerability (2)</em></p>
+
+<p><a href="/assets/img/posts/mcp-burp-suite/10.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/10.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
+<em>Burp Suite MCP Server Found SQL Injection Vulnerability (3)</em></p>
+
+<p><a href="/assets/img/posts/mcp-burp-suite/11.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/11.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
+<em>Claude Summarized SQL Injection Vulnerability</em></p>
+
+<p>Keep in mind that while this integration accelerates many tasks—such as summarizing findings or suggesting initial next steps—it is not a substitute for expert judgment. Complex exploit development and high-risk decisions still require human oversight, verification, and manual refinement of prompts. Treat the AI as an assistant that speeds repetitive work and supplies context, not as a replacement for specialist expertise.</p>
+
+<h2 id="concern"><span class="me-2">Concern</span><a href="#concern" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>Finally, always consider authorization and privacy before sending data to third-party services. Ensure you have explicit permission from the system owner before sharing intercepted data or sensitive artifacts via MCP to any external model.</p>
+
+<h2 id="references"><span class="me-2">References</span><a href="#references" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:footnote">
+      <p>“Claude.” Claude.ai, 2025, claude.ai/new.” - https://claude.ai/new <a href="#fnref:footnote" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a> <a href="#fnref:footnote:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:fn-nth-2">
+      <p>“Aaddrick/Claude-Desktop-Debian: Claude Desktop for Debian-Based Linux Distributions.” GitHub, github.com/aaddrick/claude-desktop-debian - https://github.com/aaddrick/claude-desktop-debian <a href="#fnref:fn-nth-2" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a> <a href="#fnref:fn-nth-2:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>2</sup></a> <a href="#fnref:fn-nth-2:2" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>3</sup></a></p>
+    </li>
+    <li id="fn:fn-nth-3">
+      <p>““MCP Server.” Portswigger.net, 2025, portswigger.net/bappstore/9952290f04ed4f628e624d0aa9dccebc.” - https://portswigger.net/bappstore/9952290f04ed4f628e624d0aa9dccebc <a href="#fnref:fn-nth-3" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
+    </li>
+  </ol>
+</div>
 
   </div>
 
@@ -776,9 +1543,8 @@ v &lt;= 5.10.3 - " style=animation-name:rotation onanimationstart=alert(/XSS/)//
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         
-          <a href="/categories/infosec/">Infosec</a>,
-          <a href="/categories/cve/">CVE</a>,
-          <a href="/categories/research/">Research</a>
+          <a href="/categories/technology/">Technology</a>,
+          <a href="/categories/ai/">AI</a>
       </div>
     
 
@@ -788,14 +1554,14 @@ v &lt;= 5.10.3 - " style=animation-name:rotation onanimationstart=alert(/XSS/)//
         <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="/tags/cve/"
+            href="/tags/technology/"
             class="post-tag no-text-decoration"
-          >cve</a>
+          >technology</a>
         
           <a
-            href="/tags/infosec/"
+            href="/tags/artificial-inteligence/"
             class="post-tag no-text-decoration"
-          >infosec</a>
+          >artificial inteligence</a>
         
       </div>
     
@@ -831,21 +1597,21 @@ v &lt;= 5.10.3 - " style=animation-name:rotation onanimationstart=alert(/XSS/)//
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=WP%20Ticket%20(Customer%20Service%20Software%20&%20Support%20Ticket%20System)%20%3C%205.10.4%20%E2%80%94%20Admin+%20Stored%20XSS%20via%20Unsanitized%20List%20Fields%20(CVE-2021-24622)%20-%20twseptian&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fcve-2021-24622%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=From%20Burp%20to%20Claude:%20Quick%20MCP%20Integration%20Guide%20-%20twseptian&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Ffrom-burp-to-claude-quick-mcp-integration-guide%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=WP%20Ticket%20(Customer%20Service%20Software%20&%20Support%20Ticket%20System)%20%3C%205.10.4%20%E2%80%94%20Admin+%20Stored%20XSS%20via%20Unsanitized%20List%20Fields%20(CVE-2021-24622)%20-%20twseptian&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fcve-2021-24622%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=From%20Burp%20to%20Claude:%20Quick%20MCP%20Integration%20Guide%20-%20twseptian&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Ffrom-burp-to-claude-quick-mcp-integration-guide%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fcve-2021-24622%2F&text=WP%20Ticket%20(Customer%20Service%20Software%20&%20Support%20Ticket%20System)%20%3C%205.10.4%20%E2%80%94%20Admin+%20Stored%20XSS%20via%20Unsanitized%20List%20Fields%20(CVE-2021-24622)%20-%20twseptian" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Ffrom-burp-to-claude-quick-mcp-integration-guide%2F&text=From%20Burp%20to%20Claude:%20Quick%20MCP%20Integration%20Guide%20-%20twseptian" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
@@ -1268,175 +2034,7 @@ v &lt;= 5.10.3 - " style=animation-name:rotation onanimationstart=alert(/XSS/)//
   
 
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
 
 
 
@@ -1452,7 +2050,7 @@ v &lt;= 5.10.3 - " style=animation-name:rotation onanimationstart=alert(/XSS/)//
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/posts/hospital-patient-records-management-system-v1.0-idor/" class="post-preview card h-100">
+          <a href="/posts/mcp-introduction/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1464,72 +2062,16 @@ v &lt;= 5.10.3 - " style=animation-name:rotation onanimationstart=alert(/XSS/)//
 
 <time
   
-  data-ts="1640005219"
+  data-ts="1759971619"
   data-df="ll"
   
 >
-  Dec 20, 2021
+  Oct  9, 2025
 </time>
 
-              <h4 class="pt-0 my-2">Hospitals Patient Records Management System v1.0 — IDOR (Account Takeover)</h4>
+              <h4 class="pt-0 my-2">Model Context Protocol (MCP): The Emerging Standard Connecting AI to the Real World</h4>
               <div class="text-muted">
-                <p>## Introduction I reviewed HPRMS v1.0 to assess how its admin area handles identity and authorization in routine CRUD flows. Applications with profile-edit features often expose object identifiers...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/cve-2021-44228/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1639400419"
-  data-df="ll"
-  
->
-  Dec 13, 2021
-</time>
-
-              <h4 class="pt-0 my-2">CVE-2021-44228 (Log4Shell) — Field Notes from a Focused Web-App Review</h4>
-              <div class="text-muted">
-                <p>## Introduction In late 2021 I revisited one of our Java web applications to validate exposure to Log4Shell. My goal was pragmatic: verify if any user-controlled input was reaching Log4j without s...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/cve-2021-24623/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1633093219"
-  data-df="ll"
-  
->
-  Oct  1, 2021
-</time>
-
-              <h4 class="pt-0 my-2">WordPress Advanced Ticket System < 1.0.64 — Authenticated Stored XSS in Ticket Metadata</h4>
-              <div class="text-muted">
-                <p>## Introduction  While reviewing help-desk and ticketing plugins for WordPress, I focused on how user-supplied ticket metadata is validated before being stored and rendered. These flows often acc...</p>
+                <p>Introduction As artificial intelligence continues to integrate into modern business operations, the need for a standardized way to connect AI models with real-world systems becomes more critical. T...</p>
               </div>
             </div>
           </a>
@@ -1550,22 +2092,18 @@ v &lt;= 5.10.3 - " style=animation-name:rotation onanimationstart=alert(/XSS/)//
 
   
     <a
-      href="/posts/cve-2021-24621/"
+      href="/posts/mcp-introduction/"
       class="btn btn-outline-primary"
       aria-label="Older"
     >
-      <p>WP Courses LMS < 2.0.44 — Authenticated Stored XSS via 'Video Embed Code'</p>
+      <p>Model Context Protocol (MCP): The Emerging Standard Connecting AI to the Real World</p>
     </a>
   
 
   
-    <a
-      href="/posts/cve-2021-24623/"
-      class="btn btn-outline-primary"
-      aria-label="Newer"
-    >
-      <p>WordPress Advanced Ticket System < 1.0.64 — Authenticated Stored XSS in Ticket Metadata</p>
-    </a>
+    <div class="btn btn-outline-primary disabled" aria-label="Newer">
+      <p>-</p>
+    </div>
   
 </nav>
 

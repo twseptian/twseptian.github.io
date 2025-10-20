@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>twseptian</title>
   <subtitle>A personal space where I share simple reflections, lessons, and small discoveries from my continuous journey in learning—whether in information security, penetration testing, CTF, or exploring data science and machine learning.</subtitle>
-  <updated>2025-10-10T20:07:13+07:00</updated>
+  <updated>2025-10-20T18:10:55+07:00</updated>
   <author>
     <name>twseptian</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,32 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>From Burp to Claude: Quick MCP Integration Guide</title>
+    <link href="http://localhost:4000/posts/from-burp-to-claude-quick-mcp-integration-guide/" rel="alternate" type="text/html" title="From Burp to Claude: Quick MCP Integration Guide" />
+    <published>2025-10-19T08:00:19+07:00</published>
+  
+    <updated>2025-10-19T08:00:19+07:00</updated>
+  
+    <id>http://localhost:4000/posts/from-burp-to-claude-quick-mcp-integration-guide/</id>
+    <content type="text/html" src="http://localhost:4000/posts/from-burp-to-claude-quick-mcp-integration-guide/" />
+    <author>
+      <name>twseptian</name>
+    </author>
+
+  
+    
+    <category term="Technology" />
+    
+    <category term="AI" />
+    
+  
+
+  <summary>Introduction Connecting Burp Suite to an AI model like Claude 1 2is straightforward using the Model Context Protocol (MCP). MCP acts as a bridge that lets AI tools consume real contextual data from your security tooling — not just plain text — enabling the model to leverage Burp’s intercepts, traces, and session context for more practical, context-aware analysis.  To get started, open Burp Suit...</summary>
+
+  </entry>
 
   
   <entry>
@@ -123,30 +149,6 @@
   
 
   <summary>Introduction Researching software vulnerabilities and contributing to the CVE ecosystem is both a technical challenge and a responsibility. This post highlights my personal experience in vulnerability research—how I discovered flaws, validated them safely, and worked through the disclosure process that eventually led to public CVE assignments.    Why I Pursue CVE Research My motivation stems fr...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>[English] CEH Practical Certification Exam Experience</title>
-    <link href="http://localhost:4000/posts/english-ceh-practical-certification-exam-experience/" rel="alternate" type="text/html" title="[English] CEH Practical Certification Exam Experience" />
-    <published>2022-01-22T15:09:19+07:00</published>
-  
-    <updated>2022-01-22T15:09:19+07:00</updated>
-  
-    <id>http://localhost:4000/posts/english-ceh-practical-certification-exam-experience/</id>
-    <content type="text/html" src="http://localhost:4000/posts/english-ceh-practical-certification-exam-experience/" />
-    <author>
-      <name>twseptian</name>
-    </author>
-
-  
-    
-    <category term="Certification" />
-    
-  
-
-  <summary>Introduction This is my personal experience taking the CEH Practical exam—shared for anyone who is preparing for or considering the certification.  I first learned about the CEH Practical Scholarship in 2020, which reduced the exam fee to around $99 (from ~$550). I followed the instructions, received an Aspen dashboard code, and secured a scholarship slot toward the end of 2020.  I didn’t take ...</summary>
 
   </entry>
 
