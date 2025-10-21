@@ -1409,9 +1409,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="447 words"
+  title="691 words"
 >
-  <em>2 min</em> read</span>
+  <em>3 min</em> read</span>
 
         </div>
       </div>
@@ -1500,8 +1500,16 @@
 <p><a href="/assets/img/posts/mcp-burp-suite/06.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/06.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
 <em>Burp Suite MCP Server with Prompt Input in Claude Desktop</em></p>
 
+<p>The figure below shows Burp Suite with the Extensions/MCP area active and a prompt indicating that an MCP client is requesting to send an HTTP request to the local MCP endpoint. This is a normal authorization step; you should verify and allow connections only from known clients.</p>
+
+<p>With MCP enabled, exercise a test request in Burp Repeater. The idea is to craft or capture an HTTP interaction you want the AI to analyze and then replay or refine it. Use Repeater to modify parameters or headers and observe how the application responds.</p>
+
+<p>The screenshot illustrates a Repeater window with a captured request. The MCP prompt is visible again: Burp is being asked to forward the request context to an MCP client. At this point you can choose to allow a single-use forward or allow the host permanently, depending on your workflow and trust model.</p>
+
 <p><a href="/assets/img/posts/mcp-burp-suite/07.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/07.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
 <em>Burp Suite MCP Server need permission</em></p>
+
+<p>The figures show a rendered response view inside Burp while the AI pane on the right is summarizing the result and generating human-friendly observations. This side-by-side layout enables quick iterative testing: modify requests in Repeater and immediately see how the AI updates its narrative and suggestions.</p>
 
 <p><a href="/assets/img/posts/mcp-burp-suite/08.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/08.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
 <em>Burp Suite MCP Server Found SQL Injection Vulnerability (1)</em></p>
@@ -1511,6 +1519,8 @@
 
 <p><a href="/assets/img/posts/mcp-burp-suite/10.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/10.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
 <em>Burp Suite MCP Server Found SQL Injection Vulnerability (3)</em></p>
+
+<p>One of the most practical benefits of integrating MCP is automating parts of the documentation workflow. Instead of manually writing reproduction steps, you can ask the AI to produce a concise summary of the request, why it looks suspicious, and how you validated it — then copy that into your report or ticketing system.</p>
 
 <p><a href="/assets/img/posts/mcp-burp-suite/11.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/11.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
 <em>Claude Summarized SQL Injection Vulnerability</em></p>
