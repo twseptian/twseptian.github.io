@@ -1446,14 +1446,14 @@
     <h2 id="introduction"><span class="me-2">Introduction</span><a href="#introduction" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 <p>Connecting Burp Suite to an AI model like Claude <sup id="fnref:footnote"><a href="#fn:footnote" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> <sup id="fnref:fn-nth-2"><a href="#fn:fn-nth-2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>is straightforward using the Model Context Protocol (MCP). MCP acts as a bridge that lets AI tools consume real contextual data from your security tooling — not just plain text — enabling the model to leverage Burp’s intercepts, traces, and session context for more practical, context-aware analysis.</p>
 
-<p>To get started, open Burp Suite and add the MCP extension from the Extensions tab<sup id="fnref:fn-nth-3"><a href="#fn:fn-nth-3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>. The extension runs a local MCP server inside Burp that handles communication with the AI client. By default the server listens on http://127.0.0.1:9876, though you can adjust host and port as needed. After enabling the server, an automated installer option will apply MCP configuration to Claude Desktop <sup id="fnref:fn-nth-2:1"><a href="#fn:fn-nth-2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup> so the two can communicate.</p>
-
 <h2 id="installation"><span class="me-2">Installation</span><a href="#installation" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>In practice the workflow is simple: install the extension, enable the MCP server in the Extensions tab, then use the provided install/configure button to link Claude Desktop (note: in this case, i used ‘Claude Desktop for Linux’<sup id="fnref:fn-nth-2:2"><a href="#fn:fn-nth-2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>).</p>
+<p>To get started, open Burp Suite and add the MCP extension from the Extensions tab<sup id="fnref:fn-nth-3"><a href="#fn:fn-nth-3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>. The extension runs a local MCP server inside Burp that handles communication with the AI client. By default the server listens on http://127.0.0.1:9876, though you can adjust host and port as needed. After enabling the server, an automated installer option will apply MCP configuration to Claude Desktop <sup id="fnref:fn-nth-2:1"><a href="#fn:fn-nth-2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup> so the two can communicate.</p>
 
 <p><a href="/assets/img/posts/mcp-burp-suite/05.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/05.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
 <em>Burp Suite MCP Server Extentions</em></p>
+
+<p>In practice the workflow is simple: install the extension, enable the MCP server in the Extensions tab, then use the provided install/configure button to link Claude Desktop (note: in this case, i used ‘Claude Desktop for Linux’<sup id="fnref:fn-nth-2:2"><a href="#fn:fn-nth-2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>).</p>
 
 <p><a href="/assets/img/posts/mcp-burp-suite/03.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/03.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
 <em>Burp Suite MCP Server (1)</em></p>
@@ -1544,7 +1544,8 @@
         <i class="far fa-folder-open fa-fw me-1"></i>
         
           <a href="/categories/technology/">Technology</a>,
-          <a href="/categories/ai/">AI</a>
+          <a href="/categories/ai/">AI</a>,
+          <a href="/categories/infosec/">Infosec</a>
       </div>
     
 
@@ -2034,6 +2035,174 @@
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
 
 
@@ -2072,6 +2241,62 @@
               <h4 class="pt-0 my-2">Model Context Protocol (MCP): The Emerging Standard Connecting AI to the Real World</h4>
               <div class="text-muted">
                 <p>Introduction As artificial intelligence continues to integrate into modern business operations, the need for a standardized way to connect AI models with real-world systems becomes more critical. T...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/online-veterinary-appointment-system-v1.0-multiple-sql-injection-via-id-in-Appointment-details/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1641387619"
+  data-df="ll"
+  
+>
+  Jan  5, 2022
+</time>
+
+              <h4 class="pt-0 my-2">Online Veterinary Appointment System v1.0 — Multiple SQL Injection via id in Appointment Details)</h4>
+              <div class="text-muted">
+                <p>Introduction I examined OVAS v1.0 to evaluate how its admin dashboard handled user-controlled identifiers that flow into database queries. Appointment management looked like a likely entry point: i...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/hospital-patient-records-management-system-v1.0-sqli/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1640869219"
+  data-df="ll"
+  
+>
+  Dec 30, 2021
+</time>
+
+              <h4 class="pt-0 my-2">Hospital's Patient Records Management System v1.0 - 'id' SQL Injection (Authenticated)</h4>
+              <div class="text-muted">
+                <p>Introduction During a focused review of HPRMS v1.0, I set out to evaluate the integrity of its record-view workflow inside the admin area—specifically how user-controlled identifiers are validated ...</p>
               </div>
             </div>
           </a>
