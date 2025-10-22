@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>twseptian</title>
   <subtitle>A personal space where I share simple reflections, lessons, and small discoveries from my continuous journey in learning—whether in information security, penetration testing, CTF, or exploring data science and machine learning.</subtitle>
-  <updated>2025-10-22T16:21:48+07:00</updated>
+  <updated>2025-10-22T20:33:52+07:00</updated>
   <author>
     <name>twseptian</name>
     <uri>http://localhost:4000/</uri>
@@ -21,13 +21,13 @@
   
   <entry>
     <title>Accelerating APK Analysis with MCP-Driven JADX Workflows</title>
-    <link href="http://localhost:4000/posts/ai-assisted-apk-reverse-engineering-with-mcp-and-jadx/" rel="alternate" type="text/html" title="Accelerating APK Analysis with MCP-Driven JADX Workflows" />
+    <link href="http://localhost:4000/posts/accelerating-apk-analysis-with-mcp-driven-jadx-workflows/" rel="alternate" type="text/html" title="Accelerating APK Analysis with MCP-Driven JADX Workflows" />
     <published>2025-10-22T16:00:19+07:00</published>
   
     <updated>2025-10-22T16:00:19+07:00</updated>
   
-    <id>http://localhost:4000/posts/ai-assisted-apk-reverse-engineering-with-mcp-and-jadx/</id>
-    <content type="text/html" src="http://localhost:4000/posts/ai-assisted-apk-reverse-engineering-with-mcp-and-jadx/" />
+    <id>http://localhost:4000/posts/accelerating-apk-analysis-with-mcp-driven-jadx-workflows/</id>
+    <content type="text/html" src="http://localhost:4000/posts/accelerating-apk-analysis-with-mcp-driven-jadx-workflows/" />
     <author>
       <name>twseptian</name>
     </author>

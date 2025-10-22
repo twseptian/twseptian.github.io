@@ -30,26 +30,26 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Online Railway Reservation System 1.0 - ‘id’ SQL Injection (Unauthenticated)" />
+<meta property="og:title" content="Accelerating APK Analysis with MCP-Driven JADX Workflows" />
 <meta name="author" content="Tri Wanda Septian" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Introduction As part of my routine web-application security research, I reviewed the Online Railway Reservation System (ORRS) v1.0 from SourceCodester. My objective was straightforward: understand the data flow behind its reservation feature and assess whether user-controlled inputs are safely handled before reaching the database. This write-up outlines what I tested, what I found, and how I suggest fixing it—without fluff and with enough detail for developers and security teams to act. Summary of the Finding I identified a time-based blind SQL injection affecting the reservation flow via the sid (or id) parameter processed by the page ?page=reserve. By inducing measurable response delays with crafted input, it was possible to confirm that SQL execution depends on unsafely concatenated user input. My Process &amp; Reproduction Steps While navigating Schedule → Book (Reservation Form), I noticed the page accepted a schedule identifier in the query string: 1 /orrs/?page=reserve&amp;sid=1 To probe whether sid was directly interpolated into SQL, I used a standard time-delay approach. I sent a payload designed to pause execution on the database side and watched for server response delays: 1 /orrs/?page=reserve&amp;sid=1&#39;) AND (SELECT 6842 FROM (SELECT(SLEEP(5)))UsWr) AND (&#39;WBCm&#39;=&#39;WBCm Observed result: The server consistently delayed its response by ~5 seconds, a strong indicator that user input flowed into a SQL expression without proper parameterization. Scope &amp; restraint: All testing was performed in a local lab environment with non-destructive, observation-only techniques. 1 2 3 4 5 6 7 8 - Exploit Title: Online Railway Reservation System 1.0 - &#39;id&#39; SQL Injection (Unauthenticated) - Date: 07/01/2022 - Exploit Author: twseptian - Vendor Homepage: https://www.sourcecodester.com/php/15121/online-railway-reservation-system-phpoop-project-free-source-code.html - Software Link: https://www.sourcecodester.com/sites/default/files/download/oretnom23/orrs.zip - Version: v1.0 - Tested on: Kali Linux 2021.4,PHP 7.4.26 - Exploit-DB: https://www.exploit-db.com/exploits/50646" />
-<meta property="og:description" content="Introduction As part of my routine web-application security research, I reviewed the Online Railway Reservation System (ORRS) v1.0 from SourceCodester. My objective was straightforward: understand the data flow behind its reservation feature and assess whether user-controlled inputs are safely handled before reaching the database. This write-up outlines what I tested, what I found, and how I suggest fixing it—without fluff and with enough detail for developers and security teams to act. Summary of the Finding I identified a time-based blind SQL injection affecting the reservation flow via the sid (or id) parameter processed by the page ?page=reserve. By inducing measurable response delays with crafted input, it was possible to confirm that SQL execution depends on unsafely concatenated user input. My Process &amp; Reproduction Steps While navigating Schedule → Book (Reservation Form), I noticed the page accepted a schedule identifier in the query string: 1 /orrs/?page=reserve&amp;sid=1 To probe whether sid was directly interpolated into SQL, I used a standard time-delay approach. I sent a payload designed to pause execution on the database side and watched for server response delays: 1 /orrs/?page=reserve&amp;sid=1&#39;) AND (SELECT 6842 FROM (SELECT(SLEEP(5)))UsWr) AND (&#39;WBCm&#39;=&#39;WBCm Observed result: The server consistently delayed its response by ~5 seconds, a strong indicator that user input flowed into a SQL expression without proper parameterization. Scope &amp; restraint: All testing was performed in a local lab environment with non-destructive, observation-only techniques. 1 2 3 4 5 6 7 8 - Exploit Title: Online Railway Reservation System 1.0 - &#39;id&#39; SQL Injection (Unauthenticated) - Date: 07/01/2022 - Exploit Author: twseptian - Vendor Homepage: https://www.sourcecodester.com/php/15121/online-railway-reservation-system-phpoop-project-free-source-code.html - Software Link: https://www.sourcecodester.com/sites/default/files/download/oretnom23/orrs.zip - Version: v1.0 - Tested on: Kali Linux 2021.4,PHP 7.4.26 - Exploit-DB: https://www.exploit-db.com/exploits/50646" />
-<link rel="canonical" href="http://localhost:4000/posts/online-railway-reservation-system-1.0/" />
-<meta property="og:url" content="http://localhost:4000/posts/online-railway-reservation-system-1.0/" />
+<meta name="description" content="Introduction Reverse engineering Android applications typically requires switching between tools, searching through source code manually, and repeatedly opening files in a decompiler to trace how an application behaves. With the Model Context Protocol (MCP), this workflow can be streamlined. MCP allows local tools to expose structured data to an AI assistant such as Claude, enabling the AI to query source code, search patterns, and extract configuration details directly from a reverse-engineering environment. By integrating JADX with an MCP server, Claude can access decompiled APK content and respond to natural-language questions like “show exported activities,” “search for API keys,” or “open the AndroidManifest file,” which speeds up analysis and reduces repetitive manual steps." />
+<meta property="og:description" content="Introduction Reverse engineering Android applications typically requires switching between tools, searching through source code manually, and repeatedly opening files in a decompiler to trace how an application behaves. With the Model Context Protocol (MCP), this workflow can be streamlined. MCP allows local tools to expose structured data to an AI assistant such as Claude, enabling the AI to query source code, search patterns, and extract configuration details directly from a reverse-engineering environment. By integrating JADX with an MCP server, Claude can access decompiled APK content and respond to natural-language questions like “show exported activities,” “search for API keys,” or “open the AndroidManifest file,” which speeds up analysis and reduces repetitive manual steps." />
+<link rel="canonical" href="http://localhost:4000/posts/accelerating-apk-analysis-with-mcp-driven-jadx-workflows/" />
+<meta property="og:url" content="http://localhost:4000/posts/accelerating-apk-analysis-with-mcp-driven-jadx-workflows/" />
 <meta property="og:site_name" content="twseptian" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-01-08T20:00:19+07:00" />
+<meta property="article:published_time" content="2025-10-22T16:00:19+07:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Online Railway Reservation System 1.0 - ‘id’ SQL Injection (Unauthenticated)" />
+<meta property="twitter:title" content="Accelerating APK Analysis with MCP-Driven JADX Workflows" />
 <meta name="twitter:site" content="@twseptian_" />
 <meta name="twitter:creator" content="@twseptian_" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Tri Wanda Septian","url":"https://github.com/twseptian/"},"dateModified":"2022-01-08T20:00:19+07:00","datePublished":"2022-01-08T20:00:19+07:00","description":"Introduction As part of my routine web-application security research, I reviewed the Online Railway Reservation System (ORRS) v1.0 from SourceCodester. My objective was straightforward: understand the data flow behind its reservation feature and assess whether user-controlled inputs are safely handled before reaching the database. This write-up outlines what I tested, what I found, and how I suggest fixing it—without fluff and with enough detail for developers and security teams to act. Summary of the Finding I identified a time-based blind SQL injection affecting the reservation flow via the sid (or id) parameter processed by the page ?page=reserve. By inducing measurable response delays with crafted input, it was possible to confirm that SQL execution depends on unsafely concatenated user input. My Process &amp; Reproduction Steps While navigating Schedule → Book (Reservation Form), I noticed the page accepted a schedule identifier in the query string: 1 /orrs/?page=reserve&amp;sid=1 To probe whether sid was directly interpolated into SQL, I used a standard time-delay approach. I sent a payload designed to pause execution on the database side and watched for server response delays: 1 /orrs/?page=reserve&amp;sid=1&#39;) AND (SELECT 6842 FROM (SELECT(SLEEP(5)))UsWr) AND (&#39;WBCm&#39;=&#39;WBCm Observed result: The server consistently delayed its response by ~5 seconds, a strong indicator that user input flowed into a SQL expression without proper parameterization. Scope &amp; restraint: All testing was performed in a local lab environment with non-destructive, observation-only techniques. 1 2 3 4 5 6 7 8 - Exploit Title: Online Railway Reservation System 1.0 - &#39;id&#39; SQL Injection (Unauthenticated) - Date: 07/01/2022 - Exploit Author: twseptian - Vendor Homepage: https://www.sourcecodester.com/php/15121/online-railway-reservation-system-phpoop-project-free-source-code.html - Software Link: https://www.sourcecodester.com/sites/default/files/download/oretnom23/orrs.zip - Version: v1.0 - Tested on: Kali Linux 2021.4,PHP 7.4.26 - Exploit-DB: https://www.exploit-db.com/exploits/50646","headline":"Online Railway Reservation System 1.0 - ‘id’ SQL Injection (Unauthenticated)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/online-railway-reservation-system-1.0/"},"url":"http://localhost:4000/posts/online-railway-reservation-system-1.0/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Tri Wanda Septian","url":"https://github.com/twseptian/"},"dateModified":"2025-10-22T16:00:19+07:00","datePublished":"2025-10-22T16:00:19+07:00","description":"Introduction Reverse engineering Android applications typically requires switching between tools, searching through source code manually, and repeatedly opening files in a decompiler to trace how an application behaves. With the Model Context Protocol (MCP), this workflow can be streamlined. MCP allows local tools to expose structured data to an AI assistant such as Claude, enabling the AI to query source code, search patterns, and extract configuration details directly from a reverse-engineering environment. By integrating JADX with an MCP server, Claude can access decompiled APK content and respond to natural-language questions like “show exported activities,” “search for API keys,” or “open the AndroidManifest file,” which speeds up analysis and reduces repetitive manual steps.","headline":"Accelerating APK Analysis with MCP-Driven JADX Workflows","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/accelerating-apk-analysis-with-mcp-driven-jadx-workflows/"},"url":"http://localhost:4000/posts/accelerating-apk-analysis-with-mcp-driven-jadx-workflows/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Online Railway Reservation System 1.0 - 'id' SQL Injection (Unauthenticated) | twseptian
+  <title>Accelerating APK Analysis with MCP-Driven JADX Workflows | twseptian
   </title>
 
   <!--
@@ -440,7 +440,7 @@
         
           
             
-              <span>Online Railway Reservation System 1.0 - 'id' SQL Injection (Unauthenticated)</span>
+              <span>Accelerating APK Analysis with MCP-Driven JADX Workflows</span>
             
 
           
@@ -508,6 +508,536 @@
 
 
 
+  
+  
+
+  
+    
+      
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+
+  
+
 
 <!-- Add header for code snippets -->
 
@@ -530,6 +1060,39 @@
       
         
         
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
       
 
       
@@ -598,7 +1161,7 @@
 
 <article class="px-1" data-toc="true">
   <header>
-    <h1 data-toc-skip>Online Railway Reservation System 1.0 - 'id' SQL Injection (Unauthenticated)</h1>
+    <h1 data-toc-skip>Accelerating APK Analysis with MCP-Driven JADX Workflows</h1>
     
 
     <div class="post-meta text-muted">
@@ -615,13 +1178,13 @@
 
 <time
   
-  data-ts="1641646819"
+  data-ts="1761123619"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Jan  8, 2022
+  Oct 22, 2025
 </time>
 
       </span>
@@ -673,9 +1236,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="277 words"
+  title="773 words"
 >
-  <em>1 min</em> read</span>
+  <em>4 min</em> read</span>
 
         </div>
       </div>
@@ -684,7 +1247,7 @@
 
   
     <div id="toc-bar" class="d-flex align-items-center justify-content-between invisible">
-      <span class="label text-truncate">Online Railway Reservation System 1.0 - 'id' SQL Injection (Unauthenticated)</span>
+      <span class="label text-truncate">Accelerating APK Analysis with MCP-Driven JADX Workflows</span>
       <button type="button" class="toc-trigger btn me-1">
         <i class="fa-solid fa-list-ul fa-fw"></i>
       </button>
@@ -697,7 +1260,7 @@
 
     <dialog id="toc-popup" class="p-0">
       <div class="header d-flex flex-row align-items-center justify-content-between">
-        <div class="label text-truncate py-2 ms-4">Online Railway Reservation System 1.0 - 'id' SQL Injection (Unauthenticated)</div>
+        <div class="label text-truncate py-2 ms-4">Accelerating APK Analysis with MCP-Driven JADX Workflows</div>
         <button id="toc-popup-close" type="button" class="btn mx-1 my-1 opacity-75">
           <i class="fas fa-close"></i>
         </button>
@@ -708,33 +1271,12 @@
 
   <div class="content">
     <h2 id="introduction"><span class="me-2">Introduction</span><a href="#introduction" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>As part of my routine web-application security research, I reviewed the Online Railway Reservation System (ORRS) v1.0 from SourceCodester. My objective was straightforward: understand the data flow behind its reservation feature and assess whether user-controlled inputs are safely handled before reaching the database. This write-up outlines what I tested, what I found, and how I suggest fixing it—without fluff and with enough detail for developers and security teams to act.</p>
+<p>Reverse engineering Android applications typically requires switching between tools, searching through source code manually, and repeatedly opening files in a decompiler to trace how an application behaves. With the Model Context Protocol (MCP), this workflow can be streamlined. MCP allows local tools to expose structured data to an AI assistant such as Claude, enabling the AI to query source code, search patterns, and extract configuration details directly from a reverse-engineering environment. By integrating JADX with an MCP server, Claude can access decompiled APK content and respond to natural-language questions like “show exported activities,” “search for API keys,” or “open the AndroidManifest file,” which speeds up analysis and reduces repetitive manual steps.</p>
 
-<h2 id="summary-of-the-finding"><span class="me-2">Summary of the Finding</span><a href="#summary-of-the-finding" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>I identified a time-based blind SQL injection affecting the reservation flow via the sid (or id) parameter processed by the page ?page=reserve. By inducing measurable response delays with crafted input, it was possible to confirm that SQL execution depends on unsafely concatenated user input.</p>
-
-<h2 id="my-process--reproduction-steps"><span class="me-2">My Process &amp; Reproduction Steps</span><a href="#my-process--reproduction-steps" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>While navigating Schedule → Book (Reservation Form), I noticed the page accepted a schedule identifier in the query string:</p>
-
-<div class="language-text highlighter-rouge"><div class="code-header">
-        <span data-label-text="Text"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>/orrs/?page=reserve&amp;sid=1
-</pre></td></tr></tbody></table></code></div></div>
-
-<p>To probe whether sid was directly interpolated into SQL, I used a standard time-delay approach. I sent a payload designed to pause execution on the database side and watched for server response delays:</p>
-
-<div class="language-text highlighter-rouge"><div class="code-header">
-        <span data-label-text="Text"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>/orrs/?page=reserve&amp;sid=1') AND (SELECT 6842 FROM (SELECT(SLEEP(5)))UsWr) AND ('WBCm'='WBCm
-</pre></td></tr></tbody></table></code></div></div>
-
-<p>Observed result: The server consistently delayed its response by ~5 seconds, a strong indicator that user input flowed into a SQL expression without proper parameterization.
-Scope &amp; restraint: All testing was performed in a local lab environment with non-destructive, observation-only techniques.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="code-header">
-        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+<h2 id="installation"><span class="me-2">Installation</span><a href="#installation" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>To install the MCP integration for JADX, begin by preparing your decompiled APK output using JADX as you normally would. Then download the two components from the jadx-ai-mcp GitHub repository: <a href="https://github.com/zinja-coder/jadx-ai-mcp">https://github.com/zinja-coder/jadx-ai-mcp</a> the JADX MCP plugin (JAR file)<sup id="fnref:footnote"><a href="#fn:footnote" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> and the MCP server package. Extract the MCP server files into a working directory on your machine, and create a Python virtual environment inside that folder. Once the environment is active, install the server dependencies using pip based on the provided requirements.txt. After the dependencies are installed, the MCP server will be ready to run locally through FastAPI and Uvicorn<sup id="fnref:footnote:1"><a href="#fn:footnote" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -743,15 +1285,97 @@ Scope &amp; restraint: All testing was performed in a local lab environment with
 6
 7
 8
-</pre></td><td class="rouge-code"><pre>- Exploit Title: Online Railway Reservation System 1.0 - 'id' SQL Injection (Unauthenticated)
-- Date: 07/01/2022
-- Exploit Author: twseptian
-- Vendor Homepage: https://www.sourcecodester.com/php/15121/online-railway-reservation-system-phpoop-project-free-source-code.html
-- Software Link: https://www.sourcecodester.com/sites/default/files/download/oretnom23/orrs.zip
-- Version: v1.0
-- Tested on: Kali Linux 2021.4,PHP 7.4.26
-- Exploit-DB: https://www.exploit-db.com/exploits/50646
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre>Navigate to jadx-mcp-server directory
+<span class="nb">cd </span>jadx-mcp-server
+
+<span class="c"># 4. This project uses uv - https://github.com/astral-sh/uv instead of pip for dependency management.</span>
+    <span class="c">## a. Install uv (if you dont have it yet)</span>
+curl <span class="nt">-LsSf</span> https://astral.sh/uv/install.sh | sh
+    <span class="c">## b. OPTIONAL, if for any reasons, you get dependecy errors in jadx-mcp-server, Set up the environment</span>
+uv venv
+<span class="nb">source</span> .venv/bin/activate  <span class="c"># or .venv\Scripts\activate on Windows</span>
+    <span class="c">## c. OPTIONAL Install dependencies</span>
+uv pip <span class="nb">install </span>httpx fastmcp
+
+<span class="c"># The setup for jadx-ai-mcp and jadx_mcp_server is done.</span>
 </pre></td></tr></tbody></table></code></div></div>
+
+<p>(readmore for installation: <a href="https://github.com/zinja-coder/jadx-ai-mcp">https://github.com/zinja-coder/jadx-ai-mcp</a>)<sup id="fnref:footnote:2"><a href="#fn:footnote" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</p>
+
+<p>Next, install the MCP plugin into JADX so the decompiler can communicate with the server. You can do this automatically using the built-in jadx plugins –install command or by manually loading the downloaded JAR file through the Plugins menu in JADX GUI.</p>
+
+<p><a href="/assets/img/posts/mcp-jadx-gui/02.mcp-jadx-gui.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-jadx-gui/02.mcp-jadx-gui.png" alt="Desktop View" loading="lazy"></a>
+<em>Installation Jadx MCP Server</em></p>
+
+<p>When the plugin is successfully installed, open Claude Desktop and add a new local MCP integration <code class="language-plaintext highlighter-rouge">claude_desktop_config.json</code>, pointing it to the same host and port used by the server. If the connection is successful, Claude will immediately detect the MCP server and display its available tools. At this point, the installation is complete and you can begin interacting with your decompiled APK through Claude (readmore for installation: <a href="https://github.com/zinja-coder/jadx-ai-mcp">https://github.com/zinja-coder/jadx-ai-mcp</a>)<sup id="fnref:footnote:3"><a href="#fn:footnote" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>       <span class="s2">"jadx-mcp-server"</span>: <span class="o">{</span>
+            <span class="s2">"command"</span>: <span class="s2">"/home/kali/.local/bin/uv"</span>,
+            <span class="s2">"args"</span>: <span class="o">[</span>
+                <span class="s2">"--directory"</span>,
+                <span class="s2">"/home/kali/Tools/jadx-mcp-server/"</span>,
+                <span class="s2">"run"</span>,
+                <span class="s2">"jadx_mcp_server.py"</span>
+            <span class="o">]</span>
+        <span class="o">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p><a href="/assets/img/posts/mcp-jadx-gui/03.mcp-jadx-gui.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-jadx-gui/03.mcp-jadx-gui.png" alt="Desktop View" loading="lazy"></a>
+<em>Claude Jadx MCP Server Status</em></p>
+
+<h2 id="usage"><span class="me-2">Usage</span><a href="#usage" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>With the MCP server connected, you can now interact with JADX through Claude using natural conversation instead of constant manual navigation. For example, you can ask Claude to examine AndroidManifest.xml, locate sensitive API calls, search for hard-coded credentials, or explore the structure of a particular class. MCP allows Claude to request only the specific data it needs—rather than copying entire files into the prompt—making the interaction faster, cleaner, and more secure. This setup is especially useful when auditing an APK for vulnerabilities, understanding control flow, or documenting findings during research.</p>
+
+<p><a href="/assets/img/posts/mcp-jadx-gui/04.mcp-jadx-gui.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-jadx-gui/04.mcp-jadx-gui.png" alt="Desktop View" loading="lazy"></a>
+<em>Claude &amp; Jadx MCP Server Usage (1)</em></p>
+
+<p><a href="/assets/img/posts/mcp-jadx-gui/05.mcp-jadx-gui.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-jadx-gui/05.mcp-jadx-gui.png" alt="Desktop View" loading="lazy"></a>
+<em>Claude &amp; Jadx MCP Server Usage (2)</em></p>
+
+<p><a href="/assets/img/posts/mcp-jadx-gui/06.mcp-jadx-gui.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-jadx-gui/06.mcp-jadx-gui.png" alt="Desktop View" loading="lazy"></a>
+<em>Claude &amp; Jadx MCP Server Usage Created Vulnerability Report</em></p>
+
+<p>The result is a smoother workflow where the AI becomes a knowledgeable helper that can both fetch code and explain it in context.</p>
+
+<p><a href="/assets/img/posts/mcp-jadx-gui/07.mcp-jadx-gui.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-jadx-gui/07.mcp-jadx-gui.png" alt="Desktop View" loading="lazy"></a>
+<em>Android Pentest Report</em></p>
+
+<p><a href="/assets/img/posts/mcp-jadx-gui/08.mcp-jadx-gui.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-jadx-gui/08.mcp-jadx-gui.png" alt="Desktop View" loading="lazy"></a>
+<em>Exploitation Guide</em></p>
+
+<p><a href="/assets/img/posts/mcp-jadx-gui/09.mcp-jadx-gui.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-jadx-gui/09.mcp-jadx-gui.png" alt="Desktop View" loading="lazy"></a>
+<em>Executive Summary</em></p>
+
+<h2 id="security-notes"><span class="me-2">Security Notes</span><a href="#security-notes" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>Because the MCP server exposes local project data to an AI client, it should always be run in a controlled environment. Bind the server only to the local interface, avoid sharing the port externally, and restrict its access to the decompiled project folder so it cannot read unrelated files. If the APK contains sensitive or proprietary information, keep the entire workflow offline and prefer a local model environment or Claude Desktop rather than a cloud interaction. Treat the MCP server as you would treat any local debugging interface—powerful but requiring careful boundaries.</p>
+
+<h2 id="conclusion"><span class="me-2">Conclusion</span><a href="#conclusion" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>Combining JADX with an MCP server transforms reverse engineering into a more efficient, AI-assisted process. Instead of browsing files manually or running repetitive searches, you can let Claude handle the exploration and focus on interpreting results. This approach is easy to set up, stays fully under your control, and significantly accelerates analysis when working with Android applications. Whether you are auditing, researching, or studying APK internals, this workflow offers a faster and more intuitive way to understand application behavior.</p>
+
+<h2 id="reference"><span class="me-2">Reference</span><a href="#reference" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:footnote">
+      <p>“JADX-AI-MCP (Part of Zin MCP Suite)”- <a href="https://github.com/zinja-coder/jadx-ai-mcp">https://github.com/zinja-coder/jadx-ai-mcp</a> <a href="#fnref:footnote" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a> <a href="#fnref:footnote:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>2</sup></a> <a href="#fnref:footnote:2" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>3</sup></a> <a href="#fnref:footnote:3" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>4</sup></a></p>
+    </li>
+  </ol>
+</div>
 
   </div>
 
@@ -761,9 +1385,9 @@ Scope &amp; restraint: All testing was performed in a local lab environment with
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         
-          <a href="/categories/infosec/">Infosec</a>,
-          <a href="/categories/cve/">CVE</a>,
-          <a href="/categories/research/">Research</a>
+          <a href="/categories/technology/">Technology</a>,
+          <a href="/categories/ai/">AI</a>,
+          <a href="/categories/infosec/">Infosec</a>
       </div>
     
 
@@ -773,14 +1397,14 @@ Scope &amp; restraint: All testing was performed in a local lab environment with
         <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="/tags/cve/"
+            href="/tags/technology/"
             class="post-tag no-text-decoration"
-          >cve</a>
+          >technology</a>
         
           <a
-            href="/tags/infosec/"
+            href="/tags/artificial-inteligence/"
             class="post-tag no-text-decoration"
-          >infosec</a>
+          >artificial inteligence</a>
         
       </div>
     
@@ -816,21 +1440,21 @@ Scope &amp; restraint: All testing was performed in a local lab environment with
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=Online%20Railway%20Reservation%20System%201.0%20-%20'id'%20SQL%20Injection%20(Unauthenticated)%20-%20twseptian&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fonline-railway-reservation-system-1.0%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=Accelerating%20APK%20Analysis%20with%20MCP-Driven%20JADX%20Workflows%20-%20twseptian&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Faccelerating-apk-analysis-with-mcp-driven-jadx-workflows%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=Online%20Railway%20Reservation%20System%201.0%20-%20'id'%20SQL%20Injection%20(Unauthenticated)%20-%20twseptian&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fonline-railway-reservation-system-1.0%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=Accelerating%20APK%20Analysis%20with%20MCP-Driven%20JADX%20Workflows%20-%20twseptian&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Faccelerating-apk-analysis-with-mcp-driven-jadx-workflows%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fonline-railway-reservation-system-1.0%2F&text=Online%20Railway%20Reservation%20System%201.0%20-%20'id'%20SQL%20Injection%20(Unauthenticated)%20-%20twseptian" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Faccelerating-apk-analysis-with-mcp-driven-jadx-workflows%2F&text=Accelerating%20APK%20Analysis%20with%20MCP-Driven%20JADX%20Workflows%20-%20twseptian" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
@@ -1389,67 +2013,55 @@ Scope &amp; restraint: All testing was performed in a local lab environment with
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
 
 
 
@@ -1465,7 +2077,7 @@ Scope &amp; restraint: All testing was performed in a local lab environment with
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/posts/hospital-patient-records-management-system-v1.0-idor/" class="post-preview card h-100">
+          <a href="/posts/from-burp-to-claude-quick-mcp-integration-guide/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1477,23 +2089,23 @@ Scope &amp; restraint: All testing was performed in a local lab environment with
 
 <time
   
-  data-ts="1640005219"
+  data-ts="1760835619"
   data-df="ll"
   
 >
-  Dec 20, 2021
+  Oct 19, 2025
 </time>
 
-              <h4 class="pt-0 my-2">Hospitals Patient Records Management System v1.0 — IDOR (Account Takeover)</h4>
+              <h4 class="pt-0 my-2">From Burp to Claude: Quick MCP Integration Guide</h4>
               <div class="text-muted">
-                <p>Introduction I reviewed HPRMS v1.0 to assess how its admin area handles identity and authorization in routine CRUD flows. Applications with profile-edit features often expose object identifiers dir...</p>
+                <p>Introduction Connecting Burp Suite to an AI model like Claude 1 2is straightforward using the Model Context Protocol (MCP). MCP acts as a bridge that lets AI tools consume real contextual data from...</p>
               </div>
             </div>
           </a>
         </article>
       
         <article class="col">
-          <a href="/posts/cve-2021-44228/" class="post-preview card h-100">
+          <a href="/posts/mcp-introduction/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1505,23 +2117,23 @@ Scope &amp; restraint: All testing was performed in a local lab environment with
 
 <time
   
-  data-ts="1639400419"
+  data-ts="1759971619"
   data-df="ll"
   
 >
-  Dec 13, 2021
+  Oct  9, 2025
 </time>
 
-              <h4 class="pt-0 my-2">CVE-2021-44228 (Log4Shell) — Field Notes from a Focused Web-App Review</h4>
+              <h4 class="pt-0 my-2">Model Context Protocol (MCP): The Emerging Standard Connecting AI to the Real World</h4>
               <div class="text-muted">
-                <p>Introduction In late 2021 I revisited one of our Java web applications to validate exposure to Log4Shell. My goal was pragmatic: verify if any user-controlled input was reaching Log4j without stric...</p>
+                <p>Introduction As artificial intelligence continues to integrate into modern business operations, the need for a standardized way to connect AI models with real-world systems becomes more critical. T...</p>
               </div>
             </div>
           </a>
         </article>
       
         <article class="col">
-          <a href="/posts/cve-2021-24623/" class="post-preview card h-100">
+          <a href="/posts/online-veterinary-appointment-system-v1.0-multiple-sql-injection-via-id-in-Appointment-details/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1533,16 +2145,16 @@ Scope &amp; restraint: All testing was performed in a local lab environment with
 
 <time
   
-  data-ts="1633093219"
+  data-ts="1641387619"
   data-df="ll"
   
 >
-  Oct  1, 2021
+  Jan  5, 2022
 </time>
 
-              <h4 class="pt-0 my-2">WordPress Advanced Ticket System < 1.0.64 — Authenticated Stored XSS in Ticket Metadata</h4>
+              <h4 class="pt-0 my-2">Online Veterinary Appointment System v1.0 — Multiple SQL Injection via id in Appointment Details)</h4>
               <div class="text-muted">
-                <p>Introduction  While reviewing help-desk and ticketing plugins for WordPress, I focused on how user-supplied ticket metadata is validated before being stored and rendered. These flows often accept m...</p>
+                <p>Introduction I examined OVAS v1.0 to evaluate how its admin dashboard handled user-controlled identifiers that flow into database queries. Appointment management looked like a likely entry point: i...</p>
               </div>
             </div>
           </a>
@@ -1563,22 +2175,18 @@ Scope &amp; restraint: All testing was performed in a local lab environment with
 
   
     <a
-      href="/posts/online-veterinary-appointment-system-v1.0-multiple-sql-injection-via-id-in-Appointment-details/"
+      href="/posts/from-burp-to-claude-quick-mcp-integration-guide/"
       class="btn btn-outline-primary"
       aria-label="Older"
     >
-      <p>Online Veterinary Appointment System v1.0 — Multiple SQL Injection via id in Appointment Details)</p>
+      <p>From Burp to Claude: Quick MCP Integration Guide</p>
     </a>
   
 
   
-    <a
-      href="/posts/bahasa-pengalaman-ujian-sertifikasi-ceh-practical/"
-      class="btn btn-outline-primary"
-      aria-label="Newer"
-    >
-      <p>[Bahasa] Pengalaman Ujian Sertifikasi CEH Practical</p>
-    </a>
+    <div class="btn btn-outline-primary disabled" aria-label="Newer">
+      <p>-</p>
+    </div>
   
 </nav>
 
