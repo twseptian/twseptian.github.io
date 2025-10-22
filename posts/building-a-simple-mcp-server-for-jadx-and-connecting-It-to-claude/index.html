@@ -1236,9 +1236,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="701 words"
+  title="773 words"
 >
-  <em>3 min</em> read</span>
+  <em>4 min</em> read</span>
 
         </div>
       </div>
@@ -1274,14 +1274,45 @@
 <p>Reverse engineering Android applications typically requires switching between tools, searching through source code manually, and repeatedly opening files in a decompiler to trace how an application behaves. With the Model Context Protocol (MCP), this workflow can be streamlined. MCP allows local tools to expose structured data to an AI assistant such as Claude, enabling the AI to query source code, search patterns, and extract configuration details directly from a reverse-engineering environment. By integrating JADX with an MCP server, Claude can access decompiled APK content and respond to natural-language questions like “show exported activities,” “search for API keys,” or “open the AndroidManifest file,” which speeds up analysis and reduces repetitive manual steps.</p>
 
 <h2 id="installation"><span class="me-2">Installation</span><a href="#installation" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>To install the MCP integration for JADX, begin by preparing your decompiled APK output using JADX as you normally would. Then download the two components from the jadx-ai-mcp GitHub repository: <a href="https://github.com/zinja-coder/jadx-ai-mcp">https://github.com/zinja-coder/jadx-ai-mcp</a> the JADX MCP plugin (JAR file)<sup id="fnref:footnote"><a href="#fn:footnote" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> and the MCP server package. Extract the MCP server files into a working directory on your machine, and create a Python virtual environment inside that folder. Once the environment is active, install the server dependencies using pip based on the provided requirements.txt. After the dependencies are installed, the MCP server will be ready to run locally through FastAPI and Uvicorn (readmore for installation: <a href="https://github.com/zinja-coder/jadx-ai-mcp">https://github.com/zinja-coder/jadx-ai-mcp</a>).</p>
+<p>To install the MCP integration for JADX, begin by preparing your decompiled APK output using JADX as you normally would. Then download the two components from the jadx-ai-mcp GitHub repository: <a href="https://github.com/zinja-coder/jadx-ai-mcp">https://github.com/zinja-coder/jadx-ai-mcp</a> the JADX MCP plugin (JAR file)<sup id="fnref:footnote"><a href="#fn:footnote" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> and the MCP server package. Extract the MCP server files into a working directory on your machine, and create a Python virtual environment inside that folder. Once the environment is active, install the server dependencies using pip based on the provided requirements.txt. After the dependencies are installed, the MCP server will be ready to run locally through FastAPI and Uvicorn<sup id="fnref:footnote:1"><a href="#fn:footnote" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre>Navigate to jadx-mcp-server directory
+<span class="nb">cd </span>jadx-mcp-server
+
+<span class="c"># 4. This project uses uv - https://github.com/astral-sh/uv instead of pip for dependency management.</span>
+    <span class="c">## a. Install uv (if you dont have it yet)</span>
+curl <span class="nt">-LsSf</span> https://astral.sh/uv/install.sh | sh
+    <span class="c">## b. OPTIONAL, if for any reasons, you get dependecy errors in jadx-mcp-server, Set up the environment</span>
+uv venv
+<span class="nb">source</span> .venv/bin/activate  <span class="c"># or .venv\Scripts\activate on Windows</span>
+    <span class="c">## c. OPTIONAL Install dependencies</span>
+uv pip <span class="nb">install </span>httpx fastmcp
+
+<span class="c"># The setup for jadx-ai-mcp and jadx_mcp_server is done.</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>(readmore for installation: <a href="https://github.com/zinja-coder/jadx-ai-mcp">https://github.com/zinja-coder/jadx-ai-mcp</a>)<sup id="fnref:footnote:2"><a href="#fn:footnote" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</p>
 
 <p>Next, install the MCP plugin into JADX so the decompiler can communicate with the server. You can do this automatically using the built-in jadx plugins –install command or by manually loading the downloaded JAR file through the Plugins menu in JADX GUI.</p>
 
 <p><a href="/assets/img/posts/mcp-jadx-gui/02.mcp-jadx-gui.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-jadx-gui/02.mcp-jadx-gui.png" alt="Desktop View" loading="lazy"></a>
 <em>Installation Jadx MCP Server</em></p>
 
-<p>When the plugin is successfully installed, launch the MCP server from the terminal and make sure it runs on 127.0.0.1 so it stays local and secure. Once the server is running, open Claude Desktop and add a new local MCP integration <code class="language-plaintext highlighter-rouge">claude_desktop_config.json</code>, pointing it to the same host and port used by the server. If the connection is successful, Claude will immediately detect the MCP server and display its available tools. At this point, the installation is complete and you can begin interacting with your decompiled APK through Claude.</p>
+<p>When the plugin is successfully installed, open Claude Desktop and add a new local MCP integration <code class="language-plaintext highlighter-rouge">claude_desktop_config.json</code>, pointing it to the same host and port used by the server. If the connection is successful, Claude will immediately detect the MCP server and display its available tools. At this point, the installation is complete and you can begin interacting with your decompiled APK through Claude (readmore for installation: <a href="https://github.com/zinja-coder/jadx-ai-mcp">https://github.com/zinja-coder/jadx-ai-mcp</a>)<sup id="fnref:footnote:3"><a href="#fn:footnote" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</p>
 
 <div class="language-bash highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
@@ -1341,7 +1372,7 @@
 <div class="footnotes" role="doc-endnotes">
   <ol>
     <li id="fn:footnote">
-      <p>“JADX-AI-MCP (Part of Zin MCP Suite)”- <a href="https://github.com/zinja-coder/jadx-ai-mcp">https://github.com/zinja-coder/jadx-ai-mcp</a> <a href="#fnref:footnote" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
+      <p>“JADX-AI-MCP (Part of Zin MCP Suite)”- <a href="https://github.com/zinja-coder/jadx-ai-mcp">https://github.com/zinja-coder/jadx-ai-mcp</a> <a href="#fnref:footnote" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a> <a href="#fnref:footnote:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>2</sup></a> <a href="#fnref:footnote:2" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>3</sup></a> <a href="#fnref:footnote:3" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>4</sup></a></p>
     </li>
   </ol>
 </div>
