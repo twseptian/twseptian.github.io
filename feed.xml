@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>twseptian</title>
   <subtitle>A personal space where I share simple reflections, lessons, and small discoveries from my continuous journey in learning—whether in information security, penetration testing, CTF, or exploring data science and machine learning.</subtitle>
-  <updated>2025-10-22T16:09:48+07:00</updated>
+  <updated>2025-10-22T16:21:48+07:00</updated>
   <author>
     <name>twseptian</name>
     <uri>http://localhost:4000/</uri>
@@ -20,14 +20,14 @@
 
   
   <entry>
-    <title>Building a Simple MCP Server for JADX and Connecting It to Claude</title>
-    <link href="http://localhost:4000/posts/building-a-simple-mcp-server-for-jadx-and-connecting-It-to-claude/" rel="alternate" type="text/html" title="Building a Simple MCP Server for JADX and Connecting It to Claude" />
-    <published>2025-10-22T08:00:19+07:00</published>
+    <title>Accelerating APK Analysis with MCP-Driven JADX Workflows</title>
+    <link href="http://localhost:4000/posts/ai-assisted-apk-reverse-engineering-with-mcp-and-jadx/" rel="alternate" type="text/html" title="Accelerating APK Analysis with MCP-Driven JADX Workflows" />
+    <published>2025-10-22T16:00:19+07:00</published>
   
-    <updated>2025-10-22T08:00:19+07:00</updated>
+    <updated>2025-10-22T16:00:19+07:00</updated>
   
-    <id>http://localhost:4000/posts/building-a-simple-mcp-server-for-jadx-and-connecting-It-to-claude/</id>
-    <content type="text/html" src="http://localhost:4000/posts/building-a-simple-mcp-server-for-jadx-and-connecting-It-to-claude/" />
+    <id>http://localhost:4000/posts/ai-assisted-apk-reverse-engineering-with-mcp-and-jadx/</id>
+    <content type="text/html" src="http://localhost:4000/posts/ai-assisted-apk-reverse-engineering-with-mcp-and-jadx/" />
     <author>
       <name>twseptian</name>
     </author>
