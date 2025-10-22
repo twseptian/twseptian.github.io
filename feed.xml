@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>twseptian</title>
   <subtitle>A personal space where I share simple reflections, lessons, and small discoveries from my continuous journey in learning—whether in information security, penetration testing, CTF, or exploring data science and machine learning.</subtitle>
-  <updated>2025-10-21T22:00:45+07:00</updated>
+  <updated>2025-10-22T16:03:01+07:00</updated>
   <author>
     <name>twseptian</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,34 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Building a Simple MCP Server for JADX and Connecting It to Claude</title>
+    <link href="http://localhost:4000/posts/building-a-simple-mcp-server-for-jadx-and-connecting-It-to-claude/" rel="alternate" type="text/html" title="Building a Simple MCP Server for JADX and Connecting It to Claude" />
+    <published>2025-10-22T08:00:19+07:00</published>
+  
+    <updated>2025-10-22T08:00:19+07:00</updated>
+  
+    <id>http://localhost:4000/posts/building-a-simple-mcp-server-for-jadx-and-connecting-It-to-claude/</id>
+    <content type="text/html" src="http://localhost:4000/posts/building-a-simple-mcp-server-for-jadx-and-connecting-It-to-claude/" />
+    <author>
+      <name>twseptian</name>
+    </author>
+
+  
+    
+    <category term="Technology" />
+    
+    <category term="AI" />
+    
+    <category term="Infosec" />
+    
+  
+
+  <summary>Introduction Reverse engineering Android applications typically requires switching between tools, searching through source code manually, and repeatedly opening files in a decompiler to trace how an application behaves. With the Model Context Protocol (MCP), this workflow can be streamlined. MCP allows local tools to expose structured data to an AI assistant such as Claude, enabling the AI to q...</summary>
+
+  </entry>
 
   
   <entry>
@@ -123,34 +151,6 @@
   
 
   <summary>Introduction This article outlines my work in researching Internet of Things (IoT) security and producing curated datasets for intrusion detection, protocol analysis, and machine-learning experiments. The focus is on practical, reproducible methods for capturing and labeling traffic that reflects real deployment conditions. Links to the underlying records are provided for verification and reuse...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>My Journey in CVE Research: From Discovery to Disclosure</title>
-    <link href="http://localhost:4000/posts/my-journey-in-cve-research-from-discovery-to-disclosure/" rel="alternate" type="text/html" title="My Journey in CVE Research: From Discovery to Disclosure" />
-    <published>2023-12-01T20:00:19+07:00</published>
-  
-    <updated>2023-12-01T20:00:19+07:00</updated>
-  
-    <id>http://localhost:4000/posts/my-journey-in-cve-research-from-discovery-to-disclosure/</id>
-    <content type="text/html" src="http://localhost:4000/posts/my-journey-in-cve-research-from-discovery-to-disclosure/" />
-    <author>
-      <name>twseptian</name>
-    </author>
-
-  
-    
-    <category term="Infosec" />
-    
-    <category term="CVE" />
-    
-    <category term="Research" />
-    
-  
-
-  <summary>Introduction Researching software vulnerabilities and contributing to the CVE ecosystem is both a technical challenge and a responsibility. This post highlights my personal experience in vulnerability research—how I discovered flaws, validated them safely, and worked through the disclosure process that eventually led to public CVE assignments.    Why I Pursue CVE Research My motivation stems fr...</summary>
 
   </entry>
 

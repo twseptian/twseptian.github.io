@@ -30,26 +30,26 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="My Journey in CVE Research: From Discovery to Disclosure" />
+<meta property="og:title" content="Building a Simple MCP Server for JADX and Connecting It to Claude" />
 <meta name="author" content="Tri Wanda Septian" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Introduction Researching software vulnerabilities and contributing to the CVE ecosystem is both a technical challenge and a responsibility. This post highlights my personal experience in vulnerability research—how I discovered flaws, validated them safely, and worked through the disclosure process that eventually led to public CVE assignments." />
-<meta property="og:description" content="Introduction Researching software vulnerabilities and contributing to the CVE ecosystem is both a technical challenge and a responsibility. This post highlights my personal experience in vulnerability research—how I discovered flaws, validated them safely, and worked through the disclosure process that eventually led to public CVE assignments." />
-<link rel="canonical" href="http://localhost:4000/posts/my-journey-in-cve-research-from-discovery-to-disclosure/" />
-<meta property="og:url" content="http://localhost:4000/posts/my-journey-in-cve-research-from-discovery-to-disclosure/" />
+<meta name="description" content="Introduction Reverse engineering Android applications typically requires switching between tools, searching through source code manually, and repeatedly opening files in a decompiler to trace how an application behaves. With the Model Context Protocol (MCP), this workflow can be streamlined. MCP allows local tools to expose structured data to an AI assistant such as Claude, enabling the AI to query source code, search patterns, and extract configuration details directly from a reverse-engineering environment. By integrating JADX with an MCP server, Claude can access decompiled APK content and respond to natural-language questions like “show exported activities,” “search for API keys,” or “open the AndroidManifest file,” which speeds up analysis and reduces repetitive manual steps." />
+<meta property="og:description" content="Introduction Reverse engineering Android applications typically requires switching between tools, searching through source code manually, and repeatedly opening files in a decompiler to trace how an application behaves. With the Model Context Protocol (MCP), this workflow can be streamlined. MCP allows local tools to expose structured data to an AI assistant such as Claude, enabling the AI to query source code, search patterns, and extract configuration details directly from a reverse-engineering environment. By integrating JADX with an MCP server, Claude can access decompiled APK content and respond to natural-language questions like “show exported activities,” “search for API keys,” or “open the AndroidManifest file,” which speeds up analysis and reduces repetitive manual steps." />
+<link rel="canonical" href="http://localhost:4000/posts/building-a-simple-mcp-server-for-jadx-and-connecting-It-to-claude/" />
+<meta property="og:url" content="http://localhost:4000/posts/building-a-simple-mcp-server-for-jadx-and-connecting-It-to-claude/" />
 <meta property="og:site_name" content="twseptian" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-12-01T20:00:19+07:00" />
+<meta property="article:published_time" content="2025-10-22T08:00:19+07:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="My Journey in CVE Research: From Discovery to Disclosure" />
+<meta property="twitter:title" content="Building a Simple MCP Server for JADX and Connecting It to Claude" />
 <meta name="twitter:site" content="@twseptian_" />
 <meta name="twitter:creator" content="@twseptian_" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Tri Wanda Septian","url":"https://github.com/twseptian/"},"dateModified":"2023-12-01T20:00:19+07:00","datePublished":"2023-12-01T20:00:19+07:00","description":"Introduction Researching software vulnerabilities and contributing to the CVE ecosystem is both a technical challenge and a responsibility. This post highlights my personal experience in vulnerability research—how I discovered flaws, validated them safely, and worked through the disclosure process that eventually led to public CVE assignments.","headline":"My Journey in CVE Research: From Discovery to Disclosure","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/my-journey-in-cve-research-from-discovery-to-disclosure/"},"url":"http://localhost:4000/posts/my-journey-in-cve-research-from-discovery-to-disclosure/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Tri Wanda Septian","url":"https://github.com/twseptian/"},"dateModified":"2025-10-22T08:00:19+07:00","datePublished":"2025-10-22T08:00:19+07:00","description":"Introduction Reverse engineering Android applications typically requires switching between tools, searching through source code manually, and repeatedly opening files in a decompiler to trace how an application behaves. With the Model Context Protocol (MCP), this workflow can be streamlined. MCP allows local tools to expose structured data to an AI assistant such as Claude, enabling the AI to query source code, search patterns, and extract configuration details directly from a reverse-engineering environment. By integrating JADX with an MCP server, Claude can access decompiled APK content and respond to natural-language questions like “show exported activities,” “search for API keys,” or “open the AndroidManifest file,” which speeds up analysis and reduces repetitive manual steps.","headline":"Building a Simple MCP Server for JADX and Connecting It to Claude","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/building-a-simple-mcp-server-for-jadx-and-connecting-It-to-claude/"},"url":"http://localhost:4000/posts/building-a-simple-mcp-server-for-jadx-and-connecting-It-to-claude/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>My Journey in CVE Research: From Discovery to Disclosure | twseptian
+  <title>Building a Simple MCP Server for JADX and Connecting It to Claude | twseptian
   </title>
 
   <!--
@@ -440,7 +440,7 @@
         
           
             
-              <span>My Journey in CVE Research: From Discovery to Disclosure</span>
+              <span>Building a Simple MCP Server for JADX and Connecting It to Claude</span>
             
 
           
@@ -507,6 +507,536 @@
 
 
 
+
+  
+  
+
+  
+    
+      
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+
+  
 
 
 <!-- Add header for code snippets -->
@@ -604,38 +1134,6 @@
   
 
   
-    
-    
-
-    
-      
-        
-        
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-
-    
-  
 
   
   
@@ -663,7 +1161,7 @@
 
 <article class="px-1" data-toc="true">
   <header>
-    <h1 data-toc-skip>My Journey in CVE Research: From Discovery to Disclosure</h1>
+    <h1 data-toc-skip>Building a Simple MCP Server for JADX and Connecting It to Claude</h1>
     
 
     <div class="post-meta text-muted">
@@ -680,13 +1178,13 @@
 
 <time
   
-  data-ts="1701435619"
+  data-ts="1761094819"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Dec  1, 2023
+  Oct 22, 2025
 </time>
 
       </span>
@@ -738,9 +1236,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="410 words"
+  title="701 words"
 >
-  <em>2 min</em> read</span>
+  <em>3 min</em> read</span>
 
         </div>
       </div>
@@ -749,7 +1247,7 @@
 
   
     <div id="toc-bar" class="d-flex align-items-center justify-content-between invisible">
-      <span class="label text-truncate">My Journey in CVE Research: From Discovery to Disclosure</span>
+      <span class="label text-truncate">Building a Simple MCP Server for JADX and Connecting It to Claude</span>
       <button type="button" class="toc-trigger btn me-1">
         <i class="fa-solid fa-list-ul fa-fw"></i>
       </button>
@@ -762,7 +1260,7 @@
 
     <dialog id="toc-popup" class="p-0">
       <div class="header d-flex flex-row align-items-center justify-content-between">
-        <div class="label text-truncate py-2 ms-4">My Journey in CVE Research: From Discovery to Disclosure</div>
+        <div class="label text-truncate py-2 ms-4">Building a Simple MCP Server for JADX and Connecting It to Claude</div>
         <button id="toc-popup-close" type="button" class="btn mx-1 my-1 opacity-75">
           <i class="fas fa-close"></i>
         </button>
@@ -773,88 +1271,80 @@
 
   <div class="content">
     <h2 id="introduction"><span class="me-2">Introduction</span><a href="#introduction" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>Researching software vulnerabilities and contributing to the CVE ecosystem is both a technical challenge and a responsibility. This post highlights my personal experience in vulnerability research—how I discovered flaws, validated them safely, and worked through the disclosure process that eventually led to public CVE assignments.</p>
+<p>Reverse engineering Android applications typically requires switching between tools, searching through source code manually, and repeatedly opening files in a decompiler to trace how an application behaves. With the Model Context Protocol (MCP), this workflow can be streamlined. MCP allows local tools to expose structured data to an AI assistant such as Claude, enabling the AI to query source code, search patterns, and extract configuration details directly from a reverse-engineering environment. By integrating JADX with an MCP server, Claude can access decompiled APK content and respond to natural-language questions like “show exported activities,” “search for API keys,” or “open the AndroidManifest file,” which speeds up analysis and reduces repetitive manual steps.</p>
 
-<hr />
+<h2 id="installation"><span class="me-2">Installation</span><a href="#installation" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>To install the MCP integration for JADX, begin by preparing your decompiled APK output using JADX as you normally would. Then download the two components from the jadx-ai-mcp GitHub repository: <a href="https://github.com/zinja-coder/jadx-ai-mcp">https://github.com/zinja-coder/jadx-ai-mcp</a> the JADX MCP plugin (JAR file)<sup id="fnref:footnote"><a href="#fn:footnote" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> and the MCP server package. Extract the MCP server files into a working directory on your machine, and create a Python virtual environment inside that folder. Once the environment is active, install the server dependencies using pip based on the provided requirements.txt. After the dependencies are installed, the MCP server will be ready to run locally through FastAPI and Uvicorn (readmore for installation: <a href="https://github.com/zinja-coder/jadx-ai-mcp">https://github.com/zinja-coder/jadx-ai-mcp</a>).</p>
 
-<h2 id="why-i-pursue-cve-research"><span class="me-2">Why I Pursue CVE Research</span><a href="#why-i-pursue-cve-research" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>My motivation stems from three key goals:</p>
+<p>Next, install the MCP plugin into JADX so the decompiler can communicate with the server. You can do this automatically using the built-in jadx plugins –install command or by manually loading the downloaded JAR file through the Plugins menu in JADX GUI.</p>
 
-<ol>
-  <li><strong>Improving security</strong> in widely used applications.</li>
-  <li><strong>Challenging myself</strong> through real-world vulnerability hunting.</li>
-  <li><strong>Contributing to the community</strong> by documenting findings publicly in CVE databases, Exploit-DB, and security advisories.</li>
-</ol>
+<p><a href="/assets/img/posts/mcp-jadx-gui/02.mcp-jadx-gui.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-jadx-gui/02.mcp-jadx-gui.png" alt="Desktop View" loading="lazy"></a>
+<em>Installation Jadx MCP Server</em></p>
 
-<p>Each CVE is not just a number; it reflects effort, analysis, communication, and a contribution toward a safer ecosystem.</p>
+<p>When the plugin is successfully installed, launch the MCP server from the terminal and make sure it runs on 127.0.0.1 so it stays local and secure. Once the server is running, open Claude Desktop and add a new local MCP integration <code class="language-plaintext highlighter-rouge">claude_desktop_config.json</code>, pointing it to the same host and port used by the server. If the connection is successful, Claude will immediately detect the MCP server and display its available tools. At this point, the installation is complete and you can begin interacting with your decompiled APK through Claude.</p>
 
-<hr />
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>       <span class="s2">"jadx-mcp-server"</span>: <span class="o">{</span>
+            <span class="s2">"command"</span>: <span class="s2">"/home/kali/.local/bin/uv"</span>,
+            <span class="s2">"args"</span>: <span class="o">[</span>
+                <span class="s2">"--directory"</span>,
+                <span class="s2">"/home/kali/Tools/jadx-mcp-server/"</span>,
+                <span class="s2">"run"</span>,
+                <span class="s2">"jadx_mcp_server.py"</span>
+            <span class="o">]</span>
+        <span class="o">}</span>
+</pre></td></tr></tbody></table></code></div></div>
 
-<h2 id="research-approach"><span class="me-2">Research Approach</span><a href="#research-approach" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>Here’s the typical workflow I follow when hunting vulnerabilities:</p>
+<p><a href="/assets/img/posts/mcp-jadx-gui/03.mcp-jadx-gui.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-jadx-gui/03.mcp-jadx-gui.png" alt="Desktop View" loading="lazy"></a>
+<em>Claude Jadx MCP Server Status</em></p>
 
-<ol>
-  <li>
-    <p><strong>Reconnaissance &amp; Inventory</strong><br />
-Identify application versions, plugins, and changelogs—especially outdated or unpatched components.</p>
-  </li>
-  <li>
-    <p><strong>Input Analysis</strong><br />
-Map input vectors such as <code class="language-plaintext highlighter-rouge">id</code> parameters, form fields, or embedded content options.</p>
-  </li>
-  <li>
-    <p><strong>Proof-of-Concept (Non-Destructive)</strong><br />
-Craft controlled payloads to safely confirm the existence of flaws (e.g., blind SQLi timing, harmless XSS markers).</p>
-  </li>
-  <li>
-    <p><strong>Manual Verification</strong><br />
-Cross-check results to avoid false positives and gather reproducible evidence.</p>
-  </li>
-  <li>
-    <p><strong>Responsible Disclosure</strong><br />
-Contact vendors, share detailed steps, and allow remediation time before public release or CVE request.</p>
-  </li>
-</ol>
+<h2 id="usage"><span class="me-2">Usage</span><a href="#usage" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>With the MCP server connected, you can now interact with JADX through Claude using natural conversation instead of constant manual navigation. For example, you can ask Claude to examine AndroidManifest.xml, locate sensitive API calls, search for hard-coded credentials, or explore the structure of a particular class. MCP allows Claude to request only the specific data it needs—rather than copying entire files into the prompt—making the interaction faster, cleaner, and more secure. This setup is especially useful when auditing an APK for vulnerabilities, understanding control flow, or documenting findings during research.</p>
 
-<hr />
+<p><a href="/assets/img/posts/mcp-jadx-gui/04.mcp-jadx-gui.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-jadx-gui/04.mcp-jadx-gui.png" alt="Desktop View" loading="lazy"></a>
+<em>Claude &amp; Jadx MCP Server Usage (1)</em></p>
 
-<h2 id="selected-research-outcomes"><span class="me-2">Selected Research Outcomes</span><a href="#selected-research-outcomes" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>Below are some of my published findings, with direct links to Exploit-DB and WPScan entries.</p>
+<p><a href="/assets/img/posts/mcp-jadx-gui/05.mcp-jadx-gui.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-jadx-gui/05.mcp-jadx-gui.png" alt="Desktop View" loading="lazy"></a>
+<em>Claude &amp; Jadx MCP Server Usage (2)</em></p>
 
-<h3 id="exploit-db-publications"><span class="me-2">Exploit-DB Publications</span><a href="#exploit-db-publications" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<ul>
-  <li><a href="https://www.exploit-db.com/exploits/50631">Hospitals Patient Records Management System 1.0 – Account TakeOver</a></li>
-  <li><a href="https://www.exploit-db.com/exploits/50630">Hospitals Patient Records Management System 1.0 – ‘id’ SQL Injection (Authenticated)</a></li>
-  <li><a href="https://www.exploit-db.com/exploits/50644">Online Veterinary Appointment System 1.0 – ‘Multiple’ SQL Injection</a></li>
-  <li><a href="https://www.exploit-db.com/exploits/50646">Online Railway Reservation System 1.0 – ‘id’ SQL Injection (Unauthenticated)</a></li>
-  <li><a href="https://www.exploit-db.com/exploits/50966">Old Age Home Management System 1.0 – SQLi Authentication Bypass</a></li>
-</ul>
+<p><a href="/assets/img/posts/mcp-jadx-gui/06.mcp-jadx-gui.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-jadx-gui/06.mcp-jadx-gui.png" alt="Desktop View" loading="lazy"></a>
+<em>Claude &amp; Jadx MCP Server Usage Created Vulnerability Report</em></p>
 
-<h3 id="cve-publications-via-wpscan"><span class="me-2">CVE Publications (via WPScan)</span><a href="#cve-publications-via-wpscan" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<ul>
-  <li><a href="https://wpscan.com/vulnerability/e8b5c609-dc67-4dce-b6bb-7d63c0c2a014">CVE-2021-24614 – Book appointment Online &lt; 1.39 – Authenticated Stored XSS</a></li>
-  <li><a href="https://wpscan.com/vulnerability/bfbb32ac-9ef9-46de-8e5e-7d6d6fb868d8">CVE-2021-24621 – WP Courses LMS &lt; 2.0.44 – Authenticated Stored XSS via Video Embed Code</a></li>
-  <li><a href="https://wpscan.com/vulnerability/41a2c72c-7db1-473a-8844-47f6ae9d0594">CVE-2021-24622 – WP Ticket &lt; 5.10.4 – Admin+ Stored XSS</a></li>
-  <li><a href="https://wpscan.com/vulnerability/41d9027c-a982-44c7-889e-721333496b5c">CVE-2021-24623 – Advanced Ticket System &lt; 1.0.64 – Authenticated Stored XSS</a></li>
-  <li><a href="https://wpscan.com/vulnerability/5e442dd9-a49d-4a8e-959b-199a8689da4b">CVE-2022-2395 – weForms &lt; 1.6.14 – Admin+ Stored XSS</a></li>
-</ul>
+<p>The result is a smoother workflow where the AI becomes a knowledgeable helper that can both fetch code and explain it in context.</p>
 
-<hr />
+<p><a href="/assets/img/posts/mcp-jadx-gui/07.mcp-jadx-gui.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-jadx-gui/07.mcp-jadx-gui.png" alt="Desktop View" loading="lazy"></a>
+<em>Android Pentest Report</em></p>
 
-<h2 id="key-lessons-learned"><span class="me-2">Key Lessons Learned</span><a href="#key-lessons-learned" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<ul>
-  <li><strong>Clear documentation accelerates vendor response.</strong></li>
-  <li><strong>Manual review is essential</strong> to confirm findings from automated scans.</li>
-  <li><strong>Responsible disclosure builds trust</strong> and ensures vulnerabilities are patched safely.</li>
-  <li><strong>Patience pays off</strong>—from discovery to CVE publication can be a lengthy process.</li>
-</ul>
+<p><a href="/assets/img/posts/mcp-jadx-gui/08.mcp-jadx-gui.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-jadx-gui/08.mcp-jadx-gui.png" alt="Desktop View" loading="lazy"></a>
+<em>Exploitation Guide</em></p>
 
-<hr />
+<p><a href="/assets/img/posts/mcp-jadx-gui/09.mcp-jadx-gui.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-jadx-gui/09.mcp-jadx-gui.png" alt="Desktop View" loading="lazy"></a>
+<em>Executive Summary</em></p>
+
+<h2 id="security-notes"><span class="me-2">Security Notes</span><a href="#security-notes" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>Because the MCP server exposes local project data to an AI client, it should always be run in a controlled environment. Bind the server only to the local interface, avoid sharing the port externally, and restrict its access to the decompiled project folder so it cannot read unrelated files. If the APK contains sensitive or proprietary information, keep the entire workflow offline and prefer a local model environment or Claude Desktop rather than a cloud interaction. Treat the MCP server as you would treat any local debugging interface—powerful but requiring careful boundaries.</p>
 
 <h2 id="conclusion"><span class="me-2">Conclusion</span><a href="#conclusion" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>CVE research is about persistence, responsibility, and contributing back to the community. Every published CVE is a small step toward better security for everyone. My journey continues, and I hope sharing this process helps aspiring security researchers understand not only the <em>how</em> but also the <em>why</em> of vulnerability disclosure.</p>
+<p>Combining JADX with an MCP server transforms reverse engineering into a more efficient, AI-assisted process. Instead of browsing files manually or running repetitive searches, you can let Claude handle the exploration and focus on interpreting results. This approach is easy to set up, stays fully under your control, and significantly accelerates analysis when working with Android applications. Whether you are auditing, researching, or studying APK internals, this workflow offers a faster and more intuitive way to understand application behavior.</p>
 
-<hr />
+<h2 id="reference"><span class="me-2">Reference</span><a href="#reference" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:footnote">
+      <p>“JADX-AI-MCP (Part of Zin MCP Suite)”- <a href="https://github.com/zinja-coder/jadx-ai-mcp">https://github.com/zinja-coder/jadx-ai-mcp</a> <a href="#fnref:footnote" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
+    </li>
+  </ol>
+</div>
 
   </div>
 
@@ -864,9 +1354,9 @@ Contact vendors, share detailed steps, and allow remediation time before public 
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         
-          <a href="/categories/infosec/">Infosec</a>,
-          <a href="/categories/cve/">CVE</a>,
-          <a href="/categories/research/">Research</a>
+          <a href="/categories/technology/">Technology</a>,
+          <a href="/categories/ai/">AI</a>,
+          <a href="/categories/infosec/">Infosec</a>
       </div>
     
 
@@ -876,14 +1366,14 @@ Contact vendors, share detailed steps, and allow remediation time before public 
         <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="/tags/cve/"
+            href="/tags/technology/"
             class="post-tag no-text-decoration"
-          >cve</a>
+          >technology</a>
         
           <a
-            href="/tags/infosec/"
+            href="/tags/artificial-inteligence/"
             class="post-tag no-text-decoration"
-          >infosec</a>
+          >artificial inteligence</a>
         
       </div>
     
@@ -919,21 +1409,21 @@ Contact vendors, share detailed steps, and allow remediation time before public 
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=My%20Journey%20in%20CVE%20Research:%20From%20Discovery%20to%20Disclosure%20-%20twseptian&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fmy-journey-in-cve-research-from-discovery-to-disclosure%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=Building%20a%20Simple%20MCP%20Server%20for%20JADX%20and%20Connecting%20It%20to%20Claude%20-%20twseptian&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fbuilding-a-simple-mcp-server-for-jadx-and-connecting-It-to-claude%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=My%20Journey%20in%20CVE%20Research:%20From%20Discovery%20to%20Disclosure%20-%20twseptian&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fmy-journey-in-cve-research-from-discovery-to-disclosure%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=Building%20a%20Simple%20MCP%20Server%20for%20JADX%20and%20Connecting%20It%20to%20Claude%20-%20twseptian&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fbuilding-a-simple-mcp-server-for-jadx-and-connecting-It-to-claude%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fmy-journey-in-cve-research-from-discovery-to-disclosure%2F&text=My%20Journey%20in%20CVE%20Research:%20From%20Discovery%20to%20Disclosure%20-%20twseptian" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fbuilding-a-simple-mcp-server-for-jadx-and-connecting-It-to-claude%2F&text=Building%20a%20Simple%20MCP%20Server%20for%20JADX%20and%20Connecting%20It%20to%20Claude%20-%20twseptian" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
@@ -1504,55 +1994,43 @@ Contact vendors, share detailed steps, and allow remediation time before public 
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
 
 
 
@@ -1568,7 +2046,7 @@ Contact vendors, share detailed steps, and allow remediation time before public 
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/posts/hospital-patient-records-management-system-v1.0-idor/" class="post-preview card h-100">
+          <a href="/posts/from-burp-to-claude-quick-mcp-integration-guide/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1580,23 +2058,23 @@ Contact vendors, share detailed steps, and allow remediation time before public 
 
 <time
   
-  data-ts="1640005219"
+  data-ts="1760835619"
   data-df="ll"
   
 >
-  Dec 20, 2021
+  Oct 19, 2025
 </time>
 
-              <h4 class="pt-0 my-2">Hospitals Patient Records Management System v1.0 — IDOR (Account Takeover)</h4>
+              <h4 class="pt-0 my-2">From Burp to Claude: Quick MCP Integration Guide</h4>
               <div class="text-muted">
-                <p>Introduction I reviewed HPRMS v1.0 to assess how its admin area handles identity and authorization in routine CRUD flows. Applications with profile-edit features often expose object identifiers dir...</p>
+                <p>Introduction Connecting Burp Suite to an AI model like Claude 1 2is straightforward using the Model Context Protocol (MCP). MCP acts as a bridge that lets AI tools consume real contextual data from...</p>
               </div>
             </div>
           </a>
         </article>
       
         <article class="col">
-          <a href="/posts/cve-2021-44228/" class="post-preview card h-100">
+          <a href="/posts/mcp-introduction/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1608,23 +2086,23 @@ Contact vendors, share detailed steps, and allow remediation time before public 
 
 <time
   
-  data-ts="1639400419"
+  data-ts="1759971619"
   data-df="ll"
   
 >
-  Dec 13, 2021
+  Oct  9, 2025
 </time>
 
-              <h4 class="pt-0 my-2">CVE-2021-44228 (Log4Shell) — Field Notes from a Focused Web-App Review</h4>
+              <h4 class="pt-0 my-2">Model Context Protocol (MCP): The Emerging Standard Connecting AI to the Real World</h4>
               <div class="text-muted">
-                <p>Introduction In late 2021 I revisited one of our Java web applications to validate exposure to Log4Shell. My goal was pragmatic: verify if any user-controlled input was reaching Log4j without stric...</p>
+                <p>Introduction As artificial intelligence continues to integrate into modern business operations, the need for a standardized way to connect AI models with real-world systems becomes more critical. T...</p>
               </div>
             </div>
           </a>
         </article>
       
         <article class="col">
-          <a href="/posts/cve-2021-24623/" class="post-preview card h-100">
+          <a href="/posts/online-veterinary-appointment-system-v1.0-multiple-sql-injection-via-id-in-Appointment-details/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1636,16 +2114,16 @@ Contact vendors, share detailed steps, and allow remediation time before public 
 
 <time
   
-  data-ts="1633093219"
+  data-ts="1641387619"
   data-df="ll"
   
 >
-  Oct  1, 2021
+  Jan  5, 2022
 </time>
 
-              <h4 class="pt-0 my-2">WordPress Advanced Ticket System < 1.0.64 — Authenticated Stored XSS in Ticket Metadata</h4>
+              <h4 class="pt-0 my-2">Online Veterinary Appointment System v1.0 — Multiple SQL Injection via id in Appointment Details)</h4>
               <div class="text-muted">
-                <p>Introduction  While reviewing help-desk and ticketing plugins for WordPress, I focused on how user-supplied ticket metadata is validated before being stored and rendered. These flows often accept m...</p>
+                <p>Introduction I examined OVAS v1.0 to evaluate how its admin dashboard handled user-controlled identifiers that flow into database queries. Appointment management looked like a likely entry point: i...</p>
               </div>
             </div>
           </a>
@@ -1666,22 +2144,18 @@ Contact vendors, share detailed steps, and allow remediation time before public 
 
   
     <a
-      href="/posts/english-ceh-practical-certification-exam-experience/"
+      href="/posts/from-burp-to-claude-quick-mcp-integration-guide/"
       class="btn btn-outline-primary"
       aria-label="Older"
     >
-      <p>[English] CEH Practical Certification Exam Experience</p>
+      <p>From Burp to Claude: Quick MCP Integration Guide</p>
     </a>
   
 
   
-    <a
-      href="/posts/iot-dataset-research/"
-      class="btn btn-outline-primary"
-      aria-label="Newer"
-    >
-      <p>IoT Dataset Research: Curating Realistic Traffic for Security Analysis</p>
-    </a>
+    <div class="btn btn-outline-primary disabled" aria-label="Newer">
+      <p>-</p>
+    </div>
   
 </nav>
 
