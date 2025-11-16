@@ -30,26 +30,26 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="From Burp to Claude: Quick MCP Integration Guide" />
+<meta property="og:title" content="Exploring Domain Admin Attack Paths With BloodHound MCP" />
 <meta name="author" content="Tri Wanda Septian" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Introduction Connecting Burp Suite to an AI model like Claude 1 2is straightforward using the Model Context Protocol (MCP). MCP acts as a bridge that lets AI tools consume real contextual data from your security tooling — not just plain text — enabling the model to leverage Burp’s intercepts, traces, and session context for more practical, context-aware analysis. “Claude.” Claude.ai, 2025, claude.ai/new.” - https://claude.ai/new &#8617;&amp;#xfe0e; “Aaddrick/Claude-Desktop-Debian: Claude Desktop for Debian-Based Linux Distributions.” GitHub, github.com/aaddrick/claude-desktop-debian - https://github.com/aaddrick/claude-desktop-debian &#8617;&amp;#xfe0e;" />
-<meta property="og:description" content="Introduction Connecting Burp Suite to an AI model like Claude 1 2is straightforward using the Model Context Protocol (MCP). MCP acts as a bridge that lets AI tools consume real contextual data from your security tooling — not just plain text — enabling the model to leverage Burp’s intercepts, traces, and session context for more practical, context-aware analysis. “Claude.” Claude.ai, 2025, claude.ai/new.” - https://claude.ai/new &#8617;&amp;#xfe0e; “Aaddrick/Claude-Desktop-Debian: Claude Desktop for Debian-Based Linux Distributions.” GitHub, github.com/aaddrick/claude-desktop-debian - https://github.com/aaddrick/claude-desktop-debian &#8617;&amp;#xfe0e;" />
-<link rel="canonical" href="http://localhost:4000/posts/from-burp-to-claude-quick-mcp-integration-guide/" />
-<meta property="og:url" content="http://localhost:4000/posts/from-burp-to-claude-quick-mcp-integration-guide/" />
+<meta name="description" content="Introduction BloodHound has become indispensable for investigating high-value access in modern AD environments. Instead of manually inspecting OU structures, ACLs or legacy groups, it creates relationship graphs that highlight real effective privileges. In this walkthrough, the Community Edition sample data serves as the foundation for understanding Domain Admin paths, nested group chains and misconfigurations. While the dataset is synthetic, its structure mimics real enterprise privilege patterns, providing an excellent base for practicing analysis techniques before using BloodHound against a live environment1. “Chatting with Your Attack Paths: An MCP for BloodHound”- https://specterops.io/blog/2025/06/04/chatting-with-your-attack-paths-an-mcp-for-bloodhound/ &#8617;&amp;#xfe0e;" />
+<meta property="og:description" content="Introduction BloodHound has become indispensable for investigating high-value access in modern AD environments. Instead of manually inspecting OU structures, ACLs or legacy groups, it creates relationship graphs that highlight real effective privileges. In this walkthrough, the Community Edition sample data serves as the foundation for understanding Domain Admin paths, nested group chains and misconfigurations. While the dataset is synthetic, its structure mimics real enterprise privilege patterns, providing an excellent base for practicing analysis techniques before using BloodHound against a live environment1. “Chatting with Your Attack Paths: An MCP for BloodHound”- https://specterops.io/blog/2025/06/04/chatting-with-your-attack-paths-an-mcp-for-bloodhound/ &#8617;&amp;#xfe0e;" />
+<link rel="canonical" href="http://localhost:4000/posts/exploring-domain-admin-attack-paths-with-bloodhound-mcp/" />
+<meta property="og:url" content="http://localhost:4000/posts/exploring-domain-admin-attack-paths-with-bloodhound-mcp/" />
 <meta property="og:site_name" content="twseptian" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-10-19T08:00:19+07:00" />
+<meta property="article:published_time" content="2025-10-25T20:00:19+07:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="From Burp to Claude: Quick MCP Integration Guide" />
+<meta property="twitter:title" content="Exploring Domain Admin Attack Paths With BloodHound MCP" />
 <meta name="twitter:site" content="@twseptian_" />
 <meta name="twitter:creator" content="@twseptian_" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Tri Wanda Septian","url":"https://github.com/twseptian/"},"dateModified":"2025-10-19T08:00:19+07:00","datePublished":"2025-10-19T08:00:19+07:00","description":"Introduction Connecting Burp Suite to an AI model like Claude 1 2is straightforward using the Model Context Protocol (MCP). MCP acts as a bridge that lets AI tools consume real contextual data from your security tooling — not just plain text — enabling the model to leverage Burp’s intercepts, traces, and session context for more practical, context-aware analysis. “Claude.” Claude.ai, 2025, claude.ai/new.” - https://claude.ai/new &#8617;&amp;#xfe0e; “Aaddrick/Claude-Desktop-Debian: Claude Desktop for Debian-Based Linux Distributions.” GitHub, github.com/aaddrick/claude-desktop-debian - https://github.com/aaddrick/claude-desktop-debian &#8617;&amp;#xfe0e;","headline":"From Burp to Claude: Quick MCP Integration Guide","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/from-burp-to-claude-quick-mcp-integration-guide/"},"url":"http://localhost:4000/posts/from-burp-to-claude-quick-mcp-integration-guide/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Tri Wanda Septian","url":"https://github.com/twseptian/"},"dateModified":"2025-10-25T20:00:19+07:00","datePublished":"2025-10-25T20:00:19+07:00","description":"Introduction BloodHound has become indispensable for investigating high-value access in modern AD environments. Instead of manually inspecting OU structures, ACLs or legacy groups, it creates relationship graphs that highlight real effective privileges. In this walkthrough, the Community Edition sample data serves as the foundation for understanding Domain Admin paths, nested group chains and misconfigurations. While the dataset is synthetic, its structure mimics real enterprise privilege patterns, providing an excellent base for practicing analysis techniques before using BloodHound against a live environment1. “Chatting with Your Attack Paths: An MCP for BloodHound”- https://specterops.io/blog/2025/06/04/chatting-with-your-attack-paths-an-mcp-for-bloodhound/ &#8617;&amp;#xfe0e;","headline":"Exploring Domain Admin Attack Paths With BloodHound MCP","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/exploring-domain-admin-attack-paths-with-bloodhound-mcp/"},"url":"http://localhost:4000/posts/exploring-domain-admin-attack-paths-with-bloodhound-mcp/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>From Burp to Claude: Quick MCP Integration Guide | twseptian
+  <title>Exploring Domain Admin Attack Paths With BloodHound MCP | twseptian
   </title>
 
   <!--
@@ -440,7 +440,7 @@
         
           
             
-              <span>From Burp to Claude: Quick MCP Integration Guide</span>
+              <span>Exploring Domain Admin Attack Paths With BloodHound MCP</span>
             
 
           
@@ -970,266 +970,6 @@
     <!-- combine -->
     
   
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
 
   
 
@@ -1255,6 +995,28 @@
       
         
         
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
       
 
       
@@ -1334,7 +1096,7 @@
 
 <article class="px-1" data-toc="true">
   <header>
-    <h1 data-toc-skip>From Burp to Claude: Quick MCP Integration Guide</h1>
+    <h1 data-toc-skip>Exploring Domain Admin Attack Paths With BloodHound MCP</h1>
     
 
     <div class="post-meta text-muted">
@@ -1351,13 +1113,13 @@
 
 <time
   
-  data-ts="1760835619"
+  data-ts="1761397219"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Oct 19, 2025
+  Oct 25, 2025
 </time>
 
       </span>
@@ -1409,9 +1171,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="691 words"
+  title="1401 words"
 >
-  <em>3 min</em> read</span>
+  <em>7 min</em> read</span>
 
         </div>
       </div>
@@ -1420,7 +1182,7 @@
 
   
     <div id="toc-bar" class="d-flex align-items-center justify-content-between invisible">
-      <span class="label text-truncate">From Burp to Claude: Quick MCP Integration Guide</span>
+      <span class="label text-truncate">Exploring Domain Admin Attack Paths With BloodHound MCP</span>
       <button type="button" class="toc-trigger btn me-1">
         <i class="fa-solid fa-list-ul fa-fw"></i>
       </button>
@@ -1433,7 +1195,7 @@
 
     <dialog id="toc-popup" class="p-0">
       <div class="header d-flex flex-row align-items-center justify-content-between">
-        <div class="label text-truncate py-2 ms-4">From Burp to Claude: Quick MCP Integration Guide</div>
+        <div class="label text-truncate py-2 ms-4">Exploring Domain Admin Attack Paths With BloodHound MCP</div>
         <button id="toc-popup-close" type="button" class="btn mx-1 my-1 opacity-75">
           <i class="fas fa-close"></i>
         </button>
@@ -1444,27 +1206,58 @@
 
   <div class="content">
     <h2 id="introduction"><span class="me-2">Introduction</span><a href="#introduction" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>Connecting Burp Suite to an AI model like Claude <sup id="fnref:footnote"><a href="#fn:footnote" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> <sup id="fnref:fn-nth-2"><a href="#fn:fn-nth-2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>is straightforward using the Model Context Protocol (MCP). MCP acts as a bridge that lets AI tools consume real contextual data from your security tooling — not just plain text — enabling the model to leverage Burp’s intercepts, traces, and session context for more practical, context-aware analysis.</p>
+<p>BloodHound has become indispensable for investigating high-value access in modern AD environments. Instead of manually inspecting OU structures, ACLs or legacy groups, it creates relationship graphs that highlight real effective privileges. In this walkthrough, the Community Edition sample data serves as the foundation for understanding Domain Admin paths, nested group chains and misconfigurations. While the dataset is synthetic, its structure mimics real enterprise privilege patterns, providing an excellent base for practicing analysis techniques before using BloodHound against a live environment<sup id="fnref:footnote"><a href="#fn:footnote" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</p>
 
 <h2 id="installation"><span class="me-2">Installation</span><a href="#installation" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<ul>
+  <li>Step 1: Clone the Repository
+Start by obtaining the MCP server code from GitHub <sup id="fnref:fn-nth-2"><a href="#fn:fn-nth-2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>. In your terminal navigate to your working directory and run:</li>
+</ul>
 
-<p>To get started, open Burp Suite and add the MCP extension from the Extensions tab<sup id="fnref:fn-nth-3"><a href="#fn:fn-nth-3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>. The extension runs a local MCP server inside Burp that handles communication with the AI client. By default the server listens on http://127.0.0.1:9876, though you can adjust host and port as needed. After enabling the server, an automated installer option will apply MCP configuration to Claude Desktop <sup id="fnref:fn-nth-2:1"><a href="#fn:fn-nth-2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup> so the two can communicate.</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>git clone https://github.com/mwnickerson/bloodhound_mcp.git
+<span class="nb">cd </span>bloodhound_mcp
+</pre></td></tr></tbody></table></code></div></div>
+<p>This gives you the full project locally, including the main script, dependencies configuration (pyproject.toml), and the example files.</p>
 
-<p><a href="/assets/img/posts/mcp-burp-suite/05.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/05.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
-<em>Burp Suite MCP Server Extentions</em></p>
+<ul>
+  <li>Step 2: Install Dependencies
+This project requires Python 3.11 or newer and uses the <code class="language-plaintext highlighter-rouge">uv</code> package manager (UltraViolet) for dependency management. After entering the project folder, install the dependencies by executing:</li>
+</ul>
 
-<p>In practice the workflow is simple: install the extension, enable the MCP server in the Extensions tab, then use the provided install/configure button to link Claude Desktop (note: in this case, i used ‘Claude Desktop for Linux’<sup id="fnref:fn-nth-2:2"><a href="#fn:fn-nth-2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>).</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>uv <span class="nb">sync</span>
+</pre></td></tr></tbody></table></code></div></div>
+<p>This command reads the <code class="language-plaintext highlighter-rouge">pyproject.toml</code> and <code class="language-plaintext highlighter-rouge">uv.lock</code> files and installs the required packages into the environment. Ensure that Python path and uv are available in your shell.</p>
 
-<p><a href="/assets/img/posts/mcp-burp-suite/03.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/03.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
-<em>Burp Suite MCP Server (1)</em></p>
+<ul>
+  <li>Step 3: Configure Environment Variables
+The MCP server requires you to set a few environment variables so it can connect to your BloodHound instance’s REST API. Create a file named .env in the root of the bloodhound_mcp folder with the following entries:</li>
+</ul>
 
-<p><a href="/assets/img/posts/mcp-burp-suite/04.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/04.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
-<em>Burp Suite MCP Server (2)</em></p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nv">BLOODHOUND_DOMAIN</span><span class="o">=</span>your-bloodhound-instance.domain.com  
+<span class="nv">BLOODHOUND_TOKEN_ID</span><span class="o">=</span>your-token-id  
+<span class="nv">BLOODHOUND_TOKEN_KEY</span><span class="o">=</span>your-token-key  
+</pre></td></tr></tbody></table></code></div></div>
+<p>Replace the placeholders with your actual BloodHound server’s domain name or IP address, and the token ID/key you generated in the BloodHound administration UI. Without these values filled in, the MCP server cannot authenticate and retrieve data.</p>
 
-<p>The installation process will typically update a local claude_desktop_config.json with MCP-related settings; for example, an entry might look like:</p>
+<ul>
+  <li>Step 4: Setting Up Integration with Claude Desktop (Optional but Recommended)
+If you plan to use the MCP server via Claude Desktop (for natural‐language querying of BloodHound data), open Claude Desktop and navigate to Settings → Developer Tools. Add the following configuration to your <code class="language-plaintext highlighter-rouge">claude_desktop_config.json</code> file:</li>
+</ul>
 
-<div class="language-html highlighter-rouge"><div class="code-header">
-        <span data-label-text="HTML"><i class="fas fa-code fa-fw small"></i></span>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -1476,71 +1269,105 @@
 9
 10
 11
-</pre></td><td class="rouge-code"><pre>...
-        "burp": {
-            "command": "/home/kali/BurpSuitePro/jre/bin/java",
-            "args": [
-                "-jar",
-                "/home/kali/.BurpSuite/mcp-proxy/mcp-proxy-all.jar",
-                "--sse-url",
-                "http://127.0.0.1:9876"
-            ]
-        }
-...
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="o">{</span>
+  <span class="s2">"mcpServers"</span>: <span class="o">{</span>
+    <span class="s2">"bloodhound_mcp"</span>: <span class="o">{</span>
+      <span class="s2">"command"</span>: <span class="s2">"uv"</span>,
+      <span class="s2">"args"</span>: <span class="o">[</span>
+        <span class="s2">"--directory"</span>,
+        <span class="s2">"/path/to/your/bloodhound_mcp"</span>,
+        <span class="s2">"run"</span>,
+        <span class="s2">"main.py"</span>
+      <span class="o">]</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<p><a href="/assets/img/posts/mcp-burp-suite/02.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/02.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
-<em>Burp Suite Script Configuration claude_desktop_config.json</em></p>
+<p>Modify /path/to/your/bloodhound_mcp to match the local path where you cloned the repository. After saving the configuration, restart Claude Desktop so that it recognizes the new MCP server configuration.</p>
 
-<p>Once configuration is complete and Claude is restarted, you should see an option to share Burp context with Claude<sup id="fnref:footnote:1"><a href="#fn:footnote" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>. This allows intercepted requests, trace information, and other session details from Burp to be injected into the AI prompt, enriching the model’s responses with live testing context.</p>
+<ul>
+  <li>
+    <p>Step 5: Obtain Your BloodHound CE Instance and Token Setup
+Ensure you have a running BloodHound Community Edition or other compatible BloodHound server instance with your data imported (for example via SharpHound). Log into the BloodHound UI, navigate to Administration → API Tokens, and create a token with the appropriate permissions (users, groups, graph queries). Once created, copy the Token ID and Token Key into the .env file you prepared previously<sup id="fnref:footnote:1"><a href="#fn:footnote" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</p>
+  </li>
+  <li>
+    <p>Step 6: Launch the MCP Server
+With dependencies installed, environment variables configured, and BloodHound ready, start the MCP server by executing:</p>
+  </li>
+</ul>
 
-<p><a href="/assets/img/posts/mcp-burp-suite/01.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/01.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
-<em>Burp Suite Configuration claude_desktop_config.json</em></p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>uv run main.py
+</pre></td></tr></tbody></table></code></div></div>
+<p>You should see the server initialize and bind to its interface, listening for incoming requests from Claude Desktop or whatever client you’re using to access MCP. Logs should show successful connection to your BloodHound domain and token authentication.</p>
 
-<p><a href="/assets/img/posts/mcp-burp-suite/06.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/06.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
-<em>Burp Suite MCP Server with Prompt Input in Claude Desktop</em></p>
+<ul>
+  <li>
+    <p>Step 7: Verify Connectivity and Make a Sample Query
+In Claude Desktop (or via any HTTP/REST client if you prefer), you can begin interacting with the MCP server. For example, ask: “What domains are available in BloodHound?” The MCP server will forward the request to the BloodHound API, return a structured list of domains, and you will see the response in the client interface. This verifies that the entire pipeline—MCP server → BloodHound API → data retrieval—is functioning <sup id="fnref:fn-nth-2:1"><a href="#fn:fn-nth-2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>.</p>
+  </li>
+  <li>
+    <p>Step 8: Apply to Real Data and Produce Results
+Once the MCP server is operational, you can run natural-language queries or scripted interactions to explore your BloodHound dataset: find users, groups, identify shortest paths to Domain Admins, inspect SPNs, look for kerberoastable accounts and more<sup id="fnref:footnote:2"><a href="#fn:footnote" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</p>
+  </li>
+</ul>
 
-<p>The figure below shows Burp Suite with the Extensions/MCP area active and a prompt indicating that an MCP client is requesting to send an HTTP request to the local MCP endpoint. This is a normal authorization step; you should verify and allow connections only from known clients.</p>
+<h2 id="usage"><span class="me-2">Usage</span><a href="#usage" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>With all components connected—Claude as the front-end interface, the BloodHound MCP as the middleware, and BloodHound Community Edition as the underlying graph platform—the workflow becomes far more streamlined than a traditional manual BloodHound analysis. The CE sample dataset <sup id="fnref:fn-nth-3"><a href="#fn:fn-nth-3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>provided the base graph structure, while the MCP layer translated natural-language requests from Claude into precise API calls against the BloodHound CE backend. This integration transformed what is normally a series of Cypher queries and UI-driven clicks into a more conversational and guided exploration of the environment.</p>
 
-<p>With MCP enabled, exercise a test request in Burp Repeater. The idea is to craft or capture an HTTP interaction you want the AI to analyze and then replay or refine it. Use Repeater to modify parameters or headers and observe how the application responds.</p>
+<p>The moment the sample dataset finished ingesting, Claude was able to request the list of domains, enumerate high-value groups and map privilege relationships simply by asking. The MCP server parsed each request, issued the correct BloodHound API calls and returned structured results that Claude could interpret and summarize. This workflow made it easy to observe how administrative privileges were distributed: GHOST.CORP and WRAITH.CORP each held four Domain Admin accounts, while PHANTOM.CORP contained thirteen. Even without interacting directly with the BloodHound UI, Claude provided immediate insight into the imbalance and highlighted the likelihood of privilege sprawl within PHANTOM.CORP.</p>
 
-<p>The screenshot illustrates a Repeater window with a captured request. The MCP prompt is visible again: Burp is being asked to forward the request context to an MCP client. At this point you can choose to allow a single-use forward or allow the host permanently, depending on your workflow and trust model.</p>
+<p><a href="/assets/img/posts/mcp-bloodhound/1.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-bloodhound/1.png" alt="Desktop View" loading="lazy"></a>
+<em>Claude &amp; Bloodhound MCP Server Usage - Prompt Input</em></p>
 
-<p><a href="/assets/img/posts/mcp-burp-suite/07.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/07.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
-<em>Burp Suite MCP Server need permission</em></p>
+<p>Expanding group-level paths through Claude was equally smooth. When asked to explain how a particular user or group obtained Domain Admin rights, the MCP server traced the inbound relationships in the graph and returned each hop in a readable structure. Claude converted these results into an explanation of the nested group chain, demonstrating how indirect inheritance within PHANTOM.CORP granted elevated rights through several intermediary groups. This kind of privilege stacking is exactly what BloodHound is designed to expose, and the MCP integration made the process feel more like guided analysis than raw graph interrogation<sup id="fnref:fn-nth-2:2"><a href="#fn:fn-nth-2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>.</p>
 
-<p>The figures show a rendered response view inside Burp while the AI pane on the right is summarizing the result and generating human-friendly observations. This side-by-side layout enables quick iterative testing: modify requests in Repeater and immediately see how the AI updates its narrative and suggestions.</p>
+<p><a href="/assets/img/posts/mcp-bloodhound/2.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-bloodhound/2.png" alt="Desktop View" loading="lazy"></a>
+<em>Claude &amp; Bloodhound MCP Server Usage - Analyze BloodHound File</em></p>
 
-<p><a href="/assets/img/posts/mcp-burp-suite/08.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/08.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
-<em>Burp Suite MCP Server Found SQL Injection Vulnerability (1)</em></p>
+<p>Claude also handled attribute-level inspection, which is normally performed inside the BloodHound UI. A simple request to “show risky Domain Admin attributes” prompted the MCP to query each account’s Kerberos settings, delegation flags and userAccountControl properties. This immediately surfaced the intentional misconfiguration baked into the CE dataset: a Domain Admin with the <code class="language-plaintext highlighter-rouge">passwordnotreqd</code> flag enabled. Claude highlighted the severity, explained the operational impact and placed this misconfiguration within the broader context of authentication weaknesses in Active Directory<sup id="fnref:fn-nth-2:3"><a href="#fn:fn-nth-2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>.</p>
 
-<p><a href="/assets/img/posts/mcp-burp-suite/09.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/09.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
-<em>Burp Suite MCP Server Found SQL Injection Vulnerability (2)</em></p>
+<p><a href="/assets/img/posts/mcp-bloodhound/3.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-bloodhound/3.png" alt="Desktop View" loading="lazy"></a>
+<em>Claude &amp; Bloodhound MCP Server Usage - Analyze Active Directory file from BloodHound Data</em></p>
 
-<p><a href="/assets/img/posts/mcp-burp-suite/10.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/10.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
-<em>Burp Suite MCP Server Found SQL Injection Vulnerability (3)</em></p>
+<p>Throughout the workflow, the BloodHound UI served as a visual supplement. Whenever deeper graph exploration was needed—such as viewing the exact geometry of nested relationships or validating shortest-path routing—the interface provided the graphical confirmation that complemented Claude’s narrative summary. Meanwhile, the MCP served as the connective tissue, translating natural-language requests into BloodHound-compatible queries and returning clean, structured data.</p>
 
-<p>One of the most practical benefits of integrating MCP is automating parts of the documentation workflow. Instead of manually writing reproduction steps, you can ask the AI to produce a concise summary of the request, why it looks suspicious, and how you validated it — then copy that into your report or ticketing system.</p>
+<p>This tri-layer integration—Claude for reasoning, MCP for translation and BloodHound CE for data—turned privilege analysis into an iterative conversation. Instead of switching constantly between UI panes, Cypher queries and JSON exports, the analysis flowed naturally from high-level questions down to attribute-level details. The final results were compiled into a report that captured key misconfigurations, privilege chains and remediation priorities, all derived from conversational exploration of the sample dataset<sup id="fnref:fn-nth-3:1"><a href="#fn:fn-nth-3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>.</p>
 
-<p><a href="/assets/img/posts/mcp-burp-suite/11.mcp-bs.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-burp-suite/11.mcp-bs.png" alt="Desktop View" loading="lazy"></a>
-<em>Claude Summarized SQL Injection Vulnerability</em></p>
+<p><a href="/assets/img/posts/mcp-bloodhound/4.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-bloodhound/4.png" alt="Desktop View" loading="lazy"></a>
+<em>Claude &amp; Bloodhound MCP Server Usage - Analyze Active Directory file from BloodHound Data</em></p>
 
-<p>Keep in mind that while this integration accelerates many tasks—such as summarizing findings or suggesting initial next steps—it is not a substitute for expert judgment. Complex exploit development and high-risk decisions still require human oversight, verification, and manual refinement of prompts. Treat the AI as an assistant that speeds repetitive work and supplies context, not as a replacement for specialist expertise.</p>
+<p><a href="/assets/img/posts/mcp-bloodhound/5.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-bloodhound/5.png" alt="Desktop View" loading="lazy"></a>
+<em>Claude &amp; Bloodhound MCP Server Usage - Created Vulnerability Report (1)</em></p>
 
-<h2 id="concern"><span class="me-2">Concern</span><a href="#concern" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>Finally, always consider authorization and privacy before sending data to third-party services. Ensure you have explicit permission from the system owner before sharing intercepted data or sensitive artifacts via MCP to any external model.</p>
+<p><a href="/assets/img/posts/mcp-bloodhound/6.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-bloodhound/6.png" alt="Desktop View" loading="lazy"></a>
+<em>Claude &amp; Bloodhound MCP Server Usage - Created Vulnerability Report (2)</em></p>
 
-<h2 id="references"><span class="me-2">References</span><a href="#references" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p><a href="/assets/img/posts/mcp-bloodhound/7.png" class="popup img-link shimmer"><img src="/assets/img/posts/mcp-bloodhound/7.png" alt="Desktop View" loading="lazy"></a>
+<em>Claude &amp; Bloodhound MCP Server Usage - Created Vulnerability Report (3)</em></p>
+
+<h2 id="security-notes"><span class="me-2">Security Notes</span><a href="#security-notes" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>Even though this walkthrough uses the BloodHound Community Edition sample data<sup id="fnref:fn-nth-3:2"><a href="#fn:fn-nth-3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>, the findings highlight exactly the kinds of privilege issues that appear in real environments. Privilege sprawl, nested inheritance, over-privileged service accounts and misconfigured authentication settings all contribute to unnecessary attack paths. The sample <sup id="fnref:fn-nth-3:3"><a href="#fn:fn-nth-3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>dataset provides a safe place to practice identifying them. It demonstrates the importance of continually reviewing high-privilege groups, documenting nested structures, auditing service accounts and validating user attributes that may bypass normal security requirements.</p>
+
+<h2 id="conclusion"><span class="me-2">Conclusion</span><a href="#conclusion" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>This analysis shows how BloodHound, combined with MCP automation, transforms Active Directory privilege investigation into a structured and replicable process. The BloodHound Community Edition sample data<sup id="fnref:fn-nth-3:4"><a href="#fn:fn-nth-3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup> provides a realistic model for practicing graph-based privilege analysis without requiring domain access. By visualizing groups, tracking privilege flow and inspecting attributes, it becomes possible to understand not only who has administrative power, but why they have it and how that access evolved. The sample dataset includes privilege sprawl, misconfigurations and service account issues—precisely the scenarios security teams encounter in real environments—which makes it an excellent foundation for hands-on learning and assessment practice.</p>
+
+<h2 id="reference"><span class="me-2">Reference</span><a href="#reference" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 <div class="footnotes" role="doc-endnotes">
   <ol>
     <li id="fn:footnote">
-      <p>“Claude.” Claude.ai, 2025, claude.ai/new.” - https://claude.ai/new <a href="#fnref:footnote" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a> <a href="#fnref:footnote:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>2</sup></a></p>
+      <p>“Chatting with Your Attack Paths: An MCP for BloodHound”- <a href="https://specterops.io/blog/2025/06/04/chatting-with-your-attack-paths-an-mcp-for-bloodhound/">https://specterops.io/blog/2025/06/04/chatting-with-your-attack-paths-an-mcp-for-bloodhound/</a> <a href="#fnref:footnote" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a> <a href="#fnref:footnote:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>2</sup></a> <a href="#fnref:footnote:2" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>3</sup></a></p>
     </li>
     <li id="fn:fn-nth-2">
-      <p>“Aaddrick/Claude-Desktop-Debian: Claude Desktop for Debian-Based Linux Distributions.” GitHub, github.com/aaddrick/claude-desktop-debian - https://github.com/aaddrick/claude-desktop-debian <a href="#fnref:fn-nth-2" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a> <a href="#fnref:fn-nth-2:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>2</sup></a> <a href="#fnref:fn-nth-2:2" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>3</sup></a></p>
+      <p>“BloodHound Model Context Protocol Server”-<a href="https://github.com/mwnickerson/bloodhound_mcp">https://github.com/mwnickerson/bloodhound_mcp</a> <a href="#fnref:fn-nth-2" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a> <a href="#fnref:fn-nth-2:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>2</sup></a> <a href="#fnref:fn-nth-2:2" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>3</sup></a> <a href="#fnref:fn-nth-2:3" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>4</sup></a></p>
     </li>
     <li id="fn:fn-nth-3">
-      <p>““MCP Server.” Portswigger.net, 2025, portswigger.net/bappstore/9952290f04ed4f628e624d0aa9dccebc.” - https://portswigger.net/bappstore/9952290f04ed4f628e624d0aa9dccebc <a href="#fnref:fn-nth-3" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
+      <p>“BloodHound Community Edition Sample Data”-<a href="https://bloodhound.specterops.io/get-started/quickstart/ce-ingest-sample-data">https://bloodhound.specterops.io/get-started/quickstart/ce-ingest-sample-data</a> <a href="#fnref:fn-nth-3" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a> <a href="#fnref:fn-nth-3:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>2</sup></a> <a href="#fnref:fn-nth-3:2" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>3</sup></a> <a href="#fnref:fn-nth-3:3" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>4</sup></a> <a href="#fnref:fn-nth-3:4" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>5</sup></a></p>
     </li>
   </ol>
 </div>
@@ -1608,21 +1435,21 @@
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=From%20Burp%20to%20Claude:%20Quick%20MCP%20Integration%20Guide%20-%20twseptian&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Ffrom-burp-to-claude-quick-mcp-integration-guide%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=Exploring%20Domain%20Admin%20Attack%20Paths%20With%20BloodHound%20MCP%20-%20twseptian&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fexploring-domain-admin-attack-paths-with-bloodhound-mcp%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=From%20Burp%20to%20Claude:%20Quick%20MCP%20Integration%20Guide%20-%20twseptian&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Ffrom-burp-to-claude-quick-mcp-integration-guide%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=Exploring%20Domain%20Admin%20Attack%20Paths%20With%20BloodHound%20MCP%20-%20twseptian&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fexploring-domain-admin-attack-paths-with-bloodhound-mcp%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Ffrom-burp-to-claude-quick-mcp-integration-guide%2F&text=From%20Burp%20to%20Claude:%20Quick%20MCP%20Integration%20Guide%20-%20twseptian" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fexploring-domain-admin-attack-paths-with-bloodhound-mcp%2F&text=Exploring%20Domain%20Admin%20Attack%20Paths%20With%20BloodHound%20MCP%20-%20twseptian" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
@@ -2213,31 +2040,31 @@
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
 
 
 
@@ -2251,34 +2078,6 @@
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">Further Reading</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
-      
-        <article class="col">
-          <a href="/posts/exploring-domain-admin-attack-paths-with-bloodhound-mcp/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1761397219"
-  data-df="ll"
-  
->
-  Oct 25, 2025
-</time>
-
-              <h4 class="pt-0 my-2">Exploring Domain Admin Attack Paths With BloodHound MCP</h4>
-              <div class="text-muted">
-                <p>## Introduction BloodHound has become indispensable for investigating high-value access in modern AD environments. Instead of manually inspecting OU structures, ACLs or legacy groups, it creates re...</p>
-              </div>
-            </div>
-          </a>
-        </article>
       
         <article class="col">
           <a href="/posts/accelerating-apk-analysis-with-mcp-driven-jadx-workflows/" class="post-preview card h-100">
@@ -2302,7 +2101,35 @@
 
               <h4 class="pt-0 my-2">Accelerating APK Analysis with MCP-Driven JADX Workflows</h4>
               <div class="text-muted">
-                <p>## Introduction Reverse engineering Android applications typically requires switching between tools, searching through source code manually, and repeatedly opening files in a decompiler to trace ho...</p>
+                <p>Introduction Reverse engineering Android applications typically requires switching between tools, searching through source code manually, and repeatedly opening files in a decompiler to trace how a...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/from-burp-to-claude-quick-mcp-integration-guide/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1760835619"
+  data-df="ll"
+  
+>
+  Oct 19, 2025
+</time>
+
+              <h4 class="pt-0 my-2">From Burp to Claude: Quick MCP Integration Guide</h4>
+              <div class="text-muted">
+                <p>Introduction Connecting Burp Suite to an AI model like Claude 1 2is straightforward using the Model Context Protocol (MCP). MCP acts as a bridge that lets AI tools consume real contextual data from...</p>
               </div>
             </div>
           </a>
@@ -2351,22 +2178,18 @@
 
   
     <a
-      href="/posts/mcp-introduction/"
+      href="/posts/accelerating-apk-analysis-with-mcp-driven-jadx-workflows/"
       class="btn btn-outline-primary"
       aria-label="Older"
     >
-      <p>Model Context Protocol (MCP): The Emerging Standard Connecting AI to the Real World</p>
+      <p>Accelerating APK Analysis with MCP-Driven JADX Workflows</p>
     </a>
   
 
   
-    <a
-      href="/posts/accelerating-apk-analysis-with-mcp-driven-jadx-workflows/"
-      class="btn btn-outline-primary"
-      aria-label="Newer"
-    >
-      <p>Accelerating APK Analysis with MCP-Driven JADX Workflows</p>
-    </a>
+    <div class="btn btn-outline-primary disabled" aria-label="Newer">
+      <p>-</p>
+    </div>
   
 </nav>
 

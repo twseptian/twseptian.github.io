@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>twseptian</title>
   <subtitle>A personal space where I share simple reflections, lessons, and small discoveries from my continuous journey in learning—whether in information security, penetration testing, CTF, or exploring data science and machine learning.</subtitle>
-  <updated>2025-10-22T20:33:52+07:00</updated>
+  <updated>2025-11-16T09:34:11+07:00</updated>
   <author>
     <name>twseptian</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,34 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Exploring Domain Admin Attack Paths With BloodHound MCP</title>
+    <link href="http://localhost:4000/posts/exploring-domain-admin-attack-paths-with-bloodhound-mcp/" rel="alternate" type="text/html" title="Exploring Domain Admin Attack Paths With BloodHound MCP" />
+    <published>2025-10-25T20:00:19+07:00</published>
+  
+    <updated>2025-10-25T20:00:19+07:00</updated>
+  
+    <id>http://localhost:4000/posts/exploring-domain-admin-attack-paths-with-bloodhound-mcp/</id>
+    <content type="text/html" src="http://localhost:4000/posts/exploring-domain-admin-attack-paths-with-bloodhound-mcp/" />
+    <author>
+      <name>twseptian</name>
+    </author>
+
+  
+    
+    <category term="Technology" />
+    
+    <category term="AI" />
+    
+    <category term="Infosec" />
+    
+  
+
+  <summary>Introduction BloodHound has become indispensable for investigating high-value access in modern AD environments. Instead of manually inspecting OU structures, ACLs or legacy groups, it creates relationship graphs that highlight real effective privileges. In this walkthrough, the Community Edition sample data serves as the foundation for understanding Domain Admin paths, nested group chains and m...</summary>
+
+  </entry>
 
   
   <entry>
@@ -123,34 +151,6 @@
   
 
   <summary>This is just a brief note from my own experience and from several other reviewers who have taken the OSEP   Reflecting on OSEP (PEN-300) — Worth Taking in 2024? Recently, I went through several reviews from OSEP / PEN-300 participants — along with reflecting on my own experience — and wanted to share a summary of the key takeaways, strengths, and lessons that might help others better understand...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>IoT Dataset Research: Curating Realistic Traffic for Security Analysis</title>
-    <link href="http://localhost:4000/posts/iot-dataset-research/" rel="alternate" type="text/html" title="IoT Dataset Research: Curating Realistic Traffic for Security Analysis" />
-    <published>2023-12-12T20:00:19+07:00</published>
-  
-    <updated>2023-12-12T20:00:19+07:00</updated>
-  
-    <id>http://localhost:4000/posts/iot-dataset-research/</id>
-    <content type="text/html" src="http://localhost:4000/posts/iot-dataset-research/" />
-    <author>
-      <name>twseptian</name>
-    </author>
-
-  
-    
-    <category term="Infosec" />
-    
-    <category term="IoT" />
-    
-    <category term="Research" />
-    
-  
-
-  <summary>Introduction This article outlines my work in researching Internet of Things (IoT) security and producing curated datasets for intrusion detection, protocol analysis, and machine-learning experiments. The focus is on practical, reproducible methods for capturing and labeling traffic that reflects real deployment conditions. Links to the underlying records are provided for verification and reuse...</summary>
 
   </entry>
 
