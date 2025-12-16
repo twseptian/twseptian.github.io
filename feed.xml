@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>twseptian</title>
   <subtitle>A personal space where I share simple reflections, lessons, and small discoveries from my continuous journey in learning—whether in information security, penetration testing, CTF, or exploring data science and machine learning.</subtitle>
-  <updated>2025-11-16T09:34:11+07:00</updated>
+  <updated>2025-12-16T16:02:21+07:00</updated>
   <author>
     <name>twseptian</name>
     <uri>http://localhost:4000/</uri>
@@ -20,14 +20,42 @@
 
   
   <entry>
+    <title>Letting Claude Code Into the Terminal: From Installation to CVE Analysis</title>
+    <link href="http://localhost:4000/posts/letting-claude-code-into-the-terminal-from-installation-to-cve-analysis/" rel="alternate" type="text/html" title="Letting Claude Code Into the Terminal: From Installation to CVE Analysis" />
+    <published>2025-12-16T08:00:19+07:00</published>
+  
+    <updated>2025-12-16T08:00:19+07:00</updated>
+  
+    <id>http://localhost:4000/posts/letting-claude-code-into-the-terminal-from-installation-to-cve-analysis/</id>
+    <content type="text/html" src="http://localhost:4000/posts/letting-claude-code-into-the-terminal-from-installation-to-cve-analysis/" />
+    <author>
+      <name>twseptian</name>
+    </author>
+
+  
+    
+    <category term="Technology" />
+    
+    <category term="AI" />
+    
+    <category term="Infosec" />
+    
+  
+
+  <summary>Introduction Security work lives in the space between theory and reality. CVE databases describe vulnerabilities in idealized terms, but real systems are messy, inconsistent, and full of mitigating factors that scanners rarely understand. This gap between “listed as vulnerable” and “actually exploitable” is where human judgment usually steps in. Recently, I explored whether that judgment could ...</summary>
+
+  </entry>
+
+  
+  <entry>
     <title>Exploring Domain Admin Attack Paths With BloodHound MCP</title>
-    <link href="http://localhost:4000/posts/exploring-domain-admin-attack-paths-with-bloodhound-mcp/" rel="alternate" type="text/html" title="Exploring Domain Admin Attack Paths With BloodHound MCP" />
+    <link href="http://localhost:4000/posts/exploring-domain-admin-attack-paths-with-bloodhound-mcp-Copy/" rel="alternate" type="text/html" title="Exploring Domain Admin Attack Paths With BloodHound MCP" />
     <published>2025-10-25T20:00:19+07:00</published>
   
     <updated>2025-10-25T20:00:19+07:00</updated>
   
-    <id>http://localhost:4000/posts/exploring-domain-admin-attack-paths-with-bloodhound-mcp/</id>
-    <content type="text/html" src="http://localhost:4000/posts/exploring-domain-admin-attack-paths-with-bloodhound-mcp/" />
+    <id>http://localhost:4000/posts/exploring-domain-admin-attack-paths-with-bloodhound-mcp-Copy/</id>
+    <content type="text/html" src="http://localhost:4000/posts/exploring-domain-admin-attack-paths-with-bloodhound-mcp-Copy/" />
     <author>
       <name>twseptian</name>
     </author>
@@ -125,32 +153,6 @@
   
 
   <summary>Introduction As artificial intelligence continues to integrate into modern business operations, the need for a standardized way to connect AI models with real-world systems becomes more critical. The Model Context Protocol (MCP) addresses this challenge — an open standard that enables large language models (LLMs) and intelligent agents to interact securely with external tools, data sources, and...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>My Take on OSEP (PEN-300): Challenges, Lessons, and Real-World Relevance</title>
-    <link href="http://localhost:4000/posts/osep-experience/" rel="alternate" type="text/html" title="My Take on OSEP (PEN-300): Challenges, Lessons, and Real-World Relevance" />
-    <published>2024-12-12T20:00:19+07:00</published>
-  
-    <updated>2024-12-12T20:00:19+07:00</updated>
-  
-    <id>http://localhost:4000/posts/osep-experience/</id>
-    <content type="text/html" src="http://localhost:4000/posts/osep-experience/" />
-    <author>
-      <name>twseptian</name>
-    </author>
-
-  
-    
-    <category term="Infosec" />
-    
-    <category term="Certification" />
-    
-  
-
-  <summary>This is just a brief note from my own experience and from several other reviewers who have taken the OSEP   Reflecting on OSEP (PEN-300) — Worth Taking in 2024? Recently, I went through several reviews from OSEP / PEN-300 participants — along with reflecting on my own experience — and wanted to share a summary of the key takeaways, strengths, and lessons that might help others better understand...</summary>
 
   </entry>
 
