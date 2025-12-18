@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>twseptian</title>
   <subtitle>A personal space where I share simple reflections, lessons, and small discoveries from my continuous journey in learning—whether in information security, penetration testing, CTF, or exploring data science and machine learning.</subtitle>
-  <updated>2025-12-16T16:02:21+07:00</updated>
+  <updated>2025-12-18T08:46:26+07:00</updated>
   <author>
     <name>twseptian</name>
     <uri>http://localhost:4000/</uri>
@@ -38,8 +38,6 @@
     
     <category term="AI" />
     
-    <category term="Infosec" />
-    
   
 
   <summary>Introduction Security work lives in the space between theory and reality. CVE databases describe vulnerabilities in idealized terms, but real systems are messy, inconsistent, and full of mitigating factors that scanners rarely understand. This gap between “listed as vulnerable” and “actually exploitable” is where human judgment usually steps in. Recently, I explored whether that judgment could ...</summary>
@@ -65,8 +63,6 @@
     <category term="Technology" />
     
     <category term="AI" />
-    
-    <category term="Infosec" />
     
   
 
@@ -94,8 +90,6 @@
     
     <category term="AI" />
     
-    <category term="Infosec" />
-    
   
 
   <summary>Introduction Reverse engineering Android applications typically requires switching between tools, searching through source code manually, and repeatedly opening files in a decompiler to trace how an application behaves. With the Model Context Protocol (MCP), this workflow can be streamlined. MCP allows local tools to expose structured data to an AI assistant such as Claude, enabling the AI to q...</summary>
@@ -121,8 +115,6 @@
     <category term="Technology" />
     
     <category term="AI" />
-    
-    <category term="Infosec" />
     
   
 
