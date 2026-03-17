@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>twseptian</title>
   <subtitle>A personal space where I share simple reflections, lessons, and small discoveries from my continuous journey in learning—whether in information security, penetration testing, CTF, or exploring data science and machine learning.</subtitle>
-  <updated>2026-03-17T19:19:17+07:00</updated>
+  <updated>2026-03-17T22:16:19+07:00</updated>
   <author>
     <name>twseptian</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,58 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Automating Penetration Testing with Claude Code, Playwright MCP, and Cyber Security Skills on Kali Linux</title>
+    <link href="http://localhost:4000/posts/automating-penetration-testing-with-claude-code-playwright-mcp-and-cyber-security-skills-on-kali-linux/" rel="alternate" type="text/html" title="Automating Penetration Testing with Claude Code, Playwright MCP, and Cyber Security Skills on Kali Linux" />
+    <published>2026-03-17T21:00:19+07:00</published>
+  
+    <updated>2026-03-17T21:00:19+07:00</updated>
+  
+    <id>http://localhost:4000/posts/automating-penetration-testing-with-claude-code-playwright-mcp-and-cyber-security-skills-on-kali-linux/</id>
+    <content type="text/html" src="http://localhost:4000/posts/automating-penetration-testing-with-claude-code-playwright-mcp-and-cyber-security-skills-on-kali-linux/" />
+    <author>
+      <name>twseptian</name>
+    </author>
+
+  
+    
+    <category term="Technology" />
+    
+    <category term="AI" />
+    
+  
+
+  <summary>Introduction The evolution of AI has moved beyond simple coding assistants, transforming into sophisticated cyber security agents. Claude Code, an Anthropic CLI tool, enables Claude models to interact directly with your local environment. This capability becomes extraordinary when combined with the Playwright MCP for browser automation and specialized Security Skills from open-source communitie...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Exploring Web Automation with Claude Code and Playwright MCP on Kali Linux</title>
+    <link href="http://localhost:4000/posts/exploring-web-automation-with-claude-code-and-playwright-mcp-on-kali-linux/" rel="alternate" type="text/html" title="Exploring Web Automation with Claude Code and Playwright MCP on Kali Linux" />
+    <published>2026-03-17T20:00:19+07:00</published>
+  
+    <updated>2026-03-17T20:00:19+07:00</updated>
+  
+    <id>http://localhost:4000/posts/exploring-web-automation-with-claude-code-and-playwright-mcp-on-kali-linux/</id>
+    <content type="text/html" src="http://localhost:4000/posts/exploring-web-automation-with-claude-code-and-playwright-mcp-on-kali-linux/" />
+    <author>
+      <name>twseptian</name>
+    </author>
+
+  
+    
+    <category term="Technology" />
+    
+    <category term="AI" />
+    
+  
+
+  <summary>Introduction The evolution of AI assistants for developers and security researchers continues to show rapid progress. One of the latest innovations is Claude Code, an Anthropic CLI tool that enables Claude models to interact directly with your local environment. This capability becomes even more promising with the Model Context Protocol (MCP), a standard protocol that allows the integration of ...</summary>
+
+  </entry>
 
   
   <entry>
@@ -93,58 +145,6 @@
   
 
   <summary>Introduction Reverse engineering Android applications typically requires switching between tools, searching through source code manually, and repeatedly opening files in a decompiler to trace how an application behaves. With the Model Context Protocol (MCP), this workflow can be streamlined. MCP allows local tools to expose structured data to an AI assistant such as Claude, enabling the AI to q...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>From Burp to Claude: Quick MCP Integration Guide</title>
-    <link href="http://localhost:4000/posts/from-burp-to-claude-quick-mcp-integration-guide/" rel="alternate" type="text/html" title="From Burp to Claude: Quick MCP Integration Guide" />
-    <published>2025-10-19T08:00:19+07:00</published>
-  
-    <updated>2025-10-19T08:00:19+07:00</updated>
-  
-    <id>http://localhost:4000/posts/from-burp-to-claude-quick-mcp-integration-guide/</id>
-    <content type="text/html" src="http://localhost:4000/posts/from-burp-to-claude-quick-mcp-integration-guide/" />
-    <author>
-      <name>twseptian</name>
-    </author>
-
-  
-    
-    <category term="Technology" />
-    
-    <category term="AI" />
-    
-  
-
-  <summary>Introduction Connecting Burp Suite to an AI model like Claude 1 2is straightforward using the Model Context Protocol (MCP). MCP acts as a bridge that lets AI tools consume real contextual data from your security tooling — not just plain text — enabling the model to leverage Burp’s intercepts, traces, and session context for more practical, context-aware analysis.  Installation  To get started, ...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Model Context Protocol (MCP): The Emerging Standard Connecting AI to the Real World</title>
-    <link href="http://localhost:4000/posts/mcp-introduction/" rel="alternate" type="text/html" title="Model Context Protocol (MCP): The Emerging Standard Connecting AI to the Real World" />
-    <published>2025-10-09T08:00:19+07:00</published>
-  
-    <updated>2025-10-09T08:00:19+07:00</updated>
-  
-    <id>http://localhost:4000/posts/mcp-introduction/</id>
-    <content type="text/html" src="http://localhost:4000/posts/mcp-introduction/" />
-    <author>
-      <name>twseptian</name>
-    </author>
-
-  
-    
-    <category term="Technology" />
-    
-    <category term="AI" />
-    
-  
-
-  <summary>Introduction As artificial intelligence continues to integrate into modern business operations, the need for a standardized way to connect AI models with real-world systems becomes more critical. The Model Context Protocol (MCP) addresses this challenge — an open standard that enables large language models (LLMs) and intelligent agents to interact securely with external tools, data sources, and...</summary>
 
   </entry>
 
