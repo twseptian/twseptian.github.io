@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>twseptian</title>
   <subtitle>A personal space where I share simple reflections, lessons, and small discoveries from my continuous journey in learning—whether in information security, penetration testing, CTF, or exploring data science and machine learning.</subtitle>
-  <updated>2026-03-17T22:16:19+07:00</updated>
+  <updated>2026-08-05T13:11:41+07:00</updated>
   <author>
     <name>twseptian</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,32 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Burp Suite Certified Practitioner (BSCP) Exam Experience</title>
+    <link href="http://localhost:4000/posts/burp-suite-certified-practitioner-exam-experience/" rel="alternate" type="text/html" title="Burp Suite Certified Practitioner (BSCP) Exam Experience" />
+    <published>2026-05-30T09:30:19+07:00</published>
+  
+    <updated>2026-05-30T09:30:19+07:00</updated>
+  
+    <id>http://localhost:4000/posts/burp-suite-certified-practitioner-exam-experience/</id>
+    <content type="text/html" src="http://localhost:4000/posts/burp-suite-certified-practitioner-exam-experience/" />
+    <author>
+      <name>twseptian</name>
+    </author>
+
+  
+    
+    <category term="Infosec" />
+    
+    <category term="Certification" />
+    
+  
+
+  <summary>Why I Took It  I had been using the Web Security Academy on and off for years without ever finishing anything properly. Whenever I ran into an unfamiliar bug class at work, I would open the matching lab, solve it, and forget about it a week later. That is a fine way to learn, but it leaves gaps you don’t notice until someone points at them.  The BSCP fixes that mostly by accident. To pass it yo...</summary>
+
+  </entry>
 
   
   <entry>
@@ -119,32 +145,6 @@
   
 
   <summary>Introduction BloodHound has become indispensable for investigating high-value access in modern AD environments. Instead of manually inspecting OU structures, ACLs or legacy groups, it creates relationship graphs that highlight real effective privileges. In this walkthrough, the Community Edition sample data serves as the foundation for understanding Domain Admin paths, nested group chains and m...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Accelerating APK Analysis with MCP-Driven JADX Workflows</title>
-    <link href="http://localhost:4000/posts/accelerating-apk-analysis-with-mcp-driven-jadx-workflows/" rel="alternate" type="text/html" title="Accelerating APK Analysis with MCP-Driven JADX Workflows" />
-    <published>2025-10-22T16:00:19+07:00</published>
-  
-    <updated>2025-10-22T16:00:19+07:00</updated>
-  
-    <id>http://localhost:4000/posts/accelerating-apk-analysis-with-mcp-driven-jadx-workflows/</id>
-    <content type="text/html" src="http://localhost:4000/posts/accelerating-apk-analysis-with-mcp-driven-jadx-workflows/" />
-    <author>
-      <name>twseptian</name>
-    </author>
-
-  
-    
-    <category term="Technology" />
-    
-    <category term="AI" />
-    
-  
-
-  <summary>Introduction Reverse engineering Android applications typically requires switching between tools, searching through source code manually, and repeatedly opening files in a decompiler to trace how an application behaves. With the Model Context Protocol (MCP), this workflow can be streamlined. MCP allows local tools to expose structured data to an AI assistant such as Claude, enabling the AI to q...</summary>
 
   </entry>
 
