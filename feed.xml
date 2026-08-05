@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>twseptian</title>
   <subtitle>A personal space where I share simple reflections, lessons, and small discoveries from my continuous journey in learning—whether in information security, penetration testing, CTF, or exploring data science and machine learning.</subtitle>
-  <updated>2026-08-05T13:11:41+07:00</updated>
+  <updated>2026-08-05T13:53:22+07:00</updated>
   <author>
     <name>twseptian</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,32 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>OSWE: Source Code Review and What the WEB-300 Syllabus Actually Teaches</title>
+    <link href="http://localhost:4000/posts/oswe-source-code-review-and-the-web-300-syllabus/" rel="alternate" type="text/html" title="OSWE: Source Code Review and What the WEB-300 Syllabus Actually Teaches" />
+    <published>2026-08-05T09:00:19+07:00</published>
+  
+    <updated>2026-08-05T09:00:19+07:00</updated>
+  
+    <id>http://localhost:4000/posts/oswe-source-code-review-and-the-web-300-syllabus/</id>
+    <content type="text/html" src="http://localhost:4000/posts/oswe-source-code-review-and-the-web-300-syllabus/" />
+    <author>
+      <name>twseptian</name>
+    </author>
+
+  
+    
+    <category term="Infosec" />
+    
+    <category term="Certification" />
+    
+  
+
+  <summary>Why This One  Most web testing I had done up to this point was black box. You poke at the application from the outside, watch how it responds, and build a picture of what is happening on the other side from the shape of that response. It works, and there is real skill in it, but you are always inferring.  OSWE takes that away and hands you the source code instead. No more inferring. The vulnera...</summary>
+
+  </entry>
 
   
   <entry>
@@ -119,32 +145,6 @@
   
 
   <summary>Introduction Security work lives in the space between theory and reality. CVE databases describe vulnerabilities in idealized terms, but real systems are messy, inconsistent, and full of mitigating factors that scanners rarely understand. This gap between “listed as vulnerable” and “actually exploitable” is where human judgment usually steps in. Recently, I explored whether that judgment could ...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Exploring Domain Admin Attack Paths With BloodHound MCP</title>
-    <link href="http://localhost:4000/posts/exploring-domain-admin-attack-paths-with-bloodhound-mcp-Copy/" rel="alternate" type="text/html" title="Exploring Domain Admin Attack Paths With BloodHound MCP" />
-    <published>2025-10-25T20:00:19+07:00</published>
-  
-    <updated>2025-10-25T20:00:19+07:00</updated>
-  
-    <id>http://localhost:4000/posts/exploring-domain-admin-attack-paths-with-bloodhound-mcp-Copy/</id>
-    <content type="text/html" src="http://localhost:4000/posts/exploring-domain-admin-attack-paths-with-bloodhound-mcp-Copy/" />
-    <author>
-      <name>twseptian</name>
-    </author>
-
-  
-    
-    <category term="Technology" />
-    
-    <category term="AI" />
-    
-  
-
-  <summary>Introduction BloodHound has become indispensable for investigating high-value access in modern AD environments. Instead of manually inspecting OU structures, ACLs or legacy groups, it creates relationship graphs that highlight real effective privileges. In this walkthrough, the Community Edition sample data serves as the foundation for understanding Domain Admin paths, nested group chains and m...</summary>
 
   </entry>
 
